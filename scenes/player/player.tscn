@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://dogubcyw336jv"]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_cr6eo"]
+[ext_resource type="Texture2D" uid="uid://ce1fdismdgtsl" path="res://assets/character/player.png" id="2_022fm"]
+[ext_resource type="FontFile" uid="uid://cuum7nik5ypni" path="res://assets/fonts/GravityRegular5.ttf" id="3_00mjq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7byl"]
+size = Vector2(18, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0d821"]
+size = Vector2(16, 16)
+
+[sub_resource type="Gradient" id="Gradient_pdbec"]
+offsets = PackedFloat32Array(0, 0.927083)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f685c"]
+gradient = SubResource("Gradient_pdbec")
+fill = 1
+fill_from = Vector2(0.495726, 0.512821)
+fill_to = Vector2(0.880342, 0.123932)
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("lamp")]
+script = ExtResource("1_cr6eo")
+max_speed = 200.0
+lamp = NodePath("PointLight2D")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_v7byl")
+debug_color = Color(0.942127, 0.120271, 0.522503, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_022fm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0d821")
+
+[node name="Label" type="Label" parent="."]
+z_index = 6
+offset_left = -77.0
+offset_top = -27.0
+offset_right = 77.0
+offset_bottom = -9.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_00mjq")
+text = "player"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(4.3125, 4.3125)
+energy = 1.44
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.309804)
+texture = SubResource("GradientTexture2D_f685c")

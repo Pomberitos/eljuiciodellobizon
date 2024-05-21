@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://wyls5budn4jc"]
+
+[ext_resource type="Texture2D" uid="uid://ce1fdismdgtsl" path="res://assets/character/player.png" id="1_4mwyp"]
+[ext_resource type="Script" path="res://scenes/slasher/slasher.gd" id="1_65sln"]
+[ext_resource type="FontFile" uid="uid://cuum7nik5ypni" path="res://assets/fonts/GravityRegular5.ttf" id="2_imf53"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gqqa7"]
+radius = 124.064
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmiq2"]
+size = Vector2(18, 18)
+
+[node name="Slasher" type="CharacterBody2D"]
+script = ExtResource("1_65sln")
+
+[node name="Vision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
+visible = false
+shape = SubResource("CircleShape2D_gqqa7")
+debug_color = Color(0.614288, 0.535782, 0.0973813, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.569537, 0.12872, 1.44392e-07, 1)
+texture = ExtResource("1_4mwyp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rmiq2")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -77.0
+offset_top = -27.0
+offset_right = 77.0
+offset_bottom = -9.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_imf53")
+text = "slasher"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="Vision" to="." method="_on_vision_body_entered"]
