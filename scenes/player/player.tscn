@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dogubcyw336jv"]
+[gd_scene load_steps=7 format=3 uid="uid://dogubcyw336jv"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_cr6eo"]
 [ext_resource type="Texture2D" uid="uid://ce1fdismdgtsl" path="res://assets/character/player.png" id="2_022fm"]
@@ -10,17 +10,10 @@ size = Vector2(18, 18)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0d821"]
 size = Vector2(16, 16)
 
-[sub_resource type="Gradient" id="Gradient_pdbec"]
-offsets = PackedFloat32Array(0, 0.927083)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_f685c"]
-gradient = SubResource("Gradient_pdbec")
-fill = 1
-fill_from = Vector2(0.495726, 0.512821)
-fill_to = Vector2(0.880342, 0.123932)
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_jq12f"]
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("lamp")]
+collision_mask = 6
 script = ExtResource("1_cr6eo")
 max_speed = 200.0
 lamp = NodePath("PointLight2D")
@@ -58,4 +51,4 @@ scale = Vector2(4.3125, 4.3125)
 enabled = false
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.309804)
-texture = SubResource("GradientTexture2D_f685c")
+texture = SubResource("AnimatedTexture_jq12f")

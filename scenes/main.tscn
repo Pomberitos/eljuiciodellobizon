@@ -8,14 +8,16 @@
 [node name="Main" type="Node"]
 
 [node name="Player" parent="." groups=["enemy", "player"] instance=ExtResource("1_p8a7x")]
+z_index = 5
 position = Vector2(453, 179)
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
-color = Color(0, 0.495353, 0.497882, 1)
-
 [node name="Slasher" parent="." instance=ExtResource("3_40tof")]
+z_index = 5
 position = Vector2(556, 61)
+collision_layer = 2
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0.495353, 0.497882, 1)
 
 [node name="Room" parent="." instance=ExtResource("3_sl02p")]
 
