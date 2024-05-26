@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dogubcyw336jv"]
+[gd_scene load_steps=8 format=3 uid="uid://dogubcyw336jv"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_cr6eo"]
 [ext_resource type="Texture2D" uid="uid://ce1fdismdgtsl" path="res://assets/character/player.png" id="2_022fm"]
+[ext_resource type="Resource" uid="uid://o3fuk68wqyt" path="res://inventory/player_inventory.tres" id="2_jadey"]
 [ext_resource type="FontFile" uid="uid://cuum7nik5ypni" path="res://assets/fonts/GravityRegular5.ttf" id="3_00mjq"]
+[ext_resource type="Texture2D" uid="uid://bxoawfd28hujn" path="res://assets/light_bitmap.png" id="5_7gfs6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7byl"]
 size = Vector2(18, 18)
@@ -10,13 +12,12 @@ size = Vector2(18, 18)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0d821"]
 size = Vector2(16, 16)
 
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_jq12f"]
-
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("lamp")]
-collision_mask = 6
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("lamp") groups=["player"]]
+collision_mask = 14
 script = ExtResource("1_cr6eo")
 max_speed = 200.0
 lamp = NodePath("PointLight2D")
+inventory = ExtResource("2_jadey")
 
 [node name="Hitbox" type="Area2D" parent="."]
 
@@ -51,4 +52,5 @@ scale = Vector2(4.3125, 4.3125)
 enabled = false
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.309804)
-texture = SubResource("AnimatedTexture_jq12f")
+texture = ExtResource("5_7gfs6")
+texture_scale = 0.75

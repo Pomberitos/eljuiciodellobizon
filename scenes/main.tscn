@@ -1,22 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=9 format=3 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
 [ext_resource type="PackedScene" uid="uid://wyls5budn4jc" path="res://scenes/slasher/slasher.tscn" id="3_40tof"]
 [ext_resource type="PackedScene" uid="uid://cagocyliholxu" path="res://scenes/rooms/room.tscn" id="3_sl02p"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="4_pkou0"]
+[ext_resource type="PackedScene" uid="uid://cp8tpptvbxnme" path="res://inventory/player_inventory_ui.tscn" id="5_yat7e"]
+[ext_resource type="PackedScene" uid="uid://c5brlqtj6ph0" path="res://scenes/collectible/key.tscn" id="6_yqkks"]
+[ext_resource type="Resource" uid="uid://clco070vgtvev" path="res://inventory/items/key.tres" id="7_36o4e"]
+[ext_resource type="PackedScene" uid="uid://c86nqs2uhata" path="res://scenes/collectible/potion.tscn" id="8_75xjd"]
 
 [node name="Main" type="Node"]
 
-[node name="Player" parent="." groups=["enemy", "player"] instance=ExtResource("1_p8a7x")]
+[node name="Player" parent="." groups=["enemy"] instance=ExtResource("1_p8a7x")]
 z_index = 5
 position = Vector2(453, 179)
 
 [node name="Slasher" parent="." instance=ExtResource("3_40tof")]
 z_index = 5
 position = Vector2(556, 61)
-collision_layer = 2
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0.495353, 0.497882, 1)
 
 [node name="Room" parent="." instance=ExtResource("3_sl02p")]
@@ -35,3 +39,15 @@ offset = Vector2(320, 176)
 position_smoothing_enabled = true
 position_smoothing_speed = 12.0
 script = ExtResource("4_pkou0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerInventoryUI" parent="CanvasLayer" instance=ExtResource("5_yat7e")]
+visible = false
+
+[node name="KeyCollectible" parent="." instance=ExtResource("6_yqkks")]
+key_resource = ExtResource("7_36o4e")
+
+[node name="Potion" parent="." instance=ExtResource("8_75xjd")]
+position = Vector2(284, 219)
+metadata/_edit_group_ = true

@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://r1qlu4rhlyo"]
+
+[ext_resource type="Script" path="res://inventory/inventory_slot_ui.gd" id="1_nill6"]
+[ext_resource type="Texture2D" uid="uid://vbv6pr63xw7u" path="res://assets/items/grey_box.png" id="1_v5quo"]
+[ext_resource type="FontFile" uid="uid://cuum7nik5ypni" path="res://assets/fonts/GravityRegular5.ttf" id="3_esbvh"]
+
+[node name="InventorySlotUI" type="Panel" node_paths=PackedStringArray("item_display", "amount_label")]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(38, 36)
+offset_right = 38.0
+offset_bottom = 36.0
+script = ExtResource("1_nill6")
+item_display = NodePath("CenterContainer/Panel/ItemDisplay")
+amount_label = NodePath("CenterContainer/Panel/AmountLabel")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.87451, 0.513726, 0.384314, 1)
+texture = ExtResource("1_v5quo")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -18.0
+offset_right = 19.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="ItemDisplay" type="Sprite2D" parent="CenterContainer/Panel"]
+scale = Vector2(1.5, 1.5)
+
+[node name="AmountLabel" type="Label" parent="CenterContainer/Panel"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 22.0
+offset_bottom = 22.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0.937255, 0.494118, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_esbvh")
+text = "9"
+horizontal_alignment = 2
+vertical_alignment = 2
+uppercase = true

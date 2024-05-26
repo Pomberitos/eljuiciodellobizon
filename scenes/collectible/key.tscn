@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5brlqtj6ph0"]
+
+[ext_resource type="Texture2D" uid="uid://bvl3dyf2seirb" path="res://assets/items/key.png" id="1_gxepm"]
+[ext_resource type="Script" path="res://scenes/collectible/key.gd" id="1_lidl8"]
+[ext_resource type="PackedScene" uid="uid://cx6cef2aykja1" path="res://scenes/interaction/interaction_area.tscn" id="2_w6vh3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7cvtg"]
+size = Vector2(24, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u0yv5"]
+radius = 21.0
+
+[node name="Key" type="StaticBody2D" node_paths=PackedStringArray("interaction_area")]
+position = Vector2(432, 232)
+collision_layer = 8
+script = ExtResource("1_lidl8")
+interaction_area = NodePath("InteractionArea")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_gxepm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_7cvtg")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_w6vh3")]
+action_name = "pick"
+item_name = "key"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_u0yv5")
+debug_color = Color(0.844679, 0.378794, 0, 0.42)

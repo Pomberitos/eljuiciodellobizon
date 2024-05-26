@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=2 format=3 uid="uid://bekvhjs03nwxi"]
+
+[ext_resource type="Script" path="res://inventory/inventory_item.gd" id="1_k35bi"]
+
+[resource]
+script = ExtResource("1_k35bi")
+name = ""
+is_key_item = false
+max_stack = 9

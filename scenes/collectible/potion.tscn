@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://c86nqs2uhata"]
+
+[ext_resource type="Script" path="res://scenes/collectible/potion.gd" id="1_iy577"]
+[ext_resource type="Texture2D" uid="uid://bvjdi4afptmbb" path="res://assets/items/potion.png" id="1_r7yrs"]
+[ext_resource type="PackedScene" uid="uid://cx6cef2aykja1" path="res://scenes/interaction/interaction_area.tscn" id="2_8p2os"]
+[ext_resource type="Resource" uid="uid://da3th1xn0vt3j" path="res://inventory/items/potion.tres" id="2_o53bs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmf8b"]
+size = Vector2(10, 17)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hy0nm"]
+radius = 22.0
+
+[node name="Potion" type="StaticBody2D" node_paths=PackedStringArray("interaction_area")]
+z_index = 5
+collision_layer = 8
+script = ExtResource("1_iy577")
+interaction_area = NodePath("InteractionArea")
+potion_resource = ExtResource("2_o53bs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_r7yrs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_cmf8b")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_8p2os")]
+action_name = "pick"
+item_name = "potion"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_hy0nm")
+debug_color = Color(0.612378, 0.537975, 0.00195642, 0.42)
