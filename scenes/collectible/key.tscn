@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5brlqtj6ph0"]
+[gd_scene load_steps=7 format=3 uid="uid://c5brlqtj6ph0"]
 
 [ext_resource type="Texture2D" uid="uid://bvl3dyf2seirb" path="res://assets/items/key.png" id="1_gxepm"]
 [ext_resource type="Script" path="res://scenes/collectible/key.gd" id="1_lidl8"]
+[ext_resource type="Resource" uid="uid://clco070vgtvev" path="res://inventory/items/key.tres" id="2_6w12r"]
 [ext_resource type="PackedScene" uid="uid://cx6cef2aykja1" path="res://scenes/interaction/interaction_area.tscn" id="2_w6vh3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7cvtg"]
@@ -11,10 +12,10 @@ size = Vector2(24, 14)
 radius = 21.0
 
 [node name="Key" type="StaticBody2D" node_paths=PackedStringArray("interaction_area")]
-position = Vector2(432, 232)
 collision_layer = 8
 script = ExtResource("1_lidl8")
 interaction_area = NodePath("InteractionArea")
+key_resource = ExtResource("2_6w12r")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
