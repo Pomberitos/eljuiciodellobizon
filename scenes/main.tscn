@@ -13,9 +13,10 @@
 z_index = 5
 position = Vector2(453, 179)
 
-[node name="Slasher" parent="." instance=ExtResource("3_40tof")]
+[node name="Slasher" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_40tof")]
 z_index = 5
 position = Vector2(556, 61)
+player = NodePath("../Player")
 
 [node name="Room" parent="." instance=ExtResource("3_kaf0y")]
 
