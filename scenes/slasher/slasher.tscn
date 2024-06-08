@@ -5,12 +5,13 @@
 [ext_resource type="FontFile" uid="uid://cuum7nik5ypni" path="res://assets/fonts/GravityRegular5.ttf" id="2_imf53"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rmiq2"]
-size = Vector2(18, 18)
+size = Vector2(14, 14)
 
 [node name="Slasher" type="CharacterBody2D"]
 z_index = 10
 collision_layer = 2
 collision_mask = 5
+motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_65sln")
 
@@ -35,9 +36,12 @@ autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
 avoidance_enabled = true
+avoidance_layers = 5
 
 [node name="Timer" type="Timer" parent="."]
-autostart = true
 
+[connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
