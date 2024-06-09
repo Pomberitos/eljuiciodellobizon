@@ -12,9 +12,9 @@ extends CharacterBody2D
 func _physics_process(delta: float) -> void:
 	var input = Input.get_vector("left", "right", "up", "down")
 	if input.length() > 0:
-		velocity = velocity.move_toward(input * max_speed, accel * delta)
+		velocity = velocity.move_toward(input * max_speed, accel)
 	else:
-		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
+		velocity = velocity.move_toward(Vector2.ZERO, friction)
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:

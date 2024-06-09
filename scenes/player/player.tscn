@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bxoawfd28hujn" path="res://assets/light_bitmap.png" id="5_7gfs6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0d821"]
-size = Vector2(16, 16)
+size = Vector2(14, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7byl"]
 size = Vector2(18, 18)

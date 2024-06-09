@@ -27,7 +27,7 @@ window/size/viewport_height=352
 
 [editor]
 
-movie_writer/movie_file="C:/Users/GodotMentor/Videos/Pomberitos proto alpha.avi"
+movie_writer/movie_file="/Users/chemscobra/Movies/Pomberitos proto alpha.avi"
 movie_writer/disable_vsync=true
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
@@ -93,6 +93,11 @@ interact={
 [layer_names]
 
 2d_physics/layer_1="Player"
+2d_navigation/layer_1="Floor"
 2d_physics/layer_2="Slasher"
 2d_physics/layer_3="Wall"
 2d_physics/layer_4="Object"
+
+[navigation]
+
+2d/default_edge_connection_margin=8.0
