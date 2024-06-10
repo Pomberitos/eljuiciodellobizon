@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://wyls5budn4jc"]
 
-[ext_resource type="Texture2D" uid="uid://ce1fdismdgtsl" path="res://assets/character/player.png" id="1_4mwyp"]
 [ext_resource type="Script" path="res://scenes/slasher/slasher.gd" id="1_65sln"]
 [ext_resource type="FontFile" uid="uid://cuum7nik5ypni" path="res://assets/fonts/GravityRegular5.ttf" id="2_imf53"]
+[ext_resource type="Texture2D" uid="uid://ckaqg3y3vyrr6" path="res://assets/character/slasher.png" id="2_wuotv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rmiq2"]
 size = Vector2(14, 14)
@@ -16,8 +16,7 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_65sln")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0.569537, 0.12872, 1.44392e-07, 1)
-texture = ExtResource("1_4mwyp")
+texture = ExtResource("2_wuotv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rmiq2")
@@ -44,6 +43,7 @@ debug_use_custom = true
 debug_path_custom_color = Color(0.997686, 0.129967, 0.999998, 1)
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 1.3
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

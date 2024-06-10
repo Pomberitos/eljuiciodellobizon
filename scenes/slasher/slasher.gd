@@ -9,7 +9,7 @@ const speed = 200
 
 
 func _ready():
-	timer.start(0.5)
+	call_deferred("makepath")
 
 func _physics_process(_delta: float) -> void:
 	var current_agent_position = global_position

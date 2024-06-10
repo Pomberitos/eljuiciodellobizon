@@ -21,7 +21,6 @@ lamp = NodePath("PointLight2D")
 inventory = ExtResource("2_jadey")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0.0352941, 0.882353, 0.0117647, 1)
 z_index = 5
 texture = ExtResource("2_022fm")
 
