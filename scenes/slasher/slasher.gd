@@ -9,6 +9,7 @@ const speed = 200
 
 
 func _ready():
+	print("slasher in room")
 	call_deferred("makepath")
 
 func _physics_process(_delta: float) -> void:

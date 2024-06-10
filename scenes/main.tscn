@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=8 format=3 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
-[ext_resource type="PackedScene" uid="uid://wyls5budn4jc" path="res://scenes/slasher/slasher.tscn" id="3_40tof"]
 [ext_resource type="Script" path="res://scenes/rooms/room.gd" id="3_vfcor"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="4_pkou0"]
 [ext_resource type="TileSet" uid="uid://bjw5jmifsf025" path="res://tilesets/tilesets .tres" id="4_rt4l2"]
@@ -18,16 +17,12 @@ z_index = 5
 position = Vector2(453, 179)
 motion_mode = 1
 
-[node name="Slasher" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_40tof")]
-z_index = 5
-position = Vector2(556, 61)
-player = NodePath("../Player")
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.741385, 0.741385, 0.741385, 1)
 
-[node name="Room" type="Node2D" parent="."]
+[node name="Room" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("3_vfcor")
+player = NodePath("../Player")
 
 [node name="TileMap" type="TileMap" parent="Room"]
 tile_set = ExtResource("4_rt4l2")
@@ -49,9 +44,18 @@ position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_7l1d5")
 debug_color = Color(0.792157, 0.345098, 0.356863, 0.419608)
 
-[node name="Room2" type="Node2D" parent="."]
+[node name="SlasherPositions" type="Node" parent="Room"]
+
+[node name="Marker2D" type="Marker2D" parent="Room/SlasherPositions"]
+position = Vector2(304, 301)
+
+[node name="Marker2D2" type="Marker2D" parent="Room/SlasherPositions"]
+position = Vector2(614, 114)
+
+[node name="Room2" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(640, 0)
 script = ExtResource("3_vfcor")
+player = NodePath("../Player")
 
 [node name="TileMap" type="TileMap" parent="Room2"]
 tile_set = ExtResource("4_rt4l2")
@@ -73,9 +77,18 @@ position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_7l1d5")
 debug_color = Color(0.792157, 0.345098, 0.356863, 0.419608)
 
-[node name="Room3" type="Node2D" parent="."]
+[node name="SlasherPositions" type="Node" parent="Room2"]
+
+[node name="Marker2D" type="Marker2D" parent="Room2/SlasherPositions"]
+position = Vector2(1155, 308)
+
+[node name="Marker2D2" type="Marker2D" parent="Room2/SlasherPositions"]
+position = Vector2(671, 109)
+
+[node name="Room3" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(640, 352)
 script = ExtResource("3_vfcor")
+player = NodePath("../Player")
 
 [node name="TileMap" type="TileMap" parent="Room3"]
 tile_set = ExtResource("4_rt4l2")
@@ -97,9 +110,18 @@ position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_7l1d5")
 debug_color = Color(0.792157, 0.345098, 0.356863, 0.419608)
 
-[node name="Room4" type="Node2D" parent="."]
+[node name="SlasherPositions" type="Node" parent="Room3"]
+
+[node name="Marker2D" type="Marker2D" parent="Room3/SlasherPositions"]
+position = Vector2(309, 405)
+
+[node name="Marker2D2" type="Marker2D" parent="Room3/SlasherPositions"]
+position = Vector2(609, 580)
+
+[node name="Room4" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(0, 352)
 script = ExtResource("3_vfcor")
+player = NodePath("../Player")
 
 [node name="TileMap" type="TileMap" parent="Room4"]
 tile_set = ExtResource("4_rt4l2")
@@ -120,6 +142,14 @@ position = Vector2(320, 192)
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_7l1d5")
 debug_color = Color(0.792157, 0.345098, 0.356863, 0.419608)
+
+[node name="SlasherPositions" type="Node" parent="Room4"]
+
+[node name="Marker2D" type="Marker2D" parent="Room4/SlasherPositions"]
+position = Vector2(670, 584)
+
+[node name="Marker2D2" type="Marker2D" parent="Room4/SlasherPositions"]
+position = Vector2(1161, 399)
 
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2(320, 176)
