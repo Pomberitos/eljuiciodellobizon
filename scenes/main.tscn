@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=9 format=3 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
 [ext_resource type="Script" path="res://scenes/rooms/room.gd" id="3_vfcor"]
@@ -6,6 +6,7 @@
 [ext_resource type="TileSet" uid="uid://bjw5jmifsf025" path="res://tilesets/tilesets .tres" id="4_rt4l2"]
 [ext_resource type="Script" path="res://scripts/tile_map.gd" id="5_wbqvn"]
 [ext_resource type="PackedScene" uid="uid://cp8tpptvbxnme" path="res://inventory/player_inventory_ui.tscn" id="5_yat7e"]
+[ext_resource type="PackedScene" uid="uid://c75cbpj36u6mg" path="res://scenes/Spawner/spawner.tscn" id="7_7gfef"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7l1d5"]
 size = Vector2(608, 288)
@@ -20,9 +21,8 @@ motion_mode = 1
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.741385, 0.741385, 0.741385, 1)
 
-[node name="Room" type="Node2D" parent="." node_paths=PackedStringArray("player")]
+[node name="Room" type="Node2D" parent="."]
 script = ExtResource("3_vfcor")
-player = NodePath("../Player")
 
 [node name="TileMap" type="TileMap" parent="Room"]
 tile_set = ExtResource("4_rt4l2")
@@ -44,18 +44,17 @@ position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_7l1d5")
 debug_color = Color(0.792157, 0.345098, 0.356863, 0.419608)
 
-[node name="SlasherPositions" type="Node" parent="Room"]
+[node name="SpawnPositions" type="Node" parent="Room"]
 
-[node name="Marker2D" type="Marker2D" parent="Room/SlasherPositions"]
+[node name="Marker2D" type="Marker2D" parent="Room/SpawnPositions"]
 position = Vector2(304, 301)
 
-[node name="Marker2D2" type="Marker2D" parent="Room/SlasherPositions"]
+[node name="Marker2D2" type="Marker2D" parent="Room/SpawnPositions"]
 position = Vector2(614, 114)
 
-[node name="Room2" type="Node2D" parent="." node_paths=PackedStringArray("player")]
+[node name="Room2" type="Node2D" parent="."]
 position = Vector2(640, 0)
 script = ExtResource("3_vfcor")
-player = NodePath("../Player")
 
 [node name="TileMap" type="TileMap" parent="Room2"]
 tile_set = ExtResource("4_rt4l2")
@@ -77,18 +76,17 @@ position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_7l1d5")
 debug_color = Color(0.792157, 0.345098, 0.356863, 0.419608)
 
-[node name="SlasherPositions" type="Node" parent="Room2"]
+[node name="SpawnPositions" type="Node" parent="Room2"]
 
-[node name="Marker2D" type="Marker2D" parent="Room2/SlasherPositions"]
+[node name="Marker2D" type="Marker2D" parent="Room2/SpawnPositions"]
 position = Vector2(1155, 308)
 
-[node name="Marker2D2" type="Marker2D" parent="Room2/SlasherPositions"]
+[node name="Marker2D2" type="Marker2D" parent="Room2/SpawnPositions"]
 position = Vector2(671, 109)
 
-[node name="Room3" type="Node2D" parent="." node_paths=PackedStringArray("player")]
+[node name="Room3" type="Node2D" parent="."]
 position = Vector2(640, 352)
 script = ExtResource("3_vfcor")
-player = NodePath("../Player")
 
 [node name="TileMap" type="TileMap" parent="Room3"]
 tile_set = ExtResource("4_rt4l2")
@@ -110,18 +108,17 @@ position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_7l1d5")
 debug_color = Color(0.792157, 0.345098, 0.356863, 0.419608)
 
-[node name="SlasherPositions" type="Node" parent="Room3"]
+[node name="SpawnPositions" type="Node" parent="Room3"]
 
-[node name="Marker2D" type="Marker2D" parent="Room3/SlasherPositions"]
-position = Vector2(309, 405)
+[node name="Marker2D" type="Marker2D" parent="Room3/SpawnPositions"]
+position = Vector2(1155, 397)
 
-[node name="Marker2D2" type="Marker2D" parent="Room3/SlasherPositions"]
-position = Vector2(609, 580)
+[node name="Marker2D2" type="Marker2D" parent="Room3/SpawnPositions"]
+position = Vector2(677, 580)
 
-[node name="Room4" type="Node2D" parent="." node_paths=PackedStringArray("player")]
+[node name="Room4" type="Node2D" parent="."]
 position = Vector2(0, 352)
 script = ExtResource("3_vfcor")
-player = NodePath("../Player")
 
 [node name="TileMap" type="TileMap" parent="Room4"]
 tile_set = ExtResource("4_rt4l2")
@@ -143,13 +140,13 @@ position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_7l1d5")
 debug_color = Color(0.792157, 0.345098, 0.356863, 0.419608)
 
-[node name="SlasherPositions" type="Node" parent="Room4"]
+[node name="SpawnPositions" type="Node" parent="Room4"]
 
-[node name="Marker2D" type="Marker2D" parent="Room4/SlasherPositions"]
-position = Vector2(670, 584)
+[node name="Marker2D" type="Marker2D" parent="Room4/SpawnPositions"]
+position = Vector2(309, 406)
 
-[node name="Marker2D2" type="Marker2D" parent="Room4/SlasherPositions"]
-position = Vector2(1161, 399)
+[node name="Marker2D2" type="Marker2D" parent="Room4/SpawnPositions"]
+position = Vector2(609, 582)
 
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2(320, 176)
@@ -161,6 +158,9 @@ script = ExtResource("4_pkou0")
 
 [node name="PlayerInventoryUI" parent="CanvasLayer" instance=ExtResource("5_yat7e")]
 visible = false
+
+[node name="SlasherSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_7gfef")]
+player = NodePath("../Player")
 
 [connection signal="body_entered" from="Room/PlayerDetector" to="Room" method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="Room2/PlayerDetector" to="Room2" method="_on_player_detector_body_entered"]
