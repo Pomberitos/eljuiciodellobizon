@@ -1,6 +1,8 @@
 extends Node
 
 @export var player: Player
+@export var minSpawnTime: int = 5
+@export var maxSpawnTime: int = 10
 @onready var slasherScene: PackedScene = preload ("res://scenes/slasher/slasher.tscn")
 var slasher: Slasher
 
@@ -15,7 +17,7 @@ func slasherSpawner(positions: Array):
 	var rng = RandomNumberGenerator.new()
 	if slasher != null:
 		slasher.queue_free()
-	await get_tree().create_timer(rng.randi_range(5, 10)).timeout
+	await get_tree().create_timer(rng.randi_range(minSpawnTime, maxSpawnTime)).timeout
 	print("spawning slasher ")
 	slasher = slasherScene.instantiate()
 	slasher.player = player
