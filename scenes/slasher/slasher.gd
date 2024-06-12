@@ -7,7 +7,6 @@ const speed = 200
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var timer: Timer = $Timer
 
-
 func _ready():
 	print("slasher in room")
 	call_deferred("makepath")
