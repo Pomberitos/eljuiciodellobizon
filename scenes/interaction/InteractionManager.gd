@@ -18,7 +18,7 @@ func unregister_area(area: InteractionArea) -> void:
 		active_areas.remove_at(index)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if active_areas.size() > 0 and can_interact:
 		active_areas.sort_custom(_sort_by_distance_to_player)
 		label.text = base_text.format({"action": active_areas[0].action_name, "item_name":active_areas[0].item_name})
