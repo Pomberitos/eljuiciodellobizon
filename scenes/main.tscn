@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=10 format=3 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
 [ext_resource type="Script" path="res://scenes/rooms/room.gd" id="3_vfcor"]
@@ -7,13 +7,14 @@
 [ext_resource type="Script" path="res://scripts/tile_map.gd" id="5_wbqvn"]
 [ext_resource type="PackedScene" uid="uid://cp8tpptvbxnme" path="res://inventory/player_inventory_ui.tscn" id="5_yat7e"]
 [ext_resource type="PackedScene" uid="uid://c75cbpj36u6mg" path="res://scenes/Spawner/spawner.tscn" id="7_7gfef"]
+[ext_resource type="PackedScene" uid="uid://c7wtbljmhfqte" path="res://scenes/box/grid_box.tscn" id="8_sbtrr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7l1d5"]
 size = Vector2(608, 288)
 
 [node name="Main" type="Node"]
 
-[node name="Player" parent="." groups=["enemy"] instance=ExtResource("1_p8a7x")]
+[node name="Player" parent="." instance=ExtResource("1_p8a7x")]
 z_index = 5
 position = Vector2(453, 179)
 motion_mode = 1
@@ -22,9 +23,11 @@ motion_mode = 1
 color = Color(0.741385, 0.741385, 0.741385, 1)
 
 [node name="Room" type="Node2D" parent="."]
+position = Vector2(0, 8)
 script = ExtResource("3_vfcor")
 
 [node name="TileMap" type="TileMap" parent="Room"]
+position = Vector2(0, -8)
 tile_set = ExtResource("4_rt4l2")
 format = 2
 layer_0/name = "ground"
@@ -35,9 +38,12 @@ layer_2/name = "objects"
 layer_2/tile_data = PackedInt32Array(983045, 2949120, 1610612749, 917509, 3080192, 1610612749, 851973, 3145728, 1610612749, 786437, 3276800, 1610612749, 524294, 2818048, 12, 786467, 2818048, 12, 852003, 2818048, 12, 917539, 2818048, 12, 983075, 2818048, 12, 393228, 2818048, 14, 393229, 2818048, 14, 393230, 2818048, 14, 393231, 2818048, 14, 393232, 2818048, 14, 393233, 2818048, 14, 393234, 2818048, 14, 1048588, 2818048, 14, 1114125, 2818048, 14, 1114145, 2818048, 14, 1114144, 2818048, 14, 1114124, 2949120, 12)
 script = ExtResource("5_wbqvn")
 
+[node name="GridBox" parent="Room/TileMap" instance=ExtResource("8_sbtrr")]
+position = Vector2(568, 184)
+
 [node name="PlayerDetector" type="Area2D" parent="Room"]
 z_index = -10
-position = Vector2(320, 192)
+position = Vector2(320, 184)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room/PlayerDetector"]
 position = Vector2(0, -16)
@@ -72,6 +78,7 @@ z_index = -10
 position = Vector2(320, 192)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room2/PlayerDetector"]
+visible = false
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_7l1d5")
 debug_color = Color(0.792157, 0.345098, 0.356863, 0.419608)
@@ -150,6 +157,7 @@ position = Vector2(609, 582)
 
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2(320, 176)
+zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 position_smoothing_speed = 12.0
 script = ExtResource("4_pkou0")

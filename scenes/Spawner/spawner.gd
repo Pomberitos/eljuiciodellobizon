@@ -11,7 +11,7 @@ var slasher: Slasher
 func _ready():
 	slasher = sceneToSpawn.instantiate()
 	slasher.player = player
-	Events.room_entered.connect(_on_room_entered)
+	# Events.room_entered.connect(_on_room_entered)
 
 func _on_room_entered(room: Room):
 	slasherSpawner(room)

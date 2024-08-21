@@ -8,6 +8,8 @@ extends CharacterBody2D
 @export var lamp: PointLight2D
 @export var inventory: Inventory
 
+@export var minimap_icon: String = "arrow"
+
 
 func _physics_process(_delta: float) -> void:
 	var input = Input.get_vector("left", "right", "up", "down")
@@ -16,6 +18,9 @@ func _physics_process(_delta: float) -> void:
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction)
 	move_and_slide()
+	if get_slide_collision_count() > 0:
+		check_box_collision(velocity)
+		
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("lamp"):
@@ -23,3 +28,13 @@ func _input(event: InputEvent) -> void:
 
 func pick_item(item: InventoryItem):
 	inventory.insert(item)
+
+
+func check_box_collision(motion: Vector2) -> void:
+	if get_slide_collision_count() > 0:
+		if motion.x != 0 and motion.y != 0:
+			return
+		var box: GridBox = get_slide_collision(0).get_collider() as GridBox
+
+		if box:
+			box.push(motion)

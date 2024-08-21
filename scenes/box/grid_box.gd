@@ -1,0 +1,40 @@
+class_name GridBox extends CharacterBody2D
+
+@export var sliding_time: float = 0.45
+@export var drag_audio_fx: AudioStreamPlayer
+
+var tile_map: TileMap
+var sliding: bool = false
+
+
+
+func initialize(_tile_map: TileMap) -> void:
+	tile_map = _tile_map
+	
+
+func calculate_destination(_direction: Vector2) -> Vector2:
+	var new_dir: Vector2i = Vector2i(_direction)
+	var local_pos: Vector2i = tile_map.local_to_map(global_position)
+	var tile_map_position: Vector2i = local_pos + new_dir
+	return tile_map.map_to_local(tile_map_position)
+
+func push(_motion: Vector2) -> void:
+	if sliding:
+		return
+	var move_to: Vector2 = calculate_destination(_motion.normalized())
+
+	if can_move(move_to):
+		var tween: Tween =  create_tween()
+		tween.set_ease(Tween.EASE_OUT)
+		
+		tween.tween_property(self, "position", move_to, sliding_time)
+		sliding = true
+		drag_audio_fx.play()
+		await drag_audio_fx.finished
+		await tween.finished
+		sliding = false
+
+func can_move(_move_to: Vector2) -> bool:
+	var future_transform := Transform2D(global_transform)
+	future_transform.origin = _move_to
+	return !test_move(future_transform, Vector2.ZERO)

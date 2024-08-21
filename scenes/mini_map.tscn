@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://dsoi3mggvdl3r"]
+
+[ext_resource type="Script" path="res://scenes/minimap.gd" id="1_ejr27"]
+[ext_resource type="Texture2D" uid="uid://vbv6pr63xw7u" path="res://assets/items/grey_box.png" id="1_haxxb"]
+[ext_resource type="Texture2D" uid="uid://bhc3e0gs57vy2" path="res://assets/hud/pattern_blueprint.png" id="2_1emno"]
+[ext_resource type="Texture2D" uid="uid://dsau65dnfefrv" path="res://assets/hud/minimapIcon_arrowA.png" id="3_1ja51"]
+[ext_resource type="Texture2D" uid="uid://b154wm6efrlbl" path="res://assets/hud/minimapIcon_jewelRed.png" id="4_vpchr"]
+[ext_resource type="Texture2D" uid="uid://u4xo3pltf6lh" path="res://assets/hud/minimapIcon_exclamationYellow.png" id="6_1kk75"]
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -112.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("1_ejr27")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_haxxb")
+draw_center = false
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 7
+theme_override_constants/margin_bottom = 7
+
+[node name="Grid" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_1emno")
+stretch_mode = 1
+
+[node name="PlayerMarker" type="Sprite2D" parent="MarginContainer/Grid"]
+self_modulate = Color(0.470588, 0.0352941, 0.843137, 1)
+texture_filter = 1
+position = Vector2(68, 44)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_1ja51")
+
+[node name="SlasherMarker" type="Sprite2D" parent="MarginContainer/Grid"]
+texture_filter = 1
+position = Vector2(36, 28)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_vpchr")
+
+[node name="ItemMarker" type="Sprite2D" parent="MarginContainer/Grid"]
+texture_filter = 1
+position = Vector2(108, 28)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_1kk75")

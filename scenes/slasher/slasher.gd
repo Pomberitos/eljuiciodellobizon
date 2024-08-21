@@ -6,6 +6,7 @@ const speed = 200
 @export var player: Node2D
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var timer: Timer = $Timer
+@export var minimap_icon: String = "slasher"
 
 func _ready():
 	print("slasher in room")

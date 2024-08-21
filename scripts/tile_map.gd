@@ -1,5 +1,10 @@
 extends TileMap
 
+func _ready() -> void:
+	for child in get_children():
+		if child is GridBox:
+			child.initialize(self)
+
 # This function checks if the tile at the given coordinates on the specified layer
 # is used (i.e., contains a specific tile type) and returns a boolean value.
 func _use_tile_data_runtime_update(_layer: int, coords: Vector2i) -> bool:
