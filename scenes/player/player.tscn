@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dogubcyw336jv"]
+[gd_scene load_steps=7 format=3 uid="uid://dogubcyw336jv"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_cr6eo"]
-[ext_resource type="Texture2D" uid="uid://ce1fdismdgtsl" path="res://assets/character/player.png" id="2_022fm"]
 [ext_resource type="Resource" uid="uid://o3fuk68wqyt" path="res://inventory/player_inventory.tres" id="2_jadey"]
-[ext_resource type="FontFile" uid="uid://cuum7nik5ypni" path="res://assets/fonts/GravityRegular5.ttf" id="3_00mjq"]
+[ext_resource type="Texture2D" uid="uid://ei7fwjel4or4" path="res://scenes/player/Sprite - Ricky.png" id="3_7gyix"]
 [ext_resource type="Texture2D" uid="uid://bxoawfd28hujn" path="res://assets/light_bitmap.png" id="5_7gfs6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0d821"]
@@ -22,24 +21,10 @@ inventory = ExtResource("2_jadey")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 5
-texture = ExtResource("2_022fm")
+texture = ExtResource("3_7gyix")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0d821")
-
-[node name="Label" type="Label" parent="."]
-z_index = 6
-offset_left = -77.0
-offset_top = -27.0
-offset_right = 77.0
-offset_bottom = -9.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_00mjq")
-text = "player"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-metadata/_edit_use_anchors_ = true
 
 [node name="Hitbox" type="Area2D" parent="."]
 
