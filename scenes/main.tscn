@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=12 format=3 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
 [ext_resource type="Script" path="res://scenes/rooms/room.gd" id="3_vfcor"]
@@ -6,17 +6,20 @@
 [ext_resource type="TileSet" uid="uid://bjw5jmifsf025" path="res://tilesets/tilesets .tres" id="4_rt4l2"]
 [ext_resource type="Script" path="res://scripts/tile_map.gd" id="5_wbqvn"]
 [ext_resource type="PackedScene" uid="uid://cp8tpptvbxnme" path="res://inventory/player_inventory_ui.tscn" id="5_yat7e"]
-[ext_resource type="PackedScene" uid="uid://c75cbpj36u6mg" path="res://scenes/Spawner/spawner.tscn" id="7_7gfef"]
+[ext_resource type="Texture2D" uid="uid://d4mwud1fvii0f" path="res://scenes/maid/Jackie Maid Test.png" id="7_5ib1c"]
 [ext_resource type="PackedScene" uid="uid://c7wtbljmhfqte" path="res://scenes/box/grid_box.tscn" id="8_sbtrr"]
+[ext_resource type="PackedScene" uid="uid://wyls5budn4jc" path="res://scenes/slasher/slasher.tscn" id="9_xcnjb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7l1d5"]
 size = Vector2(608, 288)
+
+[sub_resource type="Theme" id="Theme_j0xok"]
 
 [node name="Main" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource("1_p8a7x")]
 z_index = 5
-position = Vector2(453, 179)
+position = Vector2(313, 296)
 motion_mode = 1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -55,6 +58,29 @@ position = Vector2(304, 301)
 
 [node name="Marker2D2" type="Marker2D" parent="Room 1/SpawnPositions"]
 position = Vector2(614, 114)
+
+[node name="ColorRect" type="ColorRect" parent="Room 1"]
+offset_left = 287.0
+offset_top = 176.0
+offset_right = 317.0
+offset_bottom = 213.0
+
+[node name="Label" type="Label" parent="Room 1/ColorRect"]
+offset_left = 3.0
+offset_top = 8.0
+offset_right = 45.0
+offset_bottom = 31.0
+theme = SubResource("Theme_j0xok")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Carta"
+
+[node name="Label" type="Label" parent="Room 1"]
+offset_left = 58.0
+offset_top = 52.0
+offset_right = 159.0
+offset_bottom = 75.0
+text = "Sala De Estar"
 
 [node name="Room 2" type="Node2D" parent="."]
 position = Vector2(2, -344)
@@ -98,6 +124,23 @@ position = Vector2(-296, -481)
 shape = SubResource("RectangleShape2D_7l1d5")
 debug_color = Color(0.792157, 0.345098, 0.356863, 0.419608)
 
+[node name="ColorRect2" type="ColorRect" parent="Room 2"]
+offset_left = 308.0
+offset_top = 149.0
+offset_right = 338.0
+offset_bottom = 186.0
+
+[node name="Label" type="Label" parent="Room 2/ColorRect2"]
+offset_left = 3.0
+offset_top = 8.0
+offset_right = 45.0
+offset_bottom = 31.0
+theme = SubResource("Theme_j0xok")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Llave
+"
+
 [node name="SpawnPositions" type="Node" parent="Room 2"]
 
 [node name="Marker2D" type="Marker2D" parent="Room 2/SpawnPositions"]
@@ -105,6 +148,13 @@ position = Vector2(304, 301)
 
 [node name="Marker2D2" type="Marker2D" parent="Room 2/SpawnPositions"]
 position = Vector2(614, 114)
+
+[node name="Label" type="Label" parent="Room 2"]
+offset_left = 39.0
+offset_top = 42.0
+offset_right = 79.0
+offset_bottom = 65.0
+text = "Biblioteca"
 
 [node name="Room 3" type="Node2D" parent="."]
 position = Vector2(642, 8)
@@ -132,6 +182,25 @@ position = Vector2(-296, -481)
 shape = SubResource("RectangleShape2D_7l1d5")
 debug_color = Color(0.792157, 0.345098, 0.356863, 0.419608)
 
+[node name="ColorRect3" type="ColorRect" parent="Room 3"]
+offset_left = 293.0
+offset_top = 134.0
+offset_right = 373.0
+offset_bottom = 202.0
+
+[node name="Label" type="Label" parent="Room 3/ColorRect3"]
+offset_left = 3.0
+offset_top = 8.0
+offset_right = 45.0
+offset_bottom = 31.0
+theme = SubResource("Theme_j0xok")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Rompecabezas
+Recompensa: 
+Medalla
+"
+
 [node name="SpawnPositions" type="Node" parent="Room 3"]
 
 [node name="Marker2D" type="Marker2D" parent="Room 3/SpawnPositions"]
@@ -139,6 +208,18 @@ position = Vector2(304, 301)
 
 [node name="Marker2D2" type="Marker2D" parent="Room 3/SpawnPositions"]
 position = Vector2(614, 114)
+
+[node name="Label" type="Label" parent="Room 3"]
+offset_left = 33.0
+offset_top = 36.0
+offset_right = 105.0
+offset_bottom = 59.0
+text = "Comedor
+"
+
+[node name="Slasher2" parent="Room 3" instance=ExtResource("9_xcnjb")]
+position = Vector2(-1238, -268)
+script = null
 
 [node name="Room 4" type="Node2D" parent="."]
 position = Vector2(642, -344)
@@ -174,6 +255,13 @@ position = Vector2(304, 301)
 [node name="Marker2D2" type="Marker2D" parent="Room 4/SpawnPositions"]
 position = Vector2(614, 114)
 
+[node name="Label" type="Label" parent="Room 4"]
+offset_left = 37.0
+offset_top = 39.0
+offset_right = 77.0
+offset_bottom = 62.0
+text = "Habitación de Astor"
+
 [node name="Room 5" type="Node2D" parent="."]
 position = Vector2(-638, -344)
 script = ExtResource("3_vfcor")
@@ -208,6 +296,20 @@ position = Vector2(304, 301)
 [node name="Marker2D2" type="Marker2D" parent="Room 5/SpawnPositions"]
 position = Vector2(614, 114)
 
+[node name="Label" type="Label" parent="Room 5"]
+offset_left = 34.0
+offset_top = 40.0
+offset_right = 74.0
+offset_bottom = 63.0
+text = "Atico"
+
+[node name="Slasher" parent="Room 5" instance=ExtResource("9_xcnjb")]
+position = Vector2(1851, 427)
+script = null
+
+[node name="Sprite2D" parent="Room 5/Slasher" index="0"]
+texture = ExtResource("7_5ib1c")
+
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2(320, 176)
 zoom = Vector2(1.5, 1.5)
@@ -220,11 +322,10 @@ script = ExtResource("4_pkou0")
 [node name="PlayerInventoryUI" parent="CanvasLayer" instance=ExtResource("5_yat7e")]
 visible = false
 
-[node name="SlasherSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_7gfef")]
-player = NodePath("../Player")
-
 [connection signal="body_entered" from="Room 1/PlayerDetector" to="Room 1" method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="Room 2/PlayerDetector" to="Room 2" method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="Room 3/TileMap/PlayerDetector" to="Room 3" method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="Room 4/TileMap/PlayerDetector" to="Room 4" method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="Room 5/PlayerDetector" to="Room 5" method="_on_player_detector_body_entered"]
+
+[editable path="Room 5/Slasher"]
