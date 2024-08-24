@@ -1612,10 +1612,6 @@ separation = Vector2i(1, 1)
 30:5/0 = 0
 30:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 30:5/0/physics_layer_0/angular_velocity = 0.0
-30:6/size_in_atlas = Vector2i(2, 1)
-30:6/0 = 0
-30:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-30:6/0/physics_layer_0/angular_velocity = 0.0
 30:7/size_in_atlas = Vector2i(2, 1)
 30:7/0 = 0
 30:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -1933,6 +1929,10 @@ separation = Vector2i(1, 1)
 13:0/0 = 0
 13:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 13:0/0/physics_layer_0/angular_velocity = 0.0
+30:6/size_in_atlas = Vector2i(2, 1)
+30:6/0 = 0
+30:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+30:6/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pyft4"]
 resource_name = "Indoor"

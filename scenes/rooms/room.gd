@@ -1,7 +1,7 @@
 class_name Room
 extends Node2D
 
-@export_enum("Room 1:1", "Room 2:2", "Room 3:3", "Room 4:4") var number: int
+@export_enum("Room 1:1", "Room 2:2", "Room 3:3", "Room 4:4", "Room 5:5") var number: int
 
 var positions: Array
 

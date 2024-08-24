@@ -9,4 +9,4 @@ func _ready() -> void:
 	
 func set_current_room(new_room: Room):
 	current_room = new_room
-	print(current_room.number)
+	print("Current " + str(current_room.number))
