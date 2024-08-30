@@ -1373,6 +1373,15 @@ separation = Vector2i(1, 1)
 13:0/0 = 0
 30:6/size_in_atlas = Vector2i(2, 1)
 30:6/0 = 0
+24:22/0 = 0
+24:23/0 = 0
+25:23/0 = 0
+26:23/0 = 0
+26:22/0 = 0
+26:21/0 = 0
+25:21/0 = 0
+24:21/0 = 0
+25:22/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pyft4"]
 resource_name = "Indoor"

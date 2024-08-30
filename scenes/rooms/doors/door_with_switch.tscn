@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cca2b1r3ikpwp"]
+
+[ext_resource type="PackedScene" uid="uid://cvafktamq5w3h" path="res://scenes/rooms/doors/door.tscn" id="1_3046k"]
+[ext_resource type="Script" path="res://scenes/rooms/doors/door_with_switch.gd" id="2_jikix"]
+
+[node name="DoorWithSwitch" instance=ExtResource("1_3046k")]
+script = ExtResource("2_jikix")
