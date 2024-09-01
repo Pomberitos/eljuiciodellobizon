@@ -10,12 +10,20 @@ extends CharacterBody2D
 
 @export var minimap_icon: String = "arrow"
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var animation_tree: AnimationTree = $AnimationTree
+@onready var animation_state = animation_tree.get("parameters/playback")
+
 
 func _physics_process(_delta: float) -> void:
-	var input = Input.get_vector("left", "right", "up", "down")
-	if input.length() > 0:
-		velocity = velocity.move_toward(input * max_speed, accel)
+	var input_vector: Vector2 = Input.get_vector("left", "right", "up", "down")
+	if input_vector.length() > 0:
+		animation_tree.set("parameters/Idle/blend_position", input_vector)
+		animation_tree.set("parameters/Walk/blend_position", input_vector)
+		animation_state.travel("Walk")
+		velocity = velocity.move_toward(input_vector * max_speed, accel)
 	else:
+		animation_state.travel("Idle")
 		velocity = velocity.move_toward(Vector2.ZERO, friction)
 	move_and_slide()
 	if get_slide_collision_count() > 0:
