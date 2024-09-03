@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvafktamq5w3h"]
+
+[ext_resource type="Script" path="res://scenes/rooms/doors/door.gd" id="1_f1tgs"]
+[ext_resource type="Texture2D" uid="uid://7mr4jkgkov5i" path="res://scenes/rooms/doors/door_closed.png" id="2_o87t5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_df1as"]
+size = Vector2(36, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gsnd0"]
+size = Vector2(28, 12)
+
+[node name="Door" type="StaticBody2D"]
+script = ExtResource("1_f1tgs")
+
+[node name="DoorSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_o87t5")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_df1as")
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2(-1, 26)
+shape = SubResource("RectangleShape2D_gsnd0")
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]

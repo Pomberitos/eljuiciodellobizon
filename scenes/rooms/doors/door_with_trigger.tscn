@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4yhidc57nxtr"]
+
+[ext_resource type="PackedScene" uid="uid://cvafktamq5w3h" path="res://scenes/rooms/doors/door.tscn" id="1_4pdov"]
+[ext_resource type="Script" path="res://scenes/rooms/doors/door_with_trigger.gd" id="2_a7y5m"]
+
+[node name="DoorWithTrigger" instance=ExtResource("1_4pdov")]
+script = ExtResource("2_a7y5m")
