@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://c87bysua47hbg"]
+
+[ext_resource type="Script" path="res://scenes/collectible/letter.gd" id="1_har71"]
+[ext_resource type="Script" path="res://scenes/interaction/interaction_area.gd" id="1_qvbvc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tmcgy"]
+radius = 37.0135
+
+[node name="Letter" type="Node2D" node_paths=PackedStringArray("interaction_area", "letter")]
+script = ExtResource("1_har71")
+interaction_area = NodePath("InteractionArea")
+letter = NodePath("")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 19.0
+offset_bottom = 27.0
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 8
+script = ExtResource("1_qvbvc")
+action_name = "Leer"
+item_name = "Carta"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(10, 10)
+shape = SubResource("CircleShape2D_tmcgy")
+
+[connection signal="body_entered" from="InteractionArea" to="InteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="InteractionArea" method="_on_body_exited"]

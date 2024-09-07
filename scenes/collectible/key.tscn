@@ -27,8 +27,8 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_7cvtg")
 
 [node name="InteractionArea" parent="." instance=ExtResource("2_w6vh3")]
-action_name = "pick"
-item_name = "key"
+action_name = "Recoger"
+item_name = "llave"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("CircleShape2D_u0yv5")
