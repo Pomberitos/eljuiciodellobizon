@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var accel = 1000.0
 @export var friction = 500.0
 
+
 @export var lamp: PointLight2D
 @export var inventory: Inventory
 
@@ -46,3 +47,7 @@ func check_box_collision(motion: Vector2) -> void:
 
 		if box:
 			box.push(motion)
+
+func die():
+	print("ready to die")
+	get_tree().change_scene_to_file("res://scenes/UIs/game_over.tscn")

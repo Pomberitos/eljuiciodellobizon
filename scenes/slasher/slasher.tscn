@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://wyls5budn4jc"]
+[gd_scene load_steps=6 format=3 uid="uid://wyls5budn4jc"]
 
 [ext_resource type="Script" path="res://scenes/slasher/slasher.gd" id="1_65sln"]
 [ext_resource type="Texture2D" uid="uid://bvy2l4tl1kwou" path="res://scenes/slasher/Sprite - Lobezno.png" id="2_i3ae1"]
+[ext_resource type="AudioStream" uid="uid://85icf5f8huiq" path="res://assets/audio/wolf.ogg" id="3_2rdy3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmiq2"]
-size = Vector2(14, 14)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_buwoe"]
+height = 26.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_llkhl"]
+radius = 23.1948
 
 [node name="Slasher" type="CharacterBody2D" groups=["minimap_object"]]
 z_index = 10
@@ -18,19 +22,34 @@ script = ExtResource("1_65sln")
 texture = ExtResource("2_i3ae1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_rmiq2")
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_buwoe")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-target_desired_distance = 5.0
 path_postprocessing = 1
-avoidance_enabled = true
-debug_enabled = true
-debug_use_custom = true
 debug_path_custom_color = Color(0.997686, 0.129967, 0.999998, 1)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 1.3
+wait_time = 0.5
+autostart = true
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_llkhl")
+debug_color = Color(0.977928, 0, 0.400255, 0.42)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_2rdy3")
+autoplay = true
+
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

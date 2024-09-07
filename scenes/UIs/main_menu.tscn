@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://j8au7006wfkt"]
 
-[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_45f1r"]
+[ext_resource type="Script" path="res://scenes/UIs/main_menu.gd" id="1_45f1r"]
 [ext_resource type="Texture2D" uid="uid://dg4xhivsp2mqe" path="res://assets/textures/juicio-lobizon.png" id="1_pp85i"]
 
 [sub_resource type="Theme" id="Theme_4t56t"]

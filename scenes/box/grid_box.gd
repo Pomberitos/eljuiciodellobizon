@@ -3,12 +3,11 @@ class_name GridBox extends CharacterBody2D
 @export var sliding_time: float = 0.45
 @export var drag_audio_fx: AudioStreamPlayer
 
-var tile_map: TileMap
+var tile_map: TileMapLayer
 var sliding: bool = false
 
 
-
-func initialize(_tile_map: TileMap) -> void:
+func initialize(_tile_map: TileMapLayer) -> void:
 	tile_map = _tile_map
 	
 
@@ -24,7 +23,7 @@ func push(_motion: Vector2) -> void:
 	var move_to: Vector2 = calculate_destination(_motion.normalized())
 
 	if can_move(move_to):
-		var tween: Tween =  create_tween()
+		var tween: Tween = create_tween()
 		tween.set_ease(Tween.EASE_OUT)
 		
 		tween.tween_property(self, "position", move_to, sliding_time)
