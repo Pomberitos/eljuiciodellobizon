@@ -948,6 +948,15 @@ player = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Opacity" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.843137)
+
 [node name="Letter2" parent="CanvasLayer" instance=ExtResource("11_op0dc")]
 visible = false
 anchors_preset = 8
@@ -961,9 +970,10 @@ size_flags_vertical = 4
 [node name="PlayerInventoryUI" parent="CanvasLayer" instance=ExtResource("5_yat7e")]
 visible = false
 
-[node name="Letter" parent="." node_paths=PackedStringArray("letter") instance=ExtResource("12_87587")]
+[node name="Letter" parent="." node_paths=PackedStringArray("letter", "opacity") instance=ExtResource("12_87587")]
 position = Vector2(311, 222)
 letter = NodePath("../CanvasLayer/Letter2")
+opacity = NodePath("../CanvasLayer/Opacity")
 
 [connection signal="body_entered" from="Room 1/PlayerDetector" to="Room 1" method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="Room 1/Area2D" to="." method="_on_area_2d_body_entered"]
