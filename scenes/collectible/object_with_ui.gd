@@ -1,8 +1,9 @@
 extends Node2D
 
+class_name ObjectWithUI
+
 @export var interaction_area: InteractionArea
-@export var letter: Control
-@export var opacity: Control
+@export var ObjectUI: Control
 
 var player: Player = null
 
@@ -11,9 +12,8 @@ func _ready() -> void:
 	Events.slasher_spawned.connect(_on_slasher_spawned)
 
 func _on_interact() -> void:
-	letter.visible = !letter.visible
-	opacity.visible = !opacity.visible
+	ObjectUI.visible = !ObjectUI.visible
+
 
 func _on_slasher_spawned(_room: Room) -> void:
-	letter.visible = false
-	opacity.visible = false
+	ObjectUI.visible = false

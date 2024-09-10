@@ -11,8 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://cvafktamq5w3h" path="res://scenes/rooms/doors/door.tscn" id="4_veuw0"]
 [ext_resource type="PackedScene" uid="uid://cp8tpptvbxnme" path="res://inventory/player_inventory_ui.tscn" id="5_yat7e"]
 [ext_resource type="PackedScene" uid="uid://c75cbpj36u6mg" path="res://scenes/Spawner/spawner.tscn" id="6_85noy"]
-[ext_resource type="PackedScene" uid="uid://2tny0tkk8tjs" path="res://scenes/UIs/Letter.tscn" id="11_op0dc"]
-[ext_resource type="PackedScene" uid="uid://c87bysua47hbg" path="res://scenes/collectible/letter.tscn" id="12_87587"]
+[ext_resource type="PackedScene" uid="uid://3cy137yehsru" path="res://scenes/collectible/letter.tscn" id="12_87587"]
+[ext_resource type="PackedScene" uid="uid://cawlhdaqesgwj" path="res://scenes/UIs/Room 1/Letter.tscn" id="12_gjrc0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_dcbee"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
@@ -864,6 +864,10 @@ shape = SubResource("RectangleShape2D_5ot2g")
 position = Vector2(303.5, 5)
 shape = SubResource("RectangleShape2D_5ot2g")
 
+[node name="Letter" parent="Room 1" node_paths=PackedStringArray("ObjectUI") instance=ExtResource("12_87587")]
+position = Vector2(304, 196)
+ObjectUI = NodePath("../../CanvasLayer/Room 1 - Letter container")
+
 [node name="Room 2" type="Node2D" parent="."]
 position = Vector2(-1, -376)
 script = ExtResource("3_vfcor")
@@ -948,32 +952,11 @@ player = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Opacity" type="ColorRect" parent="CanvasLayer"]
+[node name="Room 1 - Letter container" parent="CanvasLayer" instance=ExtResource("12_gjrc0")]
 visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.843137)
-
-[node name="Letter2" parent="CanvasLayer" instance=ExtResource("11_op0dc")]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-size_flags_horizontal = 6
-size_flags_vertical = 4
 
 [node name="PlayerInventoryUI" parent="CanvasLayer" instance=ExtResource("5_yat7e")]
 visible = false
-
-[node name="Letter" parent="." node_paths=PackedStringArray("letter", "opacity") instance=ExtResource("12_87587")]
-position = Vector2(311, 222)
-letter = NodePath("../CanvasLayer/Letter2")
-opacity = NodePath("../CanvasLayer/Opacity")
 
 [connection signal="body_entered" from="Room 1/PlayerDetector" to="Room 1" method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="Room 1/Area2D" to="." method="_on_area_2d_body_entered"]
