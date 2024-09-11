@@ -22,7 +22,6 @@ InteractionManager="*res://scenes/interaction/InteractionManager.tscn"
 
 [display]
 
-window/size/mode=3
 window/size/resizable=false
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"

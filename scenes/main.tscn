@@ -829,10 +829,7 @@ debug_color = Color(0.792157, 0.345098, 0.356863, 0.419608)
 [node name="SpawnPositions" type="Node" parent="Room 1"]
 
 [node name="Marker2D" type="Marker2D" parent="Room 1/SpawnPositions"]
-position = Vector2(304, 301)
-
-[node name="Marker2D2" type="Marker2D" parent="Room 1/SpawnPositions"]
-position = Vector2(614, 114)
+position = Vector2(304, 38)
 
 [node name="DoorWithSwitch" parent="Room 1" instance=ExtResource("4_7328a")]
 position = Vector2(305, 6)
@@ -903,10 +900,10 @@ debug_color = Color(0.792157, 0.345098, 0.356863, 0.419608)
 [node name="SpawnPositions" type="Node" parent="Room 2"]
 
 [node name="Marker2D" type="Marker2D" parent="Room 2/SpawnPositions"]
-position = Vector2(304, 301)
+position = Vector2(86, -214)
 
 [node name="Marker2D2" type="Marker2D" parent="Room 2/SpawnPositions"]
-position = Vector2(614, 114)
+position = Vector2(555, -223)
 
 [node name="ColorRect" type="ColorRect" parent="Room 2"]
 offset_left = 287.0
