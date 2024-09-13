@@ -9,11 +9,15 @@ var isPlayerNearby = false
 var isDoorClosed = true;
 
 func open():
-	$DoorSprite.texture = openDoorTexture
-	$CollisionShape.disabled = true
-	isDoorClosed = false
+	if isDoorClosed:
+		$DoorSprite.texture = openDoorTexture
+		$CollisionShape.disabled = true
+		isDoorClosed = false
+		AudioManager.play_sound(AudioManager.DOOR_OPEN_SOUND)
 
 func close():
-	$DoorSprite.texture = closedDoorTexture
-	$CollisionShape.disabled = false
-	isDoorClosed = true
+	if !isDoorClosed:
+		$DoorSprite.texture = closedDoorTexture
+		$CollisionShape.disabled = false
+		isDoorClosed = true
+		AudioManager.play_sound(AudioManager.DOOR_OPEN_SOUND)

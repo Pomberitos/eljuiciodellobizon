@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://3cy137yehsru"]
 
-[ext_resource type="Script" path="res://scenes/collectible/object_with_ui.gd" id="1_bp4v1"]
+[ext_resource type="Script" path="res://scenes/collectible/letter.gd" id="1_78ka2"]
 [ext_resource type="Script" path="res://scenes/interaction/interaction_area.gd" id="1_qvbvc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5wcxk"]
 size = Vector2(69, 32)
 
 [node name="Letter" type="Node2D" node_paths=PackedStringArray("interaction_area")]
-script = ExtResource("1_bp4v1")
+script = ExtResource("1_78ka2")
 interaction_area = NodePath("InteractionArea")
 
 [node name="ColorRect" type="ColorRect" parent="."]
