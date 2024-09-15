@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://sdl8oiupjphp"
+path="res://.godot/imported/02 Cacería Inminente.mp3-d5f9be67b55bf190b5dc0a8fd658ac43.mp3str"
+
+[deps]
+
+source_file="res://assets/music/02 Cacería Inminente.mp3"
+dest_files=["res://.godot/imported/02 Cacería Inminente.mp3-d5f9be67b55bf190b5dc0a8fd658ac43.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

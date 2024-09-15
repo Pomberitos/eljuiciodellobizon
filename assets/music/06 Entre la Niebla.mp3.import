@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ca3ptwems2kft"
+path="res://.godot/imported/06 Entre la Niebla.mp3-ed7a2bc3a084f9af17586abce92752be.mp3str"
+
+[deps]
+
+source_file="res://assets/music/06 Entre la Niebla.mp3"
+dest_files=["res://.godot/imported/06 Entre la Niebla.mp3-ed7a2bc3a084f9af17586abce92752be.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

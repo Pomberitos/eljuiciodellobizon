@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d33u6lrl38g7t"
+path="res://.godot/imported/04 Ecos en el Silencio.mp3-b51a475c2b20d1b1d9b1f8f7d03da246.mp3str"
+
+[deps]
+
+source_file="res://assets/music/04 Ecos en el Silencio.mp3"
+dest_files=["res://.godot/imported/04 Ecos en el Silencio.mp3-b51a475c2b20d1b1d9b1f8f7d03da246.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
