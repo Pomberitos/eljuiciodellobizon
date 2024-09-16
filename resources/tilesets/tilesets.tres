@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=38 format=3 uid="uid://bjw5jmifsf025"]
 
-[ext_resource type="Texture2D" uid="uid://cj2sa57qi1u71" path="res://assets/tilemap/roguelike_general.png" id="1_h7ncf"]
-[ext_resource type="Texture2D" uid="uid://dlyck0qawx0ku" path="res://assets/tilemap/roguelike_indoor.png" id="2_pktih"]
+[ext_resource type="Texture2D" uid="uid://cj2sa57qi1u71" path="res://assets/tilemap/roguelike_general.png" id="1_2lmwo"]
+[ext_resource type="Texture2D" uid="uid://dlyck0qawx0ku" path="res://assets/tilemap/roguelike_indoor.png" id="2_nqnpq"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_58lbb"]
 vertices = PackedVector2Array(4, 4, -4, 4, -4, -4, 4, -4)
@@ -212,7 +212,7 @@ polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tasyp"]
 resource_name = "General"
-texture = ExtResource("1_h7ncf")
+texture = ExtResource("1_2lmwo")
 separation = Vector2i(1, 1)
 5:0/0 = 0
 5:1/0 = 0
@@ -1385,7 +1385,7 @@ separation = Vector2i(1, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pyft4"]
 resource_name = "Indoor"
-texture = ExtResource("2_pktih")
+texture = ExtResource("2_nqnpq")
 
 [resource]
 occlusion_layer_0/light_mask = 1

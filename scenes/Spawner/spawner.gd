@@ -9,8 +9,9 @@ var slasher: Slasher
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Events.room_entered.connect(_on_room_entered)
-	Events.slasher_gone.connect(_on_slahser_gone)
+	#Events.room_entered.connect(_on_room_entered)
+	#Events.slasher_gone.connect(_on_slahser_gone)
+	pass
 
 func _on_room_entered(room: Room):
 	slasherSpawner(room)

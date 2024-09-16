@@ -23,6 +23,8 @@ AudioManager="*res://scenes/AudioManager/audio_manager.tscn"
 
 [display]
 
+window/size/viewport_width=800
+window/size/viewport_height=450
 window/size/resizable=false
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
@@ -107,3 +109,4 @@ interact={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.115175, 0.051892, 0, 1)

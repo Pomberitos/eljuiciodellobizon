@@ -6,10 +6,10 @@ class_name GridBox extends CharacterBody2D
 var tile_map: TileMapLayer
 var sliding: bool = false
 
-
-func initialize(_tile_map: TileMapLayer) -> void:
-	tile_map = _tile_map
 	
+func _ready() -> void:
+	tile_map = get_parent()
+	add_to_group(self.get_class())
 
 func calculate_destination(_direction: Vector2) -> Vector2:
 	var new_dir: Vector2i = Vector2i(_direction)

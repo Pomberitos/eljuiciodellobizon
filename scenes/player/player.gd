@@ -16,6 +16,9 @@ extends CharacterBody2D
 @onready var animation_state = animation_tree.get("parameters/playback")
 
 
+func _ready() -> void:
+	add_to_group(self.get_class())
+
 func _physics_process(_delta: float) -> void:
 	var input_vector: Vector2 = Input.get_vector("left", "right", "up", "down")
 	if input_vector.length() > 0:
