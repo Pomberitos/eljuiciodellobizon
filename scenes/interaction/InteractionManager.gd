@@ -4,6 +4,7 @@ extends Node2D
 @onready var label = $Label
 
 var base_text: String = "Pulsá [E] para {action} {item_name}"
+var alt_text: String
 var active_areas: Array = []
 var can_interact: bool = true
 
@@ -11,8 +12,9 @@ func _ready() -> void:
 	Events.slasher_spawned.connect(_on_slasher_spawned)
 	Events.slasher_gone.connect(_on_slasher_gone)
 
-func register_area(area: InteractionArea) -> void:
+func register_area(area: InteractionArea, text: String= "") -> void:
 	active_areas.push_back(area)
+	alt_text = text
 
 func unregister_area(area: InteractionArea) -> void:
 	var index = active_areas.find(area)
@@ -23,7 +25,10 @@ func unregister_area(area: InteractionArea) -> void:
 func _process(_delta: float) -> void:
 	if active_areas.size() > 0 and can_interact:
 		active_areas.sort_custom(_sort_by_distance_to_player)
-		label.text = base_text.format({"action": active_areas[0].action_name, "item_name": active_areas[0].item_name})
+		base_text.format({"action": active_areas[0].action_name, "item_name": active_areas[0].item_name})
+		if alt_text.length() > 0:
+			label.text = alt_text
+
 		label.global_position = active_areas[0].global_position
 		label.global_position.y -= 36
 		label.global_position.x -= label.size.x / 2

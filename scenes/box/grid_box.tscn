@@ -1,16 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7wtbljmhfqte"]
+[gd_scene load_steps=7 format=3 uid="uid://c7wtbljmhfqte"]
 
 [ext_resource type="Script" path="res://scenes/box/grid_box.gd" id="1_7a2pq"]
 [ext_resource type="Texture2D" uid="uid://bk54v3mwc8q4k" path="res://assets/items/bench.png" id="2_w5xaf"]
 [ext_resource type="AudioStream" uid="uid://rj8p46as0ovt" path="res://assets/audio/drag_furniture.ogg" id="3_sec1r"]
+[ext_resource type="PackedScene" uid="uid://cx6cef2aykja1" path="res://scenes/interaction/interaction_area.tscn" id="4_xcthr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6mmxv"]
 size = Vector2(24, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2mbr7"]
+radius = 32.0
 
 [node name="GridBox" type="CharacterBody2D" node_paths=PackedStringArray("drag_audio_fx") groups=["minimap_object"]]
 collision_layer = 8
 collision_mask = 15
 script = ExtResource("1_7a2pq")
+sliding_time = 1.1
 drag_audio_fx = NodePath("AudioStreamPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -21,3 +26,9 @@ shape = SubResource("RectangleShape2D_6mmxv")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_sec1r")
+
+[node name="InteractionArea" parent="." instance=ExtResource("4_xcthr")]
+alt_text = "Empujar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_2mbr7")

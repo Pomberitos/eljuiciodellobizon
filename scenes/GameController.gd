@@ -6,6 +6,7 @@ func _ready() -> void:
 	Events.slasher_spawned.connect(_on_slasher_spawned)
 	Events.slasher_gone.connect(_on_slasher_gone)
 	AudioManager.play_music(AudioManager.GAME_MUSIC)
+	connect("box_moved", _box_moved)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
@@ -26,3 +27,6 @@ func _on_slasher_spawned(_room: Room):
 
 func _on_slasher_gone():
 	AudioManager.play_music(AudioManager.GAME_MUSIC)
+
+func _box_moved(moved_dir: Vector2i):
+	print(moved_dir)
