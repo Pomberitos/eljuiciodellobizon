@@ -44,7 +44,7 @@ func pick_item(item: InventoryItem):
 
 func check_box_collision(motion: Vector2) -> void:
 	if get_slide_collision_count() > 0:
-		if motion.x != 0 and motion.y != 0:
+		if motion.is_equal_approx(Vector2.ZERO):
 			return
 		var box: GridBox = get_slide_collision(0).get_collider() as GridBox
 

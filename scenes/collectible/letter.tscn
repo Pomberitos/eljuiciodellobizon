@@ -21,15 +21,17 @@ interaction_area = NodePath("InteractionArea")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_2w1q7")
-scale = Vector2(0.4375, 0.4375)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_ugvma")
 centered = false
 
 [node name="InteractionArea" type="Area2D" parent="."]
+position = Vector2(-6, -21)
 collision_layer = 8
 script = ExtResource("1_qvbvc")
 action_name = "Leer"
 item_name = "carta"
+alt_text = "[E] para Leer"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(18, 65)

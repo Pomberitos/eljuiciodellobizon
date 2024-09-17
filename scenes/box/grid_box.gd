@@ -2,14 +2,21 @@ class_name GridBox extends CharacterBody2D
 
 @export var sliding_time: float = 0.45
 @export var drag_audio_fx: AudioStreamPlayer
+@export var interaction_area: Area2D
 
+@onready var move_dir_dict: Dictionary =  {
+		Vector2i.UP: $UpRay,
+		Vector2i.DOWN: $DownRay,
+		Vector2i.RIGHT: $RightRay,
+		Vector2i.LEFT: $LeftRay
+	}
 var tile_map: TileMapLayer
 var sliding: bool = false
 
-	
 func _ready() -> void:
 	tile_map = get_parent()
 	add_to_group(self.get_class())
+	
 
 func calculate_destination(_direction: Vector2) -> Vector2:
 	var new_dir: Vector2i = Vector2i(_direction)
@@ -18,11 +25,11 @@ func calculate_destination(_direction: Vector2) -> Vector2:
 	return tile_map.map_to_local(tile_map_position)
 
 func push(_motion: Vector2) -> void:
-	if sliding:
-		return
 	var move_to: Vector2 = calculate_destination(_motion.normalized())
-
-	if can_move(move_to):
+	var dir: Vector2i = Vector2i(_motion.normalized())
+	if sliding or dir == Vector2i.ZERO:
+		return
+	if can_move(dir) :
 		Events.emit_signal("box_moved", Vector2i(_motion.normalized()))
 		var tween: Tween = create_tween()
 		tween.set_ease(Tween.EASE_OUT)
@@ -34,7 +41,13 @@ func push(_motion: Vector2) -> void:
 		await tween.finished
 		sliding = false
 
-func can_move(_move_to: Vector2) -> bool:
-	var future_transform := Transform2D(transform)
-	future_transform.origin = _move_to
-	return !test_move(future_transform, Vector2.ZERO)
+func can_move(dir: Vector2i) -> bool:
+	var is_colliding = check_collisions_with_group(dir)
+	return !is_colliding
+
+
+func check_collisions_with_group(move_dir: Vector2i):
+	var raycast: RayCast2D = move_dir_dict[move_dir]
+	if raycast.is_colliding():
+		return true
+	return false

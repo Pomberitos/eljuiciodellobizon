@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 func _ready() -> void:
 	Events.letter_displayed.connect(_on_letter_displayed)

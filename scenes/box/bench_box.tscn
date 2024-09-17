@@ -1,37 +1,35 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7wtbljmhfqte"]
+[gd_scene load_steps=9 format=3 uid="uid://bui7227jviecj"]
 
-[ext_resource type="Script" path="res://scenes/box/grid_box.gd" id="1_7a2pq"]
-[ext_resource type="Texture2D" uid="uid://copu6kdyqmmrb" path="res://assets/items/clock.png" id="2_o3b35"]
-[ext_resource type="AudioStream" uid="uid://rj8p46as0ovt" path="res://assets/audio/drag_furniture.ogg" id="3_sec1r"]
-[ext_resource type="PackedScene" uid="uid://cx6cef2aykja1" path="res://scenes/interaction/interaction_area.tscn" id="4_xcthr"]
+[ext_resource type="Script" path="res://scenes/box/bench_box.gd" id="1_p4o1n"]
+[ext_resource type="Texture2D" uid="uid://bk54v3mwc8q4k" path="res://assets/items/bench.png" id="2_urq1m"]
+[ext_resource type="AudioStream" uid="uid://rj8p46as0ovt" path="res://assets/audio/drag_furniture.ogg" id="3_p0qk6"]
+[ext_resource type="PackedScene" uid="uid://cx6cef2aykja1" path="res://scenes/interaction/interaction_area.tscn" id="4_m06wo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r7nn6"]
-size = Vector2(26, 26)
+size = Vector2(22, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lc3of"]
-size = Vector2(18.5, 12)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cum0y"]
-size = Vector2(18.5, 12)
+size = Vector2(16, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_prf6a"]
-size = Vector2(12, 20)
+size = Vector2(12, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tixwt"]
-size = Vector2(12, 20)
+size = Vector2(12, 16)
 
 [node name="GridBox" type="CharacterBody2D" node_paths=PackedStringArray("drag_audio_fx", "interaction_area") groups=["minimap_object"]]
 collision_layer = 8
 collision_mask = 15
-script = ExtResource("1_7a2pq")
-sliding_time = 1.1
+script = ExtResource("1_p4o1n")
+sliding_time = 0.55
 drag_audio_fx = NodePath("AudioStreamPlayer")
 interaction_area = NodePath("InteractionArea")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(0, -11)
-texture = ExtResource("2_o3b35")
+texture = ExtResource("2_urq1m")
+offset = Vector2(0, 11)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
@@ -39,43 +37,40 @@ shape = SubResource("RectangleShape2D_r7nn6")
 debug_color = Color(0.883857, 0.272769, 0.497728, 0.42)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_sec1r")
+stream = ExtResource("3_p0qk6")
 
-[node name="InteractionArea" parent="." instance=ExtResource("4_xcthr")]
+[node name="InteractionArea" parent="." instance=ExtResource("4_m06wo")]
 position = Vector2(0, -9)
-alt_text = "Push me"
+alt_text = "Empujar"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-z_index = 1
-position = Vector2(0, -10)
+position = Vector2(0, -11)
 shape = SubResource("RectangleShape2D_lc3of")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(0, 28)
-shape = SubResource("RectangleShape2D_cum0y")
+position = Vector2(0, 27)
+shape = SubResource("RectangleShape2D_lc3of")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(19, 9)
 shape = SubResource("RectangleShape2D_prf6a")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="InteractionArea"]
-z_index = 4
 position = Vector2(-19, 9)
 shape = SubResource("RectangleShape2D_tixwt")
 
 [node name="DownRay" type="RayCast2D" parent="."]
-target_position = Vector2(0, 25)
+target_position = Vector2(0, 32)
 collision_mask = 12
 
 [node name="RightRay" type="RayCast2D" parent="."]
-target_position = Vector2(25, 0)
+target_position = Vector2(32, 0)
 collision_mask = 12
 
 [node name="LeftRay" type="RayCast2D" parent="."]
-target_position = Vector2(-25, 0)
+target_position = Vector2(-32, 0)
 collision_mask = 12
 
 [node name="UpRay" type="RayCast2D" parent="."]
-z_index = 1
-target_position = Vector2(0, -25)
+target_position = Vector2(0, -32)
 collision_mask = 12

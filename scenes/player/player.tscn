@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://bxoawfd28hujn" path="res://assets/light_bitmap.png" id="5_7gfs6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0d821"]
-size = Vector2(12, 12)
+size = Vector2(8, 11.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7byl"]
-size = Vector2(18, 18)
+size = Vector2(10, 30)
 
 [sub_resource type="Animation" id="Animation_gjcm0"]
 length = 0.001
@@ -301,18 +301,22 @@ lamp = NodePath("PointLight2D")
 inventory = ExtResource("2_jadey")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 5
+z_index = 1
 texture = ExtResource("3_ontc8")
+offset = Vector2(0, -6)
 flip_h = true
 hframes = 3
 vframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(0, 3.75)
 shape = SubResource("RectangleShape2D_0d821")
 
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_v7byl")
 debug_color = Color(0.942127, 0.120271, 0.522503, 0.42)
 
