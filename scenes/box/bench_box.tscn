@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cx6cef2aykja1" path="res://scenes/interaction/interaction_area.tscn" id="4_m06wo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r7nn6"]
-size = Vector2(22, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lc3of"]
 size = Vector2(16, 12)
@@ -60,17 +59,17 @@ position = Vector2(-19, 9)
 shape = SubResource("RectangleShape2D_tixwt")
 
 [node name="DownRay" type="RayCast2D" parent="."]
-target_position = Vector2(0, 32)
+target_position = Vector2(0, 16)
 collision_mask = 12
 
 [node name="RightRay" type="RayCast2D" parent="."]
-target_position = Vector2(32, 0)
+target_position = Vector2(16, 0)
 collision_mask = 12
 
 [node name="LeftRay" type="RayCast2D" parent="."]
-target_position = Vector2(-32, 0)
+target_position = Vector2(-16, 0)
 collision_mask = 12
 
 [node name="UpRay" type="RayCast2D" parent="."]
-target_position = Vector2(0, -32)
+target_position = Vector2(0, -16)
 collision_mask = 12

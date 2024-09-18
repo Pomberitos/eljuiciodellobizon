@@ -64,18 +64,21 @@ position = Vector2(-19, 9)
 shape = SubResource("RectangleShape2D_tixwt")
 
 [node name="DownRay" type="RayCast2D" parent="."]
-target_position = Vector2(0, 25)
+z_index = 1
+target_position = Vector2(0, 17)
 collision_mask = 12
 
 [node name="RightRay" type="RayCast2D" parent="."]
-target_position = Vector2(25, 0)
+z_index = 1
+target_position = Vector2(17, 0)
 collision_mask = 12
 
 [node name="LeftRay" type="RayCast2D" parent="."]
-target_position = Vector2(-25, 0)
+z_index = 1
+target_position = Vector2(-17, 0)
 collision_mask = 12
 
 [node name="UpRay" type="RayCast2D" parent="."]
 z_index = 1
-target_position = Vector2(0, -25)
+target_position = Vector2(0, -17)
 collision_mask = 12

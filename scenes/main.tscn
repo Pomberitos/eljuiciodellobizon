@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=20 format=4 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="Script" path="res://scenes/GameController.gd" id="1_3dbo4"]
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://scripts/camera.gd" id="4_pkou0"]
 [ext_resource type="PackedScene" uid="uid://cp8tpptvbxnme" path="res://inventory/player_inventory_ui.tscn" id="5_yat7e"]
 [ext_resource type="PackedScene" uid="uid://c75cbpj36u6mg" path="res://scenes/Spawner/spawner.tscn" id="6_85noy"]
+[ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="10_2oynr"]
+[ext_resource type="Shader" path="res://shaders/palette_post.gdshader" id="11_bg4xu"]
 [ext_resource type="PackedScene" uid="uid://3cy137yehsru" path="res://scenes/collectible/letter.tscn" id="12_87587"]
 [ext_resource type="PackedScene" uid="uid://cawlhdaqesgwj" path="res://scenes/UIs/Room 1/Letter.tscn" id="12_gjrc0"]
 
@@ -25,6 +27,22 @@ size = Vector2(724, 346.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_un8ix"]
 size = Vector2(724, 346.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ckd3l"]
+shader = ExtResource("10_2oynr")
+shader_parameter/alpha = 0.16
+shader_parameter/inner_radius = 0.0
+shader_parameter/outer_radius = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m1sui"]
+shader = ExtResource("11_bg4xu")
+shader_parameter/level1 = Color(0, 0, 0, 1)
+shader_parameter/level2 = Color(0.693858, 0.421402, 0.289103, 1)
+shader_parameter/level3 = Color(1, 1, 1, 1)
+shader_parameter/level4 = Color(1, 1, 1, 1)
+shader_parameter/threshold1 = 0.4
+shader_parameter/threshold2 = 0.52
+shader_parameter/threshold3 = 0.8
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -122,7 +140,7 @@ tile_set = ExtResource("3_ra8xj")
 [node name="Objects" type="TileMapLayer" parent="Room 2/TileMap"]
 z_index = 1
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAALAAcAAgAAAAAAAQAnAAkAAAAEAAsAAAAhAAcAAAAEAAsAAAA=")
+tile_map_data = PackedByteArray("AAALAAcAAgAAAAAAAQA=")
 tile_set = ExtResource("3_ra8xj")
 
 [node name="SpawnPositions" type="Node" parent="Room 2"]
@@ -151,7 +169,7 @@ debug_color = Color(0.126246, 0.563074, 0.67162, 0.419608)
 
 [node name="Player" parent="." instance=ExtResource("1_p8a7x")]
 z_index = 1
-position = Vector2(366, -80)
+position = Vector2(350, -130)
 scale = Vector2(1.5, 1.5)
 motion_mode = 1
 
@@ -165,6 +183,24 @@ visible = false
 
 [node name="PlayerInventoryUI" parent="CanvasLayer" instance=ExtResource("5_yat7e")]
 visible = false
+
+[node name="Sprite2D" type="ColorRect" parent="CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_ckd3l")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_m1sui")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -450)
