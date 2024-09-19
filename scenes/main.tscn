@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=21 format=4 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="Script" path="res://scenes/GameController.gd" id="1_3dbo4"]
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cca2b1r3ikpwp" path="res://scenes/rooms/doors/door_with_switch.tscn" id="4_7328a"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="4_pkou0"]
 [ext_resource type="PackedScene" uid="uid://cp8tpptvbxnme" path="res://inventory/player_inventory_ui.tscn" id="5_yat7e"]
+[ext_resource type="Script" path="res://scenes/rooms/puzzles/puzzle_1.gd" id="6_78h47"]
 [ext_resource type="PackedScene" uid="uid://c75cbpj36u6mg" path="res://scenes/Spawner/spawner.tscn" id="6_85noy"]
 [ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="10_2oynr"]
 [ext_resource type="Shader" path="res://shaders/palette_post.gdshader" id="11_bg4xu"]
@@ -125,6 +126,12 @@ y_sort_enabled = true
 position = Vector2(0, -450)
 script = ExtResource("3_vfcor")
 number = 1
+
+[node name="Puzzle1" type="Node" parent="Room 2"]
+script = ExtResource("6_78h47")
+
+[node name="Marker2D" type="Marker2D" parent="Room 2/Puzzle1"]
+position = Vector2(136, -97)
 
 [node name="TileMap" type="Node2D" parent="Room 2"]
 y_sort_enabled = true
