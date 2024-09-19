@@ -1,5 +1,6 @@
 extends Node
 
+@export var spawnerDisabled: bool = false
 @export var player: Player
 @export var minSpawnTime: int = 5
 @export var maxSpawnTime: int = 10
@@ -17,6 +18,8 @@ func _on_room_entered(room: Room):
 	slasherSpawner(room)
 
 func slasherSpawner(room: Room):
+	if spawnerDisabled:
+		return
 	remove_child(slasher)
 	slasher = sceneToSpawn.instantiate()
 	slasher.player = player
