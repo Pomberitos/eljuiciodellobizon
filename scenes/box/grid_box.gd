@@ -4,7 +4,7 @@ class_name GridBox extends CharacterBody2D
 @export var drag_audio_fx: AudioStreamPlayer
 @export var interaction_area: Area2D
 
-@onready var move_dir_dict: Dictionary =  {
+@onready var move_dir_dict: Dictionary = {
 		Vector2i.UP: $UpRay,
 		Vector2i.DOWN: $DownRay,
 		Vector2i.RIGHT: $RightRay,
@@ -29,7 +29,7 @@ func push(_motion: Vector2) -> void:
 	var dir: Vector2i = Vector2i(_motion.normalized())
 	if sliding or dir == Vector2i.ZERO:
 		return
-	if can_move(dir) :
+	if can_move(dir):
 		Events.emit_signal("box_moved", Vector2i(_motion.normalized()))
 		var tween: Tween = create_tween()
 		tween.set_ease(Tween.EASE_OUT)

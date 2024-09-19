@@ -1,21 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5brlqtj6ph0"]
+[gd_scene load_steps=8 format=3 uid="uid://c5brlqtj6ph0"]
 
 [ext_resource type="Texture2D" uid="uid://bvl3dyf2seirb" path="res://assets/items/key.png" id="1_gxepm"]
 [ext_resource type="Script" path="res://scenes/collectible/key.gd" id="1_lidl8"]
 [ext_resource type="Resource" uid="uid://clco070vgtvev" path="res://inventory/items/key.tres" id="2_6w12r"]
 [ext_resource type="PackedScene" uid="uid://cx6cef2aykja1" path="res://scenes/interaction/interaction_area.tscn" id="2_w6vh3"]
+[ext_resource type="AudioStream" uid="uid://dxm220rql8s3t" path="res://assets/audio/key.ogg" id="5_qovp5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7cvtg"]
 size = Vector2(24, 14)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u0yv5"]
-radius = 21.0
+radius = 40.0
 
-[node name="Key" type="StaticBody2D" node_paths=PackedStringArray("interaction_area")]
+[node name="Key" type="StaticBody2D" node_paths=PackedStringArray("interaction_area", "item_sound")]
 collision_layer = 8
 script = ExtResource("1_lidl8")
 interaction_area = NodePath("InteractionArea")
 key_resource = ExtResource("2_6w12r")
+item_sound = NodePath("AudioStreamPlayer")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -26,10 +28,16 @@ texture = ExtResource("1_gxepm")
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_7cvtg")
 
-[node name="InteractionArea" parent="." instance=ExtResource("2_w6vh3")]
+[node name="InteractionArea" parent="." node_paths=PackedStringArray("item_sprite") instance=ExtResource("2_w6vh3")]
 action_name = "Recoger"
 item_name = "llave"
+alt_text = "[E] Para Recoger"
+item_sprite = NodePath("../Sprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("CircleShape2D_u0yv5")
 debug_color = Color(0.844679, 0.378794, 0, 0.42)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qovp5")
+bus = &"FXs"

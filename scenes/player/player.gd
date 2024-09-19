@@ -11,6 +11,8 @@ extends CharacterBody2D
 
 @export var minimap_icon: String = "arrow"
 
+@export var canvas_layer: CanvasLayer
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var animation_state = animation_tree.get("parameters/playback")
@@ -20,19 +22,20 @@ func _ready() -> void:
 	add_to_group(self.get_class())
 
 func _physics_process(_delta: float) -> void:
-	var input_vector: Vector2 = Input.get_vector("left", "right", "up", "down")
-	if input_vector.length() > 0:
-		animation_tree.set("parameters/Idle/blend_position", input_vector)
-		animation_tree.set("parameters/Walk/blend_position", input_vector)
-		animation_state.travel("Walk")
-		velocity = velocity.move_toward(input_vector * max_speed, accel)
-	else:
-		animation_state.travel("Idle")
-		velocity = velocity.move_toward(Vector2.ZERO, friction)
-	move_and_slide()
-	if get_slide_collision_count() > 0:
-		check_box_collision(velocity)
-		
+	if !ui_open():
+		var input_vector: Vector2 = Input.get_vector("left", "right", "up", "down")
+		if input_vector.length() > 0:
+			animation_tree.set("parameters/Idle/blend_position", input_vector)
+			animation_tree.set("parameters/Walk/blend_position", input_vector)
+			animation_state.travel("Walk")
+			velocity = velocity.move_toward(input_vector * max_speed, accel)
+		else:
+			animation_state.travel("Idle")
+			velocity = velocity.move_toward(Vector2.ZERO, friction)
+		move_and_slide()
+		if get_slide_collision_count() > 0:
+			check_box_collision(velocity)
+			
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("lamp"):
@@ -54,3 +57,11 @@ func check_box_collision(motion: Vector2) -> void:
 func die():
 	print("ready to die")
 	get_tree().change_scene_to_file("res://scenes/UIs/game_over.tscn")
+
+
+func ui_open()-> bool:
+	var canvas_nodes = canvas_layer.get_children()
+	for canva_node in canvas_nodes:
+		if canva_node.visible:
+			return true
+	return false

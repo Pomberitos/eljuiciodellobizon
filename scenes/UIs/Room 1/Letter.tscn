@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cawlhdaqesgwj"]
+[gd_scene load_steps=4 format=3 uid="uid://cawlhdaqesgwj"]
 
 [ext_resource type="Texture2D" uid="uid://c6ge70g66hist" path="res://assets/items/Letter - room 1.png" id="1_d3jmt"]
+[ext_resource type="Script" path="res://scenes/UIs/Room 1/letter_container.gd" id="1_dlf5x"]
+[ext_resource type="AudioStream" uid="uid://bw1vy6xelibmy" path="res://assets/audio/letter.ogg" id="2_40eo2"]
 
-[node name="LetterContainer" type="Control"]
+[node name="LetterContainer" type="Control" node_paths=PackedStringArray("letter_audio")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,6 +13,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("1_dlf5x")
+letter_audio = NodePath("AudioStreamPlayer")
 
 [node name="Opacity" type="ColorRect" parent="."]
 layout_mode = 1
@@ -35,3 +39,8 @@ offset_bottom = 176.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_d3jmt")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_40eo2")
+
+[connection signal="visibility_changed" from="TextureRect" to="." method="_on_texture_rect_visibility_changed"]

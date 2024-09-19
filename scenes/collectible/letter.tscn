@@ -12,8 +12,8 @@ shader_parameter/frequency = 0.35
 shader_parameter/highlight_speed = 5.0
 shader_parameter/highlight_width = 7.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wcxk"]
-size = Vector2(69, 32)
+[sub_resource type="CircleShape2D" id="CircleShape2D_b51x1"]
+radius = 40.0
 
 [node name="Letter" type="Node2D" node_paths=PackedStringArray("interaction_area")]
 script = ExtResource("1_78ka2")
@@ -25,17 +25,18 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_ugvma")
 centered = false
 
-[node name="InteractionArea" type="Area2D" parent="."]
+[node name="InteractionArea" type="Area2D" parent="." node_paths=PackedStringArray("item_sprite")]
 position = Vector2(-6, -21)
 collision_layer = 8
 script = ExtResource("1_qvbvc")
 action_name = "Leer"
 item_name = "carta"
 alt_text = "[E] para Leer"
+item_sprite = NodePath("../Sprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(18, 65)
-shape = SubResource("RectangleShape2D_5wcxk")
+position = Vector2(31, 54)
+shape = SubResource("CircleShape2D_b51x1")
 
 [connection signal="body_entered" from="InteractionArea" to="InteractionArea" method="_on_body_entered"]
 [connection signal="body_exited" from="InteractionArea" to="InteractionArea" method="_on_body_exited"]

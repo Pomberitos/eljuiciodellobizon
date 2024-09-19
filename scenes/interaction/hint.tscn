@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwht00ivoelts"]
+
+[ext_resource type="Script" path="res://scenes/interaction/hint.gd" id="1_0sioh"]
+[ext_resource type="Texture2D" uid="uid://6b6mjagen0hg" path="res://assets/items/puzzle_hint.png" id="1_ibv4w"]
+[ext_resource type="Script" path="res://scenes/interaction/interaction_area.gd" id="2_k8l6u"]
+[ext_resource type="Material" uid="uid://133cd7eyhhbg" path="res://scenes/interaction/hint_material.tres" id="2_ynkna"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3kef"]
+size = Vector2(72, 35.5)
+
+[node name="Hint" type="Node2D" node_paths=PackedStringArray("interaction_area")]
+script = ExtResource("1_0sioh")
+interaction_area = NodePath("InteractionArea")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("2_ynkna")
+texture = ExtResource("1_ibv4w")
+offset = Vector2(16, 16)
+
+[node name="InteractionArea" type="Area2D" parent="." node_paths=PackedStringArray("item_sprite")]
+script = ExtResource("2_k8l6u")
+alt_text = "[E] Para Interactuar"
+item_sprite = NodePath("../Sprite2D")
+text_y_offset = -64.3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(16, 58.25)
+shape = SubResource("RectangleShape2D_w3kef")
+
+[connection signal="body_entered" from="InteractionArea" to="InteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="InteractionArea" method="_on_body_exited"]
