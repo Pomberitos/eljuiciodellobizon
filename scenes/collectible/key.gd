@@ -16,4 +16,6 @@ func _on_interact() -> void:
 	player.pick_item(key_resource)
 	if item_sound:
 		item_sound.play()
+		await item_sound.finished
+		queue_free()
 	queue_free()

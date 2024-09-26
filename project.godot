@@ -49,6 +49,7 @@ folder_colors={
 [global_group]
 
 raycast_group=""
+door_switch=""
 
 [input]
 

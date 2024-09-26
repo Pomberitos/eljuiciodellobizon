@@ -19,7 +19,7 @@ offset = Vector2(16, 16)
 
 [node name="InteractionArea" type="Area2D" parent="." node_paths=PackedStringArray("item_sprite")]
 script = ExtResource("2_k8l6u")
-alt_text = "[E] Para Interactuar"
+alt_text = "[E] Para Leer"
 item_sprite = NodePath("../Sprite2D")
 text_y_offset = -64.3
 

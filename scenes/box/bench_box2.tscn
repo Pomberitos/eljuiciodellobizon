@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bui7227jviecj"]
+[gd_scene load_steps=7 format=3 uid="uid://ds6sarhkv1o7g"]
 
-[ext_resource type="Script" path="res://scenes/box/bench_box.gd" id="1_p4o1n"]
-[ext_resource type="Texture2D" uid="uid://bk54v3mwc8q4k" path="res://assets/items/bench.png" id="2_urq1m"]
-[ext_resource type="AudioStream" uid="uid://rj8p46as0ovt" path="res://assets/audio/drag_furniture.ogg" id="3_p0qk6"]
-[ext_resource type="PackedScene" uid="uid://cx6cef2aykja1" path="res://scenes/interaction/interaction_area.tscn" id="4_m06wo"]
+[ext_resource type="Script" path="res://scenes/box/bench_box.gd" id="1_fh0ak"]
+[ext_resource type="Texture2D" uid="uid://dubxtlyju6rnr" path="res://assets/items/bench2.png" id="2_lsq7n"]
+[ext_resource type="AudioStream" uid="uid://rj8p46as0ovt" path="res://assets/audio/drag_furniture.ogg" id="3_hd0fs"]
+[ext_resource type="PackedScene" uid="uid://cx6cef2aykja1" path="res://scenes/interaction/interaction_area.tscn" id="4_dn0wx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r7nn6"]
 
@@ -13,7 +13,7 @@ radius = 32.0
 [node name="GridBox" type="CharacterBody2D" node_paths=PackedStringArray("drag_audio_fx", "interaction_area") groups=["minimap_object"]]
 collision_layer = 8
 collision_mask = 15
-script = ExtResource("1_p4o1n")
+script = ExtResource("1_fh0ak")
 sliding_time = 0.55
 drag_audio_fx = NodePath("AudioStreamPlayer")
 interaction_area = NodePath("InteractionArea")
@@ -21,7 +21,7 @@ interaction_area = NodePath("InteractionArea")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(0, -11)
-texture = ExtResource("2_urq1m")
+texture = ExtResource("2_lsq7n")
 offset = Vector2(0, 11)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -30,9 +30,9 @@ shape = SubResource("RectangleShape2D_r7nn6")
 debug_color = Color(0.883857, 0.272769, 0.497728, 0.42)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_p0qk6")
+stream = ExtResource("3_hd0fs")
 
-[node name="InteractionArea" parent="." node_paths=PackedStringArray("item_sprite") instance=ExtResource("4_m06wo")]
+[node name="InteractionArea" parent="." node_paths=PackedStringArray("item_sprite") instance=ExtResource("4_dn0wx")]
 position = Vector2(0, -9)
 alt_text = "Empujar"
 item_sprite = NodePath("../Sprite2D")

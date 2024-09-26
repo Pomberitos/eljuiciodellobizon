@@ -5,7 +5,7 @@ class_name InteractionArea extends Area2D
 @export var alt_text: String = ""
 @export var item_sprite: Sprite2D
 @export var text_y_offset: float = 32
-
+@export var is_just_hint: bool = false
 
 
 @onready var shader_material: ShaderMaterial = load("res://scenes/interaction/hint_material.tres") as ShaderMaterial

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca8pxjagegn4m"]
+
+[ext_resource type="Script" path="res://scenes/rooms/room_portal.gd" id="1_ng75c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijv3q"]
+
+[node name="RoomPortal" type="Area2D"]
+position = Vector2(367, 46)
+script = ExtResource("1_ng75c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 3
+position = Vector2(0, -41)
+shape = SubResource("RectangleShape2D_ijv3q")
+debug_color = Color(0.33582, 0.639235, 0, 0.42)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -121)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
