@@ -5,6 +5,7 @@ func _ready() -> void:
 	Events.letter_removed.connect(_on_letter_removed)
 	Events.slasher_spawned.connect(_on_slasher_spawned)
 	Events.slasher_gone.connect(_on_slasher_gone)
+	Events.object_picked.connect(_on_object_picked)
 	AudioManager.play_music(AudioManager.GAME_MUSIC)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -26,3 +27,7 @@ func _on_slasher_spawned(_room: Room):
 
 func _on_slasher_gone():
 	AudioManager.play_music(AudioManager.GAME_MUSIC)
+
+func _on_object_picked(object: InventoryItem):
+	if object.name == "Key":
+		get_tree().change_scene_to_file("res://scenes/UIs/finish_mvp.tscn")

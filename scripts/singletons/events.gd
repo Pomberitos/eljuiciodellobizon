@@ -9,6 +9,7 @@ signal puzzle1_hint_displayed
 signal letter_removed
 signal box_moved(move_dir: Vector2i)
 signal box_placed(string_name: String)
+signal object_picked(object: InventoryItem)
 
 func _ready() -> void:
 	connect("room_entered", set_current_room)

@@ -43,6 +43,7 @@ func _input(event: InputEvent) -> void:
 
 func pick_item(item: InventoryItem):
 	inventory.insert(item)
+	Events.object_picked.emit(item)
 
 
 func check_box_collision(motion: Vector2) -> void:
@@ -59,7 +60,7 @@ func die():
 	get_tree().change_scene_to_file("res://scenes/UIs/game_over.tscn")
 
 
-func ui_open()-> bool:
+func ui_open() -> bool:
 	var canvas_nodes = canvas_layer.get_children()
 	for canva_node in canvas_nodes:
 		if canva_node.visible:

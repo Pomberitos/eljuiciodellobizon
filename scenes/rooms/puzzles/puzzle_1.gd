@@ -93,4 +93,5 @@ func _on_puzzle_solved():
 		instance.position = spawn_position.position
 		call_deferred("add_child", instance)
 
+
 	current_movement.clear()

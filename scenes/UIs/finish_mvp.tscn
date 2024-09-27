@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://k2617il75845"]
+[gd_scene load_steps=3 format=3 uid="uid://casrrer6bm0qi"]
 
-[ext_resource type="Script" path="res://scenes/UIs/game_over.gd" id="1_02bla"]
+[ext_resource type="Script" path="res://scenes/UIs/game_over.gd" id="1_pdsf2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p64a7"]
 font_size = 35
@@ -12,8 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_02bla")
-metadata/_edit_vertical_guides_ = [-56.0]
+script = ExtResource("1_pdsf2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -29,11 +28,11 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 7.0
-offset_right = 7.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "No pudiste escapar de El Lobizon"
+text = "Gracias por jugar.
+
+Estate atento... Aún hay más."
 label_settings = SubResource("LabelSettings_p64a7")
 horizontal_alignment = 1
 vertical_alignment = 1
