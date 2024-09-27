@@ -80,7 +80,7 @@ tile_set = ExtResource("3_ra8xj")
 [node name="SpawnPositions" type="Node" parent="Room 1"]
 
 [node name="Marker2D" type="Marker2D" parent="Room 1/SpawnPositions"]
-position = Vector2(304, 38)
+position = Vector2(367, 83)
 
 [node name="RoomPortal" type="Area2D" parent="Room 1"]
 position = Vector2(367, 46)
@@ -188,10 +188,7 @@ tile_set = ExtResource("3_ra8xj")
 [node name="SpawnPositions" type="Node" parent="Room 2"]
 
 [node name="Marker2D" type="Marker2D" parent="Room 2/SpawnPositions"]
-position = Vector2(86, -214)
-
-[node name="Marker2D2" type="Marker2D" parent="Room 2/SpawnPositions"]
-position = Vector2(555, -223)
+position = Vector2(367, -81)
 
 [node name="Label" type="Label" parent="Room 2"]
 visible = false
@@ -254,8 +251,9 @@ scale = Vector2(1.5, 1.5)
 motion_mode = 1
 canvas_layer = NodePath("../CanvasLayer")
 
-[node name="SlasherSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_85noy")]
+[node name="SlasherSpawner" parent="." node_paths=PackedStringArray("player", "excludedRooms") instance=ExtResource("6_85noy")]
 player = NodePath("../Player")
+excludedRooms = [NodePath("../Room 1")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -12,8 +12,6 @@ const DOOR_OPEN_SOUND: AudioStream = preload("res://assets/audio/doorOpen_1.ogg"
 @onready var sound_players = $Sound.get_children() # We can play multiple sounds at the same time
 
 func play_music(music: AudioStreamMP3) -> void:
-	if true:
-		return
 	music_player.stop()
 	music_player.stream = music
 	music_player.play()
