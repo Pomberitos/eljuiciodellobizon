@@ -37,6 +37,5 @@ func _on_slasher_spawned(_room: Room):
 func _on_slasher_gone():
 	AudioManager.play_music(AudioManager.GAME_MUSIC)
 
-func _on_object_picked(object: InventoryItem):
-	if object.name == "Key":
-		get_tree().change_scene_to_file("res://scenes/UIs/finish_mvp.tscn")
+func _on_object_picked(_object: InventoryItem):
+	get_tree().change_scene_to_file("res://scenes/UIs/finish_mvp.tscn")
