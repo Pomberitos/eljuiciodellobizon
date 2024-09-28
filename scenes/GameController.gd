@@ -17,6 +17,10 @@ func _unhandled_input(_event: InputEvent) -> void:
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
+	if Input.is_action_pressed("escape_full"):
+		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		get_tree().change_scene_to_file("res://scenes/UIs/game_finished.tscn")

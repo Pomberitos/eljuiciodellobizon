@@ -1,9 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://k2617il75845"]
 
 [ext_resource type="Script" path="res://scenes/UIs/game_over.gd" id="1_02bla"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_p64a7"]
-font_size = 35
+[ext_resource type="LabelSettings" uid="uid://c1uxkthjj052t" path="res://resources/font_dusk.tres" id="2_njrjl"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -34,6 +32,6 @@ offset_right = 7.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "No pudiste escapar de El Lobizon"
-label_settings = SubResource("LabelSettings_p64a7")
+label_settings = ExtResource("2_njrjl")
 horizontal_alignment = 1
 vertical_alignment = 1

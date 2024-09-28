@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://j8au7006wfkt"]
+[gd_scene load_steps=7 format=3 uid="uid://j8au7006wfkt"]
 
 [ext_resource type="Script" path="res://scenes/UIs/main_menu.gd" id="1_45f1r"]
 [ext_resource type="Texture2D" uid="uid://dg4xhivsp2mqe" path="res://assets/textures/juicio-lobizon.png" id="1_pp85i"]
+[ext_resource type="FontFile" uid="uid://4i6yfq7v7h4e" path="res://assets/fonts/duskey-free.rough.otf" id="3_8s0sh"]
 
 [sub_resource type="Theme" id="Theme_4t56t"]
 
@@ -53,15 +54,18 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme = SubResource("Theme_4t56t")
+alignment = 1
 
 [node name="NewGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_8s0sh")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_5nnuc")
 text = "Juego Nuevo"
 
 [node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_8s0sh")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_orkuf")
 text = "Salir"
