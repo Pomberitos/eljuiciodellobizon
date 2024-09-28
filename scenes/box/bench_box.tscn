@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bui7227jviecj"]
+[gd_scene load_steps=8 format=3 uid="uid://bui7227jviecj"]
 
 [ext_resource type="Script" path="res://scenes/box/bench_box.gd" id="1_p4o1n"]
 [ext_resource type="Texture2D" uid="uid://bk54v3mwc8q4k" path="res://assets/items/bench.png" id="2_urq1m"]
@@ -9,6 +9,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jm4vr"]
 radius = 32.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vleg1"]
+polygon = PackedVector2Array(-10, 4, -10, 10, 10, 10, 10, 4)
 
 [node name="GridBox" type="CharacterBody2D" node_paths=PackedStringArray("drag_audio_fx", "interaction_area") groups=["minimap_object"]]
 collision_layer = 8
@@ -42,17 +45,20 @@ position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_jm4vr")
 
 [node name="DownRay" type="RayCast2D" parent="."]
-target_position = Vector2(0, 16)
+target_position = Vector2(0, 25)
 collision_mask = 12
 
 [node name="RightRay" type="RayCast2D" parent="."]
-target_position = Vector2(16, 0)
+target_position = Vector2(25, 0)
 collision_mask = 12
 
 [node name="LeftRay" type="RayCast2D" parent="."]
-target_position = Vector2(-16, 0)
+target_position = Vector2(-25, 0)
 collision_mask = 12
 
 [node name="UpRay" type="RayCast2D" parent="."]
-target_position = Vector2(0, -16)
+target_position = Vector2(0, -25)
 collision_mask = 12
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_vleg1")

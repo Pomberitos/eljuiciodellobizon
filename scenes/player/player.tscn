@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://dogubcyw336jv"]
+[gd_scene load_steps=32 format=3 uid="uid://dogubcyw336jv"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_cr6eo"]
 [ext_resource type="Resource" uid="uid://o3fuk68wqyt" path="res://inventory/player_inventory.tres" id="2_jadey"]
 [ext_resource type="Texture2D" uid="uid://dr2wxh8lvfn60" path="res://assets/character/ricky/ricky32_sprite_sheet.png" id="3_ontc8"]
 [ext_resource type="Texture2D" uid="uid://bxoawfd28hujn" path="res://assets/light_bitmap.png" id="5_7gfs6"]
+[ext_resource type="Texture2D" uid="uid://dae2ndr6yaktq" path="res://assets/light.png" id="5_226wr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0d821"]
 size = Vector2(8, 11.5)
@@ -338,3 +339,13 @@ tree_root = SubResource("AnimationNodeStateMachine_qbcfq")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0, 0)
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(0, -11)
+color = Color(1, 1, 1, 0.615686)
+energy = 0.5
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 0.5
+texture = ExtResource("5_226wr")
+texture_scale = 0.2

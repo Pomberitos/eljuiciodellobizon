@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5brlqtj6ph0"]
+[gd_scene load_steps=10 format=3 uid="uid://c5brlqtj6ph0"]
 
 [ext_resource type="Texture2D" uid="uid://bvl3dyf2seirb" path="res://assets/items/key.png" id="1_gxepm"]
 [ext_resource type="Script" path="res://scenes/collectible/key.gd" id="1_lidl8"]
@@ -11,6 +11,13 @@ size = Vector2(24, 14)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u0yv5"]
 radius = 40.0
+
+[sub_resource type="Gradient" id="Gradient_fxc7k"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t8ux3"]
+gradient = SubResource("Gradient_fxc7k")
+width = 32
+height = 32
 
 [node name="Key" type="StaticBody2D" node_paths=PackedStringArray("interaction_area", "item_sound")]
 collision_layer = 8
@@ -41,3 +48,6 @@ debug_color = Color(0.844679, 0.378794, 0, 0.42)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_qovp5")
 bus = &"FXs"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = SubResource("GradientTexture2D_t8ux3")

@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbpc256k01b3p"]
+
+[ext_resource type="Texture2D" uid="uid://cv8lts1xrjlw0" path="res://assets/items/candle.png" id="1_gaq6b"]
+[ext_resource type="Texture2D" uid="uid://dae2ndr6yaktq" path="res://assets/light.png" id="2_fa436"]
+
+[sub_resource type="Animation" id="Animation_mfj3o"]
+resource_name = "flicker"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteLight:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(2, -7), Vector2(2, -10), Vector2(0, -7), Vector2(0, -10), Vector2(2, -10)]
+}
+
+[sub_resource type="Animation" id="Animation_h1mvu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteLight:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, -7)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mbell"]
+_data = {
+"RESET": SubResource("Animation_h1mvu"),
+"flicker": SubResource("Animation_mfj3o")
+}
+
+[node name="Candle" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gaq6b")
+
+[node name="SpriteLight" type="PointLight2D" parent="."]
+position = Vector2(2, -7)
+color = Color(0.94, 0.752, 0, 1)
+energy = 0.5
+shadow_enabled = true
+shadow_filter = 1
+texture = ExtResource("2_fa436")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mbell")
+}
+autoplay = "flicker"

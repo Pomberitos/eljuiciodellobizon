@@ -1,10 +1,14 @@
-[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://3im5s84l5a4c"]
+[gd_resource type="TileSet" load_steps=22 format=3 uid="uid://3im5s84l5a4c"]
 
 [ext_resource type="Texture2D" uid="uid://bhhcaf5b7d8lr" path="res://assets/tilemap/atlas_32x.png" id="1_l5onc"]
 [ext_resource type="PackedScene" uid="uid://c7wtbljmhfqte" path="res://scenes/box/grid_box.tscn" id="3_pq586"]
 [ext_resource type="PackedScene" uid="uid://cwht00ivoelts" path="res://scenes/interaction/hint.tscn" id="4_8gd0p"]
 [ext_resource type="PackedScene" uid="uid://bui7227jviecj" path="res://scenes/box/bench_box.tscn" id="4_sdatx"]
-[ext_resource type="PackedScene" path="res://scenes/box/bench_box2.tscn" id="5_fjv2k"]
+[ext_resource type="PackedScene" uid="uid://ds6sarhkv1o7g" path="res://scenes/box/bench_box2.tscn" id="5_fjv2k"]
+[ext_resource type="PackedScene" uid="uid://bbpc256k01b3p" path="res://scenes/candle.tscn" id="6_gjkum"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_d68yi"]
+polygon = PackedVector2Array(16, -16, -16, -16, -16, 16, 16, 16)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_dcbee"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
@@ -13,6 +17,15 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 
 agent_radius = 0.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_n2i78"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xeuhc"]
+polygon = PackedVector2Array(-13.7143, -13.7143, 45.7143, -13.7143, 45.7143, 38.8571, -13.7143, 38.8571)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6m0fe"]
+polygon = PackedVector2Array(-10, -12, -4, -14, -4, 10, 10, 10, 10, 16, 4, 16, 4, 12, 0, 12, 0, 16, -6, 16, -6, 10, -10, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_j7j80"]
+polygon = PackedVector2Array(-10, -8, 2, -8, 2, -12, 10, -12, 10, 7.5, 6, 10.5, 6, 16, 0, 16, 0, 12, -4, 12, -4, 16, -10, 16)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fvdng"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
@@ -122,6 +135,7 @@ texture_region_size = Vector2i(32, 32)
 6:6/0 = 0
 7:6/0 = 0
 15:6/0 = 0
+15:6/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_6m0fe")
 15:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 15:6/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 23:6/0 = 0
@@ -166,6 +180,7 @@ texture_region_size = Vector2i(32, 32)
 6:8/0 = 0
 7:8/0 = 0
 15:8/0 = 0
+15:8/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_j7j80")
 15:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 15:8/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 23:8/0 = 0
@@ -273,6 +288,8 @@ texture_region_size = Vector2i(32, 32)
 38:14/0 = 0
 39:14/0 = 0
 0:15/0 = 0
+0:15/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_d68yi")
+0:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:15/0/physics_layer_2/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:15/0 = 0
 1:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 6, -16, 6, 4, 16, 4)
@@ -402,32 +419,32 @@ texture_region_size = Vector2i(32, 32)
 19:7/0 = 0
 19:7/0/texture_origin = Vector2i(-16, -16)
 19:7/0/y_sort_origin = 16
-19:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(28, -12.5, 28, 30, -28, 30, -28, -12.5)
+19:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(42, -14, 42, 48, -12, 48, -12, -14)
 21:7/size_in_atlas = Vector2i(2, 2)
 21:7/0 = 0
 21:7/0/texture_origin = Vector2i(-16, -16)
 21:7/0/y_sort_origin = 16
-21:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(28, -12.5, 28, 30, -28, 30, -28, -12.5)
+21:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(42, -14, 42, 48, -12, 48, -12, -14)
 19:9/size_in_atlas = Vector2i(2, 2)
 19:9/0 = 0
 19:9/0/texture_origin = Vector2i(-16, -16)
 19:9/0/y_sort_origin = 16
-19:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(28, -12.5, 28, 30, -28, 30, -28, -12.5)
+19:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(44, -14, 44, 48, -12, 48, -12, -14)
 21:9/size_in_atlas = Vector2i(2, 2)
 21:9/0 = 0
 21:9/0/texture_origin = Vector2i(-16, -16)
 21:9/0/y_sort_origin = 16
-21:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(28, -12.5, 28, 30, -28, 30, -28, -12.5)
+21:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(44, -14, 44, 48, -12, 48, -12, -14)
 19:11/size_in_atlas = Vector2i(2, 2)
 19:11/0 = 0
 19:11/0/texture_origin = Vector2i(-16, -16)
 19:11/0/y_sort_origin = 16
-19:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(28, -12.5, 28, 30, -28, 30, -28, -12.5)
+19:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(44, 48, -12, 48, -12, -14, 44, -14)
 21:11/size_in_atlas = Vector2i(2, 2)
 21:11/0 = 0
 21:11/0/texture_origin = Vector2i(-16, -16)
 21:11/0/y_sort_origin = 16
-21:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(28, -12.5, 28, 30, -28, 30, -28, -12.5)
+21:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(44, -14, 44, 48, -12, 48, -12, -14)
 23:11/size_in_atlas = Vector2i(1, 2)
 23:11/0 = 0
 23:11/0/texture_origin = Vector2i(0, 16)
@@ -504,11 +521,12 @@ texture_region_size = Vector2i(32, 32)
 10:6/size_in_atlas = Vector2i(2, 2)
 10:6/0 = 0
 10:6/0/texture_origin = Vector2i(-16, -16)
+10:6/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_xeuhc")
 10:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-11.4286, -11.4286, 43.4286, -11.4286, 43.4286, 38.8571, -11.4286, 38.8571)
 10:4/size_in_atlas = Vector2i(2, 2)
 10:4/0 = 0
 10:4/0/texture_origin = Vector2i(-16, -16)
-10:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-11.4286, -11.4286, 43.4286, -11.4286, 43.4286, 38.8571, -11.4286, 38.8571)
+10:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14, -14, 46, -14, 46, 46, -14, 46)
 12:4/size_in_atlas = Vector2i(1, 3)
 12:4/0 = 0
 13:4/size_in_atlas = Vector2i(1, 3)
@@ -669,9 +687,11 @@ scenes/1/scene = ExtResource("3_pq586")
 scenes/2/scene = ExtResource("4_sdatx")
 scenes/3/scene = ExtResource("4_8gd0p")
 scenes/4/scene = ExtResource("5_fjv2k")
+scenes/5/scene = ExtResource("6_gjkum")
 
 [resource]
 tile_size = Vector2i(32, 32)
+occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 3
 physics_layer_1/collision_layer = 9

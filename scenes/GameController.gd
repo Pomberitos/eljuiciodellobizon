@@ -8,6 +8,15 @@ func _ready() -> void:
 	Events.object_picked.connect(_on_object_picked)
 	AudioManager.play_music(AudioManager.GAME_MUSIC)
 
+
+func _unhandled_input(_event: InputEvent) -> void:
+	# Set the fullscreen toggle key to f11 because that's what it is on my keyboard
+	if Input.is_action_pressed("ui_home"):
+		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		get_tree().change_scene_to_file("res://scenes/UIs/game_finished.tscn")
