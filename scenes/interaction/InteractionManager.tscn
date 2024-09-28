@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://m4arny7e2ukr"]
 
-[ext_resource type="FontFile" uid="uid://cuum7nik5ypni" path="res://assets/fonts/GravityRegular5.ttf" id="1_1u6xn"]
 [ext_resource type="Script" path="res://scenes/interaction/InteractionManager.gd" id="1_ykeip"]
+[ext_resource type="FontFile" uid="uid://4i6yfq7v7h4e" path="res://assets/fonts/duskey-free.rough.otf" id="2_8bsni"]
 
 [node name="InteractionManager" type="Node2D"]
 script = ExtResource("1_ykeip")
@@ -16,12 +16,13 @@ offset_top = -52.0
 offset_right = 118.5
 offset_bottom = -29.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.486275, 0.745098, 0.705882, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1.92523e-07, 0.782425, 0.998834, 1)
+theme_override_colors/font_shadow_color = Color(0.1, 0.1, 0.1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 3
-theme_override_fonts/font = ExtResource("1_1u6xn")
+theme_override_fonts/font = ExtResource("2_8bsni")
+theme_override_font_sizes/font_size = 20
 text = "[E] to interact"
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bb64dh33okdth"]
+[gd_scene load_steps=4 format=3 uid="uid://bb64dh33okdth"]
 
 [ext_resource type="Script" path="res://scenes/UIs/game_over.gd" id="1_lxmfq"]
+[ext_resource type="FontFile" uid="uid://4i6yfq7v7h4e" path="res://assets/fonts/duskey-free.rough.otf" id="2_kqhg2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p64a7"]
-font_size = 35
+font = ExtResource("2_kqhg2")
+font_size = 32
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -28,6 +30,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -24.0
+offset_right = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Lograste escapar de El Lobizon... por un tiempo."
