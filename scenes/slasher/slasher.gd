@@ -16,10 +16,6 @@ func _ready():
 	original_position = global_position
 	call_deferred("makepath")
 
-func _process(_delta: float) -> void:
-	if escaping and nav_agent.is_target_reached():
-		Events.slasher_gone.emit()
-
 func _physics_process(_delta: float) -> void:
 	var current_agent_position = global_position
 	var next_path_position = nav_agent.get_next_path_position()
@@ -46,6 +42,9 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 func _on_navigation_agent_2d_navigation_finished() -> void:
 	timer.start()
 
+func _on_navigation_agent_2d_target_reached() -> void:
+	if escaping:
+		Events.slasher_gone.emit()
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body.has_method("die"):
