@@ -147,7 +147,7 @@ position = Vector2(400, 225)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room 1/PlayerDetector"]
 z_index = 10
-position = Vector2(0, 15.25)
+position = Vector2(0, 16.25)
 shape = SubResource("RectangleShape2D_8p6ln")
 debug_color = Color(0.792157, 0.345098, 0.356863, 0.419608)
 

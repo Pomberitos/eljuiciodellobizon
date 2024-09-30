@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://j8au7006wfkt"]
 
 [ext_resource type="Script" path="res://scenes/UIs/main_menu.gd" id="1_45f1r"]
-[ext_resource type="Texture2D" uid="uid://dg4xhivsp2mqe" path="res://assets/textures/juicio-lobizon.png" id="1_pp85i"]
+[ext_resource type="Texture2D" uid="uid://qd2h7tf8gidl" path="res://assets/Portada_El_Juicio_del_Lobizon.png" id="2_ce7f1"]
 [ext_resource type="FontFile" uid="uid://4i6yfq7v7h4e" path="res://assets/fonts/duskey-free.rough.otf" id="3_8s0sh"]
 
 [sub_resource type="Theme" id="Theme_4t56t"]
@@ -34,7 +34,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_pp85i")
+texture = ExtResource("2_ce7f1")
 expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
