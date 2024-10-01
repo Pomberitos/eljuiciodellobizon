@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://k2617il75845"]
 
 [ext_resource type="Script" path="res://scenes/UIs/game_over.gd" id="1_02bla"]
-[ext_resource type="LabelSettings" uid="uid://c1uxkthjj052t" path="res://resources/font_dusk.tres" id="2_njrjl"]
+[ext_resource type="LabelSettings" path="res://resources/font_dusk.tres" id="2_njrjl"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -35,3 +35,21 @@ text = "No pudiste escapar de El Lobizon"
 label_settings = ExtResource("2_njrjl")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MarginContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -146.5
+offset_top = -50.0
+offset_right = 146.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label2" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Apretá <Enter> Para volver a empezar"

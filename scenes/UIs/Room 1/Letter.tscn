@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cawlhdaqesgwj"]
 
-[ext_resource type="Texture2D" uid="uid://c6ge70g66hist" path="res://assets/items/Letter - room 1.png" id="1_d3jmt"]
 [ext_resource type="Script" path="res://scenes/UIs/Room 1/letter_container.gd" id="1_dlf5x"]
 [ext_resource type="AudioStream" uid="uid://bw1vy6xelibmy" path="res://assets/audio/letter.ogg" id="2_40eo2"]
+[ext_resource type="Texture2D" uid="uid://cerqn8u73m36h" path="res://assets/fonts/Iteracion Carta(1).png" id="2_xhwk6"]
 
 [node name="LetterContainer" type="Control" node_paths=PackedStringArray("letter_audio")]
 layout_mode = 3
@@ -38,7 +38,7 @@ offset_right = 160.0
 offset_bottom = 176.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_d3jmt")
+texture = ExtResource("2_xhwk6")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_40eo2")

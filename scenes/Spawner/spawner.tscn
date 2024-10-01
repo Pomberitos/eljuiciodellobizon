@@ -4,3 +4,6 @@
 
 [node name="SlasherSpawner" type="Node"]
 script = ExtResource("1_qd8th")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+one_shot = true

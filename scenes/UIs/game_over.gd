@@ -6,5 +6,6 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().quit()
-	elif event.is_action_pressed("ui_accept"):
-		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	
+	if event.is_action_pressed("ui_accept"):
+		get_tree().change_scene_to_file("res://scenes/UIs/main_menu.tscn")
