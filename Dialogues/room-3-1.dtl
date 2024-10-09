@@ -1,0 +1,11 @@
+jackie-maid: Hola Ricky...
+jackie-maid: Te estaba esperando.
+label question-1
+- Quien sos?
+	jackie-maid: Me llamo Jackie
+	jackie-maid: Estoy acá para servir a los invitados del señor Astor.
+	jump question-1
+- Como escapar
+	jackie-maid: ¿Ya te queres ir?
+	jackie-maid: No tan rapido
+	jackie-maid: Primero vamos a jugar...

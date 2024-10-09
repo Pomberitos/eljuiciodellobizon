@@ -14,3 +14,4 @@ stream = ExtResource("2_17nu5")
 [node name="Sound" type="Node" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sound"]
+bus = &"FXs"

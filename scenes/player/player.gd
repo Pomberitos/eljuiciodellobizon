@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 @export var max_speed = 100.0
+@export var max_speed_multiplier = 1.5
 @export var accel = 1000.0
 @export var friction = 500.0
 
@@ -23,12 +24,15 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if !ui_open():
+		var current_speed = max_speed
+		if Input.is_action_pressed("run"):
+			current_speed = max_speed * max_speed_multiplier
 		var input_vector: Vector2 = Input.get_vector("left", "right", "up", "down")
 		if input_vector.length() > 0:
 			animation_tree.set("parameters/Idle/blend_position", input_vector)
 			animation_tree.set("parameters/Walk/blend_position", input_vector)
 			animation_state.travel("Walk")
-			velocity = velocity.move_toward(input_vector * max_speed, accel)
+			velocity = velocity.move_toward(input_vector * current_speed, accel)
 		else:
 			animation_state.travel("Idle")
 			velocity = velocity.move_toward(Vector2.ZERO, friction)

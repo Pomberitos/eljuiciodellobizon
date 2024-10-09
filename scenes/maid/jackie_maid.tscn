@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://tt61co0mpfpi"]
+
+[ext_resource type="Texture2D" uid="uid://bvy0q1prqb3s2" path="res://assets/character/jackie/JackieMaid.png" id="1_lxd4p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_igupf"]
+size = Vector2(95, 75)
+
+[node name="JackieMaid" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lxd4p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 73.5)
+shape = SubResource("RectangleShape2D_igupf")

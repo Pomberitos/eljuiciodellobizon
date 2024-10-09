@@ -27,7 +27,6 @@ position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_buwoe")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_postprocessing = 1
 debug_path_custom_color = Color(0.997686, 0.129967, 0.999998, 1)
 
 [node name="Timer" type="Timer" parent="."]
