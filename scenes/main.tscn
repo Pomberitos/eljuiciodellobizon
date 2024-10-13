@@ -44,6 +44,7 @@ number = 0
 
 [node name="Room 3" parent="." instance=ExtResource("4_ywhvu")]
 position = Vector2(768, 0)
+number = null
 
 [node name="PlayerDetector" parent="Room 3" index="0"]
 position = Vector2(336, 204)
@@ -59,6 +60,7 @@ scale = Vector2(0.2, 0.2)
 z_index = 1
 position = Vector2(308, 355)
 scale = Vector2(1.5, 1.5)
+collision_mask = 46
 motion_mode = 1
 canvas_layer = NodePath("../CanvasLayer")
 

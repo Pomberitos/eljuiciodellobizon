@@ -18,12 +18,15 @@ extends CharacterBody2D
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var animation_state = animation_tree.get("parameters/playback")
 
+var can_move = true
+
 
 func _ready() -> void:
 	add_to_group(self.get_class())
 
 func _physics_process(_delta: float) -> void:
-	if !ui_open():
+	# TODO: Only relay on can_move
+	if !ui_open() and can_move:
 		var current_speed = max_speed
 		if Input.is_action_pressed("run"):
 			current_speed = max_speed * max_speed_multiplier
@@ -39,6 +42,9 @@ func _physics_process(_delta: float) -> void:
 		move_and_slide()
 		if get_slide_collision_count() > 0:
 			check_box_collision(velocity)
+	else:
+		velocity = Vector2.ZERO
+		animation_state.travel("Idle")
 			
 
 func _input(event: InputEvent) -> void:

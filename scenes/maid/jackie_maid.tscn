@@ -3,13 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://bvy0q1prqb3s2" path="res://assets/character/jackie/JackieMaid.png" id="1_lxd4p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_igupf"]
-size = Vector2(95, 75)
+size = Vector2(95, 238)
 
 [node name="JackieMaid" type="CharacterBody2D"]
+collision_layer = 32
+collision_mask = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_lxd4p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, 73.5)
+position = Vector2(1.5, -8)
 shape = SubResource("RectangleShape2D_igupf")
