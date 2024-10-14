@@ -4,5 +4,5 @@ extends Area2D
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is GridBox:
+	if body is ClockBox:
 		Events.emit_signal("box_placed", switch_name, self.position)

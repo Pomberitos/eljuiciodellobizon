@@ -60,9 +60,9 @@ func check_box_collision(motion: Vector2) -> void:
 	if get_slide_collision_count() > 0:
 		if motion.is_equal_approx(Vector2.ZERO):
 			return
-		var box: GridBox = get_slide_collision(0).get_collider() as GridBox
+		var box = get_slide_collision(0).get_collider()
 
-		if box:
+		if box is GridBox or box is ClockBox:
 			box.push(motion)
 
 func die():

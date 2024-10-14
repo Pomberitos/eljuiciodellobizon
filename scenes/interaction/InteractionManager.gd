@@ -6,6 +6,7 @@ extends Node2D
 var base_text: String = "Pulsá [E] para {action} {item_name}"
 var alt_text: String
 var text_y_offset: float
+var text_x_offset: float
 var active_areas: Array = []
 var can_interact: bool = true
 
@@ -13,10 +14,11 @@ func _ready() -> void:
 	Events.slasher_spawned.connect(_on_slasher_spawned)
 	Events.slasher_gone.connect(_on_slasher_gone)
 
-func register_area(area: InteractionArea, text: String = "", y_offset: float = 32) -> void:
+func register_area(area: InteractionArea, text: String = "", text_offset: Vector2i = Vector2i(0, 32)) -> void:
 	active_areas.push_back(area)
 	alt_text = text
-	text_y_offset = y_offset
+	text_x_offset = text_offset.x
+	text_y_offset = text_offset.y
 
 func unregister_area(area: InteractionArea) -> void:
 	var index = active_areas.find(area)
@@ -33,7 +35,7 @@ func _process(_delta: float) -> void:
 
 		label.global_position = active_areas[0].global_position
 		label.global_position.y -= text_y_offset
-		label.global_position.x -= label.size.x / 2
+		label.global_position.x -= label.size.x / 2 + text_x_offset
 		label.show()
 	else:
 		label.hide()

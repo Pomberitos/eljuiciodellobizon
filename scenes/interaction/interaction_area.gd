@@ -4,7 +4,7 @@ class_name InteractionArea extends Area2D
 @export var item_name: String = "item_name"
 @export var alt_text: String = ""
 @export var item_sprite: Sprite2D
-@export var text_y_offset: float = 32
+@export var text_offset: Vector2i = Vector2i(0,32)
 @export var is_just_hint: bool = false
 
 
@@ -22,7 +22,7 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player or body.is_in_group(str(Player)):
 		current_player = body
-		InteractionManager.register_area(self, alt_text, text_y_offset)
+		InteractionManager.register_area(self, alt_text, text_offset)
 		add_material()
 
 

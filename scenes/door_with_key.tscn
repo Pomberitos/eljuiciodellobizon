@@ -31,7 +31,9 @@ shape = SubResource("RectangleShape2D_fd4dx")
 [node name="InteractionArea" parent="." node_paths=PackedStringArray("item_sprite") instance=ExtResource("3_ygodp")]
 action_name = "abrir"
 item_name = "Puerta Comedor"
+alt_text = "Abrir"
 item_sprite = NodePath("../DoorSprite")
+text_offset = Vector2i(32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(0, 32)

@@ -1,4 +1,4 @@
-class_name GridBox extends CharacterBody2D
+class_name ClockBox extends CharacterBody2D
 
 @export var sliding_time: float = 0.45
 @export var drag_audio_fx: AudioStreamPlayer
@@ -15,6 +15,7 @@ var sliding: bool = false
 var cannot_move: bool = false
 
 func _ready() -> void:
+	Events.connect("puzzle_1_solved", _on_puzzle_solved)
 	tile_map = get_parent()
 	add_to_group(self.get_class())
 	
@@ -26,6 +27,8 @@ func calculate_destination(_direction: Vector2) -> Vector2:
 	return tile_map.map_to_local(tile_map_position)
 
 func push(_motion: Vector2) -> void:
+	if cannot_move:
+		return
 	var move_to: Vector2 = calculate_destination(_motion.normalized())
 	var dir: Vector2i = Vector2i(_motion.normalized())
 	if sliding or dir == Vector2i.ZERO:
@@ -52,3 +55,6 @@ func check_collisions_with_group(move_dir: Vector2i):
 	if raycast.is_colliding():
 		return true
 	return false
+
+func _on_puzzle_solved()-> void:
+	cannot_move = true

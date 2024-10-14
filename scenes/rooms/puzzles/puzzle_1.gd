@@ -8,6 +8,7 @@ enum EastPosition {UP, DOWN, LEFT, RIGHT}
 
 @export var bell_sound: AudioStreamPlayer
 @export var incorrect_sound: AudioStreamPlayer
+@export var correct_sound: AudioStreamPlayer
 
 @export var tile_map_layer: TileMapLayer
 
@@ -84,6 +85,7 @@ func _register_movement(movement_name: String, _coord: Vector2i):
 		_reset_movement() # Si la secuencia es incorrecta, reseteamos
 	else:
 		tile_map_layer.set_cell(_coord, 0, atlas_coord["green"])
+		correct_sound.play()
 		if current_movement.size() == movement_code.size():
 			_on_puzzle_solved()
 
@@ -103,6 +105,7 @@ func _reset_movement():
 
 # Acciones al resolver el puzzle correctamente
 func _on_puzzle_solved():
+	Events.emit_signal("puzzle_1_solved")
 	bell_sound.play()
 	print("Puzzle Resuelto")
 	if key_1:
