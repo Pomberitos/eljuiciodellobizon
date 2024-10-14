@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://k2617il75845"]
 
 [ext_resource type="Script" path="res://scenes/UIs/game_over.gd" id="1_02bla"]
-[ext_resource type="LabelSettings" path="res://resources/font_dusk.tres" id="2_njrjl"]
+[ext_resource type="LabelSettings" uid="uid://c1uxkthjj052t" path="res://resources/font_dusk.tres" id="2_njrjl"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

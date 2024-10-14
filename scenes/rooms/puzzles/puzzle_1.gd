@@ -9,6 +9,8 @@ enum EastPosition {UP, DOWN, LEFT, RIGHT}
 @export var bell_sound: AudioStreamPlayer
 @export var incorrect_sound: AudioStreamPlayer
 
+@export var tile_layer: TileMapLayer
+
 # Diccionario que contiene el mapeo de las direcciones para cada posición del "Este"
 @onready var direction_mappings: Dictionary = {
 	EastPosition.UP: {
