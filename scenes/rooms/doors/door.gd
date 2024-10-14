@@ -1,9 +1,6 @@
-extends StaticBody2D
-
-class_name Door
-
-@export var closedDoorTexture: Texture2D = load("res://scenes/rooms/doors/door_closed.png")
-@export var openDoorTexture: Texture2D = load("res://scenes/rooms/doors/door_open.png")
+class_name Door extends StaticBody2D
+@export var closedDoorTexture: Texture2D = preload("res://scenes/rooms/doors/door_closed.png") as Texture2D
+@export var openDoorTexture: Texture2D = preload("res://scenes/rooms/doors/door_open.png") as Texture2D
 
 var isPlayerNearby = false
 var isDoorClosed = true;

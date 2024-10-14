@@ -78,6 +78,9 @@ $RECYCLE.BIN/
 
 ### VisualStudioCode ###
 .vscode/*
+.vscode/launch.json
+.vscode/settings.json
+
 
 # Local History for Visual Studio Code
 .history/
@@ -89,6 +92,3 @@ $RECYCLE.BIN/
 # Ignore all local history of files
 .history
 .ionide
-.vscode/launch.json
-.vscode/launch.json
-.vscode/settings.json

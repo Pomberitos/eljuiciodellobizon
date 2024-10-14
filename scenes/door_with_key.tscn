@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpgq64aunf130"]
+
+[ext_resource type="Script" path="res://scenes/door_with_key.gd" id="1_skf8n"]
+[ext_resource type="Texture2D" uid="uid://7mr4jkgkov5i" path="res://scenes/rooms/doors/door_closed.png" id="1_y4lnw"]
+[ext_resource type="Texture2D" uid="uid://bh4g00jjbnqdq" path="res://scenes/rooms/doors/door_open.png" id="3_8xgs3"]
+[ext_resource type="PackedScene" uid="uid://cx6cef2aykja1" path="res://scenes/interaction/interaction_area.tscn" id="3_ygodp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fd4dx"]
+size = Vector2(35, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_woks5"]
+size = Vector2(32, 20)
+
+[node name="DoorWithKey" type="StaticBody2D" node_paths=PackedStringArray("interaction_area")]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_skf8n")
+interaction_area = NodePath("InteractionArea")
+closedDoorTexture = ExtResource("1_y4lnw")
+openDoorTexture = ExtResource("3_8xgs3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_y4lnw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_fd4dx")
+
+[node name="InteractionArea" parent="." node_paths=PackedStringArray("item_sprite") instance=ExtResource("3_ygodp")]
+action_name = "abrir"
+item_name = "Puerta Comedor"
+item_sprite = NodePath("../Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 32)
+shape = SubResource("RectangleShape2D_woks5")
+debug_color = Color(0, 0.639364, 0.36572, 0.42)
