@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/box/clock_box.gd" id="1_1qh40"]
 [ext_resource type="Texture2D" uid="uid://copu6kdyqmmrb" path="res://assets/items/clock.png" id="2_jfs78"]
-[ext_resource type="AudioStream" uid="uid://cn26jatjm4l2d" path="res://assets/audio/tick_clock_2.ogg" id="3_t7mxf"]
+[ext_resource type="AudioStream" uid="uid://4mbyyir1xqur" path="res://assets/audio/tick_clock.ogg" id="3_xbga4"]
 [ext_resource type="AudioStream" uid="uid://rj8p46as0ovt" path="res://assets/audio/drag_furniture.ogg" id="4_x7e77"]
 [ext_resource type="PackedScene" uid="uid://cx6cef2aykja1" path="res://scenes/interaction/interaction_area.tscn" id="5_t8v86"]
 
@@ -33,9 +33,10 @@ debug_color = Color(0.883857, 0.272769, 0.497728, 0.42)
 enable_node_path = NodePath("../ClockTick")
 
 [node name="ClockTick" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_t7mxf")
+stream = ExtResource("3_xbga4")
 autoplay = true
 mix_target = 2
+bus = &"FXs"
 parameters/looping = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

@@ -10,7 +10,7 @@
 size = Vector2(35, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_woks5"]
-size = Vector2(32, 20)
+size = Vector2(36, 31)
 
 [node name="DoorWithKey" type="StaticBody2D" node_paths=PackedStringArray("interaction_area")]
 collision_layer = 4
@@ -31,11 +31,11 @@ shape = SubResource("RectangleShape2D_fd4dx")
 [node name="InteractionArea" parent="." node_paths=PackedStringArray("item_sprite") instance=ExtResource("3_ygodp")]
 action_name = "abrir"
 item_name = "Puerta Comedor"
-alt_text = "Abrir"
+alt_text = "[E] Abrir"
 item_sprite = NodePath("../DoorSprite")
 text_offset = Vector2i(32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(0, 32)
+position = Vector2(0, 37.5)
 shape = SubResource("RectangleShape2D_woks5")
 debug_color = Color(0, 0.639364, 0.36572, 0.42)

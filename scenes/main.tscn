@@ -1,19 +1,18 @@
-[gd_scene load_steps=22 format=4 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=21 format=4 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="Script" path="res://scenes/GameController.gd" id="1_3dbo4"]
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
 [ext_resource type="PackedScene" uid="uid://qlf0yl38rot" path="res://scenes/rooms/room_1.tscn" id="2_qsngq"]
-[ext_resource type="Texture2D" uid="uid://7mr4jkgkov5i" path="res://scenes/rooms/doors/door_closed.png" id="3_d50a2"]
 [ext_resource type="PackedScene" uid="uid://cpgq64aunf130" path="res://scenes/door_with_key.tscn" id="3_k7xsd"]
 [ext_resource type="PackedScene" uid="uid://b4epdjjrtj8ip" path="res://scenes/rooms/room_2.tscn" id="3_sy0pg"]
-[ext_resource type="Texture2D" uid="uid://bh4g00jjbnqdq" path="res://scenes/rooms/doors/door_open.png" id="4_m0lhx"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="4_pkou0"]
 [ext_resource type="PackedScene" uid="uid://bmnxn1i1k668r" path="res://scenes/rooms/room_3.tscn" id="4_ywhvu"]
+[ext_resource type="PackedScene" uid="uid://bbpc256k01b3p" path="res://scenes/candle.tscn" id="5_h5nrd"]
 [ext_resource type="PackedScene" uid="uid://tt61co0mpfpi" path="res://scenes/maid/jackie_maid.tscn" id="5_p305u"]
 [ext_resource type="PackedScene" uid="uid://cp8tpptvbxnme" path="res://inventory/player_inventory_ui.tscn" id="5_yat7e"]
 [ext_resource type="Script" path="res://scenes/rooms/room_portal.gd" id="6_6vxlu"]
 [ext_resource type="PackedScene" uid="uid://c75cbpj36u6mg" path="res://scenes/Spawner/spawner.tscn" id="6_85noy"]
-[ext_resource type="AudioStream" uid="uid://l0emo1de2bmt" path="res://assets/audio/monstar_gets_key_from_braid.ogg" id="8_2qjet"]
+[ext_resource type="AudioStream" uid="uid://2p2lv2podabp" path="res://assets/audio/eerie_scream.ogg" id="6_dww5r"]
 [ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="10_2oynr"]
 [ext_resource type="Shader" path="res://shaders/palette_post.gdshader" id="11_bg4xu"]
 [ext_resource type="PackedScene" uid="uid://cawlhdaqesgwj" path="res://scenes/UIs/Room 1/Letter.tscn" id="12_gjrc0"]
@@ -49,10 +48,6 @@ tile_map_data = PackedByteArray("AAAAAAIAAAAAAA0AAAAAAAMAAAAAAA0AAAAAAAQAAAAAAA0
 [node name="Objects" parent="Room 1/TileMap" index="2"]
 tile_map_data = PackedByteArray("AAAJAAYAAAAKAAQAAAAQAAgAAgAAAAAAAgAIAAcAAgAAAAAABAAGAAYAAgAAAAAABAARAAEAAAAVAAcAAAARAAgAAAAQAAAAAAA=")
 
-[node name="DoorWithSwitch" parent="Room 1" index="3"]
-closedDoorTexture = ExtResource("3_d50a2")
-openDoorTexture = ExtResource("4_m0lhx")
-
 [node name="Letter" parent="Room 1" index="4" node_paths=PackedStringArray("ObjectUI")]
 ObjectUI = NodePath("../../CanvasLayer/Room 1 - Letter container")
 
@@ -76,6 +71,9 @@ debug_color = Color(0.33582, 0.639235, 0, 0.42)
 [node name="Marker2D" type="Marker2D" parent="Room 1/RoomPortal2"]
 position = Vector2(78, -40)
 
+[node name="Candle" parent="Room 1" instance=ExtResource("5_h5nrd")]
+position = Vector2(756, 181)
+
 [node name="Room 2" parent="." instance=ExtResource("3_sy0pg")]
 number = 0
 
@@ -84,10 +82,16 @@ correct_sound = NodePath("CorrectSound")
 tile_map_layer = NodePath("../TileMap/Objects")
 
 [node name="CorrectSound" type="AudioStreamPlayer" parent="Room 2/Puzzle1" index="3"]
-stream = ExtResource("8_2qjet")
+stream = ExtResource("6_dww5r")
+volume_db = -5.0
+pitch_scale = 1.04
+bus = &"FXs"
 
 [node name="Objects" parent="Room 2/TileMap" index="2"]
 tile_map_data = PackedByteArray("AAATAAEAAAALAAAAAAAMAAEAAAALAAAAAAAGAAIAAAAQAA8AAAAMAAcAAgAAAAAAAQAIAAYAAAAIAAoAAAAQAAoAAAAIAAoAAAAQAAYAAAAIAAgAAAAIAAoAAAAIAAgAAAAMAAMAAAAQAAAAAAAWAAcAAAAQAAAAAAAMAAsAAAAQAAAAAAACAAcAAAAQAAAAAAA=")
+
+[node name="CollisionShape2D" parent="Room 2/PlayerDetector" index="0"]
+position = Vector2(0, 15)
 
 [node name="Hint" parent="Room 2" index="10" node_paths=PackedStringArray("ObjectUI")]
 ObjectUI = NodePath("../../CanvasLayer/HintContainer")

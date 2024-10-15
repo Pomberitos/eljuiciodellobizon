@@ -1,7 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://cca2b1r3ikpwp"]
+[gd_scene load_steps=7 format=3 uid="uid://cca2b1r3ikpwp"]
 
 [ext_resource type="PackedScene" uid="uid://cvafktamq5w3h" path="res://scenes/rooms/doors/door.tscn" id="1_3046k"]
 [ext_resource type="Script" path="res://scenes/rooms/doors/door_with_switch.gd" id="2_jikix"]
+[ext_resource type="Texture2D" uid="uid://bliv3skhk1sqy" path="res://scenes/rooms/doors/door_closed_2.png" id="3_v8vym"]
+[ext_resource type="Texture2D" uid="uid://bh4g00jjbnqdq" path="res://scenes/rooms/doors/door_open.png" id="4_vak8m"]
+[ext_resource type="PackedScene" uid="uid://cx6cef2aykja1" path="res://scenes/interaction/interaction_area.tscn" id="5_rt4ky"]
 
-[node name="DoorWithSwitch" instance=ExtResource("1_3046k")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n60u1"]
+size = Vector2(37, 33)
+
+[node name="DoorWithSwitch" node_paths=PackedStringArray("interaction_area") instance=ExtResource("1_3046k")]
 script = ExtResource("2_jikix")
+interaction_area = NodePath("InteractionArea")
+closedDoorTexture = ExtResource("3_v8vym")
+openDoorTexture = ExtResource("4_vak8m")
+
+[node name="DoorSprite" parent="." index="0"]
+texture = ExtResource("3_v8vym")
+
+[node name="InteractionArea" parent="." index="3" instance=ExtResource("5_rt4ky")]
+position = Vector2(0, 30)
+alt_text = "[E] Abrir"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" index="0"]
+position = Vector2(-0.5, 6.5)
+shape = SubResource("RectangleShape2D_n60u1")
+debug_color = Color(3.48948e-06, 0.647529, 0.208499, 0.42)

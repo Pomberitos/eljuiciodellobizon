@@ -34,6 +34,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "door_room_3": "res://Dialogues/door_room_3.dtl",
+"no_key_door": "res://Dialogues/no_key_door.dtl",
 "room-3-1": "res://Dialogues/room-3-1.dtl"
 }
 variables={
