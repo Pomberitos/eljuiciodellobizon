@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=25 format=4 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="Script" path="res://scenes/GameController.gd" id="1_3dbo4"]
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
@@ -7,16 +7,20 @@
 [ext_resource type="PackedScene" uid="uid://b4epdjjrtj8ip" path="res://scenes/rooms/room_2.tscn" id="3_sy0pg"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="4_pkou0"]
 [ext_resource type="PackedScene" uid="uid://bmnxn1i1k668r" path="res://scenes/rooms/room_3.tscn" id="4_ywhvu"]
-[ext_resource type="PackedScene" uid="uid://bbpc256k01b3p" path="res://scenes/candle.tscn" id="5_h5nrd"]
+[ext_resource type="PackedScene" path="res://scenes/candle.tscn" id="5_h5nrd"]
 [ext_resource type="PackedScene" uid="uid://tt61co0mpfpi" path="res://scenes/maid/jackie_maid.tscn" id="5_p305u"]
 [ext_resource type="PackedScene" uid="uid://cp8tpptvbxnme" path="res://inventory/player_inventory_ui.tscn" id="5_yat7e"]
 [ext_resource type="Script" path="res://scenes/rooms/room_portal.gd" id="6_6vxlu"]
 [ext_resource type="PackedScene" uid="uid://c75cbpj36u6mg" path="res://scenes/Spawner/spawner.tscn" id="6_85noy"]
 [ext_resource type="AudioStream" uid="uid://2p2lv2podabp" path="res://assets/audio/eerie_scream.ogg" id="6_dww5r"]
 [ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="10_2oynr"]
+[ext_resource type="PackedScene" uid="uid://3cy137yehsru" path="res://scenes/collectible/letter.tscn" id="10_7d0u5"]
+[ext_resource type="Script" path="res://scenes/rooms/puzzles/puzzle_2.gd" id="11_40gju"]
 [ext_resource type="Shader" path="res://shaders/palette_post.gdshader" id="11_bg4xu"]
+[ext_resource type="PackedScene" uid="uid://c5brlqtj6ph0" path="res://scenes/collectible/key.tscn" id="12_armql"]
 [ext_resource type="PackedScene" uid="uid://cawlhdaqesgwj" path="res://scenes/UIs/Room 1/Letter.tscn" id="12_gjrc0"]
 [ext_resource type="PackedScene" uid="uid://dsk8fru450di1" path="res://scenes/UIs/Room 1/hint_container.tscn" id="14_k85a1"]
+[ext_resource type="PackedScene" uid="uid://c0qh7mj423s3v" path="res://puzzles/PuzzleHamster.tscn" id="17_tew7j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ijv3q"]
 
@@ -123,9 +127,27 @@ debug_color = Color(0.33582, 0.639235, 0, 0.42)
 [node name="Marker2D" type="Marker2D" parent="Room 3/RoomPortal2"]
 position = Vector2(-78, -40)
 
+[node name="PuzzleHamsterInteractor" parent="Room 3" node_paths=PackedStringArray("ObjectUI") instance=ExtResource("10_7d0u5")]
+position = Vector2(357, 211)
+ObjectUI = NodePath("../Puzzle2/PuzzleHamster")
+
+[node name="Puzzle2" type="Node" parent="Room 3" node_paths=PackedStringArray("key_spawn")]
+script = ExtResource("11_40gju")
+key_2 = ExtResource("12_armql")
+key_spawn = NodePath("Marker2D")
+
+[node name="PuzzleHamster" parent="Room 3/Puzzle2" instance=ExtResource("17_tew7j")]
+offset_left = 1243.0
+offset_top = 229.0
+offset_right = 443.0
+offset_bottom = -221.0
+
+[node name="Marker2D" type="Marker2D" parent="Room 3/Puzzle2"]
+position = Vector2(1348, 75)
+
 [node name="Player" parent="." node_paths=PackedStringArray("canvas_layer") instance=ExtResource("1_p8a7x")]
 z_index = 1
-position = Vector2(308, 318)
+position = Vector2(384, 391)
 scale = Vector2(1.5, 1.5)
 collision_mask = 46
 motion_mode = 1

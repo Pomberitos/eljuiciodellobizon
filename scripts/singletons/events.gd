@@ -2,7 +2,7 @@ extends Node
 
 var current_room: Room
 @warning_ignore("unused_signal")
-signal room_entered(next_room) #ignore-warning
+signal room_entered(next_room) # ignore-warning
 @warning_ignore("unused_signal")
 signal slasher_spawned
 @warning_ignore("unused_signal")
@@ -21,6 +21,10 @@ signal box_placed(string_name: String)
 signal object_picked(object: InventoryItem)
 @warning_ignore("unused_signal")
 signal puzzle_1_solved
+@warning_ignore("unused_signal")
+signal hamster_puzzle_displayed
+@warning_ignore("unused_signal")
+signal hamster_puzzle_removed
 
 func _ready() -> void:
 	connect("room_entered", set_current_room)

@@ -2,7 +2,7 @@ extends Node2D
 
 class_name ObjectWithUI
 
-@export var interaction_area: InteractionArea
+@export var interaction_area: Area2D
 @export var ObjectUI: Control
 
 var player: Player = null

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cofyngcaxcykx"]
+
+[ext_resource type="PackedScene" uid="uid://c87bysua47hbg" path="res://scenes/collectible/object_with_ui.tscn" id="1_2cflw"]
+[ext_resource type="Script" path="res://hamster_puzzle_interactor.gd" id="2_wm1nf"]
+
+[node name="HamsterPuzzleInteractor" instance=ExtResource("1_2cflw")]
+script = ExtResource("2_wm1nf")

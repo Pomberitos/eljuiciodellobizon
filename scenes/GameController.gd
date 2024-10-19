@@ -3,6 +3,8 @@ extends Node2D
 func _ready() -> void:
 	Events.letter_displayed.connect(_on_letter_displayed)
 	Events.letter_removed.connect(_on_letter_removed)
+	Events.hamster_puzzle_displayed.connect(_on_hamster_puzzle_displayed)
+	Events.hamster_puzzle_removed.connect(_on_hamsbter_puzzle_removed)
 	Events.slasher_spawned.connect(_on_slasher_spawned)
 	Events.slasher_gone.connect(_on_slasher_gone)
 	Events.object_picked.connect(_on_object_picked)
@@ -32,6 +34,12 @@ func _on_letter_display_letter(letter: PackedScene) -> void:
 
 func _on_letter_displayed():
 	AudioManager.play_music(AudioManager.LETTER_MUSIC)
+
+func _on_hamster_puzzle_displayed():
+	AudioManager.play_music(AudioManager.LETTER_MUSIC)
+
+func _on_hamsbter_puzzle_removed():
+	AudioManager.play_music(AudioManager.GAME_MUSIC)
 
 func _on_letter_removed():
 	get_tree().paused = false
