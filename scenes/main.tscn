@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=22 format=4 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="Script" path="res://scenes/GameController.gd" id="1_3dbo4"]
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
@@ -17,6 +17,7 @@
 [ext_resource type="Shader" path="res://shaders/palette_post.gdshader" id="11_bg4xu"]
 [ext_resource type="PackedScene" uid="uid://cawlhdaqesgwj" path="res://scenes/UIs/Room 1/Letter.tscn" id="12_gjrc0"]
 [ext_resource type="PackedScene" uid="uid://dsk8fru450di1" path="res://scenes/UIs/Room 1/hint_container.tscn" id="14_k85a1"]
+[ext_resource type="PackedScene" uid="uid://c0qh7mj423s3v" path="res://puzzles/PuzzleHamster.tscn" id="17_tew7j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ijv3q"]
 
@@ -164,6 +165,12 @@ grow_vertical = 2
 
 [node name="HintContainer" parent="CanvasLayer" instance=ExtResource("14_k85a1")]
 visible = false
+
+[node name="PuzzleHamster" parent="CanvasLayer" instance=ExtResource("17_tew7j")]
+offset_left = 930.0
+offset_top = 54.0
+offset_right = 734.0
+offset_bottom = -80.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
