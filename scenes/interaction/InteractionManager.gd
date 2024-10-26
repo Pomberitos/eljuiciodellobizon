@@ -10,15 +10,18 @@ var text_x_offset: float
 var active_areas: Array = []
 var can_interact: bool = true
 
+
 func _ready() -> void:
 	Events.slasher_spawned.connect(_on_slasher_spawned)
 	Events.slasher_gone.connect(_on_slasher_gone)
+
 
 func register_area(area: InteractionArea, text: String = "", text_offset: Vector2i = Vector2i(0, 32)) -> void:
 	active_areas.push_back(area)
 	alt_text = text
 	text_x_offset = text_offset.x
 	text_y_offset = text_offset.y
+
 
 func unregister_area(area: InteractionArea) -> void:
 	var index = active_areas.find(area)
@@ -52,12 +55,14 @@ func _input(event: InputEvent) -> void:
 		if active_areas.size() > 0:
 			can_interact = false
 			label.hide()
-			
+
 			await active_areas[0].interact.call()
 			can_interact = true
 
+
 func _on_slasher_spawned(_room: Room) -> void:
 	can_interact = false
+
 
 func _on_slasher_gone() -> void:
 	can_interact = true

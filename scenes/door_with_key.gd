@@ -7,6 +7,7 @@ signal door_opened
 var player: Player = null
 var collision_shape: CollisionShape2D
 
+
 func _ready() -> void:
 	interaction_area.interact = Callable(self, "_on_interact")
 	door_opened.connect(on_door_opened)
@@ -15,10 +16,10 @@ func _ready() -> void:
 func _on_interact() -> void:
 	player = interaction_area.current_player as Player
 	emit_signal("door_opened")
-	
+
 
 func on_door_opened() -> void:
-	Dialogic.start("door_room_3")
+	Dialogic.start(label)
 	if isDoorClosed and use_key():
 		open()
 		collision_shape = interaction_area.get_child(0) as CollisionShape2D

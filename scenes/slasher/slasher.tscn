@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://wyls5budn4jc"]
+[gd_scene load_steps=7 format=3 uid="uid://wyls5budn4jc"]
 
 [ext_resource type="Script" path="res://scenes/slasher/slasher.gd" id="1_65sln"]
 [ext_resource type="Texture2D" uid="uid://dmp2c2fe2c6o6" path="res://assets/lobizon.png" id="2_6pnuf"]
 [ext_resource type="AudioStream" uid="uid://85icf5f8huiq" path="res://assets/audio/wolf.ogg" id="3_2rdy3"]
+[ext_resource type="Script" path="res://scripts/state_machine.gd" id="4_rgmfx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_buwoe"]
 height = 26.0
@@ -47,6 +48,9 @@ autoplay = true
 [node name="LifeTimer" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4_rgmfx")
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]

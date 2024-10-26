@@ -34,11 +34,13 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "door_room_3": "res://Dialogues/door_room_3.dtl",
+"door_room_4": "res://Dialogues/door_room_4.dtl",
 "no_key_door": "res://Dialogues/no_key_door.dtl",
 "room-3-1": "res://Dialogues/room-3-1.dtl"
 }
 variables={
-"llave_obtenida": false
+"key": false,
+"key4": false
 }
 layout/style_list=["res://Dialogues/styles/default.tres"]
 layout/default_style="res://Dialogues/styles/default.tres"

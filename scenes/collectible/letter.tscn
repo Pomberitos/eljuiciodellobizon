@@ -7,10 +7,10 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2w1q7"]
 shader = ExtResource("2_3g7m5")
-shader_parameter/highlight_color = Color(0.780815, 0.873859, 1, 1)
-shader_parameter/frequency = 0.35
-shader_parameter/highlight_speed = 5.0
-shader_parameter/highlight_width = 7.0
+shader_parameter/highlight_color = Color(2.02149e-06, 0.795173, 0.618372, 1)
+shader_parameter/frequency = 3.399
+shader_parameter/highlight_speed = 4.39
+shader_parameter/highlight_width = 37.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b51x1"]
 radius = 40.0

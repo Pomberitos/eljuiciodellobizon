@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://4vduqc0wij88"]
+
+[ext_resource type="Script" path="res://scenes/collectible/key.gd" id="1_juxhc"]
+[ext_resource type="Resource" uid="uid://clco070vgtvev" path="res://inventory/items/key.tres" id="2_gwpwn"]
+[ext_resource type="Texture2D" uid="uid://csg8674ayhqbc" path="res://assets/items/key4.png" id="3_d85qj"]
+[ext_resource type="PackedScene" uid="uid://cx6cef2aykja1" path="res://scenes/interaction/interaction_area.tscn" id="4_0n1g6"]
+[ext_resource type="AudioStream" uid="uid://dxm220rql8s3t" path="res://assets/audio/key.ogg" id="5_pi6cc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7cvtg"]
+size = Vector2(24, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u0yv5"]
+radius = 40.0
+
+[sub_resource type="Gradient" id="Gradient_fxc7k"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t8ux3"]
+gradient = SubResource("Gradient_fxc7k")
+width = 32
+height = 32
+
+[node name="Key4" type="StaticBody2D" node_paths=PackedStringArray("interaction_area", "item_sound")]
+collision_layer = 8
+script = ExtResource("1_juxhc")
+interaction_area = NodePath("InteractionArea")
+key_resource = ExtResource("2_gwpwn")
+item_sound = NodePath("AudioStreamPlayer")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.21, 0.710333, 1, 1)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_d85qj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_7cvtg")
+
+[node name="InteractionArea" parent="." node_paths=PackedStringArray("item_sprite") instance=ExtResource("4_0n1g6")]
+action_name = "Recoger"
+item_name = "llave"
+alt_text = "[E] Para Recoger"
+item_sprite = NodePath("../Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_u0yv5")
+debug_color = Color(0.844679, 0.378794, 0, 0.42)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_pi6cc")
+bus = &"FXs"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.25
+texture = SubResource("GradientTexture2D_t8ux3")
