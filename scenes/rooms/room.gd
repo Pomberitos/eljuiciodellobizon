@@ -15,3 +15,7 @@ func _on_player_detector_body_entered(body: Node2D) -> void:
 
 func _on_room_entered(room: Room) -> void:
 	print("Room entered: ", room.number)
+
+
+func _input(_event: InputEvent) -> void:
+	pass

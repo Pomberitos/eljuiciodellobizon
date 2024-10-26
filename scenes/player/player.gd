@@ -1,5 +1,14 @@
-class_name Player
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
+
+
+enum Position {
+	ROOM_1,
+	ROOM_2,
+	ROOM_3,
+	ROOM_4
+}
+
+@export var selected_initial_position: Position = Position.ROOM_1
 
 @export var max_speed = 100.0
 @export var max_speed_multiplier = 1.5
@@ -18,10 +27,19 @@ extends CharacterBody2D
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var animation_state = animation_tree.get("parameters/playback")
 
+# Posiciones iniciales definidas
+var initial_positions: Array[Vector2] = [
+	Vector2(435, 376),  # ROOM_1
+	Vector2(342, -87),  # ROOM_2
+	Vector2(893, 215),  # ROOM_3
+	Vector2(1497, -90)  # ROOM_4
+]
+
 var can_move = true
 
 
 func _ready() -> void:
+	position = initial_positions[selected_initial_position]
 	add_to_group(self.get_class())
 
 func _physics_process(_delta: float) -> void:

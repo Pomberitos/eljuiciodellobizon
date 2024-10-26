@@ -17,6 +17,6 @@ func _on_interact() -> void:
 	if item_sound:
 		item_sound.play()
 		await item_sound.finished
-		Dialogic.VAR.llave_obtenida = true
+		Dialogic.VAR[key_resource.name] = true
 		queue_free()
 	queue_free()

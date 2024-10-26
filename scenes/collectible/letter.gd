@@ -1,8 +1,10 @@
 extends ObjectWithUI
 
+
 func _ready() -> void:
 	super()
 	interaction_area.interact = Callable(self, "_on_interact")
+
 
 func _on_interact() -> void:
 	ObjectUI.visible = !ObjectUI.visible

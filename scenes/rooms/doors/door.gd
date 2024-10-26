@@ -1,9 +1,10 @@
 class_name Door extends StaticBody2D
 @export var closedDoorTexture: Texture2D = load("res://scenes/rooms/doors/door_closed.png") as Texture2D
 @export var openDoorTexture: Texture2D = load("res://scenes/rooms/doors/door_open.png") as Texture2D
+@export var label: String
 
 var isPlayerNearby = false
-var isDoorClosed = true;
+var isDoorClosed: bool = true;
 
 func open():
 	if isDoorClosed:

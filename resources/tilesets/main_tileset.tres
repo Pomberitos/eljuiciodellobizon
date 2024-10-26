@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=22 format=3 uid="uid://3im5s84l5a4c"]
 
 [ext_resource type="Texture2D" uid="uid://bhhcaf5b7d8lr" path="res://assets/tilemap/atlas_32x.png" id="1_l5onc"]
-[ext_resource type="PackedScene" uid="uid://c7wtbljmhfqte" path="res://scenes/box/clock_box.tscn" id="3_pq586"]
+[ext_resource type="PackedScene" path="res://scenes/box/clock_box.tscn" id="3_pq586"]
 [ext_resource type="PackedScene" uid="uid://cwht00ivoelts" path="res://scenes/interaction/hint.tscn" id="4_8gd0p"]
 [ext_resource type="PackedScene" uid="uid://bui7227jviecj" path="res://scenes/box/bench_box.tscn" id="4_sdatx"]
 [ext_resource type="PackedScene" uid="uid://ds6sarhkv1o7g" path="res://scenes/box/bench_box2.tscn" id="5_fjv2k"]
@@ -402,6 +402,7 @@ texture_region_size = Vector2i(32, 32)
 14:0/size_in_atlas = Vector2i(2, 2)
 14:0/0 = 0
 14:0/0/texture_origin = Vector2i(0, 16)
+14:0/0/modulate = Color(0.108643, 0.221658, 0.39736, 1)
 19:6/size_in_atlas = Vector2i(2, 1)
 19:6/0 = 0
 21:6/size_in_atlas = Vector2i(2, 1)

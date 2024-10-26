@@ -18,7 +18,7 @@ func _on_interact() -> void:
 	
 
 func on_door_opened() -> void:
-	Dialogic.start("door_room_3")
+	Dialogic.start(label)
 	if isDoorClosed and use_key():
 		open()
 		collision_shape = interaction_area.get_child(0) as CollisionShape2D
