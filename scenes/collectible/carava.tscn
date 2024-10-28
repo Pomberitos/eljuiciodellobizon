@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://dwkq61ac1kkwg"]
+
+[ext_resource type="Script" path="res://scenes/collectible/key.gd" id="1_3x6to"]
+[ext_resource type="Script" path="res://inventory/inventory_item.gd" id="2_rxhfs"]
+[ext_resource type="Texture2D" uid="uid://fcnp2eofqhwg" path="res://assets/items/axe.png" id="3_msx85"]
+[ext_resource type="PackedScene" uid="uid://cx6cef2aykja1" path="res://scenes/interaction/interaction_area.tscn" id="4_v8vvy"]
+[ext_resource type="AudioStream" uid="uid://f1b878sjjaqn" path="res://assets/audio/knifeSlice.ogg" id="5_rdgfs"]
+[ext_resource type="Texture2D" uid="uid://bxoawfd28hujn" path="res://assets/light_bitmap.png" id="6_hum6q"]
+
+[sub_resource type="Resource" id="Resource_5otkp"]
+script = ExtResource("2_rxhfs")
+name = "Caravaca"
+texture = ExtResource("3_msx85")
+is_key_item = true
+max_stack = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7cvtg"]
+size = Vector2(24, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u0yv5"]
+radius = 40.0
+
+[node name="Caravaca" type="StaticBody2D" node_paths=PackedStringArray("interaction_area", "item_sound", "point_light2D")]
+collision_layer = 8
+script = ExtResource("1_3x6to")
+interaction_area = NodePath("InteractionArea")
+key_resource = SubResource("Resource_5otkp")
+item_sound = NodePath("AudioStreamPlayer")
+point_light2D = NodePath("PointLight2D")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.21, 0.710333, 1, 1)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("3_msx85")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_7cvtg")
+
+[node name="InteractionArea" parent="." node_paths=PackedStringArray("item_sprite") instance=ExtResource("4_v8vvy")]
+action_name = "Recoger"
+item_name = "llave"
+alt_text = "[E] Para Recoger"
+item_sprite = NodePath("../Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_u0yv5")
+debug_color = Color(0.844679, 0.378794, 0, 0.42)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_rdgfs")
+bus = &"FXs"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("6_hum6q")

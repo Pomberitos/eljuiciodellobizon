@@ -1,19 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://3cy137yehsru"]
+[gd_scene load_steps=9 format=3 uid="uid://3cy137yehsru"]
 
 [ext_resource type="Script" path="res://scenes/collectible/letter.gd" id="1_78ka2"]
 [ext_resource type="Script" path="res://scenes/interaction/interaction_area.gd" id="1_qvbvc"]
-[ext_resource type="Shader" path="res://shaders/highlight_item2.gdshader" id="2_3g7m5"]
+[ext_resource type="Shader" path="res://shaders/outline_2d.gdshader" id="2_e2jdw"]
 [ext_resource type="Texture2D" uid="uid://dh8xpdl1il0na" path="res://assets/paper.png" id="3_ugvma"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2w1q7"]
-shader = ExtResource("2_3g7m5")
-shader_parameter/highlight_color = Color(2.02149e-06, 0.795173, 0.618372, 1)
-shader_parameter/frequency = 3.399
-shader_parameter/highlight_speed = 4.39
-shader_parameter/highlight_width = 37.0
+shader = ExtResource("2_e2jdw")
+shader_parameter/intensity = 300
+shader_parameter/precision = 0.02
+shader_parameter/flipColors = false
+shader_parameter/outline_color = Color(0.210145, 0.53, 0.1537, 1)
+shader_parameter/outline_color_2 = Color(0.4395, 1, 0.43, 1)
+shader_parameter/use_outline_uv = false
+shader_parameter/useTexture = false
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b51x1"]
-radius = 40.0
+radius = 47.1699
+
+[sub_resource type="Gradient" id="Gradient_n7yjd"]
+colors = PackedColorArray(0.89, 0.89, 0.89, 1, 0.59, 0.59, 0.59, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wt4v4"]
+gradient = SubResource("Gradient_n7yjd")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.474359, 0.457265)
 
 [node name="Letter" type="Node2D" node_paths=PackedStringArray("interaction_area")]
 script = ExtResource("1_78ka2")
@@ -33,10 +46,15 @@ action_name = "Leer"
 item_name = "carta"
 alt_text = "[E] para Leer"
 item_sprite = NodePath("../Sprite2D")
+text_offset = Vector2i(-30, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(31, 54)
+position = Vector2(35, 57)
 shape = SubResource("CircleShape2D_b51x1")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(9, 13)
+texture = SubResource("GradientTexture2D_wt4v4")
 
 [connection signal="body_entered" from="InteractionArea" to="InteractionArea" method="_on_body_entered"]
 [connection signal="body_exited" from="InteractionArea" to="InteractionArea" method="_on_body_exited"]

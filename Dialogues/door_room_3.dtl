@@ -1,6 +1,6 @@
 if {key} == true:
 	[sound path="res://assets/audio/door_unlock.ogg" volume="0.0"]
-	Usaste La llave
+	ricky: Usaste La llave
 else:
 	[sound path="res://assets/audio/Doorlocked02.ogg" volume="0.0"]
-	La puerta esta con llave...
+	ricky: La puerta esta con llave...

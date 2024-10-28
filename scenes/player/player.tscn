@@ -1,10 +1,10 @@
-[gd_scene load_steps=32 format=3 uid="uid://dogubcyw336jv"]
+[gd_scene load_steps=41 format=3 uid="uid://dogubcyw336jv"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_cr6eo"]
 [ext_resource type="Resource" uid="uid://o3fuk68wqyt" path="res://inventory/player_inventory.tres" id="2_jadey"]
 [ext_resource type="Texture2D" uid="uid://dr2wxh8lvfn60" path="res://assets/character/ricky/ricky32_sprite_sheet.png" id="3_ontc8"]
-[ext_resource type="Texture2D" uid="uid://bxoawfd28hujn" path="res://assets/light_bitmap.png" id="5_7gfs6"]
-[ext_resource type="Texture2D" uid="uid://dae2ndr6yaktq" path="res://assets/light.png" id="5_226wr"]
+[ext_resource type="Texture2D" uid="uid://c17h1s0thqoms" path="res://assets/light_bitmap_2.png" id="4_q41ey"]
+[ext_resource type="Texture2D" uid="uid://bxoawfd28hujn" path="res://assets/light_bitmap.png" id="5_duexy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0d821"]
 size = Vector2(8, 11.5)
@@ -26,6 +26,168 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CrossLight:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:flip_h")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CrossLight/Area2D:monitoring")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:can_move")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_aa5su"]
+resource_name = "cross_move"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CrossLight:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CrossLight/Area2D:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:can_move")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"cross_animation_finished"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_q562h"]
 resource_name = "idle_down"
@@ -43,6 +205,42 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.14159]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CrossLight:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CrossLight/Area2D:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_ad70e"]
@@ -74,6 +272,42 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5708]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CrossLight:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CrossLight/Area2D:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_b2pr1"]
 resource_name = "idle_right"
@@ -104,6 +338,42 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CrossLight:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CrossLight/Area2D:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_bdl67"]
 resource_name = "idle_up"
@@ -122,6 +392,42 @@ tracks/0/keys = {
 "update": 1,
 "values": [3]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CrossLight:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CrossLight/Area2D:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_gf4yx"]
 resource_name = "walk_down"
@@ -139,6 +445,42 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [7, 8, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.0002, 0.0003),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [3.14159, 3.14159, 3.14159, 3.14159]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CrossLight:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CrossLight/Area2D:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_vpy6m"]
@@ -170,6 +512,30 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5708]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CrossLight:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_5lb3b"]
 resource_name = "walk_right"
@@ -200,6 +566,30 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CrossLight:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_focpi"]
 resource_name = "walk_up"
@@ -218,10 +608,23 @@ tracks/0/keys = {
 "update": 1,
 "values": [5, 4, 5]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CrossLight:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2seh4"]
 _data = {
 "RESET": SubResource("Animation_gjcm0"),
+"cross_move": SubResource("Animation_aa5su"),
 "idle_down": SubResource("Animation_q562h"),
 "idle_left": SubResource("Animation_ad70e"),
 "idle_right": SubResource("Animation_b2pr1"),
@@ -231,6 +634,31 @@ _data = {
 "walk_right": SubResource("Animation_5lb3b"),
 "walk_up": SubResource("Animation_focpi")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0f3i4"]
+animation = &"cross_move"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d8sdw"]
+animation = &"cross_move"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6sw2n"]
+animation = &"cross_move"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c5wgd"]
+animation = &"cross_move"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_k8xio"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_0f3i4")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_d8sdw")
+blend_point_1/pos = Vector2(0, 1.1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_6sw2n")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_c5wgd")
+blend_point_3/pos = Vector2(0, -1.1)
+min_space = Vector2(-1, -1.21)
+max_space = Vector2(1, 1.1)
+blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4ytp4"]
 animation = &"idle_left"
@@ -285,13 +713,23 @@ blend_mode = 1
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kd0yx"]
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_73uar"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_agb54"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_qbcfq"]
+states/Cross/node = SubResource("AnimationNodeBlendSpace2D_k8xio")
+states/Cross/position = Vector2(297, 263)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_i7vho")
 states/Idle/position = Vector2(297, 100)
 states/Start/position = Vector2(97, 95)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_64fa2")
 states/Walk/position = Vector2(496, 100)
-transitions = ["Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_13u3p"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_t7ohr"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_kd0yx")]
+transitions = ["Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_13u3p"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_t7ohr"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_kd0yx"), "Idle", "Cross", SubResource("AnimationNodeStateMachineTransition_73uar"), "Cross", "Idle", SubResource("AnimationNodeStateMachineTransition_agb54")]
+graph_offset = Vector2(34.4108, 47)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5tdfu"]
+radius = 50.01
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("lamp") groups=["minimap_object", "player"]]
 z_index = 10
@@ -307,7 +745,7 @@ texture = ExtResource("3_ontc8")
 offset = Vector2(0, -6)
 flip_h = true
 hframes = 3
-vframes = 3
+vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
@@ -322,12 +760,15 @@ shape = SubResource("RectangleShape2D_v7byl")
 debug_color = Color(0.942127, 0.120271, 0.522503, 0.42)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -11)
 scale = Vector2(4.3125, 4.3125)
-enabled = false
+color = Color(0.98, 0.8428, 0.392, 1)
+energy = 0.55
 shadow_enabled = true
-shadow_color = Color(0, 0, 0, 0.309804)
-texture = ExtResource("5_7gfs6")
-texture_scale = 0.75
+shadow_color = Color(0.25, 0.25, 0.25, 0.309804)
+shadow_filter = 1
+texture = ExtResource("4_q41ey")
+offset = Vector2(0, -12)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -337,15 +778,21 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_qbcfq")
 anim_player = NodePath("../AnimationPlayer")
+parameters/Cross/blend_position = Vector2(0.00648963, 0.0151057)
 parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0, 0)
 
-[node name="PointLight2D2" type="PointLight2D" parent="."]
-position = Vector2(0, -11)
-color = Color(1, 1, 1, 0.615686)
-energy = 0.5
-shadow_enabled = true
-shadow_filter = 1
-shadow_filter_smooth = 0.5
-texture = ExtResource("5_226wr")
-texture_scale = 0.2
+[node name="CrossLight" type="PointLight2D" parent="."]
+position = Vector2(-11, -18)
+enabled = false
+texture = ExtResource("5_duexy")
+texture_scale = 1.8
+
+[node name="Area2D" type="Area2D" parent="CrossLight"]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrossLight/Area2D"]
+shape = SubResource("CircleShape2D_5tdfu")
+debug_color = Color(0.871249, 0.00048535, 0.846799, 0.42)
+
+[connection signal="body_entered" from="CrossLight/Area2D" to="." method="_on_area_2d_body_entered"]

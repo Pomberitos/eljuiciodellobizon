@@ -33,7 +33,9 @@ overrides = {}
 [sub_resource type="Resource" id="Resource_fuhlp"]
 script = ExtResource("1_yproj")
 scene = ExtResource("6_e31vf")
-overrides = {}
+overrides = {
+"font_size_custom": "15.0"
+}
 
 [sub_resource type="Resource" id="Resource_pccgy"]
 script = ExtResource("1_yproj")
@@ -52,4 +54,4 @@ base_overrides = {
 "global_bg_color": "Color(0.298039, 0.2, 0.113725, 0.901961)"
 }
 layers = Array[ExtResource("1_yproj")]([SubResource("Resource_pss3m"), SubResource("Resource_5vnul"), SubResource("Resource_h1q3a"), SubResource("Resource_1aul2"), SubResource("Resource_fuhlp"), SubResource("Resource_pccgy"), SubResource("Resource_75ood")])
-metadata/_latest_layer = -1
+metadata/_latest_layer = 2

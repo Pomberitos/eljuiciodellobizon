@@ -28,35 +28,29 @@ var initial_positions: Array[Vector2] = [
 	Vector2(1497, -90),  # ROOM_4
 ]
 
-var can_move = true
+@export var can_move: bool = true
+
+enum { WALK, CROSS }
+
+var state = WALK
 
 
 func _ready() -> void:
+	set_tween_light()
 	global_position = initial_positions[selected_initial_position]
 	add_to_group(self.get_class())
 
 
 func _physics_process(_delta: float) -> void:
-	# TODO: Only rddelay on can_move
-	if !ui_open() and can_move:
-		var current_speed = max_speed
-		if Input.is_action_pressed("run"):
-			current_speed = max_speed * max_speed_multiplier
-		var input_vector: Vector2 = Input.get_vector("left", "right", "up", "down")
-		if input_vector.length() > 0:
-			animation_tree.set("parameters/Idle/blend_position", input_vector)
-			animation_tree.set("parameters/Walk/blend_position", input_vector)
-			animation_state.travel("Walk")
-			velocity = velocity.move_toward(input_vector * current_speed, accel)
-		else:
-			animation_state.travel("Idle")
-			velocity = velocity.move_toward(Vector2.ZERO, friction)
-		move_and_slide()
-		if get_slide_collision_count() > 0:
-			check_box_collision(velocity)
-	else:
-		velocity = Vector2.ZERO
-		animation_state.travel("Idle")
+	match state:
+		WALK:
+			# TODO: Only rddelay on can_move
+			if !ui_open() and can_move:
+				move_state()
+			else:
+				idle_state()
+		CROSS:
+			cross_state()
 
 
 func _input(event: InputEvent) -> void:
@@ -90,3 +84,66 @@ func ui_open() -> bool:
 		if canva_node.visible:
 			return true
 	return false
+
+
+func set_tween_light() -> void:
+	var tween: Tween = create_tween()
+	tween.set_trans(Tween.TRANS_SPRING)
+	tween.set_loops()
+	var start: float = -0.02
+	var end: float = 0.02
+	tween.tween_property(lamp, "skew", end, 0.3)
+	tween.tween_property(lamp, "skew", start, 0.3)
+
+
+func move_state() -> void:
+	var current_speed = max_speed
+	if Input.is_action_pressed("run"):
+		current_speed = max_speed * max_speed_multiplier
+
+	var input_vector: Vector2 = Input.get_vector("left", "right", "up", "down")
+	if input_vector != Vector2.ZERO:
+		animation_tree.set("parameters/Idle/blend_position", input_vector)
+		animation_tree.set("parameters/Walk/blend_position", input_vector)
+		animation_tree.set("parameters/Cross/blend_position", input_vector)
+		animation_state.travel("Walk")
+		velocity = velocity.move_toward(input_vector * current_speed, accel)
+	else:
+		animation_state.travel("Idle")
+		velocity = velocity.move_toward(Vector2.ZERO, friction)
+
+	move_and_slide()
+	if get_slide_collision_count() > 0:
+		check_box_collision(velocity)
+
+	if Input.is_action_just_pressed("cross") and Dialogic.VAR.Caravaca:
+		state = CROSS
+
+
+#		current_speed = max_speed * 0.3
+
+
+func idle_state() -> void:
+	velocity = Vector2.ZERO
+	animation_state.travel("Idle")
+
+
+func cross_state() -> void:
+	velocity = Vector2.ZERO
+	animation_state.travel("Cross")
+
+
+func cross_animation_finished():
+	state = WALK
+
+
+func check_state() -> void:
+	match state:
+		WALK:
+			move_state()
+		CROSS:
+			cross_state()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("Entered Cross Area", body)

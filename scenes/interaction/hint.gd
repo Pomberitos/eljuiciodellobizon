@@ -9,6 +9,6 @@ func _ready() -> void:
 func _on_interact() -> void:
 	ObjectUI.visible = !ObjectUI.visible
 	if ObjectUI.visible:
-		Events.puzzle1_hint_displayed.emit(self.name)
+		Events.puzzle1_hint_displayed.emit()
 	else:
-		Events.puzzle1_hint_removed.emit(self.name)
+		Events.puzzle1_hint_removed.emit()

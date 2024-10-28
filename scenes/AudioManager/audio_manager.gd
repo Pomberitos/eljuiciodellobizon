@@ -8,14 +8,17 @@ const LETTER_MUSIC: AudioStreamMP3 = preload("res://assets/music/07 Pulso de lo 
 
 const DOOR_OPEN_SOUND: AudioStream = preload("res://assets/audio/doorOpen_1.ogg")
 
-@onready var music_player = $Music.get_child(0) # There's only one music player
-@onready var sound_players = $Sound.get_children() # We can play multiple sounds at the same time
+@onready var music_player: AudioStreamPlayer = $Music.get_child(0)  # There's only one music player
+@onready var sound_players: Array = $Sound.get_children()  # We can play multiple sounds at the same time
 
-func play_music(music: AudioStreamMP3) -> void:
+
+func play_music(music: AudioStreamMP3, pitch_scale: float = 1.0, volume_db: float = 0) -> void:
 	music_player.stop()
 	music_player.stream = music
+	music_player.pitch_scale = pitch_scale
+	music_player.volume_db = volume_db
 	music_player.play()
-			
+
 
 func play_sound(sound: AudioStream) -> void:
 	for player in sound_players:

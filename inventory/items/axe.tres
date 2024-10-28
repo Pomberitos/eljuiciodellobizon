@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_5phhq")
-name = ""
+name = "Cruz"
 is_key_item = false
 max_stack = 9

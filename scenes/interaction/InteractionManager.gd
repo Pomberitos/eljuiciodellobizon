@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var player = get_tree().get_first_node_in_group("player")
-@onready var label = $Label
+@onready var label: Label = $CanvasLayer/Label
 
 var base_text: String = "Pulsá [E] para {action} {item_name}"
 var alt_text: String
@@ -11,7 +11,13 @@ var active_areas: Array = []
 var can_interact: bool = true
 
 
+func set_pivot_offset() -> void:
+	label.pivot_offset = Vector2(label.size.x / 2, label.size.y / 2)
+
+
 func _ready() -> void:
+	set_pivot_offset()
+	set_tween_scale()
 	Events.slasher_spawned.connect(_on_slasher_spawned)
 	Events.slasher_gone.connect(_on_slasher_gone)
 
@@ -38,7 +44,7 @@ func _process(_delta: float) -> void:
 
 		label.global_position = active_areas[0].global_position
 		label.global_position.y -= text_y_offset
-		label.global_position.x -= label.size.x / 2 + text_x_offset
+		label.global_position.x += text_x_offset
 		label.show()
 	else:
 		label.hide()
@@ -66,3 +72,13 @@ func _on_slasher_spawned(_room: Room) -> void:
 
 func _on_slasher_gone() -> void:
 	can_interact = true
+
+
+func set_tween_scale() -> void:
+	var tween: Tween = create_tween()
+#	tween.set_trans(Tween.TRANS_BOUNCE)
+	tween.set_loops()
+	var start_y: Vector2 = Vector2(1, 1)
+	var end_y: Vector2 = Vector2(1.25, 1.25)
+	tween.tween_property(label, "scale", end_y, 0.6).from(start_y)
+	tween.tween_property(label, "scale", start_y, 0.6).from(end_y)

@@ -12,9 +12,9 @@ signal letter_displayed
 @warning_ignore("unused_signal")
 signal letter_removed
 @warning_ignore("unused_signal")
-signal puzzle1_hint_displayed(interactable_name: String)
+signal puzzle1_hint_displayed
 @warning_ignore("unused_signal")
-signal puzzle1_hint_removed(interactable_name: String)
+signal puzzle1_hint_removed
 @warning_ignore("unused_signal")
 signal box_moved(move_dir: Vector2i)
 @warning_ignore("unused_signal")

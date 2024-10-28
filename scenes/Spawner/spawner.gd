@@ -60,12 +60,15 @@ func _on_slasher_gone():
 	timer.start()
 
 
-func _on_reading_ui(_interactable_name: String):
+func _on_reading_ui():
 	spawnerDisabled = true
+	timer.stop()
 
 
-func _on_closing_ui(_interactable_name: String):
+func _on_closing_ui():
 	#	hint_read_count += 1
 	#	if hint_read_count == 1:
 	#		_on_room_entered(Events.current_room)
 	spawnerDisabled = false
+	timer.wait_time = randomGenerator.randi_range(minSpawnTime, maxSpawnTime)
+	timer.start()

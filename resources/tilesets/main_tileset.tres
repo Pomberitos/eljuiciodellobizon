@@ -1,11 +1,12 @@
-[gd_resource type="TileSet" load_steps=22 format=3 uid="uid://3im5s84l5a4c"]
+[gd_resource type="TileSet" load_steps=23 format=3 uid="uid://3im5s84l5a4c"]
 
 [ext_resource type="Texture2D" uid="uid://bhhcaf5b7d8lr" path="res://assets/tilemap/atlas_32x.png" id="1_l5onc"]
-[ext_resource type="PackedScene" path="res://scenes/box/clock_box.tscn" id="3_pq586"]
+[ext_resource type="PackedScene" uid="uid://bbhysgncvbb1p" path="res://scenes/box/clock_box.tscn" id="3_pq586"]
 [ext_resource type="PackedScene" uid="uid://cwht00ivoelts" path="res://scenes/interaction/hint.tscn" id="4_8gd0p"]
 [ext_resource type="PackedScene" uid="uid://bui7227jviecj" path="res://scenes/box/bench_box.tscn" id="4_sdatx"]
 [ext_resource type="PackedScene" uid="uid://ds6sarhkv1o7g" path="res://scenes/box/bench_box2.tscn" id="5_fjv2k"]
 [ext_resource type="PackedScene" uid="uid://bbpc256k01b3p" path="res://scenes/candle.tscn" id="6_gjkum"]
+[ext_resource type="PackedScene" uid="uid://dwkq61ac1kkwg" path="res://scenes/collectible/carava.tscn" id="7_1g644"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_d68yi"]
 polygon = PackedVector2Array(16, -16, -16, -16, -16, 16, 16, 16)
@@ -685,6 +686,7 @@ scenes/2/scene = ExtResource("4_sdatx")
 scenes/3/scene = ExtResource("4_8gd0p")
 scenes/4/scene = ExtResource("5_fjv2k")
 scenes/5/scene = ExtResource("6_gjkum")
+scenes/6/scene = ExtResource("7_1g644")
 
 [resource]
 tile_size = Vector2i(32, 32)

@@ -33,7 +33,7 @@ action_name = "abrir"
 item_name = "Puerta Comedor"
 alt_text = "[E] Abrir"
 item_sprite = NodePath("../DoorSprite")
-text_offset = Vector2i(32, 32)
+text_offset = Vector2i(-100, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(0, 37.5)

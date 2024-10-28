@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://jghytbs3fa7v"]
 
 [ext_resource type="Script" path="res://scenes/AudioManager/audio_manager.gd" id="1_3r5mf"]
-[ext_resource type="AudioStream" uid="uid://d33u6lrl38g7t" path="res://assets/music/04 Ecos en el Silencio.mp3" id="2_17nu5"]
+[ext_resource type="AudioStream" uid="uid://d33u6lrl38g7t" path="res://assets/music/04 Ecos en el Silencio.mp3" id="2_xrusj"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_3r5mf")
@@ -9,7 +9,8 @@ script = ExtResource("1_3r5mf")
 [node name="Music" type="Node" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("2_17nu5")
+stream = ExtResource("2_xrusj")
+volume_db = -5.0
 
 [node name="Sound" type="Node" parent="."]
 

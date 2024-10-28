@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7wtbljmhfqte"]
+[gd_scene load_steps=8 format=3 uid="uid://bbhysgncvbb1p"]
 
 [ext_resource type="Script" path="res://scenes/box/clock_box.gd" id="1_1qh40"]
 [ext_resource type="Texture2D" uid="uid://copu6kdyqmmrb" path="res://assets/items/clock.png" id="2_jfs78"]
@@ -46,6 +46,7 @@ stream = ExtResource("4_x7e77")
 position = Vector2(0, -9)
 alt_text = "Empujar"
 item_sprite = NodePath("../Sprite2D")
+text_offset = Vector2i(-40, 55)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 z_index = 1
