@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://vev8mj8e4phh"]
+[gd_scene load_steps=6 format=3 uid="uid://vev8mj8e4phh"]
 
 [ext_resource type="Script" path="res://scenes/box/tile_switch.gd" id="1_l3od0"]
 
@@ -6,6 +6,14 @@
 size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qcmxc"]
+
+[sub_resource type="Gradient" id="Gradient_doedw"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dy8mw"]
+gradient = SubResource("Gradient_doedw")
+fill = 1
+fill_from = Vector2(0.508547, 0.491453)
 
 [node name="TileSwitch" type="Area2D"]
 collision_layer = 8
@@ -19,5 +27,9 @@ texture = SubResource("PlaceholderTexture2D_iksd5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_qcmxc")
 debug_color = Color(0, 0.649, 0.159, 0.768)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.6
+texture = SubResource("GradientTexture2D_dy8mw")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

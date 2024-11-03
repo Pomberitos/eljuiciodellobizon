@@ -106,8 +106,8 @@ func _reset_movement():
 # Acciones al resolver el puzzle correctamente
 func _on_puzzle_solved():
 	Events.emit_signal("puzzle_1_solved")
+	Events.disconnect("box_placed", on_clock_moved)
 	bell_sound.play()
-	print("Puzzle Resuelto")
 	if key_1:
 		var instance = key_1.instantiate() as StaticBody2D
 		instance.position = spawn_position.position
@@ -124,3 +124,4 @@ func get_tile_position(_position: Vector2) -> Vector2i:
 func reset_switches() -> void:
 	for coord in local_maps_coord.values():
 		tile_map_layer.set_cell(coord, 0, atlas_coord["red"])
+		

@@ -22,6 +22,8 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player or body.is_in_group(str(Player)):
 		current_player = body
+#		if item_name == "Clock" and Events.puzzle_1_done:
+#			return
 		InteractionManager.register_area(self, alt_text, text_offset)
 		add_material()
 

@@ -6,6 +6,7 @@ label question-1
 	jackie-maid: Estoy acá para servir a los invitados del señor Astor.
 	jump question-1
 - Como escapar
+	[sound path="res://assets/audio/Freesound - Insane girl laughter by MadamVicious.ogg" volume="0.0" bus="FXs"]
 	jackie-maid: ¿Ya te queres ir?
 	jackie-maid: No tan rapido
 	jackie-maid: Primero vamos a jugar...

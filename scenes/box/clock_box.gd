@@ -15,7 +15,7 @@ var sliding: bool = false
 var cannot_move: bool = false
 
 func _ready() -> void:
-	Events.connect("puzzle_1_solved", _on_puzzle_solved)
+#	
 	tile_map = get_parent()
 	add_to_group(self.get_class())
 	
@@ -55,6 +55,3 @@ func check_collisions_with_group(move_dir: Vector2i):
 	if raycast.is_colliding():
 		return true
 	return false
-
-func _on_puzzle_solved()-> void:
-	cannot_move = true

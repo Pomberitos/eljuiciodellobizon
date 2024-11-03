@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://4vduqc0wij88"]
 
 [ext_resource type="Script" path="res://scenes/collectible/key.gd" id="1_juxhc"]
-[ext_resource type="Resource" uid="uid://clco070vgtvev" path="res://inventory/items/key.tres" id="2_gwpwn"]
+[ext_resource type="Resource" uid="uid://dxywxvv1rupur" path="res://inventory/items/key4.tres" id="2_5exwv"]
 [ext_resource type="Texture2D" uid="uid://csg8674ayhqbc" path="res://assets/items/key4.png" id="3_d85qj"]
 [ext_resource type="PackedScene" uid="uid://cx6cef2aykja1" path="res://scenes/interaction/interaction_area.tscn" id="4_0n1g6"]
 [ext_resource type="AudioStream" uid="uid://dxm220rql8s3t" path="res://assets/audio/key.ogg" id="5_pi6cc"]
@@ -17,7 +17,7 @@ radius = 40.0
 collision_layer = 8
 script = ExtResource("1_juxhc")
 interaction_area = NodePath("InteractionArea")
-key_resource = ExtResource("2_gwpwn")
+key_resource = ExtResource("2_5exwv")
 item_sound = NodePath("AudioStreamPlayer")
 point_light2D = NodePath("PointLight2D")
 metadata/_edit_group_ = true

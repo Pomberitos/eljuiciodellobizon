@@ -44,6 +44,7 @@ stream = ExtResource("4_x7e77")
 
 [node name="InteractionArea" parent="." node_paths=PackedStringArray("item_sprite") instance=ExtResource("5_t8v86")]
 position = Vector2(0, -9)
+item_name = "Clock"
 alt_text = "Empujar"
 item_sprite = NodePath("../Sprite2D")
 text_offset = Vector2i(-40, 55)

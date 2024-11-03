@@ -11,8 +11,6 @@ func _ready() -> void:
 	Events.slasher_spawned.connect(_on_slasher_spawned)
 	Events.slasher_gone.connect(_on_slasher_gone)
 	Events.object_picked.connect(_on_object_picked)
-	Dialogic.timeline_started.connect(_on_dialogue_started)
-	Dialogic.timeline_ended.connect(_on_dialogue_ended)
 	AudioManager.play_music(AudioManager.GAME_MUSIC)
 
 
@@ -70,11 +68,5 @@ func _on_slasher_gone():
 func _on_object_picked(_object: InventoryItem):
 	# get_tree().change_scene_to_file("res://scenes/UIs/finish_mvp.tscn")
 	pass
+	
 
-
-func _on_dialogue_started():
-	$Player.can_move = false
-
-
-func _on_dialogue_ended():
-	$Player.can_move = true

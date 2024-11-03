@@ -61,13 +61,15 @@ animations/leave_default_wait=true
 animations/cross_fade_default_length=0.5
 choices/autofocus_first=true
 choices/delay=0.2
-choices/reveal_delay=0
+choices/reveal_delay=0.6
 choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
 animations/join_default="Instant In"
 animations/leave_default="Instant Out"
+text/autoadvance_fixed_delay=1.0
+choices/hotkey_behaviour=1
 
 [display]
 
@@ -76,6 +78,10 @@ window/size/viewport_height=450
 window/size/resizable=false
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
+
+[dotnet]
+
+project/assembly_name="Lobizon"
 
 [editor]
 

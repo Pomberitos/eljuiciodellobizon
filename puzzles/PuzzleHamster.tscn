@@ -19,11 +19,12 @@ grow_vertical = 2
 script = ExtResource("1_hgtrs")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = -306.0
-offset_top = -173.0
-offset_right = 274.0
-offset_bottom = 167.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.996078, 0.960784, 0.866667, 0.47451)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -118,6 +119,22 @@ desired_value = 5
 [node name="Slot6" parent="HBoxContainer/Puzzle" instance=ExtResource("1_o8bxv")]
 layout_mode = 2
 desired_value = 6
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -40.0
+offset_right = 186.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Presiona E nuevamente para cerrar"
+horizontal_alignment = 1
 
 [connection signal="piece_placed" from="HBoxContainer/Holders/Slot" to="." method="_on_slot_piece_placed"]
 

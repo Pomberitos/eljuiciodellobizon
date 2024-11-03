@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=25 format=4 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="Script" path="res://scenes/GameController.gd" id="1_3dbo4"]
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
@@ -6,41 +6,27 @@
 [ext_resource type="PackedScene" uid="uid://cpgq64aunf130" path="res://scenes/door_with_key.tscn" id="3_k7xsd"]
 [ext_resource type="PackedScene" uid="uid://b4epdjjrtj8ip" path="res://scenes/rooms/room_2.tscn" id="3_sy0pg"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="4_pkou0"]
-[ext_resource type="PackedScene" uid="uid://bmnxn1i1k668r" path="res://scenes/rooms/room_3.tscn" id="4_ywhvu"]
 [ext_resource type="PackedScene" uid="uid://bbpc256k01b3p" path="res://scenes/candle.tscn" id="5_h5nrd"]
 [ext_resource type="PackedScene" uid="uid://tt61co0mpfpi" path="res://scenes/maid/jackie_maid.tscn" id="5_p305u"]
 [ext_resource type="PackedScene" uid="uid://cp8tpptvbxnme" path="res://inventory/player_inventory_ui.tscn" id="5_yat7e"]
 [ext_resource type="Script" path="res://scenes/rooms/room_portal.gd" id="6_6vxlu"]
 [ext_resource type="PackedScene" uid="uid://c75cbpj36u6mg" path="res://scenes/Spawner/spawner.tscn" id="6_85noy"]
-[ext_resource type="AudioStream" uid="uid://2p2lv2podabp" path="res://assets/audio/eerie_scream.ogg" id="6_dww5r"]
-[ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="10_2oynr"]
+[ext_resource type="Script" path="res://scenes/rooms/room_3.gd" id="8_16xs0"]
+[ext_resource type="TileSet" uid="uid://3im5s84l5a4c" path="res://resources/tilesets/main_tileset.tres" id="9_ccigu"]
 [ext_resource type="Resource" uid="uid://dxywxvv1rupur" path="res://inventory/items/key4.tres" id="10_3c2q4"]
 [ext_resource type="PackedScene" uid="uid://3cy137yehsru" path="res://scenes/collectible/letter.tscn" id="10_7d0u5"]
 [ext_resource type="PackedScene" uid="uid://cvbtniyj8v6cg" path="res://scenes/rooms/room_4.tscn" id="10_k1g5i"]
 [ext_resource type="Script" path="res://scenes/rooms/puzzles/puzzle_2.gd" id="11_40gju"]
-[ext_resource type="Shader" path="res://shaders/palette_post.gdshader" id="11_bg4xu"]
 [ext_resource type="PackedScene" uid="uid://4vduqc0wij88" path="res://scenes/collectible/key4.tscn" id="11_th5jr"]
 [ext_resource type="PackedScene" uid="uid://cawlhdaqesgwj" path="res://scenes/UIs/Room 1/Letter.tscn" id="12_gjrc0"]
+[ext_resource type="AudioStream" uid="uid://l0emo1de2bmt" path="res://assets/audio/monstar_gets_key_from_braid.ogg" id="14_k7g6b"]
 [ext_resource type="PackedScene" uid="uid://dsk8fru450di1" path="res://scenes/UIs/Room 1/hint_container.tscn" id="14_k85a1"]
 [ext_resource type="PackedScene" uid="uid://c0qh7mj423s3v" path="res://puzzles/PuzzleHamster.tscn" id="17_tew7j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ijv3q"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ckd3l"]
-shader = ExtResource("10_2oynr")
-shader_parameter/alpha = 0.16
-shader_parameter/inner_radius = 0.0
-shader_parameter/outer_radius = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_m1sui"]
-shader = ExtResource("11_bg4xu")
-shader_parameter/level1 = Color(0, 0, 0, 1)
-shader_parameter/level2 = Color(0.693858, 0.421402, 0.289103, 1)
-shader_parameter/level3 = Color(1, 1, 1, 1)
-shader_parameter/level4 = Color(1, 1, 1, 1)
-shader_parameter/threshold1 = 0.4
-shader_parameter/threshold2 = 0.52
-shader_parameter/threshold3 = 0.8
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7l1d5"]
+size = Vector2(734, 354)
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -92,7 +78,7 @@ correct_sound = NodePath("CorrectSound")
 tile_map_layer = NodePath("../TileMap/Objects")
 
 [node name="CorrectSound" type="AudioStreamPlayer" parent="Room 2/Puzzle1" index="3"]
-stream = ExtResource("6_dww5r")
+stream = ExtResource("14_k7g6b")
 volume_db = -5.0
 pitch_scale = 1.04
 bus = &"FXs"
@@ -106,24 +92,41 @@ position = Vector2(0, 15)
 [node name="Hint" parent="Room 2" index="10" node_paths=PackedStringArray("ObjectUI")]
 ObjectUI = NodePath("../../CanvasLayer/HintContainer")
 
-[node name="Room 3" parent="." instance=ExtResource("4_ywhvu")]
+[node name="Room 3" type="Node2D" parent="."]
 position = Vector2(831, 0)
+script = ExtResource("8_16xs0")
 number = 3
 
-[node name="PlayerDetector" parent="Room 3" index="0"]
+[node name="PlayerDetector" type="Area2D" parent="Room 3"]
+z_index = 1
 position = Vector2(336, 204)
 
-[node name="CollisionShape2D" parent="Room 3/PlayerDetector" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room 3/PlayerDetector"]
 z_index = 3
-position = Vector2(64, 36.5)
+position = Vector2(62.5, 30)
+shape = SubResource("RectangleShape2D_7l1d5")
 debug_color = Color(1.44392e-07, 0.599485, 0.440046, 0.419608)
 
-[node name="walls" parent="Room 3/TileMap" index="1"]
-tile_map_data = PackedByteArray("AAAAAAIAAAAAAA0AAAAAAAMAAAAAAA0AAAAAAAQAAAAAAA0AAAAAAAUAAAAAAA0AAAAAAAcAAAAAAA0AAAAAAAgAAAAAAA0AAAAAAAkAAAAAAA0AAAAAAAoAAAAAAA0AAAAAAAsAAAAAAA0AAAAAAAwAAAAAAA0AAAAYAAIAAAAEAA0AAAAYAAMAAAAEAA0AAAAYAAQAAAAEAA0AAAAYAAUAAAAEAA0AAAAYAAYAAAAEAA0AAAAYAAcAAAAEAA0AAAAYAAgAAAAEAA0AAAAYAAkAAAAEAA0AAAAYAAoAAAAEAA0AAAAYAAsAAAAEAA0AAAAYAAwAAAAEAA0AAAAYAAAAAAAEAA0AAAAYAAEAAAAEAA0AAAAAAAAAAAAAAA0AAAAAAAEAAAAAAA0AAAAAAA0AAAAAAA4AAAABAA0AAAACAA8AAAACAA0AAAACAA8AAAADAA0AAAACAA8AAAAEAA0AAAACAA8AAAAFAA0AAAACAA8AAAAGAA0AAAACAA8AAAAHAA0AAAACAA8AAAAIAA0AAAACAA8AAAAJAA0AAAACAA8AAAAKAA0AAAACAA8AAAALAA0AAAACAA8AAAAMAA0AAAACAA8AAAANAA0AAAACAA8AAAAOAA0AAAACAA8AAAAPAA0AAAACAA8AAAAQAA0AAAACAA8AAAARAA0AAAACAA8AAAASAA0AAAACAA8AAAATAA0AAAACAA8AAAAUAA0AAAACAA8AAAAVAA0AAAACAA8AAAAWAA0AAAACAA8AAAAXAA0AAAACAA8AAAAYAA0AAAADAA8AAAABAAAAAAABAAIAAAABAAEAAAABAAMAAAACAAAAAAABAAIAAAACAAEAAAABAAMAAAADAAAAAAABAAIAAAADAAEAAAABAAMAAAAEAAAAAAABAAIAAAAEAAEAAAABAAMAAAAFAAAAAAABAAIAAAAFAAEAAAABAAMAAAAGAAAAAAABAAIAAAAGAAEAAAABAAMAAAAHAAAAAAABAAIAAAAHAAEAAAABAAMAAAAIAAAAAAABAAIAAAAIAAEAAAABAAMAAAAJAAAAAAABAAIAAAAJAAEAAAABAAMAAAAKAAAAAAABAAIAAAAKAAEAAAABAAMAAAANAAAAAAABAAIAAAANAAEAAAABAAMAAAAOAAAAAAABAAIAAAAOAAEAAAABAAMAAAAPAAAAAAABAAIAAAAPAAEAAAABAAMAAAAQAAAAAAABAAIAAAAQAAEAAAABAAMAAAARAAAAAAABAAIAAAARAAEAAAABAAMAAAASAAAAAAABAAIAAAASAAEAAAABAAMAAAATAAAAAAABAAIAAAATAAEAAAABAAMAAAAUAAAAAAABAAIAAAAUAAEAAAABAAMAAAAVAAAAAAABAAIAAAAWAAAAAAABAAIAAAAWAAEAAAABAAMAAAAXAAAAAAABAAIAAAAXAAEAAAABAAMAAAALAAAAAAABAAIAAAAMAAAAAAABAAIAAAAMAAEAAAABAAMAAAADAP//AAAAAA8AAAAEAP//AAAAAA8AAAAFAP//AAAAAA8AAAAGAP//AAAAAA8AAAAHAP//AAAAAA8AAAAIAP//AAAAAA8AAAAJAP//AAAAAA8AAAANAP//AAAAAA8AAAAOAP//AAAAAA8AAAAPAP//AAAAAA8AAAAQAP//AAAAAA8AAAABAP//AAAAAA8AAAACAP//AAAAAA8AAAARAP//AAAAAA8AAAASAP//AAAAAA8AAAATAP//AAAAAA8AAAAUAP//AAAAAA8AAAAWAP//AAAAAA8AAAAXAP//AAAAAA8AAAAYAP//AAAAAA8AAAAKAP//AAAAAA8AAAAMAP//AAAAAA8AAAALAAEAAAABAAMAAAALAP//AAAAAA8AAAA=")
+[node name="TileMap" type="Node2D" parent="Room 3"]
 
-[node name="Lights" parent="Room 3/TileMap" index="3"]
-visible = true
+[node name="ground" type="TileMapLayer" parent="Room 3/TileMap"]
+tile_map_data = PackedByteArray("AAABAAIAAAAEAAkAAAABAAMAAAAEAAkAAAABAAQAAAAEAAkAAAABAAUAAAAEAAkAAAABAAYAAAAEAAkAAAABAAcAAAAEAAkAAAABAAgAAAAEAAkAAAABAAkAAAAEAAkAAAABAAoAAAAEAAkAAAABAAsAAAAEAAkAAAABAAwAAAAEAAkAAAACAAIAAAAEAAkAAAACAAMAAAAEAAkAAAACAAQAAAAEAAkAAAACAAUAAAAEAAkAAAACAAYAAAAEAAkAAAACAAcAAAAEAAkAAAACAAgAAAAEAAkAAAACAAkAAAAEAAkAAAACAAoAAAAEAAkAAAACAAsAAAAEAAkAAAACAAwAAAAEAAkAAAADAAIAAAAEAAkAAAADAAMAAAAEAAkAAAADAAQAAAAEAAkAAAADAAUAAAAEAAkAAAADAAYAAAAEAAkAAAADAAcAAAAEAAkAAAADAAgAAAAEAAkAAAADAAkAAAAEAAkAAAADAAoAAAAEAAkAAAADAAsAAAAEAAkAAAADAAwAAAAEAAkAAAAEAAIAAAAEAAkAAAAEAAMAAAAEAAkAAAAEAAQAAAAEAAkAAAAEAAUAAAAEAAkAAAAEAAYAAAAEAAkAAAAEAAcAAAAEAAkAAAAEAAgAAAAEAAkAAAAEAAkAAAAEAAkAAAAEAAoAAAAEAAkAAAAEAAsAAAAEAAkAAAAEAAwAAAAEAAkAAAAFAAIAAAAEAAkAAAAFAAMAAAAEAAkAAAAFAAQAAAAEAAkAAAAFAAUAAAAEAAkAAAAFAAYAAAAEAAkAAAAFAAcAAAAEAAkAAAAFAAgAAAAEAAkAAAAFAAkAAAAEAAkAAAAFAAoAAAAEAAkAAAAFAAsAAAAEAAkAAAAFAAwAAAAEAAkAAAAGAAIAAAAEAAkAAAAGAAMAAAAEAAkAAAAGAAQAAAAEAAkAAAAGAAUAAAAEAAkAAAAGAAYAAAAEAAkAAAAGAAcAAAAEAAkAAAAGAAgAAAAEAAkAAAAGAAkAAAAEAAkAAAAGAAoAAAAEAAkAAAAGAAsAAAAEAAkAAAAGAAwAAAAEAAkAAAAHAAIAAAAEAAkAAAAHAAMAAAAEAAkAAAAHAAQAAAAEAAkAAAAHAAUAAAAEAAkAAAAHAAYAAAAEAAkAAAAHAAcAAAAEAAkAAAAHAAgAAAAEAAkAAAAHAAkAAAAEAAkAAAAHAAoAAAAEAAkAAAAHAAsAAAAEAAkAAAAHAAwAAAAEAAkAAAAIAAIAAAAEAAkAAAAIAAMAAAAEAAkAAAAIAAQAAAAEAAkAAAAIAAUAAAAEAAkAAAAIAAcAAAAEAAkAAAAIAAgAAAAEAAkAAAAIAAkAAAAEAAkAAAAIAAoAAAAEAAkAAAAIAAsAAAAEAAkAAAAIAAwAAAAEAAkAAAAJAAIAAAAEAAkAAAAJAAMAAAAEAAkAAAAJAAQAAAAEAAkAAAAJAAUAAAAEAAkAAAAJAAYAAAAEAAkAAAAJAAcAAAAEAAkAAAAJAAgAAAAEAAkAAAAJAAkAAAAEAAkAAAAJAAsAAAAEAAkAAAAJAAwAAAAEAAkAAAAKAAIAAAAEAAkAAAAKAAMAAAAEAAkAAAAKAAQAAAAEAAkAAAAKAAUAAAAEAAkAAAAKAAYAAAAEAAkAAAAKAAcAAAAEAAkAAAAKAAgAAAAEAAkAAAAKAAkAAAAEAAkAAAAKAAsAAAAEAAkAAAAKAAwAAAAEAAkAAAALAAIAAAAEAAkAAAALAAMAAAAEAAkAAAALAAQAAAAEAAkAAAALAAUAAAAEAAkAAAALAAYAAAAEAAkAAAALAAcAAAAEAAkAAAALAAgAAAAEAAkAAAALAAkAAAAEAAkAAAALAAsAAAAEAAkAAAALAAwAAAAEAAkAAAAMAAIAAAAEAAkAAAAMAAMAAAAEAAkAAAAMAAQAAAAEAAkAAAAMAAUAAAAEAAkAAAAMAAYAAAAEAAkAAAAMAAcAAAAEAAkAAAAMAAgAAAAEAAkAAAAMAAkAAAAEAAkAAAAMAAsAAAAEAAkAAAAMAAwAAAAEAAkAAAANAAIAAAAEAAkAAAANAAMAAAAEAAkAAAANAAQAAAAEAAkAAAANAAUAAAAEAAkAAAANAAYAAAAEAAkAAAANAAgAAAAEAAkAAAANAAkAAAAEAAkAAAANAAoAAAAEAAkAAAANAAsAAAAEAAkAAAANAAwAAAAEAAkAAAAOAAIAAAAEAAkAAAAOAAMAAAAEAAkAAAAOAAQAAAAEAAkAAAAOAAcAAAAEAAkAAAAOAAgAAAAEAAkAAAAOAAkAAAAEAAkAAAAOAAoAAAAEAAkAAAAOAAsAAAAEAAkAAAAOAAwAAAAEAAkAAAAPAAIAAAAEAAkAAAAPAAMAAAAEAAkAAAAPAAQAAAAEAAkAAAAPAAUAAAAEAAkAAAAPAAYAAAAEAAkAAAAPAAcAAAAEAAkAAAAPAAgAAAAEAAkAAAAPAAkAAAAEAAkAAAAPAAoAAAAEAAkAAAAPAAsAAAAEAAkAAAAPAAwAAAAEAAkAAAAQAAIAAAAEAAkAAAAQAAMAAAAEAAkAAAAQAAQAAAAEAAkAAAAQAAUAAAAEAAkAAAAQAAYAAAAEAAkAAAAQAAcAAAAEAAkAAAAQAAgAAAAEAAkAAAAQAAkAAAAEAAkAAAAQAAoAAAAEAAkAAAAQAAsAAAAEAAkAAAAQAAwAAAAEAAkAAAARAAIAAAAEAAkAAAARAAMAAAAEAAkAAAARAAQAAAAEAAkAAAARAAUAAAAEAAkAAAARAAYAAAAEAAkAAAARAAcAAAAEAAkAAAARAAgAAAAEAAkAAAARAAkAAAAEAAkAAAARAAoAAAAEAAkAAAARAAsAAAAEAAkAAAARAAwAAAAEAAkAAAASAAIAAAAEAAkAAAASAAMAAAAEAAkAAAASAAQAAAAEAAkAAAASAAUAAAAEAAkAAAASAAYAAAAEAAkAAAASAAcAAAAEAAkAAAASAAgAAAAEAAkAAAASAAkAAAAEAAkAAAASAAoAAAAEAAkAAAASAAsAAAAEAAkAAAASAAwAAAAEAAkAAAATAAIAAAAEAAkAAAATAAMAAAAEAAkAAAATAAQAAAAEAAkAAAATAAUAAAAEAAkAAAATAAYAAAAEAAkAAAATAAcAAAAEAAkAAAATAAgAAAAEAAkAAAATAAkAAAAEAAkAAAATAAoAAAAEAAkAAAATAAsAAAAEAAkAAAATAAwAAAAEAAkAAAAUAAIAAAAEAAkAAAAUAAMAAAAEAAkAAAAUAAQAAAAEAAkAAAAUAAUAAAAEAAkAAAAUAAYAAAAEAAkAAAAUAAcAAAAEAAkAAAAUAAgAAAAEAAkAAAAUAAkAAAAEAAkAAAAUAAoAAAAEAAkAAAAUAAsAAAAEAAkAAAAUAAwAAAAEAAkAAAAVAAIAAAAEAAkAAAAVAAMAAAAEAAkAAAAVAAQAAAAEAAkAAAAVAAUAAAAEAAkAAAAVAAYAAAAEAAkAAAAVAAcAAAAEAAkAAAAVAAgAAAAEAAkAAAAVAAkAAAAEAAkAAAAVAAoAAAAEAAkAAAAVAAsAAAAEAAkAAAAVAAwAAAAEAAkAAAAWAAIAAAAEAAkAAAAWAAMAAAAEAAkAAAAWAAQAAAAEAAkAAAAWAAUAAAAEAAkAAAAWAAYAAAAEAAkAAAAWAAcAAAAEAAkAAAAWAAgAAAAEAAkAAAAWAAkAAAAEAAkAAAAWAAoAAAAEAAkAAAAWAAsAAAAEAAkAAAAWAAwAAAAEAAkAAAAXAAIAAAAEAAkAAAAXAAMAAAAEAAkAAAAXAAQAAAAEAAkAAAAXAAUAAAAEAAkAAAAXAAYAAAAEAAkAAAAXAAcAAAAEAAkAAAAXAAgAAAAEAAkAAAAXAAkAAAAEAAkAAAAXAAoAAAAEAAkAAAAXAAsAAAAEAAkAAAAXAAwAAAAEAAkAAAAIAAYAAAAEAAkAAAAMAAoAAAAEAAkAAAALAAoAAAAEAAkAAAAKAAoAAAAEAAkAAAAJAAoAAAAEAAkAAAAOAAUAAAAEAAkAAAAOAAYAAAAEAAkAAAANAAcAAAAEAAkAAAA=")
+tile_set = ExtResource("9_ccigu")
+
+[node name="walls" type="TileMapLayer" parent="Room 3/TileMap"]
+tile_map_data = PackedByteArray("AAAAAAIAAAAAAA0AAAAAAAMAAAAAAA0AAAAAAAQAAAAAAA0AAAAAAAUAAAAAAA0AAAAAAAcAAAAAAA0AAAAAAAgAAAAAAA0AAAAAAAkAAAAAAA0AAAAAAAoAAAAAAA0AAAAAAAsAAAAAAA0AAAAAAAwAAAAAAA0AAAAYAAIAAAAEAA0AAAAYAAMAAAAEAA0AAAAYAAQAAAAEAA0AAAAYAAUAAAAEAA0AAAAYAAYAAAAEAA0AAAAYAAcAAAAEAA0AAAAYAAgAAAAEAA0AAAAYAAkAAAAEAA0AAAAYAAoAAAAEAA0AAAAYAAsAAAAEAA0AAAAYAAwAAAAEAA0AAAAYAAAAAAAEAA0AAAAYAAEAAAAEAA0AAAAAAAAAAAAAAA0AAAAAAAEAAAAAAA0AAAAAAA0AAAAAAA4AAAABAA0AAAACAA8AAAACAA0AAAACAA8AAAADAA0AAAACAA8AAAAEAA0AAAACAA8AAAAFAA0AAAACAA8AAAAGAA0AAAACAA8AAAAHAA0AAAACAA8AAAAIAA0AAAACAA8AAAAJAA0AAAACAA8AAAAKAA0AAAACAA8AAAALAA0AAAACAA8AAAAMAA0AAAACAA8AAAANAA0AAAACAA8AAAAOAA0AAAACAA8AAAAPAA0AAAACAA8AAAAQAA0AAAACAA8AAAARAA0AAAACAA8AAAASAA0AAAACAA8AAAATAA0AAAACAA8AAAAUAA0AAAACAA8AAAAVAA0AAAACAA8AAAAWAA0AAAACAA8AAAAXAA0AAAACAA8AAAAYAA0AAAADAA8AAAABAAAAAAABAAIAAAABAAEAAAABAAMAAAACAAAAAAABAAIAAAACAAEAAAABAAMAAAADAAAAAAABAAIAAAADAAEAAAABAAMAAAAEAAAAAAABAAIAAAAEAAEAAAABAAMAAAAFAAAAAAABAAIAAAAFAAEAAAABAAMAAAAGAAAAAAABAAIAAAAGAAEAAAABAAMAAAAHAAAAAAABAAIAAAAHAAEAAAABAAMAAAAIAAAAAAABAAIAAAAIAAEAAAABAAMAAAAJAAAAAAABAAIAAAAJAAEAAAABAAMAAAAKAAAAAAABAAIAAAAKAAEAAAABAAMAAAANAAAAAAABAAIAAAANAAEAAAABAAMAAAAOAAAAAAABAAIAAAAOAAEAAAABAAMAAAAPAAAAAAABAAIAAAAPAAEAAAABAAMAAAAQAAAAAAABAAIAAAAQAAEAAAABAAMAAAARAAAAAAABAAIAAAARAAEAAAABAAMAAAASAAAAAAABAAIAAAASAAEAAAABAAMAAAATAAAAAAABAAIAAAATAAEAAAABAAMAAAAUAAAAAAABAAIAAAAUAAEAAAABAAMAAAAVAAAAAAABAAIAAAAWAAAAAAABAAIAAAAWAAEAAAABAAMAAAAXAAAAAAABAAIAAAAXAAEAAAABAAMAAAALAAAAAAABAAIAAAAMAAAAAAABAAIAAAAMAAEAAAABAAMAAAADAP//AAAAAA8AAAAEAP//AAAAAA8AAAAFAP//AAAAAA8AAAAGAP//AAAAAA8AAAAHAP//AAAAAA8AAAAIAP//AAAAAA8AAAAJAP//AAAAAA8AAAANAP//AAAAAA8AAAAOAP//AAAAAA8AAAAPAP//AAAAAA8AAAAQAP//AAAAAA8AAAABAP//AAAAAA8AAAACAP//AAAAAA8AAAARAP//AAAAAA8AAAASAP//AAAAAA8AAAATAP//AAAAAA8AAAAUAP//AAAAAA8AAAAWAP//AAAAAA8AAAAXAP//AAAAAA8AAAAYAP//AAAAAA8AAAAKAP//AAAAAA8AAAAMAP//AAAAAA8AAAALAAEAAAABAAMAAAALAP//AAAAAA8AAAA=")
+tile_set = ExtResource("9_ccigu")
+
+[node name="Objects" type="TileMapLayer" parent="Room 3/TileMap"]
+tile_map_data = PackedByteArray("AAAJAAIAAAAbAAUAAAAKAAIAAAAcAAUAAAALAAIAAAAdAAUAAAALAAEAAAAdAAQAAAAKAAEAAAAcAAQAAAAJAAEAAAAbAAQAAAAKAAAAAAAcAAMAAAA=")
+tile_set = ExtResource("9_ccigu")
+
+[node name="Lights" type="TileMapLayer" parent="Room 3/TileMap"]
+z_index = 7
 tile_map_data = PackedByteArray("AAAKAAIAAgAAAAAABQA=")
+tile_set = ExtResource("9_ccigu")
+
+[node name="SpawnPositions" type="Node" parent="Room 3"]
 
 [node name="JackieMaid" parent="Room 3" instance=ExtResource("5_p305u")]
 position = Vector2(706, 210)
@@ -144,22 +147,20 @@ position = Vector2(-78, -40)
 
 [node name="PuzzleHamsterInteractor" parent="Room 3" node_paths=PackedStringArray("ObjectUI") instance=ExtResource("10_7d0u5")]
 position = Vector2(357, 211)
-ObjectUI = NodePath("../Puzzle2/PuzzleHamster")
+ObjectUI = NodePath("../../CanvasLayer/PuzzleHamster")
 
-[node name="Puzzle2" type="Node" parent="Room 3" node_paths=PackedStringArray("key_spawn")]
+[node name="Puzzle2" type="Node" parent="Room 3" node_paths=PackedStringArray("key_spawn", "puzzle_hamster", "audio_player")]
 script = ExtResource("11_40gju")
 key_2 = ExtResource("11_th5jr")
 key_spawn = NodePath("Marker2D")
-
-[node name="PuzzleHamster" parent="Room 3/Puzzle2" instance=ExtResource("17_tew7j")]
-visible = false
-offset_left = 1243.0
-offset_top = 229.0
-offset_right = 443.0
-offset_bottom = -221.0
+puzzle_hamster = NodePath("../../CanvasLayer/PuzzleHamster")
+audio_player = NodePath("AudioStreamPlayer")
 
 [node name="Marker2D" type="Marker2D" parent="Room 3/Puzzle2"]
 position = Vector2(1348, 75)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Room 3/Puzzle2"]
+stream = ExtResource("14_k7g6b")
 
 [node name="DoorWithKey" parent="Room 3" instance=ExtResource("3_k7xsd")]
 position = Vector2(689, 46)
@@ -220,7 +221,7 @@ position = Vector2(0, 105)
 
 [node name="Player" parent="." node_paths=PackedStringArray("canvas_layer") instance=ExtResource("1_p8a7x")]
 z_index = 1
-position = Vector2(406, 354)
+position = Vector2(352, 350)
 scale = Vector2(1.5, 1.5)
 collision_mask = 46
 motion_mode = 1
@@ -228,33 +229,18 @@ canvas_layer = NodePath("../CanvasLayer")
 
 [node name="SlasherSpawner" parent="." node_paths=PackedStringArray("player", "excludedRooms") instance=ExtResource("6_85noy")]
 player = NodePath("../Player")
-excludedRooms = [NodePath("../Room 1"), NodePath("../Room 3")]
+excludedRooms = [NodePath("../Room 1"), NodePath("../Room 3"), NodePath("../Room 2")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PuzzleHamster" parent="CanvasLayer" instance=ExtResource("17_tew7j")]
+visible = false
 
 [node name="Room 1 - Letter container" parent="CanvasLayer" instance=ExtResource("12_gjrc0")]
 visible = false
 
 [node name="PlayerInventoryUI" parent="CanvasLayer" instance=ExtResource("5_yat7e")]
 visible = false
-
-[node name="Sprite2D" type="ColorRect" parent="CanvasLayer"]
-visible = false
-material = SubResource("ShaderMaterial_ckd3l")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
-material = SubResource("ShaderMaterial_m1sui")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="HintContainer" parent="CanvasLayer" instance=ExtResource("14_k85a1")]
 visible = false
@@ -273,11 +259,11 @@ energy = 0.0
 blend_mode = 1
 
 [connection signal="body_entered" from="Room 1/RoomPortal2" to="Room 1/RoomPortal2" method="_on_body_entered"]
+[connection signal="body_entered" from="Room 3/PlayerDetector" to="Room 3" method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="Room 3/RoomPortal2" to="Room 3/RoomPortal2" method="_on_body_entered"]
 [connection signal="body_entered" from="Room 3/RoomPortal3" to="Room 3/RoomPortal3" method="_on_body_entered"]
 [connection signal="body_entered" from="Room 4/RoomPortal4" to="Room 4/RoomPortal4" method="_on_body_entered"]
 
 [editable path="Room 1"]
 [editable path="Room 2"]
-[editable path="Room 3"]
 [editable path="Room 4"]
