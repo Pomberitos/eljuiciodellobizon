@@ -1,26 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bwacoigk84gds"]
 
-[sub_resource type="GDScript" id="GDScript_bf28i"]
-script/source = "extends Node2D
-
-class object_with_ui
-
-@export var interaction_area: InteractionArea
-@export var ObjectUI: Control
-
-var player: Player = null
-
-func _ready() -> void:
-	interaction_area.interact = Callable(self, \"_on_interact\")
-	Events.slasher_spawned.connect(_on_slasher_spawned)
-
-func _on_interact() -> void:
-	ObjectUI.visible = !ObjectUI.visible
-
-
-func _on_slasher_spawned(_room: Room) -> void:
-	ObjectUI.visible = false
-"
+[ext_resource type="Script" path="res://scenes/ObjectWithUI.gd" id="1_2trw6"]
 
 [node name="ObjectWithUi" type="Node2D"]
-script = SubResource("GDScript_bf28i")
+script = ExtResource("1_2trw6")

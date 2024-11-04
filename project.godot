@@ -87,8 +87,6 @@ project/assembly_name="Lobizon"
 
 movie_writer/movie_file="/home/chemscobra/Videos/Pomberitos proto box.avi"
 movie_writer/disable_vsync=true
-version_control/plugin_name="GitPlugin"
-version_control/autoload_on_startup=true
 
 [editor_plugins]
 
