@@ -4,12 +4,13 @@ enum Position { ROOM_1, ROOM_2, ROOM_3, ROOM_4 }
 
 @export var selected_initial_position: Position = Position.ROOM_1
 
-@export var max_speed = 100.0
-@export var max_speed_multiplier = 1.5
-@export var accel = 1000.0
-@export var friction = 500.0
+@export var max_speed: float = 100.0
+@export var max_speed_multiplier: float = 1.5
+@export var accel: float = 1000.0
+@export var friction: float = 500.0
 
 @export var lamp: PointLight2D
+@export var sight: PointLight2D
 @export var inventory: Inventory
 
 @export var minimap_icon: String = "arrow"
@@ -30,6 +31,7 @@ var initial_positions: Array[Vector2] = [
 enum { WALK, CROSS, IDLE, PUSH }
 
 var state = WALK
+var input_vector: Vector2
 
 
 func _ready() -> void:
@@ -38,24 +40,24 @@ func _ready() -> void:
 	global_position = initial_positions[selected_initial_position]
 	add_to_group(self.get_class())
 
-func _on_dialogue_started()-> void:
+
+func _on_dialogue_started() -> void:
 	velocity = Vector2.ZERO
 	state = IDLE
+
 
 func _physics_process(_delta: float) -> void:
 	handle_state_transitions()
 	perform_state_actions(_delta)
 	move_and_slide()
 
-		
-func perform_state_actions(_delta: float)-> void:
+
+func perform_state_actions(_delta: float) -> void:
 	match state:
 		WALK:
-			var input_vector: Vector2 = Input.get_vector("left", "right", "up", "down")
 			animation_state.travel("Walk")
 			velocity = velocity.move_toward(input_vector * max_speed, accel)
 		PUSH:
-			var input_vector: Vector2 = Input.get_vector("left", "right", "up", "down")
 			velocity = velocity.move_toward(input_vector * max_speed, accel)
 			check_box_collision(velocity)
 			animation_state.travel("Push")
@@ -64,30 +66,29 @@ func perform_state_actions(_delta: float)-> void:
 		CROSS:
 			velocity = Vector2.ZERO
 			animation_state.travel("Cross")
-			
 
 
-			
-func handle_state_transitions()-> void:
-	var input_vector: Vector2 = Input.get_vector("left", "right", "up", "down")
-	animation_tree.set("parameters/Idle/blend_position", input_vector)
-	animation_tree.set("parameters/Walk/blend_position", input_vector)
-	animation_tree.set("parameters/Push/blend_position", input_vector)
-	animation_tree.set("parameters/Cross/blend_position", input_vector)
-
+func handle_state_transitions() -> void:
 	if !is_ui_open():
+		input_vector = Input.get_vector("left", "right", "up", "down").normalized()
+		set_sight_rotation()
+		animation_tree.set("parameters/Idle/blend_position", input_vector)
+		animation_tree.set("parameters/Walk/blend_position", input_vector)
+		animation_tree.set("parameters/Push/blend_position", input_vector)
+		animation_tree.set("parameters/Cross/blend_position", input_vector)
+
 		if input_vector != Vector2.ZERO:
 			state = WALK
 		else:
 			velocity = velocity.move_toward(Vector2.ZERO, friction)
 			state = IDLE
-		
+
 		if Input.is_action_pressed("cross") and Dialogic.VAR.Caravaca and (!is_ui_open()):
 			state = CROSS
-			
+
 		if Input.is_action_just_released("cross") and Dialogic.VAR.Caravaca:
 			state = IDLE
-			
+
 		if get_slide_collision_count() > 0 and input_vector != Vector2.ZERO:
 			state = PUSH
 
@@ -113,7 +114,7 @@ func check_box_collision(motion: Vector2) -> void:
 func die():
 	print("ready to die")
 	get_tree().change_scene_to_file("res://scenes/UIs/game_over.tscn")
-	
+
 
 func set_tween_light() -> void:
 	var tween: Tween = create_tween()
@@ -133,3 +134,10 @@ func is_ui_open() -> bool:
 		if canva_node.visible:
 			return true
 	return Events.is_dialog_open
+
+
+func set_sight_rotation() -> void:
+	if input_vector == Vector2.ZERO:
+		return
+	var angle_in_radians: float = atan2(input_vector.y, input_vector.x)
+	sight.rotation = lerp_angle(sight.rotation, angle_in_radians, 0.4)

@@ -47,7 +47,7 @@ label = "door_switch"
 ObjectUI = NodePath("../../CanvasLayer/Room 1 - Letter container")
 
 [node name="CollisionShape2D" parent="Room 1/PlayerDetector" index="0"]
-position = Vector2(-1, 16)
+position = Vector2(-1, 8.625)
 
 [node name="DoorWithKey" parent="Room 1" instance=ExtResource("3_k7xsd")]
 position = Vector2(787, 208)
@@ -251,11 +251,10 @@ position_smoothing_enabled = true
 script = ExtResource("4_pkou0")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-color = Color(0.539677, 0.42627, 0.993484, 1)
-energy = 0.0
 blend_mode = 1
 
 [connection signal="body_entered" from="Room 1/RoomPortal2" to="Room 1/RoomPortal2" method="_on_body_entered"]

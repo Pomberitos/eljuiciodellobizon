@@ -21,8 +21,8 @@ func _on_interact() -> void:
 		item_sound.play()
 		await item_sound.finished
 		Dialogic.VAR[key_resource.name] = true
-		if Dialogic.VAR.Caravaca and Dialogic.VAR.key4:
-			get_tree().change_scene_to_file("res://scenes/UIs/finish_mvp.tscn")
+#		if Dialogic.VAR.Caravaca and Dialogic.VAR.key4:
+#			get_tree().change_scene_to_file("res://scenes/UIs/finish_mvp.tscn")
 		queue_free()
 	queue_free()
 
