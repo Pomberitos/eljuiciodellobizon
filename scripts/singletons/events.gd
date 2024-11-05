@@ -33,6 +33,7 @@ signal hamster_puzzle_removed
 @warning_ignore("unused_signal")
 signal ui_changed
 
+
 func _ready() -> void:
 	Dialogic.timeline_started.connect(_on_dialogue_started)
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
@@ -42,12 +43,15 @@ func _ready() -> void:
 
 func _on_dialogue_started():
 	is_dialog_open = true
-	
+
+
 func _on_dialogue_ended():
 	is_dialog_open = false
+
 
 func set_current_room(new_room: Room):
 	current_room = new_room
 
-func  set_puzzle_1_solved()-> void:
+
+func set_puzzle_1_solved() -> void:
 	puzzle_1_done = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbhysgncvbb1p"]
+[gd_scene load_steps=8 format=3 uid="uid://c7wtbljmhfqte"]
 
 [ext_resource type="Script" path="res://scenes/box/clock_box.gd" id="1_1qh40"]
 [ext_resource type="Texture2D" uid="uid://copu6kdyqmmrb" path="res://assets/items/clock.png" id="2_jfs78"]

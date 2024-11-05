@@ -14,7 +14,7 @@ config/name="Lobizon"
 run/main_scene="res://scenes/UIs/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/image="res://assets/pomberitos-logo.png"
+boot_splash/image="res://assets/pomberitos-logo-small.png"
 boot_splash/fullsize=false
 config/icon="res://assets/lobizon.png"
 config/windows_native_icon="res://assets/icons/icon.ico"
@@ -87,6 +87,8 @@ project/assembly_name="Lobizon"
 
 movie_writer/movie_file="/home/chemscobra/Videos/Pomberitos proto box.avi"
 movie_writer/disable_vsync=true
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
 
 [editor_plugins]
 
@@ -198,7 +200,7 @@ cross={
 
 [navigation]
 
-2d/default_edge_connection_margin=8.0
+2d/default_edge_connection_margin=16.0
 
 [rendering]
 

@@ -41,7 +41,8 @@ func _on_room_entered(room: Room):
 
 func slasherSpawner():
 	var room = Events.current_room
-	remove_child(slasher)
+	if slasher:
+		remove_child(slasher)
 	slasher = sceneToSpawn.instantiate()
 	slasher.player = player
 	spawnSlasher(room)
