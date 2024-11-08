@@ -7,7 +7,6 @@ var positions: Array
 
 
 func _ready():
-	Events.room_entered.connect(_on_room_entered)
 	positions = $SpawnPositions.get_children()
 
 
@@ -16,8 +15,8 @@ func _on_player_detector_body_entered(body: Node2D) -> void:
 		Events.room_entered.emit(self)
 
 
-func _on_room_entered(room: Room) -> void:
-	print("Room entered: ", room.number)
+#func _on_room_entered(room: Room) -> void:
+#	print("Room entered: ", room.number)
 
 
 func _input(_event: InputEvent) -> void:
