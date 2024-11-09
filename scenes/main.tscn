@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=48 format=4 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="Script" path="res://scenes/GameController.gd" id="1_3dbo4"]
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
@@ -28,8 +28,6 @@
 [ext_resource type="PackedScene" uid="uid://vev8mj8e4phh" path="res://scenes/box/tile_switch.tscn" id="14_rpnvo"]
 [ext_resource type="PackedScene" uid="uid://cwht00ivoelts" path="res://scenes/interaction/hint.tscn" id="15_sp523"]
 [ext_resource type="PackedScene" uid="uid://c0qh7mj423s3v" path="res://puzzles/PuzzleHamster.tscn" id="17_tew7j"]
-[ext_resource type="FontFile" uid="uid://4i6yfq7v7h4e" path="res://assets/fonts/duskey-free.rough.otf" id="28_j76tl"]
-[ext_resource type="Script" path="res://scripts/hud_room.gd" id="28_x5icq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1pn3"]
 size = Vector2(716, 304)
@@ -85,71 +83,6 @@ size = Vector2(796, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aqso6"]
 size = Vector2(204, 99)
-
-[sub_resource type="LabelSettings" id="LabelSettings_xyipq"]
-font = ExtResource("28_j76tl")
-font_size = 25
-
-[sub_resource type="Animation" id="Animation_2xxrj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Label:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_ebcf2"]
-resource_name = "fade_out_name"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 0.9667, 3),
-"transitions": PackedFloat32Array(6.72717, 1, 5.46416),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Label:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.0333333, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_tgm4i"]
-_data = {
-"RESET": SubResource("Animation_2xxrj"),
-"fade_out_name": SubResource("Animation_ebcf2")
-}
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -1057,34 +990,6 @@ visible = false
 [node name="HintContainer" parent="CanvasLayer" instance=ExtResource("14_k85a1")]
 visible = false
 
-[node name="HUDRoom" type="CanvasLayer" parent="." node_paths=PackedStringArray("label", "animation_player")]
-script = ExtResource("28_x5icq")
-label = NodePath("Label")
-animation_player = NodePath("AnimationPlayer")
-
-[node name="Label" type="Label" parent="HUDRoom"]
-visible = false
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -242.0
-offset_top = -76.0
-offset_right = -62.0
-offset_bottom = -40.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "Room Name"
-label_settings = SubResource("LabelSettings_xyipq")
-horizontal_alignment = 2
-vertical_alignment = 2
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HUDRoom"]
-libraries = {
-"": SubResource("AnimationLibrary_tgm4i")
-}
-
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 position_smoothing_enabled = true
@@ -1095,7 +1000,6 @@ visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-visible = false
 blend_mode = 1
 
 [connection signal="body_entered" from="Entrance/PlayerDetector" to="Entrance" method="_on_player_detector_body_entered"]
