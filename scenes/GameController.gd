@@ -1,5 +1,7 @@
 extends Node2D
 
+# Ugly fix to use the cinematic music when initiating the game
+var is_cinematic_showing: bool = true
 
 func _ready() -> void:
 	Events.letter_displayed.connect(_on_letter_displayed)
@@ -11,7 +13,8 @@ func _ready() -> void:
 	Events.slasher_spawned.connect(_on_slasher_spawned)
 	Events.slasher_gone.connect(_on_slasher_gone)
 	Events.object_picked.connect(_on_object_picked)
-	AudioManager.play_music(AudioManager.GAME_MUSIC)
+	Events.cinematic_finished.connect(_on_cinematic_finished)
+	AudioManager.play_music(AudioManager.CINEMATIC_MUSIC)
 
 
 func _unhandled_input(_event: InputEvent) -> void:
@@ -49,10 +52,12 @@ func _on_hamster_puzzle_displayed():
 
 
 func _on_hamsbter_puzzle_removed():
+	print("hamster puzzle removed")
 	AudioManager.play_music(AudioManager.GAME_MUSIC)
 
 
 func _on_letter_removed():
+	print("letter removed")
 	get_tree().paused = false
 	AudioManager.play_music(AudioManager.GAME_MUSIC)
 
@@ -62,7 +67,13 @@ func _on_slasher_spawned(_room: Room):
 
 
 func _on_slasher_gone():
+	if is_cinematic_showing:
+		return
 	AudioManager.play_music(AudioManager.GAME_MUSIC)
+
+func _on_cinematic_finished():
+	AudioManager.play_music(AudioManager.GAME_MUSIC)
+	is_cinematic_showing = false
 
 
 func _on_object_picked(_object: InventoryItem):

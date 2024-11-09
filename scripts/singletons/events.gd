@@ -5,7 +5,7 @@ var is_dialog_open: bool = false
 var puzzle_1_done: bool = false
 
 @warning_ignore("unused_signal")
-signal room_entered(next_room)  # ignore-warning
+signal room_entered(next_room) # ignore-warning
 @warning_ignore("unused_signal")
 signal slasher_spawned
 @warning_ignore("unused_signal")
@@ -32,7 +32,8 @@ signal hamster_puzzle_displayed
 signal hamster_puzzle_removed
 @warning_ignore("unused_signal")
 signal ui_changed
-
+@warning_ignore("unused_signal")
+signal cinematic_finished
 
 func _ready() -> void:
 	Dialogic.timeline_started.connect(_on_dialogue_started)
