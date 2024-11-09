@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bui7227jviecj" path="res://scenes/box/bench_box.tscn" id="4_sdatx"]
 [ext_resource type="PackedScene" uid="uid://ds6sarhkv1o7g" path="res://scenes/box/bench_box2.tscn" id="5_fjv2k"]
 [ext_resource type="PackedScene" uid="uid://bbpc256k01b3p" path="res://scenes/candle.tscn" id="6_gjkum"]
-[ext_resource type="PackedScene" path="res://scenes/collectible/carava.tscn" id="7_1g644"]
+[ext_resource type="PackedScene" uid="uid://dwkq61ac1kkwg" path="res://scenes/collectible/carava.tscn" id="7_1g644"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_d68yi"]
 polygon = PackedVector2Array(16, -16, -16, -16, -16, 16, 16, 16)
@@ -250,9 +250,6 @@ texture_region_size = Vector2i(32, 32)
 6:13/0 = 0
 19:13/0 = 0
 24:13/0 = 0
-36:13/0 = 0
-38:13/0 = 0
-39:13/0 = 0
 0:14/0 = 0
 0:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(6.01041, -16, 6, 4, 16, 4, 16, -16)
 1:14/0 = 0
@@ -263,9 +260,6 @@ texture_region_size = Vector2i(32, 32)
 4:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -16, -16, -16, -16, 4, -6, 4)
 5:14/0 = 0
 6:14/0 = 0
-36:14/0 = 0
-38:14/0 = 0
-39:14/0 = 0
 0:15/0 = 0
 0:15/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_d68yi")
 0:15/0/physics_layer_2/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
@@ -286,9 +280,6 @@ texture_region_size = Vector2i(32, 32)
 25:15/0 = 0
 26:15/0 = 0
 27:15/0 = 0
-36:15/0 = 0
-38:15/0 = 0
-39:15/0 = 0
 27:8/0 = 0
 28:8/0 = 0
 29:8/0 = 0
@@ -441,6 +432,7 @@ texture_region_size = Vector2i(32, 32)
 18:12/size_in_atlas = Vector2i(1, 2)
 18:12/0 = 0
 18:12/0/texture_origin = Vector2i(0, 16)
+18:12/0/y_sort_origin = -16
 24:9/size_in_atlas = Vector2i(2, 2)
 24:9/0 = 0
 24:9/0/texture_origin = Vector2i(-16, -16)
@@ -707,6 +699,8 @@ texture_region_size = Vector2i(32, 32)
 18:14/size_in_atlas = Vector2i(2, 2)
 18:14/0 = 0
 18:14/0/texture_origin = Vector2i(-16, -16)
+36:13/size_in_atlas = Vector2i(4, 3)
+36:13/0 = 0
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_sh36h"]
 resource_name = "Objects"
