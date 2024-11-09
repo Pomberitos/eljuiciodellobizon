@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://j8au7006wfkt"]
+[gd_scene load_steps=11 format=3 uid="uid://j8au7006wfkt"]
 
 [ext_resource type="Script" path="res://scenes/UIs/main_menu.gd" id="1_45f1r"]
 [ext_resource type="Texture2D" uid="uid://qd2h7tf8gidl" path="res://assets/Portada_El_Juicio_del_Lobizon.png" id="2_ce7f1"]
 [ext_resource type="FontFile" uid="uid://4i6yfq7v7h4e" path="res://assets/fonts/duskey-free.rough.otf" id="3_8s0sh"]
+[ext_resource type="PackedScene" uid="uid://doss0cxnltyjx" path="res://scenes/UIs/audio_bus_slider.tscn" id="4_2l8pt"]
 
 [sub_resource type="Theme" id="Theme_4t56t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20hiw"]
+bg_color = Color(0.114897, 0.114897, 0.114897, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nnuc"]
 content_margin_left = 20.0
@@ -17,7 +21,26 @@ draw_center = false
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_orkuf"]
 draw_center = false
 
-[node name="MainMenu" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bclk6"]
+bg_color = Color(1.50409e-09, 0.0603524, 0.0663545, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0588235, 0.662745, 0.576471, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_dthfy"]
+font = ExtResource("3_8s0sh")
+font_size = 21
+font_color = Color(0.819608, 0.819608, 0.321569, 1)
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("audio_config_panel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,6 +49,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 script = ExtResource("1_45f1r")
+audio_config_panel = NodePath("MarginContainer/Sound Config")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -44,9 +68,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 100
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
@@ -59,24 +83,71 @@ alignment = 1
 [node name="NewGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_8s0sh")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 42
+theme_override_styles/hover = SubResource("StyleBoxFlat_20hiw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_5nnuc")
 text = "Juego Nuevo"
 
 [node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_8s0sh")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 42
+theme_override_styles/hover = SubResource("StyleBoxFlat_20hiw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_orkuf")
 text = "Salir"
 
 [node name="Configuracion" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_8s0sh")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 42
+theme_override_styles/hover = SubResource("StyleBoxFlat_20hiw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_orkuf")
 text = "Configuración
 "
+
+[node name="Sound Config" type="Panel" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bclk6")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Sound Config"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Sound Config/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="AudioBusSlider" parent="MarginContainer/Sound Config/MarginContainer/VBoxContainer" instance=ExtResource("4_2l8pt")]
+layout_mode = 2
+
+[node name="AudioBusSlider2" parent="MarginContainer/Sound Config/MarginContainer/VBoxContainer" instance=ExtResource("4_2l8pt")]
+layout_mode = 2
+bus_name = "Music"
+
+[node name="Label" parent="MarginContainer/Sound Config/MarginContainer/VBoxContainer/AudioBusSlider2/VBoxContainer" index="0"]
+text = "Música"
+
+[node name="AudioBusSlider3" parent="MarginContainer/Sound Config/MarginContainer/VBoxContainer" instance=ExtResource("4_2l8pt")]
+layout_mode = 2
+bus_name = "FXs"
+
+[node name="Label" parent="MarginContainer/Sound Config/MarginContainer/VBoxContainer/AudioBusSlider3/VBoxContainer" index="0"]
+text = "Efectos Especiales"
+
+[node name="Label" type="Label" parent="MarginContainer/Sound Config/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Presione Escape para confirmar sus cambios y cerrar"
+label_settings = SubResource("LabelSettings_dthfy")
+horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -90,3 +161,8 @@ text = "MVP - https://tehsis.itch.io/lobizon"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Configuracion" to="." method="_on_configuracion_pressed"]
+
+[editable path="MarginContainer/Sound Config/MarginContainer/VBoxContainer/AudioBusSlider"]
+[editable path="MarginContainer/Sound Config/MarginContainer/VBoxContainer/AudioBusSlider2"]
+[editable path="MarginContainer/Sound Config/MarginContainer/VBoxContainer/AudioBusSlider3"]

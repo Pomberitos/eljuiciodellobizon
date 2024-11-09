@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://doss0cxnltyjx"]
+
+[ext_resource type="Script" path="res://scenes/UIs/audio_bus_slider.gd" id="1_6a2bf"]
+[ext_resource type="LabelSettings" uid="uid://bmse2q0hteojr" path="res://resources/font_dusk_2.tres" id="2_bmvjo"]
+[ext_resource type="FontFile" uid="uid://4i6yfq7v7h4e" path="res://assets/fonts/duskey-free.rough.otf" id="3_e0idv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m3cit"]
+font = ExtResource("3_e0idv")
+
+[node name="AudioBusSlider" type="Control" node_paths=PackedStringArray("audio_slider", "audio_label_value")]
+layout_mode = 3
+anchors_preset = 0
+size_flags_vertical = 3
+script = ExtResource("1_6a2bf")
+audio_slider = NodePath("VBoxContainer/HSlider")
+audio_label_value = NodePath("VBoxContainer/Label2")
+bus_name = "Master"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Global"
+label_settings = ExtResource("2_bmvjo")
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.125
+value = 1.0
+tick_count = 9
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Más alto que bajo"
+label_settings = SubResource("LabelSettings_m3cit")
+horizontal_alignment = 1
+vertical_alignment = 1
