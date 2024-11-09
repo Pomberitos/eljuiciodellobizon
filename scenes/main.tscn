@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=49 format=4 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="Script" path="res://scenes/GameController.gd" id="1_3dbo4"]
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://vev8mj8e4phh" path="res://scenes/box/tile_switch.tscn" id="14_rpnvo"]
 [ext_resource type="PackedScene" uid="uid://cwht00ivoelts" path="res://scenes/interaction/hint.tscn" id="15_sp523"]
 [ext_resource type="PackedScene" uid="uid://c0qh7mj423s3v" path="res://puzzles/PuzzleHamster.tscn" id="17_tew7j"]
+[ext_resource type="PackedScene" path="res://scenes/Cinematics/text_cinematics.tscn" id="23_8u7wn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1pn3"]
 size = Vector2(716, 304)
@@ -972,14 +973,17 @@ selected_initial_position = 11
 canvas_layer = NodePath("../CanvasLayer")
 
 [node name="SlasherSpawner" parent="." node_paths=PackedStringArray("player", "excludedRooms") instance=ExtResource("6_85noy")]
-spawnerDisabled = true
 player = NodePath("../Player")
-excludedRooms = [NodePath("../Main Hall"), NodePath("../Dinner 1"), NodePath("../Library"), NodePath("../Hall")]
+excludedRooms = [NodePath("../Main Hall"), NodePath("../Entrance"), NodePath("../Dinner 1"), NodePath("../Dinner 2"), NodePath("../Hall"), NodePath("../Hall B"), NodePath("../Hall C"), NodePath("../Astor\'s Bedroom"), NodePath("../Pantry"), NodePath("../Kitchen"), NodePath("../Basement")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PuzzleHamster" parent="CanvasLayer" instance=ExtResource("17_tew7j")]
 visible = false
+offset_left = 282.0
+offset_top = -39.0
+offset_right = 282.0
+offset_bottom = -39.0
 
 [node name="Room 1 - Letter container" parent="CanvasLayer" instance=ExtResource("12_gjrc0")]
 visible = false
@@ -989,6 +993,8 @@ visible = false
 
 [node name="HintContainer" parent="CanvasLayer" instance=ExtResource("14_k85a1")]
 visible = false
+
+[node name="TextCinematics" parent="CanvasLayer" instance=ExtResource("23_8u7wn")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
