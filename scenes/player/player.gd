@@ -1,8 +1,22 @@
 class_name Player extends CharacterBody2D
 
-enum Position { ROOM_1, ROOM_2, ROOM_3, ROOM_4 }
+enum Position { 
+	ENTRANCE,
+	MAIN_HALL,
+	LIBRARY,
+	DINNER_1,
+	DINNER_2,
+	BASEMENT,
+	KITCHEN,
+	PANTRY,
+	HALL,
+	HALL_B,
+	ATTIC,
+	HALL_C,
+	ASTORS_BEDROOM
+}
 
-@export var selected_initial_position: Position = Position.ROOM_1
+@export var selected_initial_position: Position = Position.ENTRANCE
 
 @export var max_speed: float = 100.0
 @export var max_speed_multiplier: float = 1.5
@@ -23,11 +37,21 @@ enum Position { ROOM_1, ROOM_2, ROOM_3, ROOM_4 }
 
 # Posiciones iniciales definidas
 var initial_positions: Array[Vector2] = [
-	Vector2(435, 376),  # ROOM_1
-	Vector2(342, -87),  # ROOM_2
-	Vector2(898, 210),  # ROOM_3
-	Vector2(1497, -90),  # ROOM_4
+	Vector2(232, 584),  # ENTRANCE
+	Vector2(349, 360),  # MAIN_HALL
+	Vector2(1166, -1097), # LIBRARY		
+	Vector2(898, 210),  # DINNER_1
+	Vector2(1631, 210),  # DINNER_2
+	Vector2(2456, 210),  # BASEMENT
+	Vector2(1519, -96),  # KITCHEN
+	Vector2(1760, -368),  # PANTRY
+	Vector2(360, -96),  # HALL
+	Vector2(376, -584),  # HALL B
+	Vector2(688, -1112),  # ATTIC
+	Vector2(896, -766),  # HALL C
+	Vector2(1720, -766),  # ASTOR
 ]
+
 enum { WALK, CROSS, IDLE, PUSH }
 
 var state = WALK

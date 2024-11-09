@@ -13,6 +13,5 @@ func _on_player_detector_body_entered(body: Node2D) -> void:
 	if body is Player:
 		Events.room_entered.emit(self)
 
-
 func _input(_event: InputEvent) -> void:
 	pass
