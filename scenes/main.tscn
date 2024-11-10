@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=52 format=4 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="Script" path="res://scenes/GameController.gd" id="1_3dbo4"]
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
@@ -29,6 +29,8 @@
 [ext_resource type="PackedScene" uid="uid://cwht00ivoelts" path="res://scenes/interaction/hint.tscn" id="15_sp523"]
 [ext_resource type="PackedScene" uid="uid://c0qh7mj423s3v" path="res://puzzles/PuzzleHamster.tscn" id="17_tew7j"]
 [ext_resource type="PackedScene" path="res://scenes/Cinematics/text_cinematics.tscn" id="23_8u7wn"]
+[ext_resource type="Script" path="res://scenes/pause_screen.gd" id="30_6d8tr"]
+[ext_resource type="PackedScene" uid="uid://1vgu7l8rnnup" path="res://scenes/UIs/sound_config_menu.tscn" id="31_n3psm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1pn3"]
 size = Vector2(716, 304)
@@ -999,6 +1001,35 @@ color = Color(0, 0, 0, 1)
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 visible = false
 blend_mode = 1
+
+[node name="OtherUI" type="CanvasLayer" parent="."]
+
+[node name="PauseScreen" type="Control" parent="OtherUI"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("30_6d8tr")
+
+[node name="MarginContainer" type="MarginContainer" parent="OtherUI/PauseScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Sound Config" parent="OtherUI/PauseScreen/MarginContainer" instance=ExtResource("31_n3psm")]
+visible = true
+layout_mode = 2
 
 [connection signal="body_entered" from="Entrance/PlayerDetector" to="Entrance" method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="Entrance/RoomPortal" to="Entrance/RoomPortal" method="_on_body_entered"]
