@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://c1d6li6y75qf5"]
+
+[ext_resource type="Texture2D" uid="uid://dtyq8a527bq05" path="res://assets/character/ricky/ricky_64_sprite_sheet.png.png" id="1_y4slt"]
+[ext_resource type="Texture2D" uid="uid://cd88lacvmfgpk" path="res://assets/character/ricky/ricky_64_sprite_sheet_n.png" id="2_ynvhn"]
+
+[resource]
+diffuse_texture = ExtResource("1_y4slt")
+normal_texture = ExtResource("2_ynvhn")

@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c2ltxpxui6ca8"]
+
+[ext_resource type="FontFile" uid="uid://cm7x2fsq328k3" path="res://assets/fonts/LiberationSerif-Regular.ttf" id="1_mwqfq"]
+
+[resource]
+default_font = ExtResource("1_mwqfq")
+default_font_size = 32
