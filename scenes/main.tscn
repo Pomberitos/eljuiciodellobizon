@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=57 format=4 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="Script" path="res://scenes/GameController.gd" id="1_3dbo4"]
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
@@ -28,9 +28,10 @@
 [ext_resource type="PackedScene" uid="uid://vev8mj8e4phh" path="res://scenes/box/tile_switch.tscn" id="14_rpnvo"]
 [ext_resource type="PackedScene" uid="uid://cwht00ivoelts" path="res://scenes/interaction/hint.tscn" id="15_sp523"]
 [ext_resource type="PackedScene" uid="uid://c0qh7mj423s3v" path="res://puzzles/PuzzleHamster.tscn" id="17_tew7j"]
-[ext_resource type="PackedScene" path="res://scenes/Cinematics/text_cinematics.tscn" id="23_8u7wn"]
+[ext_resource type="PackedScene" uid="uid://bpw8h2xvw63cq" path="res://scenes/Cinematics/text_cinematics.tscn" id="23_8u7wn"]
+[ext_resource type="Script" path="res://scenes/Cinematics/CinematicText.gd" id="29_ia5wo"]
 [ext_resource type="Script" path="res://scenes/pause_screen.gd" id="30_6d8tr"]
-[ext_resource type="PackedScene" uid="uid://1vgu7l8rnnup" path="res://scenes/UIs/sound_config_menu.tscn" id="31_n3psm"]
+[ext_resource type="PackedScene" path="res://scenes/UIs/sound_config_menu.tscn" id="31_n3psm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1pn3"]
 size = Vector2(716, 304)
@@ -89,6 +90,26 @@ size = Vector2(796, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aqso6"]
 size = Vector2(204, 99)
+
+[sub_resource type="Resource" id="Resource_6aq5j"]
+script = ExtResource("29_ia5wo")
+text = "Ricky, un joven que ha convertido la fama en su obsesión, recibe una invitación inesperada. La prestigiosa Estancia López Rigoni, un misterioso caserón en los confines del Norte Argentino, lo cita para otorgarle un galardón de prestigio."
+duration = 15.0
+
+[sub_resource type="Resource" id="Resource_28juk"]
+script = ExtResource("29_ia5wo")
+text = "El viaje, impulsado por la ambición, lo pone frente al umbral de una casa donde el sonido de antiguos secretos le recorren la piel."
+duration = 8.0
+
+[sub_resource type="Resource" id="Resource_v0i6d"]
+script = ExtResource("29_ia5wo")
+text = "Al llegar, una figura observa desde lo alto, oscura y espectral. Ricky se detiene, su corazón retumba en un eco de advertencia. Un gesto del extraño, marcado por el paso del tiempo, lo invita a entrar."
+duration = 15.0
+
+[sub_resource type="Resource" id="Resource_880f7"]
+script = ExtResource("29_ia5wo")
+text = "El destino, sellado. La puerta se cierra con un eco profundo. Ahora, la lucha por escapar comienza."
+duration = 8.0
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -989,6 +1010,7 @@ visible = false
 visible = false
 
 [node name="TextCinematics" parent="CanvasLayer" instance=ExtResource("23_8u7wn")]
+texts = Array[ExtResource("29_ia5wo")]([SubResource("Resource_6aq5j"), SubResource("Resource_28juk"), SubResource("Resource_v0i6d"), SubResource("Resource_880f7")])
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

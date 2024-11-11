@@ -13,7 +13,15 @@ func _ready() -> void:
 	timer.wait_time = texts[current_text_index].duration
 	timer.start()
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact"):
+		if current_text_index < texts.size():
+			advance_text()
+
 func _on_timer_timeout() -> void:
+	advance_text()
+
+func advance_text():
 	current_text_index += 1
 
 	if current_text_index >= texts.size():
