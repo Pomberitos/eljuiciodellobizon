@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dsmsdo7pupdl6"]
+
+[ext_resource type="FontFile" uid="uid://dxe1ccsnk6l41" path="res://assets/fonts/Times New Roman MT Std Condensed.otf" id="1_85c5h"]
+
+[resource]
+font = ExtResource("1_85c5h")
+font_size = 21
+font_color = Color(0.928905, 1, 0.925634, 1)

@@ -1,11 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://doss0cxnltyjx"]
+[gd_scene load_steps=3 format=3 uid="uid://doss0cxnltyjx"]
 
 [ext_resource type="Script" path="res://scenes/UIs/audio_bus_slider.gd" id="1_6a2bf"]
-[ext_resource type="LabelSettings" uid="uid://bmse2q0hteojr" path="res://resources/font_dusk_2.tres" id="2_bmvjo"]
-[ext_resource type="FontFile" uid="uid://4i6yfq7v7h4e" path="res://assets/fonts/duskey-free.rough.otf" id="3_e0idv"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_m3cit"]
-font = ExtResource("3_e0idv")
+[ext_resource type="LabelSettings" uid="uid://dsmsdo7pupdl6" path="res://resources/font_TNR_2.tres" id="2_i41kp"]
 
 [node name="AudioBusSlider" type="Control" node_paths=PackedStringArray("audio_slider", "audio_label_value")]
 layout_mode = 3
@@ -27,22 +23,18 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Global"
-label_settings = ExtResource("2_bmvjo")
+label_settings = ExtResource("2_i41kp")
 vertical_alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
-layout_mode = 2
 
 [node name="HSlider" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
 max_value = 1.0
 step = 0.125
 value = 1.0
-tick_count = 9
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Más alto que bajo"
-label_settings = SubResource("LabelSettings_m3cit")
+label_settings = ExtResource("2_i41kp")
 horizontal_alignment = 1
 vertical_alignment = 1

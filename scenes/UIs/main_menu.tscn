@@ -1,17 +1,26 @@
-[gd_scene load_steps=10 format=3 uid="uid://j8au7006wfkt"]
+[gd_scene load_steps=15 format=3 uid="uid://j8au7006wfkt"]
 
 [ext_resource type="Script" path="res://scenes/UIs/main_menu.gd" id="1_45f1r"]
-[ext_resource type="Texture2D" uid="uid://qd2h7tf8gidl" path="res://assets/Portada_El_Juicio_del_Lobizon.png" id="2_ce7f1"]
 [ext_resource type="Material" uid="uid://djei68m23mn8p" path="res://scenes/UIs/fog_material.tres" id="2_nd5l8"]
 [ext_resource type="Texture2D" uid="uid://byb6jwycoumjf" path="res://assets/textures/titulo.png" id="3_1p4ki"]
-[ext_resource type="Theme" uid="uid://c2ltxpxui6ca8" path="res://scenes/UIs/main_menu_button_fonts.tres" id="3_wohgl"]
-[ext_resource type="Texture2D" uid="uid://cdt0fhgkgboi3" path="res://assets/inputs/button_normal.png" id="6_yyudj"]
-[ext_resource type="Texture2D" uid="uid://mmi4wbta7l1f" path="res://assets/inputs/buton_pressed.png" id="7_s84sv"]
-[ext_resource type="Texture2D" uid="uid://dxeif55tyrr8s" path="res://assets/inputs/button_hover.png" id="8_0gnsy"]
+[ext_resource type="Theme" uid="uid://2bddptpj5pk6" path="res://scenes/UIs/main_menu.tres" id="5_5kcya"]
+[ext_resource type="Texture2D" uid="uid://w0q6l1a4utko" path="res://assets/UI/Discord.png" id="6_kqbr4"]
+[ext_resource type="Texture2D" uid="uid://704rqcs52k1f" path="res://assets/UI/instagram.png" id="7_snfd4"]
+[ext_resource type="Texture2D" uid="uid://b3iropsq2fbm8" path="res://assets/UI/Itch.svg" id="8_3eaib"]
+[ext_resource type="Theme" uid="uid://c2ltxpxui6ca8" path="res://scenes/UIs/main_menu_button_fonts.tres" id="8_wmi8x"]
+[ext_resource type="PackedScene" uid="uid://1vgu7l8rnnup" path="res://scenes/UIs/sound_config_menu.tscn" id="8_yx13y"]
+[ext_resource type="Texture2D" uid="uid://clxwa6wjqmblt" path="res://assets/textures/controles_wip.png" id="10_5x777"]
+[ext_resource type="StyleBox" uid="uid://8gowbf1mpfxl" path="res://scenes/UIs/new_style_box_flat.tres" id="10_8opft"]
+[ext_resource type="FontFile" uid="uid://4i6yfq7v7h4e" path="res://assets/fonts/duskey-free.rough.otf" id="12_fosve"]
 
 [sub_resource type="Theme" id="Theme_4t56t"]
 
-[node name="MainMenu" type="Control"]
+[sub_resource type="LabelSettings" id="LabelSettings_jikmg"]
+font = ExtResource("12_fosve")
+font_size = 21
+font_color = Color(0.819608, 0.819608, 0.321569, 1)
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("config_panel", "audio_panel", "control_panel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,6 +29,9 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 script = ExtResource("1_45f1r")
+config_panel = NodePath("Config")
+audio_panel = NodePath("Config/MarginContainer/HBoxContainer/Sound Config")
+control_panel = NodePath("Config/MarginContainer/HBoxContainer/ControlPanel")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -30,19 +42,8 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="TextureRect" type="TextureRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_ce7f1")
-expand_mode = 2
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-layer = 1
+layer = 0
 scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -55,126 +56,160 @@ offset_bottom = 450.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+[node name="MainMenuMargin" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -67.0
-offset_top = -48.5
-offset_right = 67.0
-offset_bottom = 48.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
+theme_override_constants/margin_top = 65
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
-z_index = 15
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenuMargin"]
 layout_mode = 2
 theme = SubResource("Theme_4t56t")
-theme_override_constants/separation = 13
+theme_override_constants/separation = 30
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MainMenuMargin/VBoxContainer"]
+custom_minimum_size = Vector2(0, 67)
+layout_mode = 2
+texture = ExtResource("3_1p4ki")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenuMargin/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("3_1p4ki")
+theme_override_constants/separation = 10
 
-[node name="NewGameButton" type="TextureButton" parent="CanvasLayer/MarginContainer/VBoxContainer"]
-z_index = 3
+[node name="NewGameButton" type="Button" parent="CanvasLayer/MainMenuMargin/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_wohgl")
-texture_normal = ExtResource("6_yyudj")
-texture_pressed = ExtResource("7_s84sv")
-texture_hover = ExtResource("8_0gnsy")
-stretch_mode = 3
-
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/NewGameButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -18.0
-offset_right = 20.0
-offset_bottom = 18.0
-grow_horizontal = 2
-grow_vertical = 2
+theme = ExtResource("5_5kcya")
+theme_override_colors/font_hover_color = Color(0, 0.509804, 0.898039, 1)
+theme_override_colors/font_pressed_color = Color(0.447059, 0.45098, 0.984314, 1)
 text = "Nueva Partida"
 
-[node name="CreditsButton" type="TextureButton" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+[node name="CreditsButton" type="Button" parent="CanvasLayer/MainMenuMargin/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_wohgl")
-texture_normal = ExtResource("6_yyudj")
-texture_pressed = ExtResource("7_s84sv")
-texture_hover = ExtResource("8_0gnsy")
-stretch_mode = 3
-
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/CreditsButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -18.0
-offset_right = 20.0
-offset_bottom = 18.0
-grow_horizontal = 2
-grow_vertical = 2
+theme = ExtResource("5_5kcya")
 text = "Créditos"
 
-[node name="ConfigButton" type="TextureButton" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+[node name="ConfigButton" type="Button" parent="CanvasLayer/MainMenuMargin/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_wohgl")
-texture_normal = ExtResource("6_yyudj")
-texture_pressed = ExtResource("7_s84sv")
-texture_hover = ExtResource("8_0gnsy")
-stretch_mode = 3
-
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/ConfigButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -18.0
-offset_right = 20.0
-offset_bottom = 18.0
-grow_horizontal = 2
-grow_vertical = 2
+theme = ExtResource("5_5kcya")
 text = "Configuración"
 
-[node name="QuitButton" type="TextureButton" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="CanvasLayer/MainMenuMargin/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_wohgl")
-texture_normal = ExtResource("6_yyudj")
-texture_pressed = ExtResource("7_s84sv")
-texture_hover = ExtResource("8_0gnsy")
-stretch_mode = 3
-
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/QuitButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -18.0
-offset_right = 20.0
-offset_bottom = 18.0
-grow_horizontal = 2
-grow_vertical = 2
+theme = ExtResource("5_5kcya")
 text = "Salir"
 
-[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -190.0
+offset_top = -40.0
+offset_right = -25.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_kqbr4")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_snfd4")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_3eaib")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Config" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="Config"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Config/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Config/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+alignment = 1
+
+[node name="Audio" type="Button" parent="Config/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_wmi8x")
+text = "AUDIO"
+
+[node name="Controles" type="Button" parent="Config/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_wmi8x")
+text = "CONTROLES"
+
+[node name="Sound Config" parent="Config/MarginContainer/HBoxContainer" instance=ExtResource("8_yx13y")]
+visible = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ControlPanel" type="Panel" parent="Config/MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("10_8opft")
+
+[node name="TextureRect" type="TextureRect" parent="Config/MarginContainer/HBoxContainer/ControlPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("10_5x777")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Config/MarginContainer/HBoxContainer/ControlPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -129.5
+offset_top = -40.0
+offset_right = 137.5
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Presione Esc para volver"
+label_settings = SubResource("LabelSettings_jikmg")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="CanvasLayer/MainMenuMargin/VBoxContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenuMargin/VBoxContainer/VBoxContainer/ConfigButton" to="." method="_on_config_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenuMargin/VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Config/MarginContainer/HBoxContainer/VBoxContainer/Audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="Config/MarginContainer/HBoxContainer/VBoxContainer/Controles" to="." method="_on_controles_pressed"]

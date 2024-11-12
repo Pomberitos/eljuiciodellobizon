@@ -17,18 +17,18 @@
 [ext_resource type="PackedScene" uid="uid://c5brlqtj6ph0" path="res://scenes/collectible/key.tscn" id="8_ooidw"]
 [ext_resource type="TileSet" uid="uid://3im5s84l5a4c" path="res://resources/tilesets/main_tileset.tres" id="9_ccigu"]
 [ext_resource type="AudioStream" uid="uid://bjntvhskdx21y" path="res://assets/audio/clock_bell.ogg" id="9_elj8w"]
-[ext_resource type="Resource" uid="uid://dxywxvv1rupur" path="res://inventory/items/key4.tres" id="10_3c2q4"]
+[ext_resource type="Resource" path="res://inventory/items/key4.tres" id="10_3c2q4"]
 [ext_resource type="PackedScene" uid="uid://3cy137yehsru" path="res://scenes/collectible/letter.tscn" id="10_7d0u5"]
 [ext_resource type="AudioStream" uid="uid://cdwu2utcblvgj" path="res://assets/audio/wolf-growl.ogg" id="10_kxxv2"]
 [ext_resource type="Script" path="res://scenes/rooms/puzzles/puzzle_2.gd" id="11_40gju"]
-[ext_resource type="PackedScene" uid="uid://4vduqc0wij88" path="res://scenes/collectible/key4.tscn" id="11_th5jr"]
+[ext_resource type="PackedScene" path="res://scenes/collectible/key4.tscn" id="11_th5jr"]
 [ext_resource type="PackedScene" uid="uid://cawlhdaqesgwj" path="res://scenes/UIs/Room 1/Letter.tscn" id="12_gjrc0"]
 [ext_resource type="AudioStream" uid="uid://l0emo1de2bmt" path="res://assets/audio/monstar_gets_key_from_braid.ogg" id="14_k7g6b"]
 [ext_resource type="PackedScene" uid="uid://dsk8fru450di1" path="res://scenes/UIs/Room 1/hint_container.tscn" id="14_k85a1"]
 [ext_resource type="PackedScene" uid="uid://vev8mj8e4phh" path="res://scenes/box/tile_switch.tscn" id="14_rpnvo"]
 [ext_resource type="PackedScene" uid="uid://cwht00ivoelts" path="res://scenes/interaction/hint.tscn" id="15_sp523"]
 [ext_resource type="PackedScene" uid="uid://c0qh7mj423s3v" path="res://puzzles/PuzzleHamster.tscn" id="17_tew7j"]
-[ext_resource type="PackedScene" path="res://scenes/Cinematics/text_cinematics.tscn" id="23_8u7wn"]
+[ext_resource type="PackedScene" uid="uid://bpw8h2xvw63cq" path="res://scenes/Cinematics/text_cinematics.tscn" id="23_8u7wn"]
 [ext_resource type="Script" path="res://scenes/pause_screen.gd" id="30_6d8tr"]
 [ext_resource type="PackedScene" uid="uid://1vgu7l8rnnup" path="res://scenes/UIs/sound_config_menu.tscn" id="31_n3psm"]
 
@@ -327,13 +327,7 @@ tile_set = ExtResource("9_ccigu")
 [node name="SpawnPositions" type="Node" parent="Library"]
 
 [node name="Marker2D" type="Marker2D" parent="Library/SpawnPositions"]
-position = Vector2(1197, -1114)
-
-[node name="Marker2D2" type="Marker2D" parent="Library/SpawnPositions"]
-position = Vector2(1468, -1218)
-
-[node name="Marker2D3" type="Marker2D" parent="Library/SpawnPositions"]
-position = Vector2(1053, -1218)
+position = Vector2(1197, -1069)
 
 [node name="PlayerDetector" type="Area2D" parent="Library"]
 z_index = -10
@@ -945,9 +939,6 @@ tile_set = ExtResource("9_ccigu")
 [node name="Marker2D" type="Marker2D" parent="Astor\'s Bedroom/SpawnPositions"]
 position = Vector2(983, -348)
 
-[node name="Marker2D2" type="Marker2D" parent="Astor\'s Bedroom/SpawnPositions"]
-position = Vector2(1498, -225)
-
 [node name="RoomPortal4" type="Area2D" parent="Astor\'s Bedroom"]
 position = Vector2(-8, 208)
 rotation = 1.57079
@@ -996,6 +987,7 @@ position_smoothing_enabled = true
 script = ExtResource("4_pkou0")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]

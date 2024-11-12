@@ -1,6 +1,6 @@
 extends Node
 
-const MENU_MUSIC: AudioStreamMP3 = preload("res://assets/music/01 Sombras del Pasado.mp3")
+const MENU_MUSIC: AudioStreamMP3 = preload("res://assets/music/_15 Susurros Perdidos.mp3")
 const GAME_MUSIC: AudioStreamMP3 = preload("res://assets/music/04 Ecos en el Silencio.mp3")
 const GAME_OVER_MUSIC: AudioStreamMP3 = preload("res://assets/music/10 Círculo de Sombras.mp3")
 const CHASING_MUSIC: AudioStreamMP3 = preload("res://assets/music/02 Cacería Inminente.mp3")

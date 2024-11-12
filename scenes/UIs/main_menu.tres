@@ -1,0 +1,34 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://2bddptpj5pk6"]
+
+[ext_resource type="Texture2D" uid="uid://62qt4hcbxekn" path="res://assets/UI/Boton.png" id="1_w7g7l"]
+[ext_resource type="FontFile" uid="uid://dxe1ccsnk6l41" path="res://assets/fonts/Times New Roman MT Std Condensed.otf" id="2_agx6o"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wcqp6"]
+texture = ExtResource("1_w7g7l")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+modulate_color = Color(0, 0.67451, 0.882353, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5gr5v"]
+texture = ExtResource("1_w7g7l")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_skb3h"]
+texture = ExtResource("1_w7g7l")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+modulate_color = Color(0.745098, 0.392157, 1, 1)
+
+[resource]
+default_font = ExtResource("2_agx6o")
+default_font_size = 16
+Button/styles/hover = SubResource("StyleBoxTexture_wcqp6")
+Button/styles/normal = SubResource("StyleBoxTexture_5gr5v")
+Button/styles/pressed = SubResource("StyleBoxTexture_skb3h")

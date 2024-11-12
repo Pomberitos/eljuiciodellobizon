@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bui7227jviecj" path="res://scenes/box/bench_box.tscn" id="4_sdatx"]
 [ext_resource type="PackedScene" uid="uid://ds6sarhkv1o7g" path="res://scenes/box/bench_box2.tscn" id="5_fjv2k"]
 [ext_resource type="PackedScene" uid="uid://bbpc256k01b3p" path="res://scenes/candle.tscn" id="6_gjkum"]
-[ext_resource type="PackedScene" uid="uid://dwkq61ac1kkwg" path="res://scenes/collectible/carava.tscn" id="7_1g644"]
+[ext_resource type="PackedScene" path="res://scenes/collectible/carava.tscn" id="7_1g644"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_b3k52"]
 polygon = PackedVector2Array(6, 8, 16, 8, 16, 16, 6, 16)
