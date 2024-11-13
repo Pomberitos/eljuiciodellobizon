@@ -4,6 +4,7 @@ extends Node2D
 var is_cinematic_showing: bool = true
 
 func _ready() -> void:
+	FadeTransition.transition_fade_in()
 	Events.letter_displayed.connect(_on_letter_displayed)
 	Events.letter_removed.connect(_on_letter_removed)
 #	Events.puzzle1_hint_displayed.connect(_on_hint_displayed)

@@ -61,7 +61,7 @@ text = "Efectos Especiales"
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Presione Esc para cerrar"
+text = "Presione Esc para volver"
 label_settings = SubResource("LabelSettings_dthfy")
 horizontal_alignment = 1
 

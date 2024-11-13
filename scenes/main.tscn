@@ -303,9 +303,11 @@ position = Vector2(1038, -1366)
 
 [node name="BellSound" type="AudioStreamPlayer" parent="Library/Puzzle1"]
 stream = ExtResource("9_elj8w")
+bus = &"FXs"
 
 [node name="IncorrectSound" type="AudioStreamPlayer" parent="Library/Puzzle1"]
 stream = ExtResource("10_kxxv2")
+bus = &"FXs"
 
 [node name="CorrectSound" type="AudioStreamPlayer" parent="Library/Puzzle1"]
 stream = ExtResource("14_k7g6b")
@@ -348,13 +350,7 @@ tile_set = ExtResource("9_ccigu")
 [node name="SpawnPositions" type="Node" parent="Library"]
 
 [node name="Marker2D" type="Marker2D" parent="Library/SpawnPositions"]
-position = Vector2(1197, -1114)
-
-[node name="Marker2D2" type="Marker2D" parent="Library/SpawnPositions"]
-position = Vector2(1468, -1218)
-
-[node name="Marker2D3" type="Marker2D" parent="Library/SpawnPositions"]
-position = Vector2(1053, -1218)
+position = Vector2(1197, -1077)
 
 [node name="PlayerDetector" type="Area2D" parent="Library"]
 z_index = -10
@@ -966,9 +962,6 @@ tile_set = ExtResource("9_ccigu")
 [node name="Marker2D" type="Marker2D" parent="Astor\'s Bedroom/SpawnPositions"]
 position = Vector2(983, -348)
 
-[node name="Marker2D2" type="Marker2D" parent="Astor\'s Bedroom/SpawnPositions"]
-position = Vector2(1498, -225)
-
 [node name="RoomPortal4" type="Area2D" parent="Astor\'s Bedroom"]
 position = Vector2(-8, 208)
 rotation = 1.57079
@@ -1018,10 +1011,10 @@ position_smoothing_enabled = true
 script = ExtResource("4_pkou0")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-visible = false
 blend_mode = 1
 
 [node name="OtherUI" type="CanvasLayer" parent="."]
