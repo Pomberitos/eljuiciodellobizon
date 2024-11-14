@@ -23,7 +23,9 @@ func play_music(music: AudioStreamMP3, pitch_scale: float = 1.0, volume_db: floa
 	music_player.pitch_scale = pitch_scale
 	music_player.volume_db = volume_db
 	music_player.play()
-	tween.tween_property(music_player, "volume_db", -5, 1.00)
+	var fade_in_tween = get_tree().create_tween()
+	fade_in_tween.tween_property(music_player, "volume_db", -5, 1.00)
+	await tween.finished
 
 
 func play_sound(sound: AudioStream) -> void:
