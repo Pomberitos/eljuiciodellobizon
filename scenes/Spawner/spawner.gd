@@ -30,7 +30,7 @@ func _on_spawn_timer_timeout():
 	slasherSpawner()
 
 
-func _on_room_entered(room: Room):
+func _on_room_entered(room: Room) -> void:
 	Events.slasher_gone.emit()
 	timer.stop()
 	if spawnerDisabled or room in excludedRooms:

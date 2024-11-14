@@ -16,7 +16,7 @@ enum Position {
 	ASTORS_BEDROOM
 }
 
-@export var selected_initial_position: Position = Position.ENTRANCE
+@export var selected_initial_position: Position = Position.MAIN_HALL
 
 @export var max_speed: float = 100.0
 @export var max_speed_multiplier: float = 1.5
