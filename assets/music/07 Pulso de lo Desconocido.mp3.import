@@ -2,7 +2,7 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://b8v1edr8lmvb6"
+uid="uid://cpxsgh7rh2huo"
 path="res://.godot/imported/07 Pulso de lo Desconocido.mp3-3763b8306b01bd02107e87f70d2bd0b4.mp3str"
 
 [deps]
@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/07 Pulso de lo Desconocido.mp3-3763b8306b01bd
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

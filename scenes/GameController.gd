@@ -7,8 +7,8 @@ func _ready() -> void:
 	FadeTransition.transition_fade_in()
 	Events.letter_displayed.connect(_on_letter_displayed)
 	Events.letter_removed.connect(_on_letter_removed)
-#	Events.puzzle1_hint_displayed.connect(_on_hint_displayed)
-#	Events.puzzle1_hint_removed.connect(_on_letter_removed)
+	Events.puzzle1_hint_displayed.connect(_on_hint_displayed)
+	Events.puzzle1_hint_removed.connect(_on_letter_removed)
 	Events.hamster_puzzle_displayed.connect(_on_hamster_puzzle_displayed)
 	Events.hamster_puzzle_removed.connect(_on_hamsbter_puzzle_removed)
 	Events.slasher_spawned.connect(_on_slasher_spawned)
@@ -41,11 +41,11 @@ func _on_letter_display_letter(letter: PackedScene) -> void:
 
 
 func _on_letter_displayed():
-	AudioManager.play_music(AudioManager.LETTER_MUSIC, 0.6, -16.0)
+	AudioManager.play_music(AudioManager.LETTER_MUSIC)
 
 
 func _on_hint_displayed():
-	AudioManager.play_music(AudioManager.LETTER_MUSIC, 0.6, -16.0)
+	AudioManager.play_music(AudioManager.LETTER_MUSIC)
 
 
 func _on_hamster_puzzle_displayed():
