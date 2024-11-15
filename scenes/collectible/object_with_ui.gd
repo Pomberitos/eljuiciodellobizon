@@ -5,8 +5,6 @@ class_name ObjectWithUI
 @export var interaction_area: Area2D
 @export var ObjectUI: Control
 
-var player: Player = null
-
 
 func _ready() -> void:
 	interaction_area.interact = Callable(self, "_on_interact")

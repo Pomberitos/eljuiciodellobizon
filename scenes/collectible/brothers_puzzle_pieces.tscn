@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/collectible/brothers_puzzle_interactor.gd" id="1_ol34a"]
 [ext_resource type="Script" path="res://inventory/inventory_item.gd" id="2_e8ksf"]
-[ext_resource type="Texture2D" uid="uid://cp8gjjr7o01xn" path="res://assets/hud/pattern_blueprintPaper.png" id="3_461fq"]
+[ext_resource type="Texture2D" uid="uid://dul852ntq72cr" path="res://assets/items/blue_panel.png" id="3_om06d"]
 [ext_resource type="PackedScene" uid="uid://cx6cef2aykja1" path="res://scenes/interaction/interaction_area.tscn" id="4_0n1g6"]
 [ext_resource type="AudioStream" uid="uid://dxm220rql8s3t" path="res://assets/audio/key.ogg" id="5_pi6cc"]
 [ext_resource type="Texture2D" uid="uid://bxoawfd28hujn" path="res://assets/light_bitmap.png" id="6_kp5d2"]
@@ -10,7 +10,7 @@
 [sub_resource type="Resource" id="Resource_j5yko"]
 script = ExtResource("2_e8ksf")
 name = "Puzzle Pieces"
-texture = ExtResource("3_461fq")
+texture = ExtResource("3_om06d")
 is_key_item = true
 max_stack = 9
 
@@ -29,7 +29,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.21, 0.710333, 1, 1)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("3_461fq")
+texture = ExtResource("3_om06d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)

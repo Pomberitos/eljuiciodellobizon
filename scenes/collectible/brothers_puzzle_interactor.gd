@@ -1,5 +1,6 @@
 extends ObjectWithUI
 
+@export var player: Player
 @export var puzzle_pieces: InventoryItem
 
 
