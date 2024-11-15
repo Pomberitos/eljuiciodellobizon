@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=61 format=4 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="Script" path="res://scenes/GameController.gd" id="1_3dbo4"]
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://c5brlqtj6ph0" path="res://scenes/collectible/key.tscn" id="8_ooidw"]
 [ext_resource type="TileSet" uid="uid://3im5s84l5a4c" path="res://resources/tilesets/main_tileset.tres" id="9_ccigu"]
 [ext_resource type="AudioStream" uid="uid://bjntvhskdx21y" path="res://assets/audio/clock_bell.ogg" id="9_elj8w"]
+[ext_resource type="Script" path="res://scenes/collectible/brothers_puzzle_interactor.gd" id="9_tmfyp"]
 [ext_resource type="Resource" path="res://inventory/items/key4.tres" id="10_3c2q4"]
 [ext_resource type="PackedScene" uid="uid://3cy137yehsru" path="res://scenes/collectible/letter.tscn" id="10_7d0u5"]
 [ext_resource type="AudioStream" uid="uid://cdwu2utcblvgj" path="res://assets/audio/wolf-growl.ogg" id="10_kxxv2"]
@@ -30,6 +31,8 @@
 [ext_resource type="PackedScene" uid="uid://c0qh7mj423s3v" path="res://puzzles/PuzzleHamster.tscn" id="17_tew7j"]
 [ext_resource type="Script" path="res://scenes/rooms/puzzles/puzzle_3.gd" id="22_6wmln"]
 [ext_resource type="PackedScene" uid="uid://bpw8h2xvw63cq" path="res://scenes/Cinematics/text_cinematics.tscn" id="23_8u7wn"]
+[ext_resource type="PackedScene" uid="uid://chcj7yod7civ3" path="res://scenes/collectible/brothers_puzzle_pieces.tscn" id="24_pgv4s"]
+[ext_resource type="PackedScene" uid="uid://b1p8gw76boo85" path="res://puzzles/BrothersPuzzle.tscn" id="26_0fxfc"]
 [ext_resource type="Script" path="res://scenes/Cinematics/CinematicText.gd" id="29_ia5wo"]
 [ext_resource type="Script" path="res://scenes/pause_screen.gd" id="30_6d8tr"]
 [ext_resource type="PackedScene" uid="uid://1vgu7l8rnnup" path="res://scenes/UIs/sound_config_menu.tscn" id="31_n3psm"]
@@ -283,6 +286,12 @@ position = Vector2(78, -40)
 
 [node name="Candle" parent="Main Hall" instance=ExtResource("5_h5nrd")]
 position = Vector2(756, 181)
+
+[node name="BrothersPuzzle" parent="Main Hall" node_paths=PackedStringArray("ObjectUI") instance=ExtResource("10_7d0u5")]
+position = Vector2(206, 15)
+script = ExtResource("9_tmfyp")
+puzzle_pieces = null
+ObjectUI = NodePath("../../CanvasLayer/BrothersPuzzle")
 
 [node name="Library" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -973,7 +982,7 @@ position = Vector2(-0.000315221, 137)
 
 [node name="Puzzle 3" type="Node" parent="Astor\'s Bedroom" node_paths=PackedStringArray("price_spawn_position", "bell_sound", "incorrect_sound", "correct_sound", "tile_map_layer")]
 script = ExtResource("22_6wmln")
-price = ExtResource("11_th5jr")
+price = ExtResource("24_pgv4s")
 price_spawn_position = NodePath("PriceSpawnMarker")
 bell_sound = NodePath("BellSound")
 incorrect_sound = NodePath("IncorrectSound")
@@ -1017,7 +1026,7 @@ position = Vector2(352, 350)
 scale = Vector2(1.5, 1.5)
 collision_mask = 46
 motion_mode = 1
-selected_initial_position = 12
+selected_initial_position = 1
 canvas_layer = NodePath("../CanvasLayer")
 
 [node name="SlasherSpawner" parent="." node_paths=PackedStringArray("player", "excludedRooms") instance=ExtResource("6_85noy")]
@@ -1027,6 +1036,9 @@ excludedRooms = [NodePath("../Main Hall"), NodePath("../Entrance"), NodePath("..
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PuzzleHamster" parent="CanvasLayer" instance=ExtResource("17_tew7j")]
+visible = false
+
+[node name="BrothersPuzzle" parent="CanvasLayer" instance=ExtResource("26_0fxfc")]
 visible = false
 
 [node name="Room 1 - Letter container" parent="CanvasLayer" instance=ExtResource("12_gjrc0")]
@@ -1039,6 +1051,7 @@ visible = false
 visible = false
 
 [node name="TextCinematics" parent="CanvasLayer" instance=ExtResource("23_8u7wn")]
+visible = false
 texts = Array[ExtResource("29_ia5wo")]([SubResource("Resource_6aq5j"), SubResource("Resource_28juk"), SubResource("Resource_v0i6d"), SubResource("Resource_880f7")])
 
 [node name="Camera2D" type="Camera2D" parent="."]
