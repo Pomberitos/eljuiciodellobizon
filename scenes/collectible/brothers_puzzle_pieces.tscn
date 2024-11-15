@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://xy8a2obv7t7d"]
+
+[ext_resource type="Script" path="res://scenes/collectible/brothers_puzzle_interactor.gd" id="1_ol34a"]
+[ext_resource type="Resource" path="res://inventory/items/brothers_puzzle_pieces.tres" id="2_3qusx"]
+[ext_resource type="Texture2D" path="res://assets/hud/pattern_blueprintPaper.png" id="3_461fq"]
+[ext_resource type="PackedScene" uid="uid://cx6cef2aykja1" path="res://scenes/interaction/interaction_area.tscn" id="4_0n1g6"]
+[ext_resource type="AudioStream" uid="uid://dxm220rql8s3t" path="res://assets/audio/key.ogg" id="5_pi6cc"]
+[ext_resource type="Texture2D" uid="uid://bxoawfd28hujn" path="res://assets/light_bitmap.png" id="6_kp5d2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7cvtg"]
+size = Vector2(24, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u0yv5"]
+radius = 40.0
+
+[node name="BrotherPuzzlePieces" type="StaticBody2D"]
+collision_layer = 8
+script = ExtResource("1_ol34a")
+puzzle_pieces = ExtResource("2_3qusx")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.21, 0.710333, 1, 1)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_461fq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_7cvtg")
+
+[node name="InteractionArea" parent="." node_paths=PackedStringArray("item_sprite") instance=ExtResource("4_0n1g6")]
+action_name = "Recoger"
+item_name = "llave"
+alt_text = "[E] Para Recoger"
+item_sprite = NodePath("../Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_u0yv5")
+debug_color = Color(0.844679, 0.378794, 0, 0.42)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_pi6cc")
+bus = &"FXs"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.25
+texture = ExtResource("6_kp5d2")

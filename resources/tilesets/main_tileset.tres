@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://c7wtbljmhfqte" path="res://scenes/box/clock_box.tscn" id="3_pq586"]
 [ext_resource type="PackedScene" uid="uid://cwht00ivoelts" path="res://scenes/interaction/hint.tscn" id="4_8gd0p"]
 [ext_resource type="PackedScene" uid="uid://bui7227jviecj" path="res://scenes/box/bench_box.tscn" id="4_sdatx"]
-[ext_resource type="PackedScene" uid="uid://ds6sarhkv1o7g" path="res://scenes/box/bench_box2.tscn" id="5_fjv2k"]
+[ext_resource type="PackedScene" path="res://scenes/box/bench_box2.tscn" id="5_fjv2k"]
 [ext_resource type="PackedScene" uid="uid://bbpc256k01b3p" path="res://scenes/candle.tscn" id="6_gjkum"]
-[ext_resource type="PackedScene" path="res://scenes/collectible/carava.tscn" id="7_1g644"]
+[ext_resource type="PackedScene" uid="uid://dwkq61ac1kkwg" path="res://scenes/collectible/carava.tscn" id="7_1g644"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_avqyv"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -496,7 +496,7 @@ texture_region_size = Vector2i(32, 32)
 21:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(42, -14, 42, 48, -12, 48, -12, -14)
 19:9/size_in_atlas = Vector2i(2, 2)
 19:9/0 = 0
-19:9/0/texture_origin = Vector2i(-16, -16)
+19:9/0/texture_origin = Vector2i(2, 4)
 19:9/0/y_sort_origin = 16
 19:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(44, -14, 44, 48, -12, 48, -12, -14)
 21:9/size_in_atlas = Vector2i(2, 2)
@@ -506,12 +506,12 @@ texture_region_size = Vector2i(32, 32)
 21:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(44, -14, 44, 48, -12, 48, -12, -14)
 19:11/size_in_atlas = Vector2i(2, 2)
 19:11/0 = 0
-19:11/0/texture_origin = Vector2i(-16, -16)
+19:11/0/texture_origin = Vector2i(2, 4)
 19:11/0/y_sort_origin = 16
 19:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(44, 48, -12, 48, -12, -14, 44, -14)
 21:11/size_in_atlas = Vector2i(2, 2)
 21:11/0 = 0
-21:11/0/texture_origin = Vector2i(-16, -16)
+21:11/0/texture_origin = Vector2i(2, 4)
 21:11/0/y_sort_origin = 16
 21:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(44, -14, 44, 48, -12, 48, -12, -14)
 23:11/size_in_atlas = Vector2i(1, 2)

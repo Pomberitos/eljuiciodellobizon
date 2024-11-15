@@ -53,12 +53,10 @@ func _on_hamster_puzzle_displayed():
 
 
 func _on_hamsbter_puzzle_removed():
-	print("hamster puzzle removed")
 	AudioManager.play_music(AudioManager.GAME_MUSIC)
 
 
 func _on_letter_removed():
-	print("letter removed")
 	get_tree().paused = false
 	AudioManager.play_music(AudioManager.GAME_MUSIC)
 
