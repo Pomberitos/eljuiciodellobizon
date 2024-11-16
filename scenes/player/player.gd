@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody2D
 
-enum Position { 
+enum Position {
 	ENTRANCE,
 	MAIN_HALL,
 	LIBRARY,
@@ -27,19 +27,18 @@ enum Position {
 @export var sight: PointLight2D
 @export var inventory: Inventory
 
-@export var minimap_icon: String = "arrow"
-
 @export var canvas_layer: CanvasLayer
-
+@export var raycast_group: Array[RayCast2D]  #added these raycast to fine tune the push animation
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var animation_state = animation_tree.get("parameters/playback")
+@onready var raycast: RayCast2D = $RayCast2D  #added these raycast to fine tune the push animation
 
 # Posiciones iniciales definidas
 var initial_positions: Array[Vector2] = [
 	Vector2(232, 584),  # ENTRANCE
 	Vector2(349, 360),  # MAIN_HALL
-	Vector2(1166, -1097), # LIBRARY		
+	Vector2(1166, -1097),  # LIBRARY
 	Vector2(898, 210),  # DINNER_1
 	Vector2(1631, 210),  # DINNER_2
 	Vector2(2456, 210),  # BASEMENT
@@ -84,7 +83,6 @@ func perform_state_actions(_delta: float) -> void:
 		PUSH:
 			velocity = velocity.move_toward(input_vector * max_speed, accel)
 			check_box_collision(velocity)
-			animation_state.travel("Push")
 		IDLE:
 			animation_state.travel("Idle")
 		CROSS:
@@ -113,8 +111,14 @@ func handle_state_transitions() -> void:
 		if Input.is_action_just_released("cross") and Dialogic.VAR.Caravaca:
 			state = IDLE
 
-		if get_slide_collision_count() > 0 and input_vector != Vector2.ZERO:
+		if get_slide_collision_count() > 0 and input_vector != Vector2.ZERO and raycast_colliding():
 			state = PUSH
+		if (
+			get_slide_collision_count() == 0
+			and input_vector == Vector2.ZERO
+			and !raycast_colliding()
+		):
+			state = IDLE
 
 
 func _input(event: InputEvent) -> void:
@@ -128,15 +132,17 @@ func pick_item(item: InventoryItem):
 
 
 func check_box_collision(motion: Vector2) -> void:
-	if motion.is_equal_approx(Vector2.ZERO):
+	if motion.is_equal_approx(Vector2.ZERO) and !raycast_colliding():
 		return
 	var box := get_slide_collision(0).get_collider()
-	if box is GridBox or box is ClockBox:
+	var motion_same_as_raycast: bool = raycast.target_position.normalized() == motion.normalized()
+	if (box is GridBox or box is ClockBox) and raycast_colliding() and motion_same_as_raycast:
 		box.push(motion)
+		animation_state.travel("Push")
 
 
 func die():
-	print("ready to die")
+	# print("ready to die")
 	get_tree().change_scene_to_file("res://scenes/UIs/game_over.tscn")
 
 
@@ -165,3 +171,10 @@ func set_sight_rotation() -> void:
 		return
 	var angle_in_radians: float = atan2(input_vector.y, input_vector.x)
 	sight.rotation = lerp_angle(sight.rotation, angle_in_radians, 0.4)
+
+
+func raycast_colliding() -> bool:
+	for _raycast in raycast_group:
+		if _raycast.is_colliding():
+			return true
+	return false

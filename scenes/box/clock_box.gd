@@ -16,7 +16,6 @@ var cannot_move: bool = false
 
 
 func _ready() -> void:
-#
 	tile_map = get_parent()
 	add_to_group(self.get_class())
 

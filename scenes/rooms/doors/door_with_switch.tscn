@@ -18,6 +18,9 @@ openDoorTexture = ExtResource("4_vak8m")
 [node name="DoorSprite" parent="." index="0"]
 texture = ExtResource("3_v8vym")
 
+[node name="CollisionShape" parent="." index="1"]
+position = Vector2(0, -2.5)
+
 [node name="InteractionArea" parent="." index="3" node_paths=PackedStringArray("item_sprite") instance=ExtResource("5_rt4ky")]
 position = Vector2(0, 30)
 alt_text = "[E] Abrir"

@@ -23,7 +23,15 @@ overrides = {}
 [sub_resource type="Resource" id="Resource_h1q3a"]
 script = ExtResource("1_yproj")
 scene = ExtResource("4_x2dfd")
-overrides = {}
+overrides = {
+"box_modulate_custom_color": "Color(1, 1, 1, 1)",
+"box_modulate_global_color": "false",
+"box_panel": "\"res://Dialogues/styles/lobizon_stylebox_texture.tres\"",
+"custom_normal_font": "\"res://assets/fonts/Times New Roman MT Std Condensed.otf\"",
+"name_label_custom_size": "17.0",
+"name_label_customfont": "\"res://assets/fonts/duskey-free.rough.otf\"",
+"name_label_hide_when_no_character": "true"
+}
 
 [sub_resource type="Resource" id="Resource_1aul2"]
 script = ExtResource("1_yproj")
@@ -54,4 +62,4 @@ base_overrides = {
 "global_bg_color": "Color(0.298039, 0.2, 0.113725, 0.901961)"
 }
 layers = Array[ExtResource("1_yproj")]([SubResource("Resource_pss3m"), SubResource("Resource_5vnul"), SubResource("Resource_h1q3a"), SubResource("Resource_1aul2"), SubResource("Resource_fuhlp"), SubResource("Resource_pccgy"), SubResource("Resource_75ood")])
-metadata/_latest_layer = 2
+metadata/_latest_layer = 0
