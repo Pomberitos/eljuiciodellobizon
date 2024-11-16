@@ -1023,10 +1023,11 @@ script = null
 
 [node name="Player" parent="." node_paths=PackedStringArray("canvas_layer") instance=ExtResource("1_p8a7x")]
 z_index = 1
-position = Vector2(352, 350)
+position = Vector2(355, 356)
 scale = Vector2(1.5, 1.5)
 collision_mask = 46
 motion_mode = 1
+selected_initial_position = 12
 canvas_layer = NodePath("../CanvasLayer")
 
 [node name="SlasherSpawner" parent="." node_paths=PackedStringArray("player", "excludedRooms") instance=ExtResource("6_85noy")]

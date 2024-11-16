@@ -10,7 +10,7 @@ func _ready() -> void:
 
 
 func _on_interact() -> void:
-	if use_puzzle_pieces():
+	if not use_puzzle_pieces():
 		ObjectUI.visible = !ObjectUI.visible
 		if ObjectUI.visible:
 			Events.letter_displayed.emit()

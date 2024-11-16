@@ -44,7 +44,8 @@ directories/dtl_directory={
 variables={
 "Caravaca": false,
 "key": false,
-"key4": false
+"key4": false,
+"puzzle_pieces": ""
 }
 layout/style_list=["res://Dialogues/styles/default.tres"]
 layout/default_style="res://Dialogues/styles/default.tres"

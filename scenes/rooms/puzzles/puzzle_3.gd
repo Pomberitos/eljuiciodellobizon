@@ -22,10 +22,10 @@ var atlas_coord: Dictionary = {
 var movement_code = ["Twelve", "Three", "Six"]
 
 var local_maps_coord: Dictionary = {
-	"north": Vector2i(22, 7),
-	"east": Vector2i(12, 3),
-	"west": Vector2i(2, 7),
-	"south": Vector2i(12, 11),
+	"north": Vector2i(11, 4),
+	"east": Vector2i(17, 8),
+	"west": Vector2i(5, 8),
+	"south": Vector2i(11, 11),
 }
 
 var current_movement = []
@@ -81,10 +81,6 @@ func _on_puzzle_solved():
 		tile_map_layer.set_cell(coord, 0, atlas_coord["blue"])
 
 
-func get_tile_position(_position: Vector2) -> Vector2i:
-	return tile_map_layer.local_to_map(_position)
-
-
 func reset_switches() -> void:
 	tile_map_layer.set_cell($TileSwitchTwelve.position, 0, atlas_coord["red"])
 	tile_map_layer.set_cell($TileSwitchThree.position, 0, atlas_coord["red"])
@@ -93,13 +89,13 @@ func reset_switches() -> void:
 
 
 func _onTileSwitchTwelveBodyEntered(_body: Node) -> void:
-	_register_movement("Twelve", get_tile_position($TileSwitchTwelve.position))
+	_register_movement("Twelve", local_maps_coord["north"])
 
 func _onTileSwitchThreeBodyEntered(_body: Node) -> void:
-	_register_movement("Three", $TileSwitchThree.position)
+	_register_movement("Three", local_maps_coord["east"])
 
-func _onTileSwitchSixBodyEntered(body: Node) -> void:
-	_register_movement("Six", get_tile_position(body.position))
+func _onTileSwitchSixBodyEntered(_body: Node) -> void:
+	_register_movement("Six", local_maps_coord["south"])
 
-func _onTileSwitchNineBodyEntered(body: Node) -> void:
-	_register_movement("Nine", get_tile_position(body.position))
+func _onTileSwitchNineBodyEntered(_body: Node) -> void:
+	_register_movement("Nine", local_maps_coord["west"])

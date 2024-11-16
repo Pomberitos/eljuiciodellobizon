@@ -1,15 +1,15 @@
 [gd_scene load_steps=10 format=3 uid="uid://chcj7yod7civ3"]
 
-[ext_resource type="Script" path="res://scenes/collectible/brothers_puzzle_interactor.gd" id="1_ol34a"]
+[ext_resource type="Script" path="res://scenes/collectible/key.gd" id="1_08uf0"]
 [ext_resource type="Script" path="res://inventory/inventory_item.gd" id="2_e8ksf"]
 [ext_resource type="Texture2D" uid="uid://dul852ntq72cr" path="res://assets/items/blue_panel.png" id="3_om06d"]
 [ext_resource type="PackedScene" uid="uid://cx6cef2aykja1" path="res://scenes/interaction/interaction_area.tscn" id="4_0n1g6"]
 [ext_resource type="AudioStream" uid="uid://dxm220rql8s3t" path="res://assets/audio/key.ogg" id="5_pi6cc"]
 [ext_resource type="Texture2D" uid="uid://bxoawfd28hujn" path="res://assets/light_bitmap.png" id="6_kp5d2"]
 
-[sub_resource type="Resource" id="Resource_j5yko"]
+[sub_resource type="Resource" id="Resource_8w2c2"]
 script = ExtResource("2_e8ksf")
-name = "Puzzle Pieces"
+name = "puzzle_pieces"
 texture = ExtResource("3_om06d")
 is_key_item = true
 max_stack = 9
@@ -20,10 +20,13 @@ size = Vector2(24, 14)
 [sub_resource type="CircleShape2D" id="CircleShape2D_u0yv5"]
 radius = 40.0
 
-[node name="BrotherPuzzlePieces" type="StaticBody2D"]
+[node name="BrotherPuzzlePieces" type="StaticBody2D" node_paths=PackedStringArray("interaction_area", "item_sound", "point_light2D")]
 collision_layer = 8
-script = ExtResource("1_ol34a")
-puzzle_pieces = SubResource("Resource_j5yko")
+script = ExtResource("1_08uf0")
+interaction_area = NodePath("InteractionArea")
+key_resource = SubResource("Resource_8w2c2")
+item_sound = NodePath("AudioStreamPlayer")
+point_light2D = NodePath("PointLight2D")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
