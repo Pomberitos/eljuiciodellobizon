@@ -16,13 +16,13 @@ func _ready() -> void:
 
 func _on_interact() -> void:
 	player = interaction_area.current_player as Player
+	if key_resource.dialogic_scene:
+		Dialogic.start(key_resource.dialogic_scene)
 	player.pick_item(key_resource)
 	if item_sound:
 		item_sound.play()
 		await item_sound.finished
 		Dialogic.VAR[key_resource.name] = true
-#		if Dialogic.VAR.Caravaca and Dialogic.VAR.key4:
-#			get_tree().change_scene_to_file("res://scenes/UIs/finish_mvp.tscn")
 		queue_free()
 	queue_free()
 

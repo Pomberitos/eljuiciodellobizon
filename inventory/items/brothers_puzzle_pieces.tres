@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://d0bur1mht5esm"]
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://mdel47ba4y0d"]
 
 [ext_resource type="Script" path="res://inventory/inventory_item.gd" id="1_mcju8"]
 [ext_resource type="Texture2D" uid="uid://cp8gjjr7o01xn" path="res://assets/hud/pattern_blueprintPaper.png" id="2_t6ls8"]
@@ -9,3 +9,4 @@ name = "Puzzle Pieces"
 texture = ExtResource("2_t6ls8")
 is_key_item = true
 max_stack = 9
+dialogic_scene = ""

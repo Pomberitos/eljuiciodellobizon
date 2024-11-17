@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk66egg746tbg"]
+
+[ext_resource type="Texture2D" uid="uid://d2uuvrgroqip5" path="res://assets/character/Astor/Astor.png" id="1_4ycnf"]
+[ext_resource type="Texture2D" uid="uid://dae2ndr6yaktq" path="res://assets/light.png" id="2_6nmae"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdhs8"]
+size = Vector2(65, 225)
+
+[node name="Astor" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4ycnf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6.5, 15.5)
+shape = SubResource("RectangleShape2D_qdhs8")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("2_6nmae")

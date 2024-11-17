@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=3 uid="uid://difseojy7fdv5"]
+
+[ext_resource type="Texture2D" uid="uid://2em27w8shw2y" path="res://assets/items/hint_clock.png" id="1_wenrp"]
+[ext_resource type="FontFile" uid="uid://4i6yfq7v7h4e" path="res://assets/fonts/duskey-free.rough.otf" id="2_3x56e"]
+
+[node name="HintContainer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Opacity" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.843137)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.331)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -291.0
+offset_top = -168.0
+offset_right = 250.0
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wenrp")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = -72.0
+offset_right = 166.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_3x56e")
+text = "El tiempo es nuestro guía esta vez y como siempre.
+La criatura que conociste...
+ empieza su acecho a la media noche.
+Te seguirá buscando,tres horas más tarde, espero estés preparado.
+Finalmente, su naturaleza se revela cuando  el sol salga a las 6.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -190.0
+offset_top = -43.0
+offset_right = 134.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Presiona E nuevamente para dejar de leer"

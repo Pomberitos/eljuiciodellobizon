@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=4 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=63 format=4 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="Script" path="res://scenes/GameController.gd" id="1_3dbo4"]
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
@@ -35,11 +35,9 @@
 [ext_resource type="PackedScene" uid="uid://chcj7yod7civ3" path="res://scenes/collectible/brothers_puzzle_pieces.tscn" id="24_pgv4s"]
 [ext_resource type="PackedScene" uid="uid://bk66egg746tbg" path="res://scenes/astor/astor.tscn" id="25_1ttwi"]
 [ext_resource type="PackedScene" uid="uid://b1p8gw76boo85" path="res://puzzles/BrothersPuzzle.tscn" id="26_0fxfc"]
-[ext_resource type="Texture2D" uid="uid://dae2ndr6yaktq" path="res://assets/light.png" id="26_g2cf0"]
 [ext_resource type="Script" path="res://scenes/Cinematics/CinematicText.gd" id="29_ia5wo"]
 [ext_resource type="Script" path="res://scenes/pause_screen.gd" id="30_6d8tr"]
 [ext_resource type="PackedScene" path="res://scenes/UIs/sound_config_menu.tscn" id="31_n3psm"]
-[ext_resource type="PackedScene" uid="uid://difseojy7fdv5" path="res://scenes/UIs/Room 1/hintTime.tscn" id="36_jd7sv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1pn3"]
 size = Vector2(716, 304)
@@ -934,11 +932,10 @@ debug_color = Color(0.33582, 0.639235, 0, 0.42)
 [node name="Marker2D" type="Marker2D" parent="Hall C/RoomPortal4"]
 position = Vector2(-0.000705667, 104)
 
-[node name="Astor\'s Bedroom" type="Node2D" parent="." node_paths=PackedStringArray("light", "astor")]
+[node name="Astor\'s Bedroom" type="Node2D" parent="."]
 position = Vector2(1656, -960)
 script = ExtResource("23_vqafm")
-light = NodePath("../DirectionalLight2D")
-astor = NodePath("Astor")
+label_name = null
 metadata/_edit_group_ = true
 
 [node name="PlayerDetector" type="Area2D" parent="Astor\'s Bedroom"]
@@ -1030,22 +1027,14 @@ script = null
 position = Vector2(324, 62)
 scale = Vector2(0.2, 0.2)
 
-[node name="Hint" parent="Astor\'s Bedroom" node_paths=PackedStringArray("ObjectUI") instance=ExtResource("15_sp523")]
-position = Vector2(227, 21)
-ObjectUI = NodePath("../../CanvasLayer/hintTime")
-
 [node name="Player" parent="." node_paths=PackedStringArray("canvas_layer") instance=ExtResource("1_p8a7x")]
 z_index = 1
 position = Vector2(355, 356)
 scale = Vector2(1.5, 1.5)
 collision_mask = 46
 motion_mode = 1
+selected_initial_position = 12
 canvas_layer = NodePath("../CanvasLayer")
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(2026, -899)
-energy = 0.52
-texture = ExtResource("26_g2cf0")
 
 [node name="SlasherSpawner" parent="." node_paths=PackedStringArray("player", "excludedRooms") instance=ExtResource("6_85noy")]
 player = NodePath("../Player")
@@ -1071,15 +1060,13 @@ visible = false
 [node name="TextCinematics" parent="CanvasLayer" instance=ExtResource("23_8u7wn")]
 texts = Array[ExtResource("29_ia5wo")]([SubResource("Resource_6aq5j"), SubResource("Resource_28juk"), SubResource("Resource_v0i6d"), SubResource("Resource_880f7")])
 
-[node name="hintTime" parent="CanvasLayer" instance=ExtResource("36_jd7sv")]
-visible = false
-
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 position_smoothing_enabled = true
 script = ExtResource("4_pkou0")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]

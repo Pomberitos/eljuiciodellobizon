@@ -32,14 +32,17 @@ ConfigHandler="*res://scripts/singletons/config_handler.gd"
 [dialogic]
 
 directories/dch_directory={
+"Astor": "res://Dialogues/characters/Astor.dch",
 "jackie-maid": "res://Dialogues/characters/jackie-maid.dch",
 "ricky": "res://Dialogues/characters/ricky.dch"
 }
 directories/dtl_directory={
+"astor-bedroom-1": "res://Dialogues/astor-bedroom-1.dtl",
 "brothers_puzzle_main_hall": "res://Dialogues/brothers_puzzle_main_hall.dtl",
 "door_room_3": "res://Dialogues/door_room_3.dtl",
 "door_room_4": "res://Dialogues/door_room_4.dtl",
 "no_key_door": "res://Dialogues/no_key_door.dtl",
+"puzzle_pieces_pickup": "res://Dialogues/puzzle_pieces_pickup.dtl",
 "room-3-1": "res://Dialogues/room-3-1.dtl"
 }
 variables={
