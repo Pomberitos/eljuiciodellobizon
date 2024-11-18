@@ -13,6 +13,7 @@ func _ready() -> void:
 	Events.hamster_puzzle_removed.connect(_on_hamsbter_puzzle_removed)
 	Events.slasher_spawned.connect(_on_slasher_spawned)
 	Events.slasher_gone.connect(_on_slasher_gone)
+	Events.slasher_approaching.connect(_on_slasher_approaching)
 	Events.object_picked.connect(_on_object_picked)
 	Events.cinematic_finished.connect(_on_cinematic_finished)
 	AudioManager.play_music(AudioManager.CINEMATIC_MUSIC)
@@ -61,7 +62,12 @@ func _on_letter_removed():
 	AudioManager.play_music(AudioManager.GAME_MUSIC)
 
 
+func _on_slasher_approaching():
+	AudioManager.play_sound(AudioManager.LOBIZON_HOWLING, -20)
+	AudioManager.play_music(AudioManager.LOBIZON_APPROACHING)
+
 func _on_slasher_spawned(_room: Room):
+	AudioManager.play_sound(AudioManager.LOBIZON_HOWLING)
 	AudioManager.play_music(AudioManager.CHASING_MUSIC)
 
 

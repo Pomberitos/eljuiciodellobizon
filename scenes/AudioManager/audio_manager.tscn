@@ -17,3 +17,6 @@ bus = &"Music"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sound"]
 bus = &"FXs"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Sound"]
+bus = &"FXs"

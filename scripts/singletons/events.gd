@@ -34,6 +34,8 @@ signal hamster_puzzle_removed
 signal ui_changed
 @warning_ignore("unused_signal")
 signal cinematic_finished
+@warning_ignore("unused_signal")
+signal slasher_approaching
 
 func _ready() -> void:
 	Dialogic.timeline_started.connect(_on_dialogue_started)

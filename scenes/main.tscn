@@ -1049,7 +1049,7 @@ texture = ExtResource("26_g2cf0")
 
 [node name="SlasherSpawner" parent="." node_paths=PackedStringArray("player", "excludedRooms") instance=ExtResource("6_85noy")]
 player = NodePath("../Player")
-excludedRooms = [NodePath("../Main Hall"), NodePath("../Entrance"), NodePath("../Dinner 1"), NodePath("../Dinner 2"), NodePath("../Hall"), NodePath("../Hall B"), NodePath("../Hall C"), NodePath("../Astor\'s Bedroom"), NodePath("../Pantry"), NodePath("../Kitchen"), NodePath("../Basement")]
+excludedRooms = [NodePath("../Main Hall")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
