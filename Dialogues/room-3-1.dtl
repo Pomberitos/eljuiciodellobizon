@@ -1,12 +1,11 @@
-jackie-maid: Hola Ricky...
-jackie-maid: Te estaba esperando.
-label question-1
-- Quien sos?
-	jackie-maid: Me llamo Jackie
-	jackie-maid: Estoy acá para servir a los invitados del señor Astor.
-	jump question-1
-- Como escapar
-	[sound path="res://assets/audio/Freesound - Insane girl laughter by MadamVicious.ogg" volume="0.0" bus="FXs"]
-	jackie-maid: ¿Ya te queres ir?
-	jackie-maid: No tan rapido
-	jackie-maid: Primero vamos a jugar...
+ricky: ¿Quién sos?
+jackie-maid: Hola Ricardo, te estaba esperando. Mi nombre es Elizabeth y soy la criada del Palacio López Rigoni.
+ricky: Doña, ¿Cómo hago para escapar de acá?
+jackie-maid: No tan rápido joven. Primero vamos a jugar un poco... 
+jackie-maid: Ante tí está la verdad que no puedes ignorar.
+jackie-maid: Esta imagen muestra tus propios actos, Ricardo, aquellos que creíste no tendrían consecuencias.
+jackie-maid: Las piezas están desordenadas, como la conexión rota entre tú y la naturaleza.\
+Reconstruye lo que hiciste... y mira de cerca el daño que has causado.
+jackie-maid: Sólo al enfrentarte a tu pasado podrás encontrar una salida.
+jackie-maid: Pero cuidado, algunas verdades son difíciles de soportar.\
+¿Comenzamos?

@@ -14,6 +14,7 @@ func _on_puzzle_completed():
 	var instance := key_2.instantiate() as StaticBody2D
 	instance.position = key_spawn.position
 	call_deferred("add_child", instance)
+	Dialogic.start("puzzle_hamster_completed")
 #	$PuzzleHamster.visible = false 
 # Se removio porque hay jugadores que les hubiera gustado ver el puzzle terminado
 	# tal vez se pueda poner un timer antes de que se desactive y otro feedback

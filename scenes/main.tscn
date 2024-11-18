@@ -38,7 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://dae2ndr6yaktq" path="res://assets/light.png" id="26_g2cf0"]
 [ext_resource type="Script" path="res://scenes/Cinematics/CinematicText.gd" id="29_ia5wo"]
 [ext_resource type="Script" path="res://scenes/pause_screen.gd" id="30_6d8tr"]
-[ext_resource type="PackedScene" uid="uid://1vgu7l8rnnup" path="res://scenes/UIs/sound_config_menu.tscn" id="31_n3psm"]
+[ext_resource type="PackedScene" path="res://scenes/UIs/sound_config_menu.tscn" id="31_n3psm"]
 [ext_resource type="PackedScene" uid="uid://difseojy7fdv5" path="res://scenes/UIs/Room 1/hintTime.tscn" id="36_jd7sv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1pn3"]
