@@ -17,7 +17,7 @@
 "portraits": {
 "Astor": {
 "export_overrides": {
-"image": "\"res://assets/character/Astor/Astor.png\""
+"image": "\"res://assets/character/Astor/astor_avatar.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),
