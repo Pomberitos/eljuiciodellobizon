@@ -15,6 +15,8 @@ const DOOR_OPEN_SOUND: AudioStream = preload("res://assets/audio/doorOpen_1.ogg"
 
 
 func play_music(music: AudioStreamMP3, pitch_scale: float = 1.0, volume_db: float = 0) -> void:
+	if music_player.stream == music:
+		return
 	var tween = get_tree().create_tween()
 	tween.tween_property(music_player, "volume_db", -20, 1.00)
 	await tween.finished
