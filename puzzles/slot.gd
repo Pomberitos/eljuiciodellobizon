@@ -17,7 +17,7 @@ func _ready():
 
 func _get_drag_data(_at_position: Vector2) -> Variant:
 	# Do not allow to drag if the piece is in the correct place.
-	if current_value == desired_value:
+	if (current_value == desired_value) or (texture_rect.visible == false):
 		return null
 	
 	set_drag_preview(get_preview())
@@ -60,3 +60,6 @@ func _on_mouse_exited():
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.1)
 	emit_signal("mouse_exited_slot")
+
+func reveal_piece() -> void:
+	texture_rect.visible = true

@@ -25,3 +25,8 @@ func is_puzzle_completed() -> bool:
 		if slot.current_value != slot.desired_value:
 			return false
 	return true
+
+func reveal_pieces() -> void:
+	var slots = $HBoxContainer/Holders.get_children()
+	for slot in slots:
+		slot.reveal_piece()

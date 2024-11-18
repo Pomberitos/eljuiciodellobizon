@@ -10,14 +10,17 @@ func _ready() -> void:
 
 
 func _on_interact() -> void:
-	if not use_puzzle_pieces():
-		ObjectUI.visible = !ObjectUI.visible
-		if ObjectUI.visible:
-			Events.letter_displayed.emit()
-		else:
-			Events.letter_removed.emit()
+	if use_puzzle_pieces():
+		ObjectUI.reveal_pieces()
 	else:
 		Dialogic.start("brothers_puzzle_main_hall")
+		await Dialogic.timeline_ended
+	
+	ObjectUI.visible = !ObjectUI.visible
+	if ObjectUI.visible:
+		Events.letter_displayed.emit()
+	else:
+		Events.letter_removed.emit()
 	
 
 func use_puzzle_pieces() -> bool:
