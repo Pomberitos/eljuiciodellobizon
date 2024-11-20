@@ -28,30 +28,30 @@ enum Position {
 @export var inventory: Inventory
 
 @export var canvas_layer: CanvasLayer
-@export var raycast_group: Array[RayCast2D]  #added these raycast to fine tune the push animation
+@export var raycast_group: Array[RayCast2D] # added these raycast to fine tune the push animation
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var animation_state = animation_tree.get("parameters/playback")
-@onready var raycast: RayCast2D = $RayCast2D  #added these raycast to fine tune the push animation
+@onready var raycast: RayCast2D = $RayCast2D # added these raycast to fine tune the push animation
 
 # Posiciones iniciales definidas
 var initial_positions: Array[Vector2] = [
-	Vector2(232, 584),  # ENTRANCE
-	Vector2(349, 360),  # MAIN_HALL
-	Vector2(1166, -1097),  # LIBRARY
-	Vector2(898, 210),  # DINNER_1
-	Vector2(1631, 210),  # DINNER_2
-	Vector2(2456, 210),  # BASEMENT
-	Vector2(1519, -96),  # KITCHEN
-	Vector2(1760, -368),  # PANTRY
-	Vector2(360, -96),  # HALL
-	Vector2(376, -584),  # HALL B
-	Vector2(688, -1112),  # ATTIC
-	Vector2(896, -766),  # HALL C
-	Vector2(1720, -766),  # ASTOR
+	Vector2(321, 762), # ENTRANCE
+	Vector2(349, 360), # MAIN_HALL
+	Vector2(1166, -1097), # LIBRARY
+	Vector2(898, 210), # DINNER_1
+	Vector2(1631, 210), # DINNER_2
+	Vector2(2456, 210), # BASEMENT
+	Vector2(1519, -96), # KITCHEN
+	Vector2(1760, -368), # PANTRY
+	Vector2(360, -96), # HALL
+	Vector2(376, -584), # HALL B
+	Vector2(688, -1112), # ATTIC
+	Vector2(896, -766), # HALL C
+	Vector2(1720, -766), # ASTOR
 ]
 
-enum { WALK, CROSS, IDLE, PUSH }
+enum {WALK, CROSS, IDLE, PUSH}
 
 var state = WALK
 var input_vector: Vector2

@@ -1,4 +1,5 @@
 extends Control
+class_name TextCinematics
 
 @export var texts: Array[CinematicText] = []
 
