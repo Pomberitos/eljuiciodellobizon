@@ -4,7 +4,7 @@ const MENU_MUSIC: AudioStreamMP3 = preload("res://assets/music/_15 Susurros Perd
 const GAME_MUSIC: AudioStreamMP3 = preload("res://assets/music/04 Ecos en el Silencio.mp3")
 const GAME_OVER_MUSIC: AudioStreamMP3 = preload("res://assets/music/10 Círculo de Sombras.mp3")
 const CHASING_MUSIC: AudioStreamMP3 = preload("res://assets/music/02 Cacería Inminente.mp3")
-const LETTER_MUSIC: AudioStreamMP3 = preload("res://assets/music/07 Pulso de lo Desconocido.mp3")
+const LETTER_MUSIC: AudioStreamMP3 = preload("res://assets/music/_07 Pulso de lo Desconocido loop.mp3")
 const CINEMATIC_MUSIC: AudioStreamMP3 = preload("res://assets/music/03 Ojos en la Noche.mp3")
 const LOBIZON_APPROACHING: AudioStreamMP3 = preload("res://assets/music/intro_lobizón_1.mp3")
 

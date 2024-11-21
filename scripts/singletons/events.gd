@@ -1,6 +1,7 @@
 extends Node
 
 var current_room: Room
+var last_room: Room
 var is_dialog_open: bool = false
 var puzzle_1_done: bool = false
 
@@ -53,6 +54,7 @@ func _on_dialogue_ended():
 
 
 func set_current_room(new_room: Room):
+	last_room = current_room
 	current_room = new_room
 
 

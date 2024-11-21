@@ -41,6 +41,7 @@ directories/dtl_directory={
 "brothers_puzzle_main_hall": "res://Dialogues/brothers_puzzle_main_hall.dtl",
 "door_room_3": "res://Dialogues/door_room_3.dtl",
 "door_room_4": "res://Dialogues/door_room_4.dtl",
+"main-room": "res://Dialogues/main-room.dtl",
 "no_key_door": "res://Dialogues/no_key_door.dtl",
 "puzzle_hamster_completed": "res://Dialogues/puzzle_hamster_completed.dtl",
 "puzzle_pieces_pickup": "res://Dialogues/puzzle_pieces_pickup.dtl",

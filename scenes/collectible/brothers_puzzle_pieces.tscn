@@ -44,6 +44,7 @@ action_name = "Recoger"
 item_name = "llave"
 alt_text = "[E] Para Recoger"
 item_sprite = NodePath("../Sprite2D")
+text_offset = Vector2i(-180, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("CircleShape2D_u0yv5")

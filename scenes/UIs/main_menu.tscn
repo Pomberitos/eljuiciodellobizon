@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://704rqcs52k1f" path="res://assets/UI/instagram.png" id="7_snfd4"]
 [ext_resource type="Texture2D" uid="uid://b3iropsq2fbm8" path="res://assets/UI/Itch.svg" id="8_3eaib"]
 [ext_resource type="Theme" uid="uid://rbt3kslpjd0s" path="res://scenes/UIs/main_menu_button_fonts.tres" id="8_wmi8x"]
-[ext_resource type="PackedScene" path="res://scenes/UIs/sound_config_menu.tscn" id="8_yx13y"]
+[ext_resource type="PackedScene" uid="uid://1vgu7l8rnnup" path="res://scenes/UIs/sound_config_menu.tscn" id="8_yx13y"]
 [ext_resource type="Texture2D" uid="uid://clxwa6wjqmblt" path="res://assets/textures/controles_wip.png" id="10_5x777"]
-[ext_resource type="StyleBox" path="res://scenes/UIs/new_style_box_flat.tres" id="10_8opft"]
+[ext_resource type="StyleBox" uid="uid://8gowbf1mpfxl" path="res://scenes/UIs/new_style_box_flat.tres" id="10_8opft"]
 [ext_resource type="FontFile" uid="uid://4i6yfq7v7h4e" path="res://assets/fonts/duskey-free.rough.otf" id="12_fosve"]
 
 [sub_resource type="Theme" id="Theme_4t56t"]
