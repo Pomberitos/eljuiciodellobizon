@@ -1,7 +1,8 @@
-[gd_scene load_steps=66 format=4 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=67 format=4 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="Script" path="res://scenes/GameController.gd" id="1_3dbo4"]
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
+[ext_resource type="Script" path="res://scenes/rooms/entrance.gd" id="2_ux1oi"]
 [ext_resource type="PackedScene" uid="uid://cpgq64aunf130" path="res://scenes/door_with_key.tscn" id="3_k7xsd"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="4_pkou0"]
 [ext_resource type="PackedScene" uid="uid://bbpc256k01b3p" path="res://scenes/candle.tscn" id="5_h5nrd"]
@@ -124,7 +125,7 @@ script = ExtResource("1_3dbo4")
 
 [node name="Entrance" type="Node2D" parent="."]
 position = Vector2(-13, 498)
-script = ExtResource("6_3m243")
+script = ExtResource("2_ux1oi")
 metadata/_edit_group_ = true
 
 [node name="PlayerDetector" type="Area2D" parent="Entrance"]
@@ -1059,7 +1060,6 @@ visible = false
 visible = false
 
 [node name="TextCinematics" parent="CanvasLayer" instance=ExtResource("23_8u7wn")]
-visible = false
 texts = Array[ExtResource("29_ia5wo")]([SubResource("Resource_6aq5j"), SubResource("Resource_28juk"), SubResource("Resource_v0i6d"), SubResource("Resource_880f7")])
 
 [node name="hintTime" parent="CanvasLayer" instance=ExtResource("36_jd7sv")]
@@ -1072,9 +1072,9 @@ script = ExtResource("4_pkou0")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
+color = Color(0, 0, 0, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-visible = false
 blend_mode = 1
 
 [node name="OtherUI" type="CanvasLayer" parent="."]

@@ -11,6 +11,7 @@ const LOBIZON_APPROACHING: AudioStreamMP3 = preload("res://assets/music/intro_lo
 
 const DOOR_OPEN_SOUND: AudioStream = preload("res://assets/audio/doorOpen_1.ogg")
 const LOBIZON_HOWLING: AudioStreamOggVorbis = preload("res://assets/audio/wolf.ogg")
+const THUNDER_SOUND: AudioStreamWAV = preload("res://assets/audio/trueno.wav")
 
 @onready var music_player: AudioStreamPlayer = $Music.get_child(0) # There's only one music player
 @onready var sound_players: Array = $Sound.get_children() # We can play multiple sounds at the same time
