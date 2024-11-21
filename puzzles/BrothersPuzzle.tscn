@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://b1p8gw76boo85"]
 
-[ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_hgtrs"]
 [ext_resource type="PackedScene" uid="uid://brgqr5cmf5gj4" path="res://puzzles/slot.tscn" id="1_o8bxv"]
+[ext_resource type="Script" path="res://puzzles/brothers_puzzle.gd" id="1_sa6j8"]
 [ext_resource type="Texture2D" uid="uid://e6wejvwbar0e" path="res://assets/Brothers Puzzle/row-4-column-4.jpg" id="3_nww1e"]
 [ext_resource type="Texture2D" uid="uid://c46vtkbkswsnn" path="res://assets/Brothers Puzzle/row-1-column-1.jpg" id="3_yb1c1"]
 [ext_resource type="Texture2D" uid="uid://btrokwlh3qrut" path="res://assets/Brothers Puzzle/row-1-column-2.jpg" id="4_jcvao"]
@@ -26,7 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_hgtrs")
+script = ExtResource("1_sa6j8")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -91,7 +91,6 @@ layout_mode = 2
 current_value = 11
 
 [node name="TextureRect" parent="HBoxContainer/Holders/Slot5" index="0"]
-visible = false
 texture = ExtResource("7_viegb")
 
 [node name="Slot6" parent="HBoxContainer/Holders" instance=ExtResource("1_o8bxv")]
@@ -120,7 +119,6 @@ layout_mode = 2
 current_value = 7
 
 [node name="TextureRect" parent="HBoxContainer/Holders/Slot9" index="0"]
-visible = false
 texture = ExtResource("10_drse2")
 
 [node name="Slot10" parent="HBoxContainer/Holders" instance=ExtResource("1_o8bxv")]
@@ -149,7 +147,6 @@ layout_mode = 2
 current_value = 6
 
 [node name="TextureRect" parent="HBoxContainer/Holders/Slot13" index="0"]
-visible = false
 texture = ExtResource("14_vqvv4")
 
 [node name="Slot14" parent="HBoxContainer/Holders" instance=ExtResource("1_o8bxv")]

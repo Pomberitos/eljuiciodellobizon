@@ -1,5 +1,7 @@
 extends Control
 
+class_name Puzzle
+
 signal puzzle_completed
 
 

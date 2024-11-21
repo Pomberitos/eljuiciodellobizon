@@ -71,6 +71,8 @@ func slasherSpawner():
 
 
 func spawnSlasher(room: Room):
+	if not room.positions:
+		return
 	slasher.position = (room.positions.pick_random() as Marker2D).position
 	add_child(slasher)
 	Events.slasher_spawned.emit(room)

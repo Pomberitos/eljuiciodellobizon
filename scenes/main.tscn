@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=4 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=66 format=4 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="Script" path="res://scenes/GameController.gd" id="1_3dbo4"]
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
@@ -30,7 +30,9 @@
 [ext_resource type="PackedScene" uid="uid://cwht00ivoelts" path="res://scenes/interaction/hint.tscn" id="15_sp523"]
 [ext_resource type="PackedScene" uid="uid://c0qh7mj423s3v" path="res://puzzles/PuzzleHamster.tscn" id="17_tew7j"]
 [ext_resource type="Script" path="res://scenes/rooms/puzzles/puzzle_3.gd" id="22_6wmln"]
+[ext_resource type="PackedScene" uid="uid://cvafktamq5w3h" path="res://scenes/rooms/doors/door.tscn" id="22_mfgsw"]
 [ext_resource type="PackedScene" uid="uid://bpw8h2xvw63cq" path="res://scenes/Cinematics/text_cinematics.tscn" id="23_8u7wn"]
+[ext_resource type="Script" path="res://scenes/rooms/attic.gd" id="23_us5vj"]
 [ext_resource type="Script" path="res://scenes/rooms/astor_bedroom.gd" id="23_vqafm"]
 [ext_resource type="PackedScene" uid="uid://chcj7yod7civ3" path="res://scenes/collectible/brothers_puzzle_pieces.tscn" id="24_pgv4s"]
 [ext_resource type="PackedScene" uid="uid://bk66egg746tbg" path="res://scenes/astor/astor.tscn" id="25_1ttwi"]
@@ -53,9 +55,6 @@ size = Vector2(32, 32)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tqkdl"]
 size = Vector2(32, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rllry"]
-size = Vector2(28, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8p6ln"]
 size = Vector2(724, 346.5)
@@ -219,7 +218,7 @@ debug_color = Color(0.33582, 0.639235, 0, 0.42)
 position = Vector2(0, -117)
 
 [node name="DoorWithSwitch" parent="Main Hall" instance=ExtResource("5_u4d68")]
-position = Vector2(367, 46)
+position = Vector2(368, 50)
 collision_layer = 4
 label = "door_switch"
 metadata/_edit_group_ = true
@@ -234,22 +233,6 @@ position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_yfxe0")
 
 [node name="Sprite2D" type="Sprite2D" parent="Main Hall/DoorWithSwitch/switch"]
-visible = false
-modulate = Color(0.364514, 0.782537, 0.882083, 1)
-z_index = 5
-texture = SubResource("PlaceholderTexture2D_tqkdl")
-centered = false
-
-[node name="switch2" type="Area2D" parent="Main Hall/DoorWithSwitch" groups=["door_switch"]]
-position = Vector2(-110, 150)
-collision_layer = 0
-collision_mask = 11
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Main Hall/DoorWithSwitch/switch2"]
-position = Vector2(15, 12)
-shape = SubResource("RectangleShape2D_rllry")
-
-[node name="Sprite2D" type="Sprite2D" parent="Main Hall/DoorWithSwitch/switch2"]
 visible = false
 modulate = Color(0.364514, 0.782537, 0.882083, 1)
 z_index = 5
@@ -810,9 +793,14 @@ player = NodePath("../../Player")
 puzzle_pieces = null
 ObjectUI = NodePath("../../CanvasLayer/BrothersPuzzle")
 
+[node name="Door" parent="Hall B" instance=ExtResource("22_mfgsw")]
+position = Vector2(112, 141)
+collision_layer = 4
+collision_mask = 3
+
 [node name="Attic" type="Node2D" parent="."]
 position = Vector2(0, -1472)
-script = ExtResource("6_3m243")
+script = ExtResource("23_us5vj")
 metadata/_edit_group_ = true
 
 [node name="PlayerDetector" type="Area2D" parent="Attic"]
@@ -1057,8 +1045,9 @@ excludedRooms = [NodePath("../Main Hall")]
 [node name="PuzzleHamster" parent="CanvasLayer" instance=ExtResource("17_tew7j")]
 visible = false
 
-[node name="BrothersPuzzle" parent="CanvasLayer" instance=ExtResource("26_0fxfc")]
+[node name="BrothersPuzzle" parent="CanvasLayer" node_paths=PackedStringArray("door_to_open") instance=ExtResource("26_0fxfc")]
 visible = false
+door_to_open = NodePath("../../Hall B/Door")
 
 [node name="Room 1 - Letter container" parent="CanvasLayer" instance=ExtResource("12_gjrc0")]
 visible = false
@@ -1070,6 +1059,7 @@ visible = false
 visible = false
 
 [node name="TextCinematics" parent="CanvasLayer" instance=ExtResource("23_8u7wn")]
+visible = false
 texts = Array[ExtResource("29_ia5wo")]([SubResource("Resource_6aq5j"), SubResource("Resource_28juk"), SubResource("Resource_v0i6d"), SubResource("Resource_880f7")])
 
 [node name="hintTime" parent="CanvasLayer" instance=ExtResource("36_jd7sv")]
