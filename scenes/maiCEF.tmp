@@ -1029,7 +1029,7 @@ position = Vector2(325, 768)
 scale = Vector2(1.5, 1.5)
 collision_mask = 46
 motion_mode = 1
-selected_initial_position = 2
+selected_initial_position = 0
 canvas_layer = NodePath("../CanvasLayer")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
@@ -1039,7 +1039,7 @@ texture = ExtResource("26_g2cf0")
 
 [node name="SlasherSpawner" parent="." node_paths=PackedStringArray("player", "excludedRooms") instance=ExtResource("6_85noy")]
 player = NodePath("../Player")
-excludedRooms = [NodePath("../Entrance"), NodePath("../Main Hall")]
+excludedRooms = [NodePath("../Main Hall"), NodePath("../Entrance")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

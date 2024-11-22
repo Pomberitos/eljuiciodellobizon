@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xop4jvmxegkm"
-path="res://.godot/imported/row-2-column-3.png-3f27567e5662f73883e0d1215ee60cce.ctex"
+uid="uid://dwd3h7abqd6bs"
+path="res://.godot/imported/row-3-column-1.png-f5de081f0f6683cb55ffbdb9deabd9a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hamster puzzle/row-2-column-3.png"
-dest_files=["res://.godot/imported/row-2-column-3.png-3f27567e5662f73883e0d1215ee60cce.ctex"]
+source_file="res://assets/hamster puzzle/row-3-column-1.png"
+dest_files=["res://.godot/imported/row-3-column-1.png-f5de081f0f6683cb55ffbdb9deabd9a7.ctex"]
 
 [params]
 

@@ -5,7 +5,6 @@ extends Room
 
 func _ready() -> void:
 	super()
-	print("ready astor bedroom")
 	Events.room_entered.connect(_on_room_entered)
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 
