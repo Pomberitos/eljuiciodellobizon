@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_hgtrs"]
 [ext_resource type="PackedScene" uid="uid://brgqr5cmf5gj4" path="res://puzzles/slot.tscn" id="1_o8bxv"]
-[ext_resource type="Texture2D" uid="uid://crhlfobthsvh0" path="res://assets/hamster puzzle/row-1-column-2.png" id="2_y3tgf"]
-[ext_resource type="Texture2D" uid="uid://okh07ln650ii" path="res://assets/hamster puzzle/row-1-column-1.png" id="3_7xcve"]
-[ext_resource type="Texture2D" uid="uid://llhyjojevrq5" path="res://assets/hamster puzzle/row-2-column-1.png" id="4_qdpkv"]
-[ext_resource type="Texture2D" uid="uid://xop4jvmxegkm" path="res://assets/hamster puzzle/row-2-column-3.png" id="5_osij6"]
-[ext_resource type="Texture2D" uid="uid://b767jk6b0iugr" path="res://assets/hamster puzzle/row-1-column-3.png" id="6_dmnr3"]
-[ext_resource type="Texture2D" uid="uid://drqvch7dtdojh" path="res://assets/hamster puzzle/row-2-column-2.png" id="7_ysusd"]
+[ext_resource type="Texture2D" uid="uid://c6ni3y8dxyy5v" path="res://assets/hamster puzzle/row-1-column-2.png" id="2_y3tgf"]
+[ext_resource type="Texture2D" uid="uid://b864lx7dm3bgc" path="res://assets/hamster puzzle/row-1-column-1.png" id="3_7xcve"]
+[ext_resource type="Texture2D" uid="uid://s53xlfgmwlim" path="res://assets/hamster puzzle/row-2-column-1.png" id="4_qdpkv"]
+[ext_resource type="Texture2D" uid="uid://dwd3h7abqd6bs" path="res://assets/hamster puzzle/row-3-column-1.png" id="4_sxlad"]
+[ext_resource type="Texture2D" uid="uid://cy2afyrnxs7yr" path="res://assets/hamster puzzle/row-3-column-2.png" id="7_5ebvy"]
+[ext_resource type="Texture2D" uid="uid://bgc7x48gi5515" path="res://assets/hamster puzzle/row-2-column-2.png" id="7_ysusd"]
 
 [node name="PuzzleHamster" type="Control"]
 layout_mode = 3
@@ -46,7 +46,7 @@ theme_override_constants/separation = 100
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-columns = 2
+columns = 3
 
 [node name="Slot" parent="HBoxContainer/Holders" instance=ExtResource("1_o8bxv")]
 layout_mode = 2
@@ -57,35 +57,35 @@ texture = ExtResource("2_y3tgf")
 
 [node name="Slot2" parent="HBoxContainer/Holders" instance=ExtResource("1_o8bxv")]
 layout_mode = 2
-current_value = 1
+current_value = 5
 
 [node name="TextureRect" parent="HBoxContainer/Holders/Slot2" index="0"]
-texture = ExtResource("3_7xcve")
+texture = ExtResource("4_sxlad")
 
 [node name="Slot3" parent="HBoxContainer/Holders" instance=ExtResource("1_o8bxv")]
 layout_mode = 2
-current_value = 4
+current_value = 3
 
 [node name="TextureRect" parent="HBoxContainer/Holders/Slot3" index="0"]
 texture = ExtResource("4_qdpkv")
 
 [node name="Slot4" parent="HBoxContainer/Holders" instance=ExtResource("1_o8bxv")]
 layout_mode = 2
-current_value = 6
+current_value = 1
 
 [node name="TextureRect" parent="HBoxContainer/Holders/Slot4" index="0"]
-texture = ExtResource("5_osij6")
+texture = ExtResource("3_7xcve")
 
 [node name="Slot5" parent="HBoxContainer/Holders" instance=ExtResource("1_o8bxv")]
 layout_mode = 2
-current_value = 3
+current_value = 6
 
 [node name="TextureRect" parent="HBoxContainer/Holders/Slot5" index="0"]
-texture = ExtResource("6_dmnr3")
+texture = ExtResource("7_5ebvy")
 
 [node name="Slot6" parent="HBoxContainer/Holders" instance=ExtResource("1_o8bxv")]
 layout_mode = 2
-current_value = 5
+current_value = 4
 
 [node name="TextureRect" parent="HBoxContainer/Holders/Slot6" index="0"]
 texture = ExtResource("7_ysusd")
@@ -94,7 +94,7 @@ texture = ExtResource("7_ysusd")
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-columns = 3
+columns = 2
 
 [node name="Slot" parent="HBoxContainer/Puzzle" instance=ExtResource("1_o8bxv")]
 layout_mode = 2

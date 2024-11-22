@@ -70,16 +70,12 @@ func _on_slasher_spawned(_room: Room):
 	AudioManager.play_sound(AudioManager.LOBIZON_HOWLING)
 	AudioManager.play_music(AudioManager.CHASING_MUSIC)
 
-
 func _on_slasher_gone():
-	if is_cinematic_showing:
-		return
 	AudioManager.play_music(AudioManager.GAME_MUSIC)
 
 func _on_cinematic_finished():
 	AudioManager.play_music(AudioManager.GAME_MUSIC)
 	is_cinematic_showing = false
-	Dialogic.start("ricky-intro")
 
 
 func _on_object_picked(_object: InventoryItem):

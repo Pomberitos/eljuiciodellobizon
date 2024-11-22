@@ -45,7 +45,8 @@ func _on_navigation_agent_2d_navigation_finished() -> void:
 func _on_navigation_agent_2d_target_reached() -> void:
 	if escaping:
 		Events.slasher_gone.emit()
-
+		call_deferred("queue_free")
+		
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body.has_method("die"):
 		body.die()
