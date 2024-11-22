@@ -1,6 +1,5 @@
 extends Control
 class_name TextCinematics
-
 @export var texts: Array[CinematicText] = []
 
 
@@ -36,5 +35,5 @@ func advance_text():
 func fade_out():
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 1.0)
-	tween.tween_callback(queue_free)
+	await tween.finished
 	Events.cinematic_finished.emit()

@@ -2,8 +2,8 @@ extends Room
 
 func _ready() -> void:
 	super()
-	Events.room_entered.connect(_on_room_entered)
+	Events.cinematic_finished.connect(_on_cinematic_finished)
 
-func _on_room_entered(room: Room) -> void:
-	if room.name == "Entrance":
+func _on_cinematic_finished() -> void:
+	if Events.current_room.label_name == "Entrance":
 		Dialogic.start("ricky-intro")
