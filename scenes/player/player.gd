@@ -142,8 +142,8 @@ func check_box_collision(motion: Vector2) -> void:
 
 
 func die():
-	# print("ready to die")
-	get_tree().change_scene_to_file("res://scenes/UIs/game_over.tscn")
+	# print("ready to die").bind("res://some_scene.tscn").call_deferred()
+	get_tree().change_scene_to_file.bind("res://scenes/UIs/game_over.tscn").call_deferred()
 
 
 func set_tween_light() -> void:

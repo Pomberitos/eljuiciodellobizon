@@ -8,4 +8,4 @@ func _input(event: InputEvent) -> void:
 		get_tree().quit()
 	
 	if event.is_action_pressed("ui_accept"):
-		get_tree().change_scene_to_file("res://scenes/UIs/main_menu.tscn")
+		get_tree().change_scene_to_file.bind("res://scenes/UIs/main_menu.tscn").call_deferred()

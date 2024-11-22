@@ -242,6 +242,7 @@ point_light = NodePath("SpriteLight")
 animation_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
 sprite_frames = SubResource("SpriteFrames_y04wk")
 autoplay = "default"
 frame = 4

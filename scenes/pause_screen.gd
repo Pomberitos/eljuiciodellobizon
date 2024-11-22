@@ -11,7 +11,7 @@ var can_pause: bool = false
 func _ready() -> void:
 	Events.cinematic_finished.connect(_activate_pause)
 	Events.slasher_spawned.connect(_activate_pause_with_room)
-	Events.slasher_gone.connect(_activate_pause_with_room)
+	Events.slasher_gone.connect(_activate_pause)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") and can_pause:
@@ -40,7 +40,7 @@ func _on_new_game_button_pressed() -> void:
 
 
 func _on_volver_menu_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/UIs/main_menu.tscn")
+	get_tree().change_scene_to_file.bind("res://scenes/UIs/main_menu.tscn").call_deferred()
 
 
 func _on_unpause_pressed() -> void:

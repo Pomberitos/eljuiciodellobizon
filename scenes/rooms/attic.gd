@@ -6,4 +6,4 @@ func _ready() -> void:
 
 func _on_room_entered(room: Room) -> void:
 	if room.name == "Attic":
-			get_tree().change_scene_to_file("res://scenes/UIs/game_finished.tscn")
+			get_tree().change_scene_to_file.bind("res://scenes/UIs/game_finished.tscn").call_deferred()

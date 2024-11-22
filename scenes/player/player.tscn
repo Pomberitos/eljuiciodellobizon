@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_cr6eo"]
 [ext_resource type="Resource" uid="uid://o3fuk68wqyt" path="res://inventory/player_inventory.tres" id="2_jadey"]
 [ext_resource type="Texture2D" uid="uid://dtyq8a527bq05" path="res://assets/character/ricky/ricky_64_sprite_sheet.png.png" id="3_cu8d7"]
-[ext_resource type="Texture2D" uid="uid://c17h1s0thqoms" path="res://assets/light_bitmap_2.png" id="4_q41ey"]
+[ext_resource type="Texture2D" uid="uid://s6pv7bhm7pd6" path="res://assets/light_bitmap_cone.png" id="4_tenxm"]
 [ext_resource type="Texture2D" uid="uid://bxoawfd28hujn" path="res://assets/light_bitmap.png" id="5_duexy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0d821"]
@@ -1594,8 +1594,9 @@ energy = 0.55
 shadow_enabled = true
 shadow_color = Color(0.25, 0.25, 0.25, 0.309804)
 shadow_filter = 1
-texture = ExtResource("4_q41ey")
-offset = Vector2(12, 0)
+texture = ExtResource("4_tenxm")
+offset = Vector2(15, 0)
+texture_scale = 0.25
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1625,6 +1626,11 @@ shape = SubResource("CircleShape2D_5tdfu")
 debug_color = Color(0.871249, 0.00048535, 0.846799, 0.42)
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
+energy = 0.4
+texture = SubResource("GradientTexture2D_r2o46")
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+position = Vector2(0, -14)
 energy = 0.4
 texture = SubResource("GradientTexture2D_r2o46")
 
