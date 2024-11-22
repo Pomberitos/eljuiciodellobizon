@@ -15,7 +15,7 @@ extends Node
 var slasher: Slasher
 var spawn_pending: bool = false
 
-@export var hint_read_count: int = 0
+var slasher_spawn_count: int = 0
 
 var last_room: Room
 
@@ -48,9 +48,12 @@ func _on_anticipation_timer_timeout():
 
 
 func _on_room_entered(room: Room) -> void:
-	if Events.last_room:
+	
+	if Events.last_room != null:
 		if Events.last_room.label_name == room.label_name:
 			return
+		if Events.current_room.name == "Library":
+			excludedRooms = excludedRooms.slice(0,1)
 
 	last_room = room
 	kill_slasher()
@@ -75,6 +78,9 @@ func slasherSpawner():
 	slasher = sceneToSpawn.instantiate()
 	slasher.player = player
 	spawnSlasher(room)
+	slasher_spawn_count += 1
+	if slasher_spawn_count == 1:
+		pass
 
 
 func spawnSlasher(room: Room):

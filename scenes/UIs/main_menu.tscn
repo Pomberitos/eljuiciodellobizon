@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://j8au7006wfkt"]
+[gd_scene load_steps=26 format=3 uid="uid://j8au7006wfkt"]
 
 [ext_resource type="Script" path="res://scenes/UIs/main_menu.gd" id="1_45f1r"]
 [ext_resource type="Material" uid="uid://wgx1itivrrhn" path="res://scenes/UIs/fog_material.tres" id="2_nd5l8"]
@@ -7,19 +7,72 @@
 [ext_resource type="Texture2D" uid="uid://w0q6l1a4utko" path="res://assets/UI/Discord.png" id="6_kqbr4"]
 [ext_resource type="Texture2D" uid="uid://704rqcs52k1f" path="res://assets/UI/instagram.png" id="7_snfd4"]
 [ext_resource type="Texture2D" uid="uid://b3iropsq2fbm8" path="res://assets/UI/Itch.svg" id="8_3eaib"]
+[ext_resource type="Texture2D" uid="uid://cbd3fwrffvvem" path="res://assets/pomberitos-logo-small.png" id="8_84nln"]
 [ext_resource type="Theme" uid="uid://rbt3kslpjd0s" path="res://scenes/UIs/main_menu_button_fonts.tres" id="8_wmi8x"]
 [ext_resource type="PackedScene" uid="uid://1vgu7l8rnnup" path="res://scenes/UIs/sound_config_menu.tscn" id="8_yx13y"]
 [ext_resource type="Texture2D" uid="uid://clxwa6wjqmblt" path="res://assets/textures/controles_wip.png" id="10_5x777"]
 [ext_resource type="StyleBox" uid="uid://8gowbf1mpfxl" path="res://scenes/UIs/new_style_box_flat.tres" id="10_8opft"]
 [ext_resource type="LabelSettings" uid="uid://drj08luasbrsh" path="res://scenes/UIs/yellow_font_TN.tres" id="12_fevjo"]
 [ext_resource type="LabelSettings" uid="uid://jfi8fir3o5sj" path="res://resources/font_TNR_Title.tres" id="13_di3ot"]
+[ext_resource type="Texture2D" uid="uid://sysokrar8gmu" path="res://assets/UI/CREDITOS_low.png" id="14_rr0fk"]
+[ext_resource type="Texture2D" uid="uid://dfn0mfdk27f1t" path="res://assets/UI/wold_eyes.svg" id="15_8idkf"]
 
 [sub_resource type="Theme" id="Theme_4t56t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e60xs"]
+bg_color = Color(0.0196078, 0.0627451, 0.137255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xpib6"]
+bg_color = Color(0.00820202, 0.00820203, 0.00820202, 1)
+
+[sub_resource type="InputEventAction" id="InputEventAction_lrv46"]
+action = &"ui_cancel"
+
+[sub_resource type="Shortcut" id="Shortcut_duuky"]
+events = [SubResource("InputEventAction_lrv46")]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iotht"]
 bg_color = Color(0.0181604, 0.04238, 0.0619281, 1)
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("config_panel", "credits_panel", "audio_panel", "control_panel")]
+[sub_resource type="Animation" id="Animation_yfwai"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WolfEyes:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dtdhh"]
+resource_name = "eyes"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WolfEyes:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 1, 1.96667),
+"transitions": PackedFloat32Array(0.466517, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.662745), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t2hr3"]
+_data = {
+"RESET": SubResource("Animation_yfwai"),
+"eyes": SubResource("Animation_dtdhh")
+}
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("config_panel", "credits_panel", "audio_panel", "control_panel", "animation_player", "reset_config")]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,8 +83,10 @@ size_flags_horizontal = 6
 script = ExtResource("1_45f1r")
 config_panel = NodePath("Config")
 credits_panel = NodePath("Credits")
-audio_panel = NodePath("Config/MarginContainer/HBoxContainer/Sound Config")
-control_panel = NodePath("Config/MarginContainer/HBoxContainer/ControlPanel")
+audio_panel = NodePath("Config/MarginContainer/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/Sound Config")
+control_panel = NodePath("Config/MarginContainer/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/ControlPanel")
+animation_player = NodePath("AnimationPlayer")
+reset_config = NodePath("Config/MarginContainer/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/ResetConfig")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -121,6 +176,12 @@ offset_bottom = -10.0
 grow_horizontal = 0
 grow_vertical = 0
 
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_84nln")
+expand_mode = 3
+stretch_mode = 5
+
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("6_kqbr4")
@@ -152,34 +213,74 @@ grow_vertical = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="Config/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Config/MarginContainer/HBoxContainer"]
+[node name="Panel" type="Panel" parent="Config/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e60xs")
+
+[node name="MarginContainer" type="MarginContainer" parent="Config/MarginContainer/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Config/MarginContainer/HBoxContainer/Panel/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.25
 alignment = 1
 
-[node name="Audio" type="Button" parent="Config/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Audio" type="Button" parent="Config/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("8_wmi8x")
 text = "AUDIO"
 
-[node name="Controles" type="Button" parent="Config/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Controles" type="Button" parent="Config/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("8_wmi8x")
 text = "CONTROLES"
 
-[node name="Sound Config" parent="Config/MarginContainer/HBoxContainer" instance=ExtResource("8_yx13y")]
+[node name="SoundPanel" type="Panel" parent="Config/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_xpib6")
+
+[node name="MarginContainer" type="MarginContainer" parent="Config/MarginContainer/HBoxContainer/SoundPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Config/MarginContainer/HBoxContainer/SoundPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="Sound Config" parent="Config/MarginContainer/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer" instance=ExtResource("8_yx13y")]
 visible = true
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="ControlPanel" type="Panel" parent="Config/MarginContainer/HBoxContainer"]
+[node name="ControlPanel" type="Panel" parent="Config/MarginContainer/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("10_8opft")
 
-[node name="TextureRect" type="TextureRect" parent="Config/MarginContainer/HBoxContainer/ControlPanel"]
+[node name="TextureRect" type="TextureRect" parent="Config/MarginContainer/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/ControlPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -191,7 +292,8 @@ texture = ExtResource("10_5x777")
 expand_mode = 5
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Config/MarginContainer/HBoxContainer/ControlPanel"]
+[node name="Label" type="Label" parent="Config/MarginContainer/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/ControlPanel"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -207,6 +309,31 @@ grow_vertical = 0
 text = "Presione Esc para volver"
 label_settings = ExtResource("12_fevjo")
 horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Config/MarginContainer/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Config/MarginContainer/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="ResetConfig" type="Button" parent="Config/MarginContainer/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("8_wmi8x")
+text = "Deshacer cambios
+"
+
+[node name="Back" type="Button" parent="Config/MarginContainer/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("8_wmi8x")
+shortcut = SubResource("Shortcut_duuky")
+text = "Volver
+"
 
 [node name="Credits" type="CanvasLayer" parent="."]
 visible = false
@@ -228,10 +355,18 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Credits/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 23
+theme_override_constants/separation = 22
 alignment = 1
 
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Credits/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Credits/MarginContainer/VBoxContainer/AspectRatioContainer"]
+layout_mode = 2
+texture = ExtResource("14_rr0fk")
+
 [node name="Label" type="Label" parent="Credits/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "CRÉDITOS"
 label_settings = ExtResource("13_di3ot")
@@ -342,10 +477,38 @@ size_flags_horizontal = 4
 theme = ExtResource("8_wmi8x")
 text = "VOLVER"
 
+[node name="WolfEyes" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -336.0
+offset_top = -169.0
+offset_right = 332.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_8idkf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_t2hr3")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 40.0
+autostart = true
+
 [connection signal="pressed" from="CanvasLayer/MainMenuMargin/VBoxContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenuMargin/VBoxContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenuMargin/VBoxContainer/VBoxContainer/ConfigButton" to="." method="_on_config_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenuMargin/VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="Config/MarginContainer/HBoxContainer/VBoxContainer/Audio" to="." method="_on_audio_pressed"]
-[connection signal="pressed" from="Config/MarginContainer/HBoxContainer/VBoxContainer/Controles" to="." method="_on_controles_pressed"]
+[connection signal="pressed" from="Config/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="Config/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Controles" to="." method="_on_controles_pressed"]
+[connection signal="pressed" from="Config/MarginContainer/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/ResetConfig" to="." method="_on_reset_config_pressed"]
+[connection signal="pressed" from="Config/MarginContainer/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Back" to="." method="_on_volver_button_pressed"]
 [connection signal="pressed" from="Credits/MarginContainer/VBoxContainer/Button" to="." method="_on_back_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

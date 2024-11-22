@@ -4,8 +4,12 @@ extends Control
 @export var credits_panel: CanvasLayer
 @export var audio_panel: Panel
 @export var control_panel: Panel
+@export var animation_player: AnimationPlayer
+@export var reset_config: Button
 
 func _ready():
+	get_tree().paused = false
+	Dialogic.end_timeline()
 	FadeTransition.transition_fade_in()
 	AudioManager.play_music(AudioManager.MENU_MUSIC)
 	
@@ -26,16 +30,12 @@ func _on_config_button_pressed() -> void:
 func _on_audio_pressed() -> void:
 	control_panel.hide()
 	audio_panel.show()
+	reset_config.visible = audio_panel.visible
 	
 func _on_controles_pressed() -> void:
 	audio_panel.hide()
 	control_panel.show()
-
-	
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		config_panel.hide()
-
+	reset_config.visible = audio_panel.visible
 
 func _on_credits_button_pressed() -> void:
 	credits_panel.show()
@@ -43,3 +43,11 @@ func _on_credits_button_pressed() -> void:
 
 func _on_back_button_pressed() -> void:
 	credits_panel.hide()
+
+
+func _on_timer_timeout() -> void:
+	animation_player.play("eyes")
+
+
+func _on_reset_config_pressed() -> void:
+	Events.sound_config_reset.emit()

@@ -24,9 +24,14 @@ var bus_index: int = 0
 func _ready()->void:
 	audio_slider.value_changed.connect(on_value_changed)
 	audio_slider.drag_ended.connect(_on_h_slider_drag_ended)
+	Events.sound_config_reset.connect(_on_config_reset)
 	set_bus_index_by_name()
 	set_audio_value_label_text()
 	set_audio_slider_value()
+
+func _on_config_reset() -> void:
+	audio_slider.value = 1.0
+	ConfigHandler.save_audio_setting(bus_name, audio_slider.value)
 
 func on_value_changed(value: float)-> void:
 	AudioServer.set_bus_volume_db(bus_index,linear_to_db(value))
@@ -51,6 +56,5 @@ func get_volume_label(volume: float) -> String:
 	return "Desconocido"
 
 func _on_h_slider_drag_ended(value_changed: bool) -> void:
-	print(audio_slider.value)
 	if value_changed:
 		ConfigHandler.save_audio_setting(bus_name, audio_slider.value)

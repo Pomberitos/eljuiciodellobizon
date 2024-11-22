@@ -1,0 +1,7 @@
+if {door_first_time} == false:
+	set {door_first_time} = true
+	[sound path="res://assets/audio/Doorlocked02.ogg" volume="0.0"]
+	ricky: Oh no!. La puerta está con llave...‬
+else:
+	[sound path="res://assets/audio/Doorlocked02.ogg" volume="0.0"]
+	ricky: Está con llave...

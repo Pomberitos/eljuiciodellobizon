@@ -36,4 +36,5 @@ func fade_out():
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 1.0)
 	await tween.finished
+	self.hide()
 	Events.cinematic_finished.emit()

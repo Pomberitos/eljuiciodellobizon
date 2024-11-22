@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://1vgu7l8rnnup"]
+[gd_scene load_steps=3 format=3 uid="uid://1vgu7l8rnnup"]
 
 [ext_resource type="PackedScene" uid="uid://doss0cxnltyjx" path="res://scenes/UIs/audio_bus_slider.tscn" id="1_68tux"]
-[ext_resource type="FontFile" uid="uid://4i6yfq7v7h4e" path="res://assets/fonts/duskey-free.rough.otf" id="2_no8y8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bclk6"]
 bg_color = Color(1.50409e-09, 0.0603524, 0.0663545, 1)
@@ -16,11 +15,6 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 shadow_size = 35
-
-[sub_resource type="LabelSettings" id="LabelSettings_dthfy"]
-font = ExtResource("2_no8y8")
-font_size = 21
-font_color = Color(0.819608, 0.819608, 0.321569, 1)
 
 [node name="Sound Config" type="Panel"]
 visible = false
@@ -58,12 +52,6 @@ bus_name = "FXs"
 
 [node name="Label" parent="MarginContainer/VBoxContainer/AudioBusSlider3/VBoxContainer" index="0"]
 text = "Efectos Especiales"
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Presione Esc para volver"
-label_settings = SubResource("LabelSettings_dthfy")
-horizontal_alignment = 1
 
 [editable path="MarginContainer/VBoxContainer/AudioBusSlider"]
 [editable path="MarginContainer/VBoxContainer/AudioBusSlider2"]

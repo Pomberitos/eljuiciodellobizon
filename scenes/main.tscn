@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=78 format=4 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="Script" path="res://scenes/GameController.gd" id="1_3dbo4"]
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
@@ -15,14 +15,15 @@
 [ext_resource type="Script" path="res://scenes/rooms/room_3.gd" id="8_16xs0"]
 [ext_resource type="Script" path="res://scenes/ground.gd" id="8_gouk5"]
 [ext_resource type="PackedScene" uid="uid://c5brlqtj6ph0" path="res://scenes/collectible/key.tscn" id="8_ooidw"]
+[ext_resource type="Script" path="res://scenes/library.gd" id="9_ba1d1"]
 [ext_resource type="TileSet" uid="uid://3im5s84l5a4c" path="res://resources/tilesets/main_tileset.tres" id="9_ccigu"]
 [ext_resource type="AudioStream" uid="uid://bjntvhskdx21y" path="res://assets/audio/clock_bell.ogg" id="9_elj8w"]
 [ext_resource type="Script" path="res://scenes/collectible/brothers_puzzle_interactor.gd" id="9_tmfyp"]
-[ext_resource type="Resource" uid="uid://dxywxvv1rupur" path="res://inventory/items/key4.tres" id="10_3c2q4"]
+[ext_resource type="Resource" path="res://inventory/items/key4.tres" id="10_3c2q4"]
 [ext_resource type="PackedScene" uid="uid://3cy137yehsru" path="res://scenes/collectible/letter.tscn" id="10_7d0u5"]
 [ext_resource type="AudioStream" uid="uid://cdwu2utcblvgj" path="res://assets/audio/wolf-growl.ogg" id="10_kxxv2"]
 [ext_resource type="Script" path="res://scenes/rooms/puzzles/puzzle_2.gd" id="11_40gju"]
-[ext_resource type="PackedScene" uid="uid://4vduqc0wij88" path="res://scenes/collectible/key4.tscn" id="11_th5jr"]
+[ext_resource type="PackedScene" path="res://scenes/collectible/key4.tscn" id="11_th5jr"]
 [ext_resource type="PackedScene" uid="uid://cawlhdaqesgwj" path="res://scenes/UIs/Room 1/Letter.tscn" id="12_gjrc0"]
 [ext_resource type="AudioStream" uid="uid://l0emo1de2bmt" path="res://assets/audio/monstar_gets_key_from_braid.ogg" id="14_k7g6b"]
 [ext_resource type="PackedScene" uid="uid://dsk8fru450di1" path="res://scenes/UIs/Room 1/hint_container.tscn" id="14_k85a1"]
@@ -42,6 +43,12 @@
 [ext_resource type="Script" path="res://scenes/pause_screen.gd" id="30_6d8tr"]
 [ext_resource type="PackedScene" uid="uid://1vgu7l8rnnup" path="res://scenes/UIs/sound_config_menu.tscn" id="31_n3psm"]
 [ext_resource type="PackedScene" uid="uid://difseojy7fdv5" path="res://scenes/UIs/Room 1/hintTime.tscn" id="36_jd7sv"]
+[ext_resource type="Texture2D" uid="uid://byb6jwycoumjf" path="res://assets/textures/titulo.png" id="42_3pckp"]
+[ext_resource type="Theme" uid="uid://rbt3kslpjd0s" path="res://scenes/UIs/main_menu_button_fonts.tres" id="43_1sykv"]
+[ext_resource type="Theme" uid="uid://c8fllguh5ocnc" path="res://scenes/UIs/main_menu.tres" id="43_palv8"]
+[ext_resource type="StyleBox" uid="uid://8gowbf1mpfxl" path="res://scenes/UIs/new_style_box_flat.tres" id="47_bdevp"]
+[ext_resource type="Texture2D" uid="uid://clxwa6wjqmblt" path="res://assets/textures/controles_wip.png" id="48_1s8ip"]
+[ext_resource type="LabelSettings" uid="uid://drj08luasbrsh" path="res://scenes/UIs/yellow_font_TN.tres" id="49_hyc7t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1pn3"]
 size = Vector2(716, 304)
@@ -118,6 +125,20 @@ script = ExtResource("29_ia5wo")
 text = "El destino, sellado. La puerta se cierra con un eco profundo. Ahora, la lucha por escapar comienza."
 duration = 8.0
 
+[sub_resource type="Theme" id="Theme_6ykdg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uxnd"]
+bg_color = Color(0.0196078, 0.0627451, 0.137255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mt5ly"]
+bg_color = Color(0.00820202, 0.00820203, 0.00820202, 1)
+
+[sub_resource type="InputEventAction" id="InputEventAction_lrv46"]
+action = &"ui_cancel"
+
+[sub_resource type="Shortcut" id="Shortcut_187jt"]
+events = [SubResource("InputEventAction_lrv46")]
+
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_3dbo4")
@@ -189,7 +210,7 @@ tile_map_data = PackedByteArray("AAABAAIAAAAAAAYAAAABAAMAAAAAAAYAAAABAAQAAAAAAAY
 tile_set = ExtResource("9_ccigu")
 
 [node name="walls" type="TileMapLayer" parent="Main Hall/TileMap"]
-tile_map_data = PackedByteArray("AAAAAAIAAAAAAA0AAAAAAAMAAAAAAA0AAAAAAAQAAAAAAA0AAAAAAAUAAAAAAA0AAAAAAAYAAAAAAA0AAAAAAAcAAAAAAA0AAAAAAAgAAAAAAA0AAAAAAAkAAAAAAA0AAAAAAAoAAAAAAA0AAAAAAAsAAAAAAA0AAAAAAAwAAAAAAA0AAAAYAAIAAAAEAA0AAAAYAAMAAAAEAA0AAAAYAAQAAAAEAA0AAAAYAAUAAAAEAA0AAAAYAAcAAAAEAA0AAAAYAAgAAAAEAA0AAAAYAAkAAAAEAA0AAAAYAAoAAAAEAA0AAAAYAAsAAAAEAA0AAAAYAAwAAAAEAA0AAAAYAAAAAAAEAA0AAAAYAAEAAAAEAA0AAAAAAAAAAAAAAA0AAAAAAAEAAAAAAA0AAAAAAA0AAAAAAA4AAAABAA0AAAACAA8AAAACAA0AAAACAA8AAAADAA0AAAACAA8AAAAEAA0AAAACAA8AAAAFAA0AAAACAA8AAAAGAA0AAAACAA8AAAAHAA0AAAACAA8AAAAIAA0AAAACAA8AAAAJAA0AAAACAA8AAAAKAA0AAAACAA8AAAALAA0AAAACAA8AAAAMAA0AAAACAA8AAAANAA0AAAACAA8AAAAOAA0AAAACAA8AAAAPAA0AAAACAA8AAAAQAA0AAAACAA8AAAARAA0AAAACAA8AAAASAA0AAAACAA8AAAATAA0AAAACAA8AAAAUAA0AAAACAA8AAAAVAA0AAAACAA8AAAAWAA0AAAACAA8AAAAXAA0AAAACAA8AAAAYAA0AAAADAA8AAAABAAAAAAAAAAIAAAABAAEAAAAAAAMAAAACAAAAAAAAAAIAAAACAAEAAAAAAAMAAAADAAAAAAAAAAIAAAADAAEAAAAAAAMAAAAEAAAAAAAAAAIAAAAEAAEAAAAAAAMAAAAFAAAAAAAAAAIAAAAFAAEAAAAAAAMAAAAGAAAAAAAAAAIAAAAGAAEAAAAAAAMAAAAHAAAAAAAAAAIAAAAHAAEAAAAAAAMAAAAIAAAAAAAAAAIAAAAIAAEAAAAAAAMAAAAJAAAAAAAAAAIAAAAJAAEAAAAAAAMAAAAKAAAAAAAAAAIAAAAKAAEAAAAAAAMAAAANAAAAAAAAAAIAAAANAAEAAAAAAAMAAAAOAAAAAAAAAAIAAAAOAAEAAAAAAAMAAAAPAAAAAAAAAAIAAAAPAAEAAAAAAAMAAAAQAAAAAAAAAAIAAAAQAAEAAAAAAAMAAAARAAAAAAAAAAIAAAARAAEAAAAAAAMAAAASAAAAAAAAAAIAAAASAAEAAAAAAAMAAAATAAAAAAAAAAIAAAATAAEAAAAAAAMAAAAUAAAAAAAAAAIAAAAUAAEAAAAAAAMAAAAVAAAAAAAAAAIAAAAVAAEAAAAAAAMAAAAWAAAAAAAAAAIAAAAWAAEAAAAAAAMAAAAXAAAAAAAAAAIAAAAXAAEAAAAAAAMAAAALAAAAAAAAAAIAAAAMAAAAAAAAAAIAAAAMAAEAAAAAAAMAAAA=")
+tile_map_data = PackedByteArray("AAAAAAIAAAAAAA0AAAAAAAMAAAAAAA0AAAAAAAQAAAAAAA0AAAAAAAUAAAAAAA0AAAAAAAYAAAAAAA0AAAAAAAcAAAAAAA0AAAAAAAgAAAAAAA0AAAAAAAkAAAAAAA0AAAAAAAoAAAAAAA0AAAAAAAsAAAAAAA0AAAAAAAwAAAAAAA0AAAAYAAIAAAAEAA0AAAAYAAMAAAAEAA0AAAAYAAQAAAAEAA0AAAAYAAUAAAAEAA0AAAAYAAcAAAAEAA0AAAAYAAgAAAAEAA0AAAAYAAkAAAAEAA0AAAAYAAoAAAAEAA0AAAAYAAsAAAAEAA0AAAAYAAwAAAAEAA0AAAAYAAAAAAAEAA0AAAAYAAEAAAAEAA0AAAAAAAAAAAAAAA0AAAAAAAEAAAAAAA0AAAAAAA0AAAAAAA4AAAABAA0AAAACAA8AAAACAA0AAAACAA8AAAADAA0AAAACAA8AAAAEAA0AAAACAA8AAAAFAA0AAAACAA8AAAAGAA0AAAACAA8AAAAHAA0AAAACAA8AAAAIAA0AAAACAA8AAAAKAA0AAAACAA8AAAALAA0AAAACAA8AAAAMAA0AAAACAA8AAAANAA0AAAACAA8AAAAOAA0AAAACAA8AAAAPAA0AAAACAA8AAAAQAA0AAAACAA8AAAARAA0AAAACAA8AAAASAA0AAAACAA8AAAATAA0AAAACAA8AAAAUAA0AAAACAA8AAAAVAA0AAAACAA8AAAAWAA0AAAACAA8AAAAXAA0AAAACAA8AAAAYAA0AAAADAA8AAAABAAAAAAAAAAIAAAABAAEAAAAAAAMAAAACAAAAAAAAAAIAAAACAAEAAAAAAAMAAAADAAAAAAAAAAIAAAADAAEAAAAAAAMAAAAEAAAAAAAAAAIAAAAEAAEAAAAAAAMAAAAFAAAAAAAAAAIAAAAFAAEAAAAAAAMAAAAGAAAAAAAAAAIAAAAGAAEAAAAAAAMAAAAHAAAAAAAAAAIAAAAHAAEAAAAAAAMAAAAIAAAAAAAAAAIAAAAIAAEAAAAAAAMAAAAJAAAAAAAAAAIAAAAJAAEAAAAAAAMAAAAKAAAAAAAAAAIAAAAKAAEAAAAAAAMAAAANAAAAAAAAAAIAAAANAAEAAAAAAAMAAAAOAAAAAAAAAAIAAAAOAAEAAAAAAAMAAAAPAAAAAAAAAAIAAAAPAAEAAAAAAAMAAAAQAAAAAAAAAAIAAAAQAAEAAAAAAAMAAAARAAAAAAAAAAIAAAARAAEAAAAAAAMAAAASAAAAAAAAAAIAAAASAAEAAAAAAAMAAAATAAAAAAAAAAIAAAATAAEAAAAAAAMAAAAUAAAAAAAAAAIAAAAUAAEAAAAAAAMAAAAVAAAAAAAAAAIAAAAVAAEAAAAAAAMAAAAWAAAAAAAAAAIAAAAWAAEAAAAAAAMAAAAXAAAAAAAAAAIAAAAXAAEAAAAAAAMAAAALAAAAAAAAAAIAAAAMAAAAAAAAAAIAAAAMAAEAAAAAAAMAAAA=")
 tile_set = ExtResource("9_ccigu")
 
 [node name="Objects" type="TileMapLayer" parent="Main Hall/TileMap"]
@@ -205,6 +226,9 @@ tile_set = ExtResource("9_ccigu")
 
 [node name="Marker2D" type="Marker2D" parent="Main Hall/SpawnPositions"]
 position = Vector2(367, 83)
+
+[node name="Marker2D2" type="Marker2D" parent="Main Hall/SpawnPositions"]
+position = Vector2(728, 125)
 
 [node name="PortalToHall" type="Area2D" parent="Main Hall"]
 position = Vector2(368, 40)
@@ -259,6 +283,11 @@ position = Vector2(787, 208)
 rotation = 1.57079
 label = "door_room_3"
 
+[node name="DoorWithKey2" parent="Main Hall" instance=ExtResource("3_k7xsd")]
+position = Vector2(304, 434)
+rotation = 3.14159
+label = "door_room_locked"
+
 [node name="PortalToRoom3" type="Area2D" parent="Main Hall"]
 position = Vector2(796, 250)
 script = ExtResource("6_6vxlu")
@@ -275,7 +304,7 @@ position = Vector2(78, -40)
 [node name="Library" type="Node2D" parent="."]
 y_sort_enabled = true
 position = Vector2(830, -1482)
-script = ExtResource("6_3m243")
+script = ExtResource("9_ba1d1")
 label_name = "Library"
 metadata/_edit_group_ = true
 
@@ -805,11 +834,12 @@ debug_color = Color(0.33582, 0.639235, 0, 0.42)
 [node name="Marker2D" type="Marker2D" parent="Hall B/RoomPortal3"]
 position = Vector2(576, -216)
 
-[node name="BrothersPuzzle" parent="Hall B" node_paths=PackedStringArray("player", "ObjectUI") instance=ExtResource("10_7d0u5")]
+[node name="BrothersPuzzle" parent="Hall B" node_paths=PackedStringArray("player", "canvas_layer", "ObjectUI") instance=ExtResource("10_7d0u5")]
 position = Vector2(153, 114)
 script = ExtResource("9_tmfyp")
 player = NodePath("../../Player")
 puzzle_pieces = null
+canvas_layer = NodePath("../../CanvasLayer")
 ObjectUI = NodePath("../../CanvasLayer/BrothersPuzzle")
 
 [node name="Door" parent="Hall B" instance=ExtResource("22_mfgsw")]
@@ -1065,7 +1095,7 @@ texture = ExtResource("26_g2cf0")
 
 [node name="SlasherSpawner" parent="." node_paths=PackedStringArray("player", "excludedRooms") instance=ExtResource("6_85noy")]
 player = NodePath("../Player")
-excludedRooms = [NodePath("../Entrance"), NodePath("../Main Hall")]
+excludedRooms = [NodePath("../Entrance"), NodePath("../Main Hall"), NodePath("../Hall"), NodePath("../Hall B"), NodePath("../Hall C")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -1106,33 +1136,208 @@ visible = false
 blend_mode = 1
 
 [node name="OtherUI" type="CanvasLayer" parent="."]
+layer = 20
 
-[node name="PauseScreen" type="Control" parent="OtherUI"]
+[node name="PauseScreen" type="Panel" parent="OtherUI" node_paths=PackedStringArray("config_menu", "audio_panel", "control_panel", "reset_config")]
 process_mode = 3
 visible = false
-layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("30_6d8tr")
+config_menu = NodePath("ConfigMenuMargin")
+audio_panel = NodePath("ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/Sound Config")
+control_panel = NodePath("ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/ControlPanel")
+reset_config = NodePath("ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/ResetConfig")
 
-[node name="MarginContainer" type="MarginContainer" parent="OtherUI/PauseScreen"]
+[node name="MainMenuMargin" type="MarginContainer" parent="OtherUI/PauseScreen"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 65
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 
-[node name="Sound Config" parent="OtherUI/PauseScreen/MarginContainer" instance=ExtResource("31_n3psm")]
+[node name="VBoxContainer" type="VBoxContainer" parent="OtherUI/PauseScreen/MainMenuMargin"]
+layout_mode = 2
+theme = SubResource("Theme_6ykdg")
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer"]
+custom_minimum_size = Vector2(0, 67)
+layout_mode = 2
+texture = ExtResource("42_3pckp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="NewGameButton" type="Button" parent="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("43_palv8")
+theme_override_colors/font_hover_color = Color(0, 0.509804, 0.898039, 1)
+theme_override_colors/font_pressed_color = Color(0.447059, 0.45098, 0.984314, 1)
+text = "Nueva Partida"
+
+[node name="VolverMenu" type="Button" parent="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("43_palv8")
+text = "Volver a Menú Principal"
+
+[node name="ConfigButton" type="Button" parent="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("43_palv8")
+text = "Configuración"
+
+[node name="Unpause" type="Button" parent="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("43_palv8")
+text = "Reanudar partida"
+
+[node name="ConfigMenuMargin" type="MarginContainer" parent="OtherUI/PauseScreen"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OtherUI/PauseScreen/ConfigMenuMargin"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1uxnd")
+
+[node name="MarginContainer" type="MarginContainer" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+alignment = 1
+
+[node name="Audio" type="Button" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("43_1sykv")
+text = "AUDIO"
+
+[node name="Controles" type="Button" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("43_1sykv")
+text = "CONTROLES"
+
+[node name="SoundPanel" type="Panel" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_mt5ly")
+
+[node name="MarginContainer" type="MarginContainer" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/SoundPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="Sound Config" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer" instance=ExtResource("31_n3psm")]
 visible = true
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ControlPanel" type="Panel" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("47_bdevp")
+
+[node name="TextureRect" type="TextureRect" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/ControlPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("48_1s8ip")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/ControlPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -129.5
+offset_top = -40.0
+offset_right = 137.5
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Presione Esc para volver"
+label_settings = ExtResource("49_hyc7t")
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="ResetConfig" type="Button" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("43_1sykv")
+text = "Deshacer cambios
+"
+
+[node name="VolverAPause" type="Button" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("43_1sykv")
+shortcut = SubResource("Shortcut_187jt")
+text = "Volver
+"
 
 [connection signal="body_entered" from="Entrance/PlayerDetector" to="Entrance" method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="Entrance/RoomPortal" to="Entrance/RoomPortal" method="_on_body_entered"]
@@ -1168,3 +1373,11 @@ layout_mode = 2
 [connection signal="body_entered" from="Astor\'s Bedroom/Puzzle 3/TileSwitchThree" to="Astor\'s Bedroom/Puzzle 3" method="_onTileSwitchThreeBodyEntered"]
 [connection signal="body_entered" from="Astor\'s Bedroom/Puzzle 3/TileSwitchSix" to="Astor\'s Bedroom/Puzzle 3" method="_onTileSwitchSixBodyEntered"]
 [connection signal="body_entered" from="Astor\'s Bedroom/Puzzle 3/TileSwitchNine" to="Astor\'s Bedroom/Puzzle 3" method="_onTileSwitchNineBodyEntered"]
+[connection signal="pressed" from="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer/VBoxContainer/NewGameButton" to="OtherUI/PauseScreen" method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer/VBoxContainer/VolverMenu" to="OtherUI/PauseScreen" method="_on_volver_menu_pressed"]
+[connection signal="pressed" from="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer/VBoxContainer/ConfigButton" to="OtherUI/PauseScreen" method="_on_config_button_pressed"]
+[connection signal="pressed" from="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer/VBoxContainer/Unpause" to="OtherUI/PauseScreen" method="_on_unpause_pressed"]
+[connection signal="pressed" from="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/Panel/MarginContainer/VBoxContainer/Audio" to="OtherUI/PauseScreen" method="_on_audio_pressed"]
+[connection signal="pressed" from="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/Panel/MarginContainer/VBoxContainer/Controles" to="OtherUI/PauseScreen" method="_on_controles_pressed"]
+[connection signal="pressed" from="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/ResetConfig" to="OtherUI/PauseScreen" method="_on_reset_config_pressed"]
+[connection signal="pressed" from="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VolverAPause" to="OtherUI/PauseScreen" method="_on_volver_a_pause_pressed"]

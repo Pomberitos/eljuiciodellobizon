@@ -4,6 +4,8 @@ extends Node2D
 var is_cinematic_showing: bool = true
 
 func _ready() -> void:
+	get_tree().paused = false
+	Dialogic.end_timeline()
 	FadeTransition.transition_fade_in()
 	Events.letter_displayed.connect(_on_letter_displayed)
 	Events.letter_removed.connect(_on_letter_removed)
@@ -81,3 +83,4 @@ func _on_cinematic_finished():
 func _on_object_picked(_object: InventoryItem):
 	# get_tree().change_scene_to_file("res://scenes/UIs/finish_mvp.tscn")
 	pass
+	

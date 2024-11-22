@@ -37,6 +37,8 @@ signal ui_changed
 signal cinematic_finished
 @warning_ignore("unused_signal")
 signal slasher_approaching
+@warning_ignore("unused_signal")
+signal sound_config_reset
 
 func _ready() -> void:
 	Dialogic.timeline_started.connect(_on_dialogue_started)
