@@ -1022,7 +1022,7 @@ tile_set = ExtResource("9_ccigu")
 [node name="SpawnPositions" type="Node" parent="Astor\'s Bedroom"]
 
 [node name="Marker2D" type="Marker2D" parent="Astor\'s Bedroom/SpawnPositions"]
-position = Vector2(983, -348)
+position = Vector2(1697, -760)
 
 [node name="RoomPortal4" type="Area2D" parent="Astor\'s Bedroom"]
 position = Vector2(-8, 208)
