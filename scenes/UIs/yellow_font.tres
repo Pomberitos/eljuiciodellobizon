@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://ulcl5eyx2pnp"]
+
+[ext_resource type="FontFile" uid="uid://4i6yfq7v7h4e" path="res://assets/fonts/duskey-free.rough.otf" id="1_0qd5x"]
+
+[resource]
+font = ExtResource("1_0qd5x")
+font_size = 21
+font_color = Color(0.819608, 0.819608, 0.321569, 1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://j8au7006wfkt"]
+[gd_scene load_steps=16 format=3 uid="uid://j8au7006wfkt"]
 
 [ext_resource type="Script" path="res://scenes/UIs/main_menu.gd" id="1_45f1r"]
 [ext_resource type="Material" uid="uid://wgx1itivrrhn" path="res://scenes/UIs/fog_material.tres" id="2_nd5l8"]
@@ -11,16 +11,15 @@
 [ext_resource type="PackedScene" uid="uid://1vgu7l8rnnup" path="res://scenes/UIs/sound_config_menu.tscn" id="8_yx13y"]
 [ext_resource type="Texture2D" uid="uid://clxwa6wjqmblt" path="res://assets/textures/controles_wip.png" id="10_5x777"]
 [ext_resource type="StyleBox" uid="uid://8gowbf1mpfxl" path="res://scenes/UIs/new_style_box_flat.tres" id="10_8opft"]
-[ext_resource type="FontFile" uid="uid://4i6yfq7v7h4e" path="res://assets/fonts/duskey-free.rough.otf" id="12_fosve"]
+[ext_resource type="LabelSettings" uid="uid://drj08luasbrsh" path="res://scenes/UIs/yellow_font_TN.tres" id="12_fevjo"]
+[ext_resource type="LabelSettings" uid="uid://jfi8fir3o5sj" path="res://resources/font_TNR_Title.tres" id="13_di3ot"]
 
 [sub_resource type="Theme" id="Theme_4t56t"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_jikmg"]
-font = ExtResource("12_fosve")
-font_size = 21
-font_color = Color(0.819608, 0.819608, 0.321569, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iotht"]
+bg_color = Color(0.0181604, 0.04238, 0.0619281, 1)
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("config_panel", "audio_panel", "control_panel")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("config_panel", "credits_panel", "audio_panel", "control_panel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,6 +29,7 @@ grow_vertical = 2
 size_flags_horizontal = 6
 script = ExtResource("1_45f1r")
 config_panel = NodePath("Config")
+credits_panel = NodePath("Credits")
 audio_panel = NodePath("Config/MarginContainer/HBoxContainer/Sound Config")
 control_panel = NodePath("Config/MarginContainer/HBoxContainer/ControlPanel")
 
@@ -205,11 +205,147 @@ offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Presione Esc para volver"
-label_settings = SubResource("LabelSettings_jikmg")
+label_settings = ExtResource("12_fevjo")
 horizontal_alignment = 1
 
+[node name="Credits" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="Credits"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_iotht")
+
+[node name="MarginContainer" type="MarginContainer" parent="Credits"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 23
+alignment = 1
+
+[node name="Label" type="Label" parent="Credits/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "CRÉDITOS"
+label_settings = ExtResource("13_di3ot")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Credits/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "DESARROLLO Y 
+PROGRAMACIÓN"
+label_settings = ExtResource("12_fevjo")
+horizontal_alignment = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_5kcya")
+bbcode_enabled = true
+text = "[ul bullet=•] Pablo Terradillos[/ul]
+[ul bullet=•] Gustavo Adolfo Leon Diaz [/ul]"
+fit_content = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Credits/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "GUIÓN Y NARRATIVA"
+label_settings = ExtResource("12_fevjo")
+horizontal_alignment = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_5kcya")
+bbcode_enabled = true
+text = "[ul bullet=•] Javier Cabrera[/ul]
+[ul bullet=•] Vanessa Carolina Paviolo [/ul]"
+fit_content = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Credits/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "DISEÑO DE MÚSICA Y SONIDO"
+label_settings = ExtResource("12_fevjo")
+horizontal_alignment = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_5kcya")
+bbcode_enabled = true
+text = "[ul bullet=•] Javier Cabrera[/ul]"
+fit_content = true
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Credits/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "DISEÑO GRÁFICO Y ARTE"
+label_settings = ExtResource("12_fevjo")
+horizontal_alignment = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_5kcya")
+bbcode_enabled = true
+text = "[ul bullet=•] Vanessa Carolina Paviolo [/ul]
+[ul bullet=•] Juan Colombier [/ul]"
+fit_content = true
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Credits/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "DISEÑO DE JUEGO "
+label_settings = ExtResource("12_fevjo")
+horizontal_alignment = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_5kcya")
+bbcode_enabled = true
+text = "[ul bullet=•] Equipo Completo [/ul]"
+fit_content = true
+
+[node name="Button" type="Button" parent="Credits/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("8_wmi8x")
+text = "VOLVER"
+
 [connection signal="pressed" from="CanvasLayer/MainMenuMargin/VBoxContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenuMargin/VBoxContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenuMargin/VBoxContainer/VBoxContainer/ConfigButton" to="." method="_on_config_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenuMargin/VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Config/MarginContainer/HBoxContainer/VBoxContainer/Audio" to="." method="_on_audio_pressed"]
 [connection signal="pressed" from="Config/MarginContainer/HBoxContainer/VBoxContainer/Controles" to="." method="_on_controles_pressed"]
+[connection signal="pressed" from="Credits/MarginContainer/VBoxContainer/Button" to="." method="_on_back_button_pressed"]

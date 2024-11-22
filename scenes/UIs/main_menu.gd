@@ -1,6 +1,7 @@
 extends Control
 
 @export var config_panel: CanvasLayer
+@export var credits_panel: CanvasLayer
 @export var audio_panel: Panel
 @export var control_panel: Panel
 
@@ -34,3 +35,11 @@ func _on_controles_pressed() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		config_panel.hide()
+
+
+func _on_credits_button_pressed() -> void:
+	credits_panel.show()
+
+
+func _on_back_button_pressed() -> void:
+	credits_panel.hide()
