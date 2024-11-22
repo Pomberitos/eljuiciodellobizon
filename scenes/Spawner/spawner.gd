@@ -48,9 +48,11 @@ func _on_anticipation_timer_timeout():
 
 func _on_room_entered(room: Room) -> void:
 	if last_room:
-		if last_room.name == "Dinner 1" and room.name == "Dinner 2":
+		if last_room.name == "Dinner 1" and room.name == "Dinner 2" or \
+			last_room.name == "Dinner 2" and room.name == "Dinner 1":
 			return
-	
+
+	last_room = room
 	kill_slasher()
 	timer.stop()
 	anticipation_timer.stop()

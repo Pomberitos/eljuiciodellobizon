@@ -16,7 +16,6 @@ func _ready() -> void:
 	Events.slasher_approaching.connect(_on_slasher_approaching)
 	Events.object_picked.connect(_on_object_picked)
 	Events.cinematic_finished.connect(_on_cinematic_finished)
-	Events.room_entered.connect(_on_room_entered)
 	AudioManager.play_music(AudioManager.CINEMATIC_MUSIC)
 
 
@@ -70,9 +69,6 @@ func _on_slasher_approaching():
 func _on_slasher_spawned(_room: Room):
 	AudioManager.play_sound(AudioManager.LOBIZON_HOWLING)
 	AudioManager.play_music(AudioManager.CHASING_MUSIC)
-
-func _on_room_entered(_room: Room) -> void:
-	AudioManager.play_music(AudioManager.GAME_MUSIC)
 
 func _on_slasher_gone():
 	AudioManager.play_music(AudioManager.GAME_MUSIC)
