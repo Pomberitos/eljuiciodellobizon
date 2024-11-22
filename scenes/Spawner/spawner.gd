@@ -21,11 +21,12 @@ var last_room: Room
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Dialogic.text_signal.connect(_on_text_signal)
+	#Dialogic.text_signal.connect(_on_text_signal)
 	Events.room_entered.connect(_on_room_entered)
 	Events.puzzle1_hint_displayed.connect(_on_reading_ui)
 	Events.puzzle1_hint_removed.connect(_on_closing_ui)
-	
+	Dialogic.timeline_started.connect(_on_reading_ui)
+	Dialogic.timeline_ended.connect(_on_closing_ui)
 	timer.wait_time = randomGenerator.randi_range(minSpawnTime, maxSpawnTime)
 	timer.connect("timeout", _on_spawn_timer_timeout)
 	
@@ -47,9 +48,8 @@ func _on_anticipation_timer_timeout():
 
 
 func _on_room_entered(room: Room) -> void:
-	if last_room:
-		if last_room.name == "Dinner 1" and room.name == "Dinner 2" or \
-			last_room.name == "Dinner 2" and room.name == "Dinner 1":
+	if Events.last_room:
+		if Events.last_room.label_name == room.label_name:
 			return
 
 	last_room = room
@@ -91,8 +91,12 @@ func kill_slasher():
 func _on_reading_ui():
 	spawnerDisabled = true
 	timer.stop()
+	anticipation_timer.stop()
 
 
 func _on_closing_ui():
+	if Events.current_room in excludedRooms:
+		return
 	spawnerDisabled = false
 	resetTimer()
+	anticipation_timer.start()
