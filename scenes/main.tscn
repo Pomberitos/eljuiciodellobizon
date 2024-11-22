@@ -419,6 +419,12 @@ tile_set = ExtResource("9_ccigu")
 
 [node name="SpawnPositions" type="Node" parent="Dinner 1"]
 
+[node name="Marker2D" type="Marker2D" parent="Dinner 1/SpawnPositions"]
+position = Vector2(868, 206)
+
+[node name="Marker2D2" type="Marker2D" parent="Dinner 1/SpawnPositions"]
+position = Vector2(1516, 65)
+
 [node name="JackieMaid" parent="Dinner 1" instance=ExtResource("5_p305u")]
 position = Vector2(706, 210)
 scale = Vector2(0.2, 0.2)
@@ -501,6 +507,9 @@ tile_map_data = PackedByteArray("AAAKAAIAAgAAAAAABQA=")
 tile_set = ExtResource("9_ccigu")
 
 [node name="SpawnPositions" type="Node" parent="Dinner 2"]
+
+[node name="Marker2D" type="Marker2D" parent="Dinner 2/SpawnPositions"]
+position = Vector2(2330, 239)
 
 [node name="RoomPortal3" type="Area2D" parent="Dinner 2"]
 position = Vector2(719, 240)
@@ -1029,7 +1038,7 @@ position = Vector2(325, 768)
 scale = Vector2(1.5, 1.5)
 collision_mask = 46
 motion_mode = 1
-selected_initial_position = 2
+selected_initial_position = 3
 canvas_layer = NodePath("../CanvasLayer")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
