@@ -41,7 +41,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_letter_display_letter(letter: PackedScene) -> void:
-	add_child(letter.instance())
+	add_child.call_deferred(letter.instance())
 
 
 func _on_letter_displayed():

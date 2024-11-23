@@ -40,6 +40,7 @@ var current_movement = []
 
 
 func _ready() -> void:
+	current_movement = []
 	Events.connect("box_placed", on_clock_moved)
 	current_dir_mapping = direction_mappings.get(EastPosition.RIGHT)
 
@@ -91,7 +92,7 @@ func _on_puzzle_solved():
 	if key_1:
 		var instance = key_1.instantiate() as StaticBody2D
 		instance.position = spawn_position.position
-		call_deferred("add_child", instance)
+		add_child.call_deferred(instance)
 
 	current_movement.clear()
 	for coord in local_maps_coord.values():

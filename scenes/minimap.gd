@@ -23,7 +23,7 @@ func _ready():
 	var map_objects = get_tree().get_nodes_in_group("minimap_object")
 	for item in map_objects:
 		var new_marker = icons[item.minimap_icon].duplicate()
-		grid.add_child(new_marker)
+		grid.add_child.call_deferred(new_marker)
 		new_marker.show()
 		markers[item] = new_marker
 

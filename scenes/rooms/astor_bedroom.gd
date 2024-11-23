@@ -18,6 +18,6 @@ func _on_dialogic_signal(argument: String) -> void:
 	if argument == "astor-dissapear":
 		AudioManager.play_sound(AudioManager.THUNDER_SOUND)
 		light.show()
-		remove_child(astor)
+		remove_child.call_deferred(astor)
 		await get_tree().create_timer(1.0).timeout
 		light.hide()

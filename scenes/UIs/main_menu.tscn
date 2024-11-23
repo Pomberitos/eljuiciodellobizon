@@ -336,6 +336,7 @@ text = "Volver
 "
 
 [node name="Credits" type="CanvasLayer" parent="."]
+layer = 4
 visible = false
 
 [node name="Panel" type="Panel" parent="Credits"]

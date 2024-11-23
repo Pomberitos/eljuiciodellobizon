@@ -19,5 +19,5 @@ func _on_room_entered(room: Room) -> void:
 func _on_dialogic_signal(argument: String) -> void:
 	if argument == "jackie-disappear":
 		AudioManager.play_sound(AudioManager.LAUGH_SOUND)
-		remove_child(jackie)
+		remove_child.call_deferred(jackie)
 		await get_tree().create_timer(1.0).timeout

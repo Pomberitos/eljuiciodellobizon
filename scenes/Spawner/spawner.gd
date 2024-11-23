@@ -98,8 +98,8 @@ func resetTimer():
 
 func slasherSpawner():
 	var room = current_room
-	if slasher:
-		remove_child(slasher)
+	if slasher != null:
+		remove_child.call_deferred(slasher)
 	slasher = sceneToSpawn.instantiate()
 	slasher.player = player
 	spawnSlasher(room)
@@ -115,7 +115,7 @@ func spawnSlasher(room: Room):
 
 
 func kill_slasher():
-	if slasher:
+	if slasher != null:
 		remove_child.call_deferred(slasher)
 		Events.slasher_gone.emit()
 

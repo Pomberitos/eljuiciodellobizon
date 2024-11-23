@@ -28,6 +28,8 @@ signal object_picked(object: InventoryItem)
 @warning_ignore("unused_signal")
 signal puzzle_1_solved
 @warning_ignore("unused_signal")
+signal puzzle_2_solved
+@warning_ignore("unused_signal")
 signal hamster_puzzle_displayed
 @warning_ignore("unused_signal")
 signal hamster_puzzle_removed
