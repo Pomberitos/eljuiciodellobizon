@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=4 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=80 format=4 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="Script" path="res://scenes/GameController.gd" id="1_3dbo4"]
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://scenes/library.gd" id="9_ba1d1"]
 [ext_resource type="TileSet" uid="uid://3im5s84l5a4c" path="res://resources/tilesets/main_tileset.tres" id="9_ccigu"]
 [ext_resource type="AudioStream" uid="uid://bjntvhskdx21y" path="res://assets/audio/clock_bell.ogg" id="9_elj8w"]
+[ext_resource type="Resource" uid="uid://btyret5rdgmj3" path="res://inventory/items/key_not.tres" id="9_slejl"]
 [ext_resource type="Script" path="res://scenes/collectible/brothers_puzzle_interactor.gd" id="9_tmfyp"]
 [ext_resource type="Resource" path="res://inventory/items/key4.tres" id="10_3c2q4"]
 [ext_resource type="PackedScene" uid="uid://3cy137yehsru" path="res://scenes/collectible/letter.tscn" id="10_7d0u5"]
@@ -288,6 +289,7 @@ label = "door_room_3"
 [node name="DoorWithKey2" parent="Main Hall" instance=ExtResource("3_k7xsd")]
 position = Vector2(304, 434)
 rotation = 3.14159
+key_resource = ExtResource("9_slejl")
 label = "door_room_locked"
 
 [node name="PortalToRoom3" type="Area2D" parent="Main Hall"]

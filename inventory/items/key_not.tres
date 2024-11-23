@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_4dnyg")
-name = "key222"
+name = "Dummy Key"
 texture = ExtResource("2_1h1q0")
 is_key_item = true
 max_stack = null

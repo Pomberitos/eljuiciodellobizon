@@ -9,3 +9,4 @@ name = "key"
 texture = ExtResource("2_140st")
 is_key_item = true
 max_stack = null
+dialogic_scene = ""
