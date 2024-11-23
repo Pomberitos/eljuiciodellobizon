@@ -1147,7 +1147,6 @@ layer = 20
 
 [node name="PauseScreen" type="Panel" parent="OtherUI" node_paths=PackedStringArray("config_menu", "audio_panel", "control_panel", "reset_config")]
 process_mode = 3
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1190,6 +1189,11 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 10
 
+[node name="Unpause" type="Button" parent="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("43_palv8")
+text = "Reanudar partida"
+
 [node name="NewGameButton" type="Button" parent="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("43_palv8")
@@ -1197,20 +1201,15 @@ theme_override_colors/font_hover_color = Color(0, 0.509804, 0.898039, 1)
 theme_override_colors/font_pressed_color = Color(0.447059, 0.45098, 0.984314, 1)
 text = "Nueva Partida"
 
-[node name="VolverMenu" type="Button" parent="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("43_palv8")
-text = "Volver a Menú Principal"
-
 [node name="ConfigButton" type="Button" parent="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("43_palv8")
 text = "Configuración"
 
-[node name="Unpause" type="Button" parent="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer/VBoxContainer"]
+[node name="VolverMenu" type="Button" parent="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("43_palv8")
-text = "Reanudar partida"
+text = "Volver a Menú Principal"
 
 [node name="ConfigMenuMargin" type="MarginContainer" parent="OtherUI/PauseScreen"]
 visible = false
@@ -1380,10 +1379,10 @@ text = "Volver
 [connection signal="body_entered" from="Astor\'s Bedroom/Puzzle 3/TileSwitchThree" to="Astor\'s Bedroom/Puzzle 3" method="_onTileSwitchThreeBodyEntered"]
 [connection signal="body_entered" from="Astor\'s Bedroom/Puzzle 3/TileSwitchSix" to="Astor\'s Bedroom/Puzzle 3" method="_onTileSwitchSixBodyEntered"]
 [connection signal="body_entered" from="Astor\'s Bedroom/Puzzle 3/TileSwitchNine" to="Astor\'s Bedroom/Puzzle 3" method="_onTileSwitchNineBodyEntered"]
-[connection signal="pressed" from="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer/VBoxContainer/NewGameButton" to="OtherUI/PauseScreen" method="_on_new_game_button_pressed"]
-[connection signal="pressed" from="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer/VBoxContainer/VolverMenu" to="OtherUI/PauseScreen" method="_on_volver_menu_pressed"]
-[connection signal="pressed" from="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer/VBoxContainer/ConfigButton" to="OtherUI/PauseScreen" method="_on_config_button_pressed"]
 [connection signal="pressed" from="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer/VBoxContainer/Unpause" to="OtherUI/PauseScreen" method="_on_unpause_pressed"]
+[connection signal="pressed" from="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer/VBoxContainer/NewGameButton" to="OtherUI/PauseScreen" method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer/VBoxContainer/ConfigButton" to="OtherUI/PauseScreen" method="_on_config_button_pressed"]
+[connection signal="pressed" from="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer/VBoxContainer/VolverMenu" to="OtherUI/PauseScreen" method="_on_volver_menu_pressed"]
 [connection signal="pressed" from="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/Panel/MarginContainer/VBoxContainer/Audio" to="OtherUI/PauseScreen" method="_on_audio_pressed"]
 [connection signal="pressed" from="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/Panel/MarginContainer/VBoxContainer/Controles" to="OtherUI/PauseScreen" method="_on_controles_pressed"]
 [connection signal="pressed" from="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/ResetConfig" to="OtherUI/PauseScreen" method="_on_reset_config_pressed"]
