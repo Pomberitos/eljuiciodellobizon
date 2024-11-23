@@ -13,10 +13,6 @@ func _ready() -> void:
 		slot.piece_placed.connect(on_piece_placed)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
 func on_piece_placed() -> void:
 	if is_puzzle_completed():
 		puzzle_completed.emit()

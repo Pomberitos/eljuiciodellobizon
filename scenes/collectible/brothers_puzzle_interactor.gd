@@ -8,12 +8,11 @@ func _ready() -> void:
 	super()
 	interaction_area.interact = Callable(self, "_on_interact")
 
-
 func _on_interact() -> void:
 	if use_puzzle_pieces():
 		ObjectUI.reveal_pieces()
 	else:
-		if !is_ui_open(): 
+		if !is_ui_open():
 			Dialogic.start("brothers_puzzle_main_hall")
 			await Dialogic.timeline_ended
 	

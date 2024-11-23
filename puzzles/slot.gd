@@ -25,7 +25,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 	# Only allow to drop if the data is a Slot and the piece is not in the correct place.
-	return data is Slot and current_value != desired_value
+	return (data is Slot and current_value != desired_value) and texture_rect.visible
 
 func _drop_data(_pos, data):
 	var tmp_texture = texture_rect.texture
