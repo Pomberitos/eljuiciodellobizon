@@ -33,7 +33,7 @@ var current_movement = []
 
 # Registrar los movimientos de la caja
 func _register_movement(movement_name: String, _coord: Vector2i):
-	print(" voy a registrar el movimiento ", movement_name)
+	#print(" voy a registrar el movimiento ", movement_name)
 	# Si el movimiento es correcto, lo añadimos
 	if current_movement.size() < movement_code.size():
 		current_movement.append(movement_name)
@@ -45,7 +45,7 @@ func _register_movement(movement_name: String, _coord: Vector2i):
 	if not _check_movement_sequence():
 		_reset_movement() # Si la secuencia es incorrecta, reseteamos
 	else:
-		print("voy a pintar el tile ", _coord)
+		#print("voy a pintar el tile ", _coord)
 		tile_map_layer.set_cell(_coord, 0, atlas_coord["green"])
 		correct_sound.play()
 		if current_movement.size() == movement_code.size():

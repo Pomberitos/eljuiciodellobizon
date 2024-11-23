@@ -53,16 +53,20 @@ var initial_positions: Array[Vector2] = [
 
 enum {WALK, CROSS, IDLE, PUSH}
 
-var state = WALK
+var state = IDLE
 var input_vector: Vector2
 
 
 func _ready() -> void:
+	reset_params()
 	Dialogic.timeline_started.connect(_on_dialogue_started)
 	set_tween_light()
 	global_position = initial_positions[selected_initial_position]
 	add_to_group(self.get_class())
 
+
+func reset_params() -> void:
+	state = IDLE
 
 func _on_dialogue_started() -> void:
 	velocity = Vector2.ZERO

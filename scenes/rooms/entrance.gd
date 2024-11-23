@@ -2,6 +2,7 @@ extends Room
 var first_dialogue_shown = false
 func _ready() -> void:
 	super()
+	first_dialogue_shown = false
 	Events.cinematic_finished.connect(_on_cinematic_finished)
 
 func _on_cinematic_finished() -> void:

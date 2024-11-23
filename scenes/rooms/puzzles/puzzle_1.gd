@@ -78,7 +78,7 @@ func _check_movement_sequence() -> bool:
 # Si la secuencia es incorrecta, se resetea
 func _reset_movement():
 	incorrect_sound.play()
-	print("Secuencia incorrecta, reiniciando...")
+	#print("Secuencia incorrecta, reiniciando...")
 	current_movement.clear()
 	reset_switches()
 

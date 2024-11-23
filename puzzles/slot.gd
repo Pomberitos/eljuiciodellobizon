@@ -2,7 +2,9 @@ extends PanelContainer
 class_name Slot
 
 signal piece_placed
+@warning_ignore("unused_signal")
 signal mouse_entered_slot
+@warning_ignore("unused_signal")
 signal mouse_exited_slot
 
 @export var current_value = 0 # The value the piece has.

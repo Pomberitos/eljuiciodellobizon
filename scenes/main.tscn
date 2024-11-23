@@ -1100,9 +1100,14 @@ position = Vector2(2026, -899)
 energy = 0.52
 texture = ExtResource("26_g2cf0")
 
-[node name="SlasherSpawner" parent="." node_paths=PackedStringArray("player", "excludedRooms") instance=ExtResource("6_85noy")]
+[node name="SlasherSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_85noy")]
 player = NodePath("../Player")
-excludedRooms = [NodePath("../Entrance"), NodePath("../Main Hall"), NodePath("../Hall"), NodePath("../Hall B"), NodePath("../Hall C")]
+entrance = NodePath("../Entrance")
+main_hall = NodePath("../Main Hall")
+hall = NodePath("../Hall")
+hall_b = NodePath("../Hall B")
+hall_c = NodePath("../Hall C")
+current_room_path = NodePath("../Entrance")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -1147,6 +1152,7 @@ layer = 20
 
 [node name="PauseScreen" type="Panel" parent="OtherUI" node_paths=PackedStringArray("config_menu", "audio_panel", "control_panel", "reset_config")]
 process_mode = 3
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

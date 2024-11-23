@@ -1,9 +1,9 @@
 extends Node
 
-var current_room: Room
-var last_room: Room
-var is_dialog_open: bool = false
-var puzzle_1_done: bool = false
+@onready var current_room: Room
+@onready var last_room: Room
+@onready var is_dialog_open: bool = false
+@onready var puzzle_1_done: bool = false
 
 @warning_ignore("unused_signal")
 signal room_entered(next_room) # ignore-warning
@@ -62,3 +62,12 @@ func set_current_room(new_room: Room):
 
 func set_puzzle_1_solved() -> void:
 	puzzle_1_done = true
+
+func reset_singletons()-> void:
+	current_room = null
+	last_room = null
+	is_dialog_open = false
+	puzzle_1_done = false
+	InteractionManager.reset_params()
+	Dialogic.VAR.reset()
+	Dialogic.end_timeline()

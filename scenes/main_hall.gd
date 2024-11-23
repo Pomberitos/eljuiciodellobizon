@@ -1,6 +1,6 @@
 extends Room
 
-var first_dialogue_shown = false
+@onready var first_dialogue_shown = false
 
 
 func _ready():

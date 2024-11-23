@@ -1,7 +1,7 @@
 extends Panel
 
-var intro_finished: bool = false
-var can_pause: bool = false
+@onready var intro_finished: bool = false
+@onready var can_pause: bool = false
 @export var config_menu: Control
 @export var audio_panel: Panel
 @export var control_panel: Panel

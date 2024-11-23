@@ -4,8 +4,8 @@ var base_text: String = "Pulsá [E] para {action} {item_name}"
 var alt_text: String
 var text_y_offset: float
 var text_x_offset: float
-var active_areas: Array = []
-var can_interact: bool = true
+@onready var active_areas: Array = []
+@onready var can_interact: bool = true
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var label: Label = $CanvasLayer/Label
 
@@ -85,3 +85,8 @@ func set_tween_scale() -> void:
 	var end_y: Vector2 = Vector2(1.25, 1.25)
 	tween.tween_property(label, "scale", end_y, 0.6).from(start_y)
 	tween.tween_property(label, "scale", start_y, 0.6).from(end_y)
+
+
+func reset_params():
+	can_interact = true
+	active_areas = []

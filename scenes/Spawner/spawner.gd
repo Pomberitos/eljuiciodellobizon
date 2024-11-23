@@ -4,7 +4,21 @@ extends Node
 @export var player: Player
 @export var minSpawnTime: int = 5
 @export var maxSpawnTime: int = 10
-@export var excludedRooms: Array[Room] = []
+
+@export_node_path("Room") var entrance
+@export_node_path("Room") var main_hall
+@export_node_path("Room") var hall
+@export_node_path("Room") var hall_b
+@export_node_path("Room") var hall_c
+@onready var excludedRooms: Array[Room] = [
+	get_node(entrance),
+	get_node(main_hall),
+	get_node(hall),
+	get_node(hall_b),
+	get_node(hall_c),
+]
+
+#@export var excludedRooms: Array[Room] = []
 @export var anticipation_time: float = 5.0 # Time between music start and slasher spawn
 
 @onready var sceneToSpawn: PackedScene = preload("res://scenes/slasher/slasher.tscn")
@@ -13,15 +27,26 @@ extends Node
 @onready var anticipation_timer: Timer = $AnticipationTimer
 
 var slasher: Slasher
-var spawn_pending: bool = false
+@onready var spawn_pending: bool = false
 
-var slasher_spawn_count: int = 0
+@onready var slasher_spawn_count: int = 0
 
-var last_room: Room
+@onready var last_room: Room
+@export_node_path("Room") var current_room_path
+@onready var current_room: Room = get_node(current_room_path)
 
-# Called when the node enters the scene tree for the first time.
+@onready var first_time_in_library: bool = false
+
+func reset_params() -> void:
+	slasher_spawn_count = 0
+	spawn_pending = false
+	last_room = null
+	spawnerDisabled = false
+	timer.stop()
+	anticipation_timer.stop()
+
 func _ready():
-	#Dialogic.text_signal.connect(_on_text_signal)
+	reset_params()
 	Events.room_entered.connect(_on_room_entered)
 	Events.puzzle1_hint_displayed.connect(_on_reading_ui)
 	Events.puzzle1_hint_removed.connect(_on_closing_ui)
@@ -48,14 +73,14 @@ func _on_anticipation_timer_timeout():
 
 
 func _on_room_entered(room: Room) -> void:
-	
+	current_room = room
 	if Events.last_room != null:
 		if Events.last_room.label_name == room.label_name:
 			return
-		if Events.current_room.name == "Library":
+		if Events.current_room.name == "Library" and !first_time_in_library:
+			first_time_in_library = true
 			excludedRooms = excludedRooms.slice(0,1)
 
-	last_room = room
 	kill_slasher()
 	timer.stop()
 	anticipation_timer.stop()
@@ -72,7 +97,7 @@ func resetTimer():
 	timer.start()
 
 func slasherSpawner():
-	var room = Events.current_room
+	var room = current_room
 	if slasher:
 		remove_child(slasher)
 	slasher = sceneToSpawn.instantiate()
@@ -85,23 +110,25 @@ func slasherSpawner():
 
 func spawnSlasher(room: Room):
 	slasher.position = (room.positions.pick_random() as Marker2D).position
-	add_child(slasher)
+	add_child.call_deferred(slasher)
 	Events.slasher_spawned.emit(room)
 
 
 func kill_slasher():
 	if slasher:
-		remove_child(slasher)
+		remove_child.call_deferred(slasher)
 		Events.slasher_gone.emit()
 
 func _on_reading_ui():
+	if current_room in excludedRooms:
+		return
 	spawnerDisabled = true
 	timer.stop()
 	anticipation_timer.stop()
 
 
 func _on_closing_ui():
-	if Events.current_room in excludedRooms:
+	if current_room in excludedRooms:
 		return
 	spawnerDisabled = false
 	resetTimer()

@@ -5,7 +5,8 @@ var is_cinematic_showing: bool = true
 
 func _ready() -> void:
 	get_tree().paused = false
-	Dialogic.end_timeline()
+	is_cinematic_showing = true
+	Events.reset_singletons()
 	FadeTransition.transition_fade_in()
 	Events.letter_displayed.connect(_on_letter_displayed)
 	Events.letter_removed.connect(_on_letter_removed)

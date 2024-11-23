@@ -6,6 +6,7 @@ var positions: Array
 
 
 func _ready():
+	hall_first_time = false
 	positions = $SpawnPositions.get_children()
 
 
