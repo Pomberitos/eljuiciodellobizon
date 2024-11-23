@@ -188,17 +188,44 @@ texture = ExtResource("6_kqbr4")
 expand_mode = 3
 stretch_mode = 5
 
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/HBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+uri = "https://discord.gg/mmQbnAQVrp"
+
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("7_snfd4")
 expand_mode = 3
 stretch_mode = 5
 
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/HBoxContainer/TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+uri = "https://www.instagram.com/lobizon.oficial"
+
 [node name="TextureRect3" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("8_3eaib")
 expand_mode = 3
 stretch_mode = 5
+
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/HBoxContainer/TextureRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+uri = "https://tehsis.itch.io/lobizon"
 
 [node name="Config" type="CanvasLayer" parent="."]
 visible = false
