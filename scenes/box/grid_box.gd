@@ -31,7 +31,7 @@ func push(_motion: Vector2) -> void:
 	if sliding or dir == Vector2i.ZERO:
 		return
 	if can_move(dir):
-		Events.emit_signal("box_moved", Vector2i(_motion.normalized()))
+		
 		var tween: Tween = create_tween()
 		tween.set_ease(Tween.EASE_OUT)
 		
@@ -40,6 +40,7 @@ func push(_motion: Vector2) -> void:
 		drag_audio_fx.play()
 		await drag_audio_fx.finished
 		await tween.finished
+		Events.box_moved.emit(Vector2i(_motion.normalized()))
 		sliding = false
 
 func can_move(dir: Vector2i) -> bool:

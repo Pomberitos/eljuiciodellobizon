@@ -19,5 +19,5 @@ func _tile_data_runtime_update(coords: Vector2i, tile_data: TileData) -> void:
 
 
 func _on_box_moved(_move_dir: Vector2i) -> void:
-	#print(move_dir)
+	#print()
 	pass

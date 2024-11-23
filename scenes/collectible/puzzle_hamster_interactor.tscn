@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://tpqld1g7ahi6"]
+
+[ext_resource type="Script" path="res://scenes/collectible/puzzle_hamster_interactor.gd" id="1_tw2wa"]
+[ext_resource type="Shader" path="res://shaders/outline_2d.gdshader" id="2_srr7g"]
+[ext_resource type="Texture2D" uid="uid://cw67cvi3ybyxx" path="res://assets/items/portrait_small.png" id="3_e681t"]
+[ext_resource type="Script" path="res://scenes/interaction/interaction_area.gd" id="4_in2mw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2w1q7"]
+shader = ExtResource("2_srr7g")
+shader_parameter/intensity = 300
+shader_parameter/precision = 0.02
+shader_parameter/flipColors = false
+shader_parameter/outline_color = Color(0.210145, 0.53, 0.1537, 1)
+shader_parameter/outline_color_2 = Color(0.4395, 1, 0.43, 1)
+shader_parameter/use_outline_uv = false
+shader_parameter/useTexture = false
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b51x1"]
+radius = 47.1699
+
+[sub_resource type="Gradient" id="Gradient_n7yjd"]
+colors = PackedColorArray(0.89, 0.89, 0.89, 1, 0.59, 0.59, 0.59, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wt4v4"]
+gradient = SubResource("Gradient_n7yjd")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.474359, 0.457265)
+
+[node name="PuzzleHamsterInteractor" type="Node2D" node_paths=PackedStringArray("interaction_area")]
+script = ExtResource("1_tw2wa")
+interaction_area = NodePath("InteractionArea")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_2w1q7")
+texture = ExtResource("3_e681t")
+centered = false
+
+[node name="InteractionArea" type="Area2D" parent="." node_paths=PackedStringArray("item_sprite")]
+position = Vector2(-6, -21)
+collision_layer = 8
+script = ExtResource("4_in2mw")
+action_name = "Leer"
+item_name = "carta"
+alt_text = "[E] para Leer"
+item_sprite = NodePath("../Sprite2D")
+text_offset = Vector2i(-30, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(35, 57)
+shape = SubResource("CircleShape2D_b51x1")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(9, 13)
+texture = SubResource("GradientTexture2D_wt4v4")
+
+[connection signal="body_entered" from="InteractionArea" to="InteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="InteractionArea" method="_on_body_exited"]
