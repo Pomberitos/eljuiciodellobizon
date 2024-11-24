@@ -66,7 +66,7 @@ func _on_letter_removed():
 
 
 func _on_slasher_approaching():
-	AudioManager.play_sound(AudioManager.LOBIZON_HOWLING, -20)
+	AudioManager.play_sound(AudioManager.LOBIZON_SNARL)
 	AudioManager.play_music(AudioManager.LOBIZON_APPROACHING)
 
 func _on_slasher_spawned(_room: Room):
