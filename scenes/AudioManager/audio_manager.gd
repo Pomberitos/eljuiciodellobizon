@@ -16,6 +16,11 @@ const THUNDER_SOUND: AudioStreamWAV = preload("res://assets/audio/trueno.wav")
 const LAUGH_SOUND: AudioStreamOggVorbis = preload("res://assets/audio/Freesound - Insane girl laughter by MadamVicious.ogg")
 const LOBIZON_SNARL: AudioStreamWAV = preload("res://assets/audio/wolf_snarl.wav")
 const PAGE_FLIP: AudioStreamOggVorbis = preload("res://assets/audio/bookFlip1.ogg")
+const TEXTO_1: AudioStreamOggVorbis = preload("res://assets/audio/text_audio1.ogg")
+const TEXTO_2: AudioStreamOggVorbis = preload("res://assets/audio/text_audio2.ogg")
+const TEXTO_3: AudioStreamOggVorbis = preload("res://assets/audio/text_audio3.ogg")
+const TEXTO_4: AudioStreamOggVorbis = preload("res://assets/audio/text_audio4.ogg")
+
 
 @onready var music_player: AudioStreamPlayer = $Music.get_child(0) # There's only one music player
 @onready var sound_players: Array = $Sound.get_children() # We can play multiple sounds at the same time
@@ -44,3 +49,7 @@ func play_sound(sound: AudioStream, volume_db: float = 0) -> void:
 			player.volume_db = volume_db
 			player.play()
 			break
+
+func stop_sounds()->void:
+	for player in sound_players:
+		player.stop()

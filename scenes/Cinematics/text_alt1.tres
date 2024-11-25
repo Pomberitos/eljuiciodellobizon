@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CinematicText" load_steps=2 format=3 uid="uid://cguo1tm8i3ejf"]
+
+[ext_resource type="Script" path="res://scenes/Cinematics/CinematicText.gd" id="1_h6dxy"]
+
+[resource]
+script = ExtResource("1_h6dxy")
+text = "Al llegar, una figura observa desde lo alto, oscura y espectral. Ricky se detiene, su corazón retumba en un eco de advertencia. Un gesto del extraño, marcado por el paso del tiempo, lo invita a entrar."
+duration = 15.0
