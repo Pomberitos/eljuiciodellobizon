@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=4 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=88 format=4 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="Script" path="res://scenes/GameController.gd" id="1_3dbo4"]
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
@@ -53,6 +53,8 @@
 [ext_resource type="Texture2D" uid="uid://clxwa6wjqmblt" path="res://assets/textures/controles_wip.png" id="48_1s8ip"]
 [ext_resource type="Script" path="res://scenes/UIs/menu_button.gd" id="48_tjil5"]
 [ext_resource type="LabelSettings" uid="uid://drj08luasbrsh" path="res://scenes/UIs/yellow_font_TN.tres" id="49_hyc7t"]
+[ext_resource type="Texture2D" uid="uid://bw4p75q541y67" path="res://assets/UI/AUDIO_low.png" id="50_vwcfy"]
+[ext_resource type="Texture2D" uid="uid://osit07343hgj" path="res://assets/UI/CONTROLES_low.png" id="51_mih3k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1pn3"]
 size = Vector2(716, 304)
@@ -1205,7 +1207,7 @@ blend_mode = 1
 [node name="OtherUI" type="CanvasLayer" parent="."]
 layer = 20
 
-[node name="PauseScreen" type="Panel" parent="OtherUI" node_paths=PackedStringArray("config_menu", "audio_panel", "control_panel", "reset_config")]
+[node name="PauseScreen" type="Panel" parent="OtherUI" node_paths=PackedStringArray("config_menu", "audio_panel", "control_panel", "reset_config", "audio_rect", "control_rect")]
 process_mode = 3
 visible = false
 anchors_preset = 15
@@ -1218,6 +1220,8 @@ config_menu = NodePath("ConfigMenuMargin")
 audio_panel = NodePath("ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/Sound Config")
 control_panel = NodePath("ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/ControlPanel")
 reset_config = NodePath("ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/ResetConfig")
+audio_rect = NodePath("ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/AudioRect")
+control_rect = NodePath("ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/ControlRect")
 
 [node name="MainMenuMargin" type="MarginContainer" parent="OtherUI/PauseScreen"]
 layout_mode = 1
@@ -1281,7 +1285,6 @@ text = "Volver a Menú Principal"
 script = ExtResource("48_tjil5")
 
 [node name="ConfigMenuMargin" type="MarginContainer" parent="OtherUI/PauseScreen"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1350,8 +1353,23 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 theme_override_constants/separation = 17
 
+[node name="AudioRect" type="TextureRect" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("50_vwcfy")
+stretch_mode = 5
+
+[node name="ControlRect" type="TextureRect" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer"]
+visible = false
+z_index = 2
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("51_mih3k")
+stretch_mode = 5
+
 [node name="Sound Config" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer" instance=ExtResource("31_n3psm")]
-visible = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

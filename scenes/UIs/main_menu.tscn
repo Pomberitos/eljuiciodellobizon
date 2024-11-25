@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://j8au7006wfkt"]
+[gd_scene load_steps=29 format=3 uid="uid://j8au7006wfkt"]
 
 [ext_resource type="Script" path="res://scenes/UIs/main_menu.gd" id="1_45f1r"]
 [ext_resource type="Material" uid="uid://wgx1itivrrhn" path="res://scenes/UIs/fog_material.tres" id="2_nd5l8"]
@@ -13,7 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://1vgu7l8rnnup" path="res://scenes/UIs/sound_config_menu.tscn" id="8_yx13y"]
 [ext_resource type="Texture2D" uid="uid://clxwa6wjqmblt" path="res://assets/textures/controles_wip.png" id="10_5x777"]
 [ext_resource type="StyleBox" uid="uid://8gowbf1mpfxl" path="res://scenes/UIs/new_style_box_flat.tres" id="10_8opft"]
+[ext_resource type="Texture2D" uid="uid://bw4p75q541y67" path="res://assets/UI/AUDIO_low.png" id="11_yy8jb"]
 [ext_resource type="LabelSettings" uid="uid://drj08luasbrsh" path="res://scenes/UIs/yellow_font_TN.tres" id="12_fevjo"]
+[ext_resource type="Texture2D" uid="uid://osit07343hgj" path="res://assets/UI/CONTROLES_low.png" id="12_sjh5d"]
 [ext_resource type="LabelSettings" uid="uid://jfi8fir3o5sj" path="res://resources/font_TNR_Title.tres" id="13_di3ot"]
 [ext_resource type="Texture2D" uid="uid://sysokrar8gmu" path="res://assets/UI/CREDITOS_low.png" id="14_rr0fk"]
 [ext_resource type="Texture2D" uid="uid://dfn0mfdk27f1t" path="res://assets/UI/wold_eyes.svg" id="15_8idkf"]
@@ -72,7 +74,7 @@ _data = {
 "eyes": SubResource("Animation_dtdhh")
 }
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("config_panel", "credits_panel", "audio_panel", "control_panel", "animation_player", "reset_config")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("config_panel", "credits_panel", "audio_panel", "audio_rect", "control_panel", "control_rect", "animation_player", "reset_config")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -85,7 +87,9 @@ script = ExtResource("1_45f1r")
 config_panel = NodePath("Config")
 credits_panel = NodePath("Credits")
 audio_panel = NodePath("Config/MarginContainer/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/Sound Config")
+audio_rect = NodePath("Config/MarginContainer/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/AudioRect")
 control_panel = NodePath("Config/MarginContainer/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/ControlPanel")
+control_rect = NodePath("Config/MarginContainer/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/ControlRect")
 animation_player = NodePath("AnimationPlayer")
 reset_config = NodePath("Config/MarginContainer/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/ResetConfig")
 
@@ -284,8 +288,23 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 theme_override_constants/separation = 17
 
+[node name="AudioRect" type="TextureRect" parent="Config/MarginContainer/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("11_yy8jb")
+stretch_mode = 5
+
+[node name="ControlRect" type="TextureRect" parent="Config/MarginContainer/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer"]
+visible = false
+z_index = 2
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("12_sjh5d")
+stretch_mode = 5
+
 [node name="Sound Config" parent="Config/MarginContainer/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer" instance=ExtResource("8_yx13y")]
-visible = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

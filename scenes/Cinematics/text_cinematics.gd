@@ -1,5 +1,6 @@
 extends Control
 class_name TextCinematics
+@export var narrator: bool = false
 @export var texts: Array[CinematicText] = []
 @export var audios: Array[AudioStreamOggVorbis] = [
 	AudioManager.TEXTO_1,
@@ -16,7 +17,8 @@ var current_text_index: int = 0
 
 func _ready() -> void:
 	AudioManager.stop_sounds()
-	AudioManager.play_sound(audios[current_text_index])
+	if narrator:
+		AudioManager.play_sound(audios[current_text_index])
 	richTextLabel.text = "[center]" + texts[current_text_index].text + "[/center]"
 	timer.wait_time = texts[current_text_index].duration
 	timer.start()
@@ -35,8 +37,9 @@ func advance_text():
 	if current_text_index >= texts.size():
 		fade_out()
 		return
-	AudioManager.stop_sounds()
-	AudioManager.play_sound(audios[current_text_index])
+	if narrator:
+		AudioManager.stop_sounds()
+		AudioManager.play_sound(audios[current_text_index])
 	richTextLabel.text = "[center]" + texts[current_text_index].text + "[/center]"
 	timer.wait_time = texts[current_text_index].duration
 	timer.start()

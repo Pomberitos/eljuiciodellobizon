@@ -3,7 +3,9 @@ extends Control
 @export var config_panel: CanvasLayer
 @export var credits_panel: CanvasLayer
 @export var audio_panel: Panel
+@export var audio_rect: TextureRect
 @export var control_panel: Panel
+@export var control_rect: TextureRect
 @export var animation_player: AnimationPlayer
 @export var reset_config: Button
 
@@ -30,12 +32,16 @@ func _on_config_button_pressed() -> void:
 
 func _on_audio_pressed() -> void:
 	control_panel.hide()
+	control_rect.hide()
 	audio_panel.show()
+	audio_rect.show()
 	reset_config.visible = audio_panel.visible
 	
 func _on_controles_pressed() -> void:
 	audio_panel.hide()
+	audio_rect.hide()
 	control_panel.show()
+	control_rect.show()
 	reset_config.visible = audio_panel.visible
 
 func _on_credits_button_pressed() -> void:
