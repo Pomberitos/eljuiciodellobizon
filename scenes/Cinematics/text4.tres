@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CinematicText" load_steps=2 format=3 uid="uid://ca62ajttenod"]
+
+[ext_resource type="Script" path="res://scenes/Cinematics/CinematicText.gd" id="1_q8eqk"]
+
+[resource]
+script = ExtResource("1_q8eqk")
+text = "El destino, sellado. La puerta se cierra con un eco profundo. Ahora, la lucha por escapar comienza."
+duration = 8.0

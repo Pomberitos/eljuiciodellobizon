@@ -1,10 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://j8au7006wfkt"]
+[gd_scene load_steps=27 format=3 uid="uid://j8au7006wfkt"]
 
 [ext_resource type="Script" path="res://scenes/UIs/main_menu.gd" id="1_45f1r"]
 [ext_resource type="Material" uid="uid://wgx1itivrrhn" path="res://scenes/UIs/fog_material.tres" id="2_nd5l8"]
 [ext_resource type="Texture2D" uid="uid://byb6jwycoumjf" path="res://assets/textures/titulo.png" id="3_1p4ki"]
 [ext_resource type="Theme" uid="uid://c8fllguh5ocnc" path="res://scenes/UIs/main_menu.tres" id="5_5kcya"]
-[ext_resource type="Texture2D" uid="uid://w0q6l1a4utko" path="res://assets/UI/Discord.png" id="6_kqbr4"]
+[ext_resource type="PackedScene" uid="uid://cwevawh2k0kl6" path="res://scenes/UIs/social_rect.tscn" id="5_cj2d7"]
+[ext_resource type="Script" path="res://scenes/UIs/menu_button.gd" id="5_riuqu"]
 [ext_resource type="Texture2D" uid="uid://704rqcs52k1f" path="res://assets/UI/instagram.png" id="7_snfd4"]
 [ext_resource type="Texture2D" uid="uid://b3iropsq2fbm8" path="res://assets/UI/Itch.svg" id="8_3eaib"]
 [ext_resource type="Texture2D" uid="uid://cbd3fwrffvvem" path="res://assets/pomberitos-logo-small.png" id="8_84nln"]
@@ -143,25 +144,33 @@ theme_override_constants/separation = 10
 
 [node name="NewGameButton" type="Button" parent="CanvasLayer/MainMenuMargin/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("5_5kcya")
 theme_override_colors/font_hover_color = Color(0, 0.509804, 0.898039, 1)
 theme_override_colors/font_pressed_color = Color(0.447059, 0.45098, 0.984314, 1)
 text = "Nueva Partida"
+script = ExtResource("5_riuqu")
 
 [node name="CreditsButton" type="Button" parent="CanvasLayer/MainMenuMargin/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("5_5kcya")
 text = "Créditos"
+script = ExtResource("5_riuqu")
 
 [node name="ConfigButton" type="Button" parent="CanvasLayer/MainMenuMargin/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("5_5kcya")
 text = "Configuración"
+script = ExtResource("5_riuqu")
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/MainMenuMargin/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("5_5kcya")
 text = "Salir"
+script = ExtResource("5_riuqu")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 3
@@ -169,63 +178,40 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -190.0
-offset_top = -40.0
-offset_right = -25.0
-offset_bottom = -10.0
+offset_left = -185.0
+offset_top = -45.0
+offset_right = -20.0
+offset_bottom = -15.0
 grow_horizontal = 0
 grow_vertical = 0
+mouse_filter = 2
 
-[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+[node name="DiscordRect" parent="CanvasLayer/HBoxContainer" instance=ExtResource("5_cj2d7")]
+layout_mode = 2
+
+[node name="InstagramRect" parent="CanvasLayer/HBoxContainer" instance=ExtResource("5_cj2d7")]
+layout_mode = 2
+texture = ExtResource("7_snfd4")
+
+[node name="ItchRect" parent="CanvasLayer/HBoxContainer" instance=ExtResource("5_cj2d7")]
+layout_mode = 2
+texture = ExtResource("8_3eaib")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -50.0
+offset_right = 168.0
+offset_bottom = -10.0
+grow_vertical = 0
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/HBoxContainer2"]
 layout_mode = 2
 texture = ExtResource("8_84nln")
 expand_mode = 3
 stretch_mode = 5
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("6_kqbr4")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="LinkButton" type="LinkButton" parent="CanvasLayer/HBoxContainer/TextureRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-uri = "https://discord.gg/mmQbnAQVrp"
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("7_snfd4")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="LinkButton" type="LinkButton" parent="CanvasLayer/HBoxContainer/TextureRect2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-uri = "https://www.instagram.com/lobizon.oficial"
-
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("8_3eaib")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="LinkButton" type="LinkButton" parent="CanvasLayer/HBoxContainer/TextureRect3"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-uri = "https://tehsis.itch.io/lobizon"
 
 [node name="Config" type="CanvasLayer" parent="."]
 visible = false
@@ -265,13 +251,17 @@ alignment = 1
 
 [node name="Audio" type="Button" parent="Config/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("8_wmi8x")
 text = "AUDIO"
+script = ExtResource("5_riuqu")
 
 [node name="Controles" type="Button" parent="Config/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("8_wmi8x")
 text = "CONTROLES"
+script = ExtResource("5_riuqu")
 
 [node name="SoundPanel" type="Panel" parent="Config/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -352,6 +342,7 @@ size_flags_vertical = 4
 theme = ExtResource("8_wmi8x")
 text = "Deshacer cambios
 "
+script = ExtResource("5_riuqu")
 
 [node name="Back" type="Button" parent="Config/MarginContainer/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
 layout_mode = 2
@@ -361,6 +352,7 @@ theme = ExtResource("8_wmi8x")
 shortcut = SubResource("Shortcut_duuky")
 text = "Volver
 "
+script = ExtResource("5_riuqu")
 
 [node name="Credits" type="CanvasLayer" parent="."]
 layer = 4
@@ -504,6 +496,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("8_wmi8x")
 text = "VOLVER"
+script = ExtResource("5_riuqu")
 
 [node name="WolfEyes" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)

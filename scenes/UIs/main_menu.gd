@@ -7,6 +7,7 @@ extends Control
 @export var animation_player: AnimationPlayer
 @export var reset_config: Button
 
+
 func _ready():
 	get_tree().paused = false
 	Dialogic.end_timeline()

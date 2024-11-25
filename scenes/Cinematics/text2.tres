@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CinematicText" load_steps=2 format=3 uid="uid://b7jyql1avm8de"]
+
+[ext_resource type="Script" path="res://scenes/Cinematics/CinematicText.gd" id="1_hc3hg"]
+
+[resource]
+script = ExtResource("1_hc3hg")
+text = "El viaje, impulsado por la ambición, lo pone frente al umbral de una casa donde el sonido de antiguos secretos le recorren la piel."
+duration = 8.0

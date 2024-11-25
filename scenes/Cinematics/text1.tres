@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CinematicText" load_steps=2 format=3 uid="uid://dxi2ww1a0mqtf"]
+
+[ext_resource type="Script" path="res://scenes/Cinematics/CinematicText.gd" id="1_dl1yd"]
+
+[resource]
+script = ExtResource("1_dl1yd")
+text = "Ricky, un joven que ha convertido la fama en su obsesión, recibe una invitación inesperada. La prestigiosa Estancia López Rigoni, un misterioso caserón en los confines del Norte Argentino, lo cita para otorgarle un galardón de prestigio."
+duration = 15.0
