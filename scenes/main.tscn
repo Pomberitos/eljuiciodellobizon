@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=4 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=86 format=4 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="Script" path="res://scenes/GameController.gd" id="1_3dbo4"]
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
@@ -42,6 +42,7 @@
 [ext_resource type="PackedScene" uid="uid://bk66egg746tbg" path="res://scenes/astor/astor.tscn" id="25_1ttwi"]
 [ext_resource type="PackedScene" uid="uid://b1p8gw76boo85" path="res://puzzles/BrothersPuzzle.tscn" id="26_0fxfc"]
 [ext_resource type="Texture2D" uid="uid://dae2ndr6yaktq" path="res://assets/light.png" id="26_g2cf0"]
+[ext_resource type="Resource" uid="uid://bittdqb0n47tu" path="res://inventory/items/brother_pieces_real.tres" id="26_t38dx"]
 [ext_resource type="PackedScene" uid="uid://csprqoarxfdf" path="res://scripts/timeline_interactor.tscn" id="27_m0hgl"]
 [ext_resource type="Resource" path="res://Dialogues/pictures/Hall-B-1.dtl" id="28_ljyig"]
 [ext_resource type="Script" path="res://scenes/Cinematics/CinematicText.gd" id="29_ia5wo"]
@@ -878,7 +879,7 @@ position = Vector2(576, -216)
 position = Vector2(153, 114)
 script = ExtResource("9_tmfyp")
 player = NodePath("../../Player")
-puzzle_pieces = null
+puzzle_pieces = ExtResource("26_t38dx")
 canvas_layer = NodePath("../../CanvasLayer")
 ObjectUI = NodePath("../../CanvasLayer/BrothersPuzzle")
 
@@ -1142,6 +1143,7 @@ position = Vector2(325, 768)
 scale = Vector2(1.5, 1.5)
 collision_mask = 46
 motion_mode = 1
+selected_initial_position = 12
 canvas_layer = NodePath("../CanvasLayer")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]

@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://mdel47ba4y0d"]
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://bittdqb0n47tu"]
 
-[ext_resource type="Script" path="res://inventory/inventory_item.gd" id="1_mcju8"]
+[ext_resource type="Script" path="res://inventory/inventory_item.gd" id="1_t4cqf"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_srogk"]
 load_path = "res://.godot/imported/puzzle_pieces.png-1566b26f0e1f39fbb4773f57b57b088c.ctex"
 
 [resource]
-script = ExtResource("1_mcju8")
+script = ExtResource("1_t4cqf")
 name = "puzzle_pieces"
 texture = SubResource("CompressedTexture2D_srogk")
 is_key_item = true
