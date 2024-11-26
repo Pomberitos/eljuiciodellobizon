@@ -11,7 +11,7 @@
 [ext_resource type="Theme" uid="uid://rbt3kslpjd0s" path="res://scenes/UIs/main_menu_button_fonts.tres" id="8_wmi8x"]
 [ext_resource type="PackedScene" uid="uid://1vgu7l8rnnup" path="res://scenes/UIs/sound_config_menu.tscn" id="8_yx13y"]
 [ext_resource type="Texture2D" uid="uid://clxwa6wjqmblt" path="res://assets/textures/controles_wip.png" id="10_5x777"]
-[ext_resource type="StyleBox" uid="uid://8gowbf1mpfxl" path="res://scenes/UIs/new_style_box_flat.tres" id="10_8opft"]
+[ext_resource type="StyleBox" path="res://scenes/UIs/new_style_box_flat.tres" id="10_8opft"]
 [ext_resource type="LabelSettings" uid="uid://drj08luasbrsh" path="res://scenes/UIs/yellow_font_TN.tres" id="12_fevjo"]
 [ext_resource type="LabelSettings" uid="uid://jfi8fir3o5sj" path="res://resources/font_TNR_Title.tres" id="13_di3ot"]
 [ext_resource type="Texture2D" uid="uid://sysokrar8gmu" path="res://assets/UI/CREDITOS_low.png" id="14_rr0fk"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=4 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=82 format=4 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="Script" path="res://scenes/GameController.gd" id="1_3dbo4"]
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
@@ -49,7 +49,7 @@
 [ext_resource type="Texture2D" uid="uid://byb6jwycoumjf" path="res://assets/textures/titulo.png" id="42_3pckp"]
 [ext_resource type="Theme" uid="uid://rbt3kslpjd0s" path="res://scenes/UIs/main_menu_button_fonts.tres" id="43_1sykv"]
 [ext_resource type="Theme" uid="uid://c8fllguh5ocnc" path="res://scenes/UIs/main_menu.tres" id="43_palv8"]
-[ext_resource type="StyleBox" uid="uid://8gowbf1mpfxl" path="res://scenes/UIs/new_style_box_flat.tres" id="47_bdevp"]
+[ext_resource type="StyleBox" path="res://scenes/UIs/new_style_box_flat.tres" id="47_bdevp"]
 [ext_resource type="Texture2D" uid="uid://clxwa6wjqmblt" path="res://assets/textures/controles_wip.png" id="48_1s8ip"]
 [ext_resource type="LabelSettings" uid="uid://drj08luasbrsh" path="res://scenes/UIs/yellow_font_TN.tres" id="49_hyc7t"]
 
@@ -151,23 +151,8 @@ _data = {
 
 [sub_resource type="Resource" id="Resource_6aq5j"]
 script = ExtResource("29_ia5wo")
-text = "Ricky, un joven que ha convertido la fama en su obsesión, recibe una invitación inesperada. La prestigiosa Estancia López Rigoni, un misterioso caserón en los confines del Norte Argentino, lo cita para otorgarle un galardón de prestigio."
+text = "Ricky, un joven influencer obsesionado con la fama, es invitado a recibir un premio a su labor enuna misteriosa estancia del Norte Argentino.Al cruzar el umbral de la mansión, el eco de antiguos secretos lo envuelve. La puerta se cierra abruptamente. Ahora, comienza la lucha por escapar."
 duration = 15.0
-
-[sub_resource type="Resource" id="Resource_28juk"]
-script = ExtResource("29_ia5wo")
-text = "El viaje, impulsado por la ambición, lo pone frente al umbral de una casa donde el sonido de antiguos secretos le recorren la piel."
-duration = 8.0
-
-[sub_resource type="Resource" id="Resource_v0i6d"]
-script = ExtResource("29_ia5wo")
-text = "Al llegar, una figura observa desde lo alto, oscura y espectral. Ricky se detiene, su corazón retumba en un eco de advertencia. Un gesto del extraño, marcado por el paso del tiempo, lo invita a entrar."
-duration = 15.0
-
-[sub_resource type="Resource" id="Resource_880f7"]
-script = ExtResource("29_ia5wo")
-text = "El destino, sellado. La puerta se cierra con un eco profundo. Ahora, la lucha por escapar comienza."
-duration = 8.0
 
 [sub_resource type="Theme" id="Theme_6ykdg"]
 
@@ -1182,7 +1167,7 @@ visible = false
 visible = false
 
 [node name="TextCinematics" parent="CanvasLayer" instance=ExtResource("23_8u7wn")]
-texts = Array[ExtResource("29_ia5wo")]([SubResource("Resource_6aq5j"), SubResource("Resource_28juk"), SubResource("Resource_v0i6d"), SubResource("Resource_880f7")])
+texts = Array[ExtResource("29_ia5wo")]([SubResource("Resource_6aq5j")])
 
 [node name="hintTime" parent="CanvasLayer" instance=ExtResource("36_jd7sv")]
 visible = false
