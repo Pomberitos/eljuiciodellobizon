@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=4 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=86 format=4 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="Script" path="res://scenes/GameController.gd" id="1_3dbo4"]
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
@@ -42,6 +42,9 @@
 [ext_resource type="PackedScene" uid="uid://bk66egg746tbg" path="res://scenes/astor/astor.tscn" id="25_1ttwi"]
 [ext_resource type="PackedScene" uid="uid://b1p8gw76boo85" path="res://puzzles/BrothersPuzzle.tscn" id="26_0fxfc"]
 [ext_resource type="Texture2D" uid="uid://dae2ndr6yaktq" path="res://assets/light.png" id="26_g2cf0"]
+[ext_resource type="PackedScene" uid="uid://csprqoarxfdf" path="res://scripts/timeline_interactor.tscn" id="27_m0hgl"]
+[ext_resource type="Resource" path="res://Dialogues/pictures/Hall-B-1.dtl" id="28_ljyig"]
+[ext_resource type="Resource" path="res://Dialogues/pictures/Hall-B-2.dtl" id="29_ub56r"]
 [ext_resource type="Script" path="res://scenes/pause_screen.gd" id="30_6d8tr"]
 [ext_resource type="PackedScene" uid="uid://1vgu7l8rnnup" path="res://scenes/UIs/sound_config_menu.tscn" id="31_n3psm"]
 [ext_resource type="PackedScene" uid="uid://difseojy7fdv5" path="res://scenes/UIs/Room 1/hintTime.tscn" id="36_jd7sv"]
@@ -880,6 +883,14 @@ ObjectUI = NodePath("../../CanvasLayer/BrothersPuzzle")
 position = Vector2(112, 141)
 collision_layer = 4
 collision_mask = 3
+
+[node name="TimelineInteractor" parent="Hall B" instance=ExtResource("27_m0hgl")]
+position = Vector2(290, 173)
+dialogicTimeline = ExtResource("28_ljyig")
+
+[node name="TimelineInteractor2" parent="Hall B" instance=ExtResource("27_m0hgl")]
+position = Vector2(593, 169)
+dialogicTimeline = ExtResource("29_ub56r")
 
 [node name="Hall C" type="Node2D" parent="."]
 position = Vector2(830, -990)

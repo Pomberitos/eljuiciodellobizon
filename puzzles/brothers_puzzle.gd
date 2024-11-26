@@ -8,3 +8,5 @@ func _ready() -> void:
 
 func _on_puzzle_completed() -> void:
 	door_to_open.open()
+	AudioManager.play_sound(AudioManager.DOOR_OPEN_SOUND)
+	Dialogic.start("brothers_puzzle_completed")
