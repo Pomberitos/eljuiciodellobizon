@@ -37,6 +37,8 @@ directories/dch_directory={
 "ricky": "res://Dialogues/characters/ricky.dch"
 }
 directories/dtl_directory={
+"Hall-B-1": "res://Dialogues/pictures/Hall-B-1.dtl",
+"Hall-B-2": "res://Dialogues/pictures/Hall-B-2.dtl",
 "astor-bedroom-1": "res://Dialogues/astor-bedroom-1.dtl",
 "brothers_puzzle_main_hall": "res://Dialogues/brothers_puzzle_main_hall.dtl",
 "door_room_3": "res://Dialogues/door_room_3.dtl",
