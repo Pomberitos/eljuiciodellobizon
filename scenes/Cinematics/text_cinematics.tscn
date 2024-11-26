@@ -1,12 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bpw8h2xvw63cq"]
+[gd_scene load_steps=7 format=3 uid="uid://bpw8h2xvw63cq"]
 
 [ext_resource type="Script" path="res://scenes/Cinematics/text_cinematics.gd" id="1_axidr"]
 [ext_resource type="Script" path="res://scenes/Cinematics/CinematicText.gd" id="2_4ieip"]
+[ext_resource type="Resource" uid="uid://cguo1tm8i3ejf" path="res://scenes/Cinematics/text_alt1.tres" id="3_d87xc"]
 [ext_resource type="FontFile" uid="uid://4i6yfq7v7h4e" path="res://assets/fonts/duskey-free.rough.otf" id="3_jwsun"]
-[ext_resource type="Resource" uid="uid://dxi2ww1a0mqtf" path="res://scenes/Cinematics/text1.tres" id="3_xrjgd"]
-[ext_resource type="Resource" uid="uid://b7jyql1avm8de" path="res://scenes/Cinematics/text2.tres" id="4_08m5e"]
-[ext_resource type="Resource" uid="uid://vewi4t2cotho" path="res://scenes/Cinematics/text3.tres" id="5_h3vv1"]
-[ext_resource type="Resource" uid="uid://ca62ajttenod" path="res://scenes/Cinematics/text4.tres" id="6_ttner"]
+[ext_resource type="Resource" uid="uid://dutwptc6iimkb" path="res://scenes/Cinematics/text_alt2.tres" id="4_wpakb"]
 
 [sub_resource type="Theme" id="Theme_xwsj8"]
 default_font = ExtResource("3_jwsun")
@@ -19,7 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_axidr")
-texts = Array[ExtResource("2_4ieip")]([ExtResource("3_xrjgd"), ExtResource("4_08m5e"), ExtResource("5_h3vv1"), ExtResource("6_ttner")])
+texts = Array[ExtResource("2_4ieip")]([ExtResource("3_d87xc"), ExtResource("4_wpakb")])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

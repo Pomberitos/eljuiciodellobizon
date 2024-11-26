@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=4 uid="uid://biw46ktrn480i"]
+[gd_scene load_steps=83 format=4 uid="uid://biw46ktrn480i"]
 
 [ext_resource type="Script" path="res://scenes/GameController.gd" id="1_3dbo4"]
 [ext_resource type="PackedScene" uid="uid://dogubcyw336jv" path="res://scenes/player/player.tscn" id="1_p8a7x"]
@@ -42,7 +42,6 @@
 [ext_resource type="PackedScene" uid="uid://bk66egg746tbg" path="res://scenes/astor/astor.tscn" id="25_1ttwi"]
 [ext_resource type="PackedScene" uid="uid://b1p8gw76boo85" path="res://puzzles/BrothersPuzzle.tscn" id="26_0fxfc"]
 [ext_resource type="Texture2D" uid="uid://dae2ndr6yaktq" path="res://assets/light.png" id="26_g2cf0"]
-[ext_resource type="Script" path="res://scenes/Cinematics/CinematicText.gd" id="29_ia5wo"]
 [ext_resource type="Script" path="res://scenes/pause_screen.gd" id="30_6d8tr"]
 [ext_resource type="PackedScene" uid="uid://1vgu7l8rnnup" path="res://scenes/UIs/sound_config_menu.tscn" id="31_n3psm"]
 [ext_resource type="PackedScene" uid="uid://difseojy7fdv5" path="res://scenes/UIs/Room 1/hintTime.tscn" id="36_jd7sv"]
@@ -152,26 +151,6 @@ _data = {
 "thunder_astor": SubResource("Animation_6pssd")
 }
 
-[sub_resource type="Resource" id="Resource_6aq5j"]
-script = ExtResource("29_ia5wo")
-text = "Ricky, un joven que ha convertido la fama en su obsesión, recibe una invitación inesperada. La prestigiosa Estancia López Rigoni, un misterioso caserón en los confines del Norte Argentino, lo cita para otorgarle un galardón de prestigio."
-duration = 15.0
-
-[sub_resource type="Resource" id="Resource_28juk"]
-script = ExtResource("29_ia5wo")
-text = "El viaje, impulsado por la ambición, lo pone frente al umbral de una casa donde el sonido de antiguos secretos le recorren la piel."
-duration = 8.0
-
-[sub_resource type="Resource" id="Resource_v0i6d"]
-script = ExtResource("29_ia5wo")
-text = "Al llegar, una figura observa desde lo alto, oscura y espectral. Ricky se detiene, su corazón retumba en un eco de advertencia. Un gesto del extraño, marcado por el paso del tiempo, lo invita a entrar."
-duration = 15.0
-
-[sub_resource type="Resource" id="Resource_880f7"]
-script = ExtResource("29_ia5wo")
-text = "El destino, sellado. La puerta se cierra con un eco profundo. Ahora, la lucha por escapar comienza."
-duration = 8.0
-
 [sub_resource type="Theme" id="Theme_6ykdg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uxnd"]
@@ -191,7 +170,7 @@ y_sort_enabled = true
 script = ExtResource("1_3dbo4")
 
 [node name="Entrance" type="Node2D" parent="."]
-position = Vector2(-13, 498)
+position = Vector2(0, 488)
 script = ExtResource("2_ux1oi")
 label_name = "Entrance"
 metadata/_edit_group_ = true
@@ -259,7 +238,7 @@ script = ExtResource("8_gouk5")
 objects_layer = NodePath("../Objects")
 
 [node name="walls" type="TileMapLayer" parent="Main Hall/TileMap"]
-tile_map_data = PackedByteArray("AAAAAAIAAAAAAA0AAAAAAAMAAAAAAA0AAAAAAAQAAAAAAA0AAAAAAAUAAAAAAA0AAAAAAAYAAAAAAA0AAAAAAAcAAAAAAA0AAAAAAAgAAAAAAA0AAAAAAAkAAAAAAA0AAAAAAAoAAAAAAA0AAAAAAAsAAAAAAA0AAAAAAAwAAAAAAA0AAAAYAAIAAAAEAA0AAAAYAAMAAAAEAA0AAAAYAAQAAAAEAA0AAAAYAAUAAAAEAA0AAAAYAAcAAAAEAA0AAAAYAAgAAAAEAA0AAAAYAAkAAAAEAA0AAAAYAAoAAAAEAA0AAAAYAAsAAAAEAA0AAAAYAAwAAAAEAA0AAAAYAAAAAAAEAA0AAAAYAAEAAAAEAA0AAAAAAAAAAAAAAA0AAAAAAAEAAAAAAA0AAAAAAA0AAAAAAA4AAAABAA0AAAACAA8AAAACAA0AAAACAA8AAAADAA0AAAACAA8AAAAEAA0AAAACAA8AAAAFAA0AAAACAA8AAAAGAA0AAAACAA8AAAAHAA0AAAACAA8AAAAIAA0AAAACAA8AAAAKAA0AAAACAA8AAAALAA0AAAACAA8AAAAMAA0AAAACAA8AAAANAA0AAAACAA8AAAAOAA0AAAACAA8AAAAPAA0AAAACAA8AAAAQAA0AAAACAA8AAAARAA0AAAACAA8AAAASAA0AAAACAA8AAAATAA0AAAACAA8AAAAUAA0AAAACAA8AAAAVAA0AAAACAA8AAAAWAA0AAAACAA8AAAAXAA0AAAACAA8AAAAYAA0AAAADAA8AAAABAAAAAAAAAAIAAAABAAEAAAAAAAMAAAACAAAAAAAAAAIAAAACAAEAAAAAAAMAAAADAAAAAAAAAAIAAAADAAEAAAAAAAMAAAAEAAAAAAAAAAIAAAAEAAEAAAAAAAMAAAAFAAAAAAAAAAIAAAAFAAEAAAAAAAMAAAAGAAAAAAAAAAIAAAAGAAEAAAAAAAMAAAAHAAAAAAAAAAIAAAAHAAEAAAAAAAMAAAAIAAAAAAAAAAIAAAAIAAEAAAAAAAMAAAAJAAAAAAAAAAIAAAAJAAEAAAAAAAMAAAAKAAAAAAAAAAIAAAAKAAEAAAAAAAMAAAANAAAAAAAAAAIAAAANAAEAAAAAAAMAAAAOAAAAAAAAAAIAAAAOAAEAAAAAAAMAAAAPAAAAAAAAAAIAAAAPAAEAAAAAAAMAAAAQAAAAAAAAAAIAAAAQAAEAAAAAAAMAAAARAAAAAAAAAAIAAAARAAEAAAAAAAMAAAASAAAAAAAAAAIAAAASAAEAAAAAAAMAAAATAAAAAAAAAAIAAAATAAEAAAAAAAMAAAAUAAAAAAAAAAIAAAAUAAEAAAAAAAMAAAAVAAAAAAAAAAIAAAAVAAEAAAAAAAMAAAAWAAAAAAAAAAIAAAAWAAEAAAAAAAMAAAAXAAAAAAAAAAIAAAAXAAEAAAAAAAMAAAALAAAAAAAAAAIAAAAMAAAAAAAAAAIAAAAMAAEAAAAAAAMAAAA=")
+tile_map_data = PackedByteArray("AAAAAAIAAAAAAA0AAAAAAAMAAAAAAA0AAAAAAAQAAAAAAA0AAAAAAAUAAAAAAA0AAAAAAAYAAAAAAA0AAAAAAAcAAAAAAA0AAAAAAAgAAAAAAA0AAAAAAAkAAAAAAA0AAAAAAAoAAAAAAA0AAAAAAAsAAAAAAA0AAAAAAAwAAAAAAA0AAAAYAAIAAAAEAA0AAAAYAAMAAAAEAA0AAAAYAAQAAAAEAA0AAAAYAAUAAAAEAA0AAAAYAAcAAAAEAA0AAAAYAAgAAAAEAA0AAAAYAAkAAAAEAA0AAAAYAAoAAAAEAA0AAAAYAAsAAAAEAA0AAAAYAAwAAAAEAA0AAAAYAAAAAAAEAA0AAAAYAAEAAAAEAA0AAAAAAAAAAAAAAA0AAAAAAAEAAAAAAA0AAAAAAA0AAAAAAA4AAAABAA0AAAACAA8AAAACAA0AAAACAA8AAAADAA0AAAACAA8AAAAEAA0AAAACAA8AAAAFAA0AAAACAA8AAAAGAA0AAAACAA8AAAAHAA0AAAACAA8AAAAIAA0AAAACAA8AAAALAA0AAAACAA8AAAAMAA0AAAACAA8AAAANAA0AAAACAA8AAAAOAA0AAAACAA8AAAAPAA0AAAACAA8AAAAQAA0AAAACAA8AAAARAA0AAAACAA8AAAASAA0AAAACAA8AAAATAA0AAAACAA8AAAAUAA0AAAACAA8AAAAVAA0AAAACAA8AAAAWAA0AAAACAA8AAAAXAA0AAAACAA8AAAAYAA0AAAADAA8AAAABAAAAAAAAAAIAAAABAAEAAAAAAAMAAAACAAAAAAAAAAIAAAACAAEAAAAAAAMAAAADAAAAAAAAAAIAAAADAAEAAAAAAAMAAAAEAAAAAAAAAAIAAAAEAAEAAAAAAAMAAAAFAAAAAAAAAAIAAAAFAAEAAAAAAAMAAAAGAAAAAAAAAAIAAAAGAAEAAAAAAAMAAAAHAAAAAAAAAAIAAAAHAAEAAAAAAAMAAAAIAAAAAAAAAAIAAAAIAAEAAAAAAAMAAAAJAAAAAAAAAAIAAAAJAAEAAAAAAAMAAAAKAAAAAAAAAAIAAAAKAAEAAAAAAAMAAAANAAAAAAAAAAIAAAANAAEAAAAAAAMAAAAOAAAAAAAAAAIAAAAOAAEAAAAAAAMAAAAPAAAAAAAAAAIAAAAPAAEAAAAAAAMAAAAQAAAAAAAAAAIAAAAQAAEAAAAAAAMAAAARAAAAAAAAAAIAAAARAAEAAAAAAAMAAAASAAAAAAAAAAIAAAASAAEAAAAAAAMAAAATAAAAAAAAAAIAAAATAAEAAAAAAAMAAAAUAAAAAAAAAAIAAAAUAAEAAAAAAAMAAAAVAAAAAAAAAAIAAAAVAAEAAAAAAAMAAAAWAAAAAAAAAAIAAAAWAAEAAAAAAAMAAAAXAAAAAAAAAAIAAAAXAAEAAAAAAAMAAAALAAAAAAAAAAIAAAAMAAAAAAAAAAIAAAAMAAEAAAAAAAMAAAAJAA0AAAACAA8AAAA=")
 tile_set = ExtResource("9_ccigu")
 
 [node name="Objects" type="TileMapLayer" parent="Main Hall/TileMap"]
@@ -333,7 +312,7 @@ rotation = 1.57079
 label = "door_room_3"
 
 [node name="DoorWithKey2" parent="Main Hall" instance=ExtResource("3_k7xsd")]
-position = Vector2(304, 434)
+position = Vector2(338, 434)
 rotation = 3.14159
 key_resource = ExtResource("9_slejl")
 label = "door_room_locked"
@@ -1185,7 +1164,6 @@ visible = false
 visible = false
 
 [node name="TextCinematics" parent="CanvasLayer" instance=ExtResource("23_8u7wn")]
-texts = Array[ExtResource("29_ia5wo")]([SubResource("Resource_6aq5j"), SubResource("Resource_28juk"), SubResource("Resource_v0i6d"), SubResource("Resource_880f7")])
 
 [node name="hintTime" parent="CanvasLayer" instance=ExtResource("36_jd7sv")]
 visible = false
@@ -1201,7 +1179,8 @@ visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-energy = 0.9
+scale = Vector2(0.983485, 1.00279)
+energy = 0.92
 blend_mode = 1
 
 [node name="OtherUI" type="CanvasLayer" parent="."]

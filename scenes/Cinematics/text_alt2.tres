@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_720a5")
 text = "Ahora, comienza la lucha por escapar."
-duration = 15.0
+duration = 4.0
