@@ -6,7 +6,8 @@ extends Panel
 @export var audio_panel: Panel
 @export var control_panel: Panel
 @export var reset_config: Button
-
+@export var audio_rect: TextureRect
+@export var control_rect: TextureRect
 
 func _ready() -> void:
 	Events.cinematic_finished.connect(_activate_pause)
@@ -57,13 +58,17 @@ func _on_config_button_pressed() -> void:
 
 func _on_audio_pressed() -> void:
 	control_panel.hide()
+	control_rect.hide()
 	audio_panel.show()
+	audio_rect.show()
 	reset_config.visible = audio_panel.visible
 
 
 func _on_controles_pressed() -> void:
 	audio_panel.hide()
 	control_panel.show()
+	audio_rect.hide()
+	control_rect.show()
 	reset_config.visible = audio_panel.visible
 
 

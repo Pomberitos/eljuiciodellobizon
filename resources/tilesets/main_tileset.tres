@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://c7wtbljmhfqte" path="res://scenes/box/clock_box.tscn" id="3_pq586"]
 [ext_resource type="PackedScene" uid="uid://cwht00ivoelts" path="res://scenes/interaction/hint.tscn" id="4_8gd0p"]
 [ext_resource type="PackedScene" uid="uid://bui7227jviecj" path="res://scenes/box/bench_box.tscn" id="4_sdatx"]
-[ext_resource type="PackedScene" path="res://scenes/box/bench_box2.tscn" id="5_fjv2k"]
+[ext_resource type="PackedScene" uid="uid://ds6sarhkv1o7g" path="res://scenes/box/bench_box2.tscn" id="5_fjv2k"]
 [ext_resource type="PackedScene" uid="uid://bbpc256k01b3p" path="res://scenes/candle.tscn" id="6_gjkum"]
-[ext_resource type="PackedScene" uid="uid://dwkq61ac1kkwg" path="res://scenes/collectible/carava.tscn" id="7_1g644"]
+[ext_resource type="PackedScene" path="res://scenes/collectible/carava.tscn" id="7_1g644"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_avqyv"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)

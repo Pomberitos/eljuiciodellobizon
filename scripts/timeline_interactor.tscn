@@ -13,6 +13,7 @@ interaction_area = NodePath("InteractionArea")
 [node name="InteractionArea" type="Area2D" parent="."]
 collision_layer = 8
 script = ExtResource("2_kqb1l")
+alt_text = "[E] Para Interactuar"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("CircleShape2D_s2ibw")

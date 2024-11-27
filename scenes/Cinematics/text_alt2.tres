@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CinematicText" load_steps=2 format=3 uid="uid://dutwptc6iimkb"]
+
+[ext_resource type="Script" path="res://scenes/Cinematics/CinematicText.gd" id="1_720a5"]
+
+[resource]
+script = ExtResource("1_720a5")
+text = "Ahora, comienza la lucha por escapar."
+duration = 4.0

@@ -103,7 +103,7 @@ project/assembly_name="Lobizon"
 
 [editor]
 
-movie_writer/movie_file="/home/chemscobra/Videos/Pomberitos proto box.avi"
+movie_writer/movie_file="/Users/chemscobra/Movies/Pantalla Niebla.avi"
 movie_writer/disable_vsync=true
 
 [editor_plugins]

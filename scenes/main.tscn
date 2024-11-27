@@ -20,11 +20,11 @@
 [ext_resource type="AudioStream" uid="uid://bjntvhskdx21y" path="res://assets/audio/clock_bell.ogg" id="9_elj8w"]
 [ext_resource type="Resource" uid="uid://btyret5rdgmj3" path="res://inventory/items/key_not.tres" id="9_slejl"]
 [ext_resource type="Script" path="res://scenes/collectible/brothers_puzzle_interactor.gd" id="9_tmfyp"]
-[ext_resource type="Resource" uid="uid://dxywxvv1rupur" path="res://inventory/items/key4.tres" id="10_3c2q4"]
+[ext_resource type="Resource" path="res://inventory/items/key4.tres" id="10_3c2q4"]
 [ext_resource type="PackedScene" uid="uid://3cy137yehsru" path="res://scenes/collectible/letter.tscn" id="10_7d0u5"]
 [ext_resource type="AudioStream" uid="uid://cdwu2utcblvgj" path="res://assets/audio/wolf-growl.ogg" id="10_kxxv2"]
 [ext_resource type="Script" path="res://scenes/rooms/puzzles/puzzle_2.gd" id="11_40gju"]
-[ext_resource type="PackedScene" uid="uid://4vduqc0wij88" path="res://scenes/collectible/key4.tscn" id="11_th5jr"]
+[ext_resource type="PackedScene" path="res://scenes/collectible/key4.tscn" id="11_th5jr"]
 [ext_resource type="PackedScene" uid="uid://cawlhdaqesgwj" path="res://scenes/UIs/Room 1/Letter.tscn" id="12_gjrc0"]
 [ext_resource type="AudioStream" uid="uid://l0emo1de2bmt" path="res://assets/audio/monstar_gets_key_from_braid.ogg" id="14_k7g6b"]
 [ext_resource type="PackedScene" uid="uid://dsk8fru450di1" path="res://scenes/UIs/Room 1/hint_container.tscn" id="14_k85a1"]
@@ -45,7 +45,6 @@
 [ext_resource type="Resource" uid="uid://bittdqb0n47tu" path="res://inventory/items/brother_pieces_real.tres" id="26_t38dx"]
 [ext_resource type="PackedScene" uid="uid://csprqoarxfdf" path="res://scripts/timeline_interactor.tscn" id="27_m0hgl"]
 [ext_resource type="Resource" path="res://Dialogues/pictures/Hall-B-1.dtl" id="28_ljyig"]
-[ext_resource type="Script" path="res://scenes/Cinematics/CinematicText.gd" id="29_ia5wo"]
 [ext_resource type="Resource" path="res://Dialogues/pictures/Hall-B-2.dtl" id="29_ub56r"]
 [ext_resource type="Script" path="res://scenes/pause_screen.gd" id="30_6d8tr"]
 [ext_resource type="PackedScene" uid="uid://1vgu7l8rnnup" path="res://scenes/UIs/sound_config_menu.tscn" id="31_n3psm"]
@@ -53,9 +52,12 @@
 [ext_resource type="Texture2D" uid="uid://byb6jwycoumjf" path="res://assets/textures/titulo.png" id="42_3pckp"]
 [ext_resource type="Theme" uid="uid://rbt3kslpjd0s" path="res://scenes/UIs/main_menu_button_fonts.tres" id="43_1sykv"]
 [ext_resource type="Theme" uid="uid://c8fllguh5ocnc" path="res://scenes/UIs/main_menu.tres" id="43_palv8"]
-[ext_resource type="StyleBox" path="res://scenes/UIs/new_style_box_flat.tres" id="47_bdevp"]
+[ext_resource type="StyleBox" uid="uid://8gowbf1mpfxl" path="res://scenes/UIs/new_style_box_flat.tres" id="47_bdevp"]
 [ext_resource type="Texture2D" uid="uid://clxwa6wjqmblt" path="res://assets/textures/controles_wip.png" id="48_1s8ip"]
+[ext_resource type="Script" path="res://scenes/UIs/menu_button.gd" id="48_tjil5"]
 [ext_resource type="LabelSettings" uid="uid://drj08luasbrsh" path="res://scenes/UIs/yellow_font_TN.tres" id="49_hyc7t"]
+[ext_resource type="Texture2D" uid="uid://bw4p75q541y67" path="res://assets/UI/AUDIO_low.png" id="50_vwcfy"]
+[ext_resource type="Texture2D" uid="uid://osit07343hgj" path="res://assets/UI/CONTROLES_low.png" id="51_mih3k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1pn3"]
 size = Vector2(716, 304)
@@ -153,11 +155,6 @@ _data = {
 "thunder_astor": SubResource("Animation_6pssd")
 }
 
-[sub_resource type="Resource" id="Resource_6aq5j"]
-script = ExtResource("29_ia5wo")
-text = "Ricky, un joven influencer obsesionado con la fama, es invitado a recibir un premio a su labor enuna misteriosa estancia del Norte Argentino.Al cruzar el umbral de la mansión, el eco de antiguos secretos lo envuelve. La puerta se cierra abruptamente. Ahora, comienza la lucha por escapar."
-duration = 15.0
-
 [sub_resource type="Theme" id="Theme_6ykdg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uxnd"]
@@ -177,7 +174,7 @@ y_sort_enabled = true
 script = ExtResource("1_3dbo4")
 
 [node name="Entrance" type="Node2D" parent="."]
-position = Vector2(-13, 498)
+position = Vector2(0, 488)
 script = ExtResource("2_ux1oi")
 label_name = "Entrance"
 metadata/_edit_group_ = true
@@ -245,7 +242,7 @@ script = ExtResource("8_gouk5")
 objects_layer = NodePath("../Objects")
 
 [node name="walls" type="TileMapLayer" parent="Main Hall/TileMap"]
-tile_map_data = PackedByteArray("AAAAAAIAAAAAAA0AAAAAAAMAAAAAAA0AAAAAAAQAAAAAAA0AAAAAAAUAAAAAAA0AAAAAAAYAAAAAAA0AAAAAAAcAAAAAAA0AAAAAAAgAAAAAAA0AAAAAAAkAAAAAAA0AAAAAAAoAAAAAAA0AAAAAAAsAAAAAAA0AAAAAAAwAAAAAAA0AAAAYAAIAAAAEAA0AAAAYAAMAAAAEAA0AAAAYAAQAAAAEAA0AAAAYAAUAAAAEAA0AAAAYAAcAAAAEAA0AAAAYAAgAAAAEAA0AAAAYAAkAAAAEAA0AAAAYAAoAAAAEAA0AAAAYAAsAAAAEAA0AAAAYAAwAAAAEAA0AAAAYAAAAAAAEAA0AAAAYAAEAAAAEAA0AAAAAAAAAAAAAAA0AAAAAAAEAAAAAAA0AAAAAAA0AAAAAAA4AAAABAA0AAAACAA8AAAACAA0AAAACAA8AAAADAA0AAAACAA8AAAAEAA0AAAACAA8AAAAFAA0AAAACAA8AAAAGAA0AAAACAA8AAAAHAA0AAAACAA8AAAAIAA0AAAACAA8AAAAKAA0AAAACAA8AAAALAA0AAAACAA8AAAAMAA0AAAACAA8AAAANAA0AAAACAA8AAAAOAA0AAAACAA8AAAAPAA0AAAACAA8AAAAQAA0AAAACAA8AAAARAA0AAAACAA8AAAASAA0AAAACAA8AAAATAA0AAAACAA8AAAAUAA0AAAACAA8AAAAVAA0AAAACAA8AAAAWAA0AAAACAA8AAAAXAA0AAAACAA8AAAAYAA0AAAADAA8AAAABAAAAAAAAAAIAAAABAAEAAAAAAAMAAAACAAAAAAAAAAIAAAACAAEAAAAAAAMAAAADAAAAAAAAAAIAAAADAAEAAAAAAAMAAAAEAAAAAAAAAAIAAAAEAAEAAAAAAAMAAAAFAAAAAAAAAAIAAAAFAAEAAAAAAAMAAAAGAAAAAAAAAAIAAAAGAAEAAAAAAAMAAAAHAAAAAAAAAAIAAAAHAAEAAAAAAAMAAAAIAAAAAAAAAAIAAAAIAAEAAAAAAAMAAAAJAAAAAAAAAAIAAAAJAAEAAAAAAAMAAAAKAAAAAAAAAAIAAAAKAAEAAAAAAAMAAAANAAAAAAAAAAIAAAANAAEAAAAAAAMAAAAOAAAAAAAAAAIAAAAOAAEAAAAAAAMAAAAPAAAAAAAAAAIAAAAPAAEAAAAAAAMAAAAQAAAAAAAAAAIAAAAQAAEAAAAAAAMAAAARAAAAAAAAAAIAAAARAAEAAAAAAAMAAAASAAAAAAAAAAIAAAASAAEAAAAAAAMAAAATAAAAAAAAAAIAAAATAAEAAAAAAAMAAAAUAAAAAAAAAAIAAAAUAAEAAAAAAAMAAAAVAAAAAAAAAAIAAAAVAAEAAAAAAAMAAAAWAAAAAAAAAAIAAAAWAAEAAAAAAAMAAAAXAAAAAAAAAAIAAAAXAAEAAAAAAAMAAAALAAAAAAAAAAIAAAAMAAAAAAAAAAIAAAAMAAEAAAAAAAMAAAA=")
+tile_map_data = PackedByteArray("AAAAAAIAAAAAAA0AAAAAAAMAAAAAAA0AAAAAAAQAAAAAAA0AAAAAAAUAAAAAAA0AAAAAAAYAAAAAAA0AAAAAAAcAAAAAAA0AAAAAAAgAAAAAAA0AAAAAAAkAAAAAAA0AAAAAAAoAAAAAAA0AAAAAAAsAAAAAAA0AAAAAAAwAAAAAAA0AAAAYAAIAAAAEAA0AAAAYAAMAAAAEAA0AAAAYAAQAAAAEAA0AAAAYAAUAAAAEAA0AAAAYAAcAAAAEAA0AAAAYAAgAAAAEAA0AAAAYAAkAAAAEAA0AAAAYAAoAAAAEAA0AAAAYAAsAAAAEAA0AAAAYAAwAAAAEAA0AAAAYAAAAAAAEAA0AAAAYAAEAAAAEAA0AAAAAAAAAAAAAAA0AAAAAAAEAAAAAAA0AAAAAAA0AAAAAAA4AAAABAA0AAAACAA8AAAACAA0AAAACAA8AAAADAA0AAAACAA8AAAAEAA0AAAACAA8AAAAFAA0AAAACAA8AAAAGAA0AAAACAA8AAAAHAA0AAAACAA8AAAAIAA0AAAACAA8AAAALAA0AAAACAA8AAAAMAA0AAAACAA8AAAANAA0AAAACAA8AAAAOAA0AAAACAA8AAAAPAA0AAAACAA8AAAAQAA0AAAACAA8AAAARAA0AAAACAA8AAAASAA0AAAACAA8AAAATAA0AAAACAA8AAAAUAA0AAAACAA8AAAAVAA0AAAACAA8AAAAWAA0AAAACAA8AAAAXAA0AAAACAA8AAAAYAA0AAAADAA8AAAABAAAAAAAAAAIAAAABAAEAAAAAAAMAAAACAAAAAAAAAAIAAAACAAEAAAAAAAMAAAADAAAAAAAAAAIAAAADAAEAAAAAAAMAAAAEAAAAAAAAAAIAAAAEAAEAAAAAAAMAAAAFAAAAAAAAAAIAAAAFAAEAAAAAAAMAAAAGAAAAAAAAAAIAAAAGAAEAAAAAAAMAAAAHAAAAAAAAAAIAAAAHAAEAAAAAAAMAAAAIAAAAAAAAAAIAAAAIAAEAAAAAAAMAAAAJAAAAAAAAAAIAAAAJAAEAAAAAAAMAAAAKAAAAAAAAAAIAAAAKAAEAAAAAAAMAAAANAAAAAAAAAAIAAAANAAEAAAAAAAMAAAAOAAAAAAAAAAIAAAAOAAEAAAAAAAMAAAAPAAAAAAAAAAIAAAAPAAEAAAAAAAMAAAAQAAAAAAAAAAIAAAAQAAEAAAAAAAMAAAARAAAAAAAAAAIAAAARAAEAAAAAAAMAAAASAAAAAAAAAAIAAAASAAEAAAAAAAMAAAATAAAAAAAAAAIAAAATAAEAAAAAAAMAAAAUAAAAAAAAAAIAAAAUAAEAAAAAAAMAAAAVAAAAAAAAAAIAAAAVAAEAAAAAAAMAAAAWAAAAAAAAAAIAAAAWAAEAAAAAAAMAAAAXAAAAAAAAAAIAAAAXAAEAAAAAAAMAAAALAAAAAAAAAAIAAAAMAAAAAAAAAAIAAAAMAAEAAAAAAAMAAAAJAA0AAAACAA8AAAA=")
 tile_set = ExtResource("9_ccigu")
 
 [node name="Objects" type="TileMapLayer" parent="Main Hall/TileMap"]
@@ -319,7 +316,7 @@ rotation = 1.57079
 label = "door_room_3"
 
 [node name="DoorWithKey2" parent="Main Hall" instance=ExtResource("3_k7xsd")]
-position = Vector2(304, 434)
+position = Vector2(338, 434)
 rotation = 3.14159
 key_resource = ExtResource("9_slejl")
 label = "door_room_locked"
@@ -625,7 +622,7 @@ tile_set = ExtResource("9_ccigu")
 
 [node name="Lights" type="TileMapLayer" parent="Basement/TileMap"]
 z_index = 7
-tile_map_data = PackedByteArray("AAAWAAEAAAAVAAkAAAAVAAIAAAAXAAYAAAAUAAIAAAAXAAYAAAALAAIAAAAXAAYAAAAXAAsAAAATAA0AAAAXAAoAAAATAA0AAAAWAAsAAAATAA0AAAAWAAoAAAAXAAoAAAATAAIAAAAXAAoAAAARAAIAAAAXAAoAAAAEAAIAAAAXAAoAAAACAAIAAAAXAAoAAAADAAAAAgAAAAAABQATAAAAAgAAAAAABQAXAAwAAgAAAAAABQA=")
+tile_map_data = PackedByteArray("AAAWAAEAAAAVAAkAAAAVAAIAAAAXAAYAAAAUAAIAAAAXAAYAAAALAAIAAAAXAAYAAAAXAAsAAAATAA0AAAAXAAoAAAATAA0AAAAWAAsAAAATAA0AAAAWAAoAAAAXAAoAAAATAAIAAAAXAAoAAAARAAIAAAAXAAoAAAAEAAIAAAAXAAoAAAACAAIAAAAXAAoAAAADAAAAAgAAAAAABQATAAAAAgAAAAAABQA=")
 tile_set = ExtResource("9_ccigu")
 
 [node name="SpawnPositions" type="Node" parent="Basement"]
@@ -1180,7 +1177,6 @@ visible = false
 visible = false
 
 [node name="TextCinematics" parent="CanvasLayer" instance=ExtResource("23_8u7wn")]
-texts = Array[ExtResource("29_ia5wo")]([SubResource("Resource_6aq5j")])
 
 [node name="hintTime" parent="CanvasLayer" instance=ExtResource("36_jd7sv")]
 visible = false
@@ -1196,13 +1192,14 @@ visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-energy = 0.9
+scale = Vector2(0.983485, 1.00279)
+energy = 0.92
 blend_mode = 1
 
 [node name="OtherUI" type="CanvasLayer" parent="."]
 layer = 20
 
-[node name="PauseScreen" type="Panel" parent="OtherUI" node_paths=PackedStringArray("config_menu", "audio_panel", "control_panel", "reset_config")]
+[node name="PauseScreen" type="Panel" parent="OtherUI" node_paths=PackedStringArray("config_menu", "audio_panel", "control_panel", "reset_config", "audio_rect", "control_rect")]
 process_mode = 3
 visible = false
 anchors_preset = 15
@@ -1215,6 +1212,8 @@ config_menu = NodePath("ConfigMenuMargin")
 audio_panel = NodePath("ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/Sound Config")
 control_panel = NodePath("ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/ControlPanel")
 reset_config = NodePath("ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/ResetConfig")
+audio_rect = NodePath("ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/AudioRect")
+control_rect = NodePath("ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/ControlRect")
 
 [node name="MainMenuMargin" type="MarginContainer" parent="OtherUI/PauseScreen"]
 layout_mode = 1
@@ -1249,28 +1248,35 @@ theme_override_constants/separation = 10
 
 [node name="Unpause" type="Button" parent="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("43_palv8")
 text = "Reanudar partida"
+script = ExtResource("48_tjil5")
 
 [node name="NewGameButton" type="Button" parent="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("43_palv8")
 theme_override_colors/font_hover_color = Color(0, 0.509804, 0.898039, 1)
 theme_override_colors/font_pressed_color = Color(0.447059, 0.45098, 0.984314, 1)
 text = "Nueva Partida"
+script = ExtResource("48_tjil5")
 
 [node name="ConfigButton" type="Button" parent="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("43_palv8")
 text = "Configuración"
+script = ExtResource("48_tjil5")
 
 [node name="VolverMenu" type="Button" parent="OtherUI/PauseScreen/MainMenuMargin/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("43_palv8")
 text = "Volver a Menú Principal"
+script = ExtResource("48_tjil5")
 
 [node name="ConfigMenuMargin" type="MarginContainer" parent="OtherUI/PauseScreen"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1306,13 +1312,17 @@ alignment = 1
 
 [node name="Audio" type="Button" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("43_1sykv")
 text = "AUDIO"
+script = ExtResource("48_tjil5")
 
 [node name="Controles" type="Button" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("43_1sykv")
 text = "CONTROLES"
+script = ExtResource("48_tjil5")
 
 [node name="SoundPanel" type="Panel" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer"]
 layout_mode = 2
@@ -1335,8 +1345,23 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 theme_override_constants/separation = 17
 
+[node name="AudioRect" type="TextureRect" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("50_vwcfy")
+stretch_mode = 5
+
+[node name="ControlRect" type="TextureRect" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer"]
+visible = false
+z_index = 2
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("51_mih3k")
+stretch_mode = 5
+
 [node name="Sound Config" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer" instance=ExtResource("31_n3psm")]
-visible = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1393,6 +1418,7 @@ size_flags_vertical = 4
 theme = ExtResource("43_1sykv")
 text = "Deshacer cambios
 "
+script = ExtResource("48_tjil5")
 
 [node name="VolverAPause" type="Button" parent="OtherUI/PauseScreen/ConfigMenuMargin/HBoxContainer/SoundPanel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
 layout_mode = 2
@@ -1402,6 +1428,7 @@ theme = ExtResource("43_1sykv")
 shortcut = SubResource("Shortcut_187jt")
 text = "Volver
 "
+script = ExtResource("48_tjil5")
 
 [connection signal="body_entered" from="Entrance/PlayerDetector" to="Entrance" method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="Entrance/RoomPortal" to="Entrance/RoomPortal" method="_on_body_entered"]

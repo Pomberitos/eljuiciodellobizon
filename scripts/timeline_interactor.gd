@@ -8,7 +8,7 @@ class_name TimelineInteractor
 
 
 func _ready() -> void:
-    interaction_area.interact = Callable(self, "_on_interact")
+	interaction_area.interact = Callable(self, "_on_interact")
 
 func _on_interact():
-    Dialogic.start(dialogicTimeline)
+	Dialogic.start(dialogicTimeline)

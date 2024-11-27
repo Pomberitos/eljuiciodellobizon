@@ -1,28 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bpw8h2xvw63cq"]
+[gd_scene load_steps=7 format=3 uid="uid://bpw8h2xvw63cq"]
 
 [ext_resource type="Script" path="res://scenes/Cinematics/text_cinematics.gd" id="1_axidr"]
 [ext_resource type="Script" path="res://scenes/Cinematics/CinematicText.gd" id="2_4ieip"]
+[ext_resource type="Resource" uid="uid://cguo1tm8i3ejf" path="res://scenes/Cinematics/text_alt1.tres" id="3_d87xc"]
 [ext_resource type="FontFile" uid="uid://4i6yfq7v7h4e" path="res://assets/fonts/duskey-free.rough.otf" id="3_jwsun"]
-
-[sub_resource type="Resource" id="Resource_cug6f"]
-script = ExtResource("2_4ieip")
-text = "Esta es la historia de Ricky"
-duration = 1.0
-
-[sub_resource type="Resource" id="Resource_0b0to"]
-script = ExtResource("2_4ieip")
-text = "Y su gran amigo Astor"
-duration = 1.0
-
-[sub_resource type="Resource" id="Resource_f6i6q"]
-script = ExtResource("2_4ieip")
-text = "Juntos hicieron asañas..."
-duration = 1.0
-
-[sub_resource type="Resource" id="Resource_5xe4w"]
-script = ExtResource("2_4ieip")
-text = "Grandes grandes grandes."
-duration = 1.0
+[ext_resource type="Resource" uid="uid://dutwptc6iimkb" path="res://scenes/Cinematics/text_alt2.tres" id="4_wpakb"]
 
 [sub_resource type="Theme" id="Theme_xwsj8"]
 default_font = ExtResource("3_jwsun")
@@ -35,7 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_axidr")
-texts = Array[ExtResource("2_4ieip")]([SubResource("Resource_cug6f"), SubResource("Resource_0b0to"), SubResource("Resource_f6i6q"), SubResource("Resource_5xe4w")])
+texts = Array[ExtResource("2_4ieip")]([ExtResource("3_d87xc"), ExtResource("4_wpakb")])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

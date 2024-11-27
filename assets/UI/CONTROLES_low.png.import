@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://osit07343hgj"
-path="res://.godot/imported/CONTROLES.png-ea9b1c4f2eca5dc1fa2d2f70a337c1d7.ctex"
+path="res://.godot/imported/CONTROLES_low.png-183cebcfb4841bc13a5c9f2a7e4afb35.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/CONTROLES.png"
-dest_files=["res://.godot/imported/CONTROLES.png-ea9b1c4f2eca5dc1fa2d2f70a337c1d7.ctex"]
+source_file="res://assets/UI/CONTROLES_low.png"
+dest_files=["res://.godot/imported/CONTROLES_low.png-183cebcfb4841bc13a5c9f2a7e4afb35.ctex"]
 
 [params]
 

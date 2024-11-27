@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwevawh2k0kl6"]
+
+[ext_resource type="Texture2D" uid="uid://w0q6l1a4utko" path="res://assets/UI/Discord.png" id="1_rqcnh"]
+[ext_resource type="Script" path="res://scenes/UIs/social_rect.gd" id="2_stgts"]
+
+[node name="SocialRect" type="TextureRect" node_paths=PackedStringArray("link_button")]
+mouse_default_cursor_shape = 2
+texture = ExtResource("1_rqcnh")
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("2_stgts")
+link_button = NodePath("LinkButton")
+
+[node name="LinkButton" type="LinkButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+uri = "https://discord.gg/mmQbnAQVrp"
