@@ -53,7 +53,7 @@
 [ext_resource type="Theme" uid="uid://rbt3kslpjd0s" path="res://scenes/UIs/main_menu_button_fonts.tres" id="43_1sykv"]
 [ext_resource type="Theme" uid="uid://c8fllguh5ocnc" path="res://scenes/UIs/main_menu.tres" id="43_palv8"]
 [ext_resource type="Script" path="res://scenes/Cinematics/CinematicText.gd" id="46_vxuad"]
-[ext_resource type="StyleBox" path="res://scenes/UIs/new_style_box_flat.tres" id="47_bdevp"]
+[ext_resource type="StyleBox" uid="uid://8gowbf1mpfxl" path="res://scenes/UIs/new_style_box_flat.tres" id="47_bdevp"]
 [ext_resource type="Texture2D" uid="uid://clxwa6wjqmblt" path="res://assets/textures/controles_wip.png" id="48_1s8ip"]
 [ext_resource type="Script" path="res://scenes/UIs/menu_button.gd" id="48_tjil5"]
 [ext_resource type="LabelSettings" uid="uid://drj08luasbrsh" path="res://scenes/UIs/yellow_font_TN.tres" id="49_hyc7t"]
@@ -1199,7 +1199,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 scale = Vector2(0.983485, 1.00279)
-energy = 0.92
+energy = 0.9
 blend_mode = 1
 
 [node name="OtherUI" type="CanvasLayer" parent="."]

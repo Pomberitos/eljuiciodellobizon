@@ -1,15 +1,56 @@
-[gd_scene load_steps=4 format=3 uid="uid://bk66egg746tbg"]
+[gd_scene load_steps=7 format=3 uid="uid://bk66egg746tbg"]
 
-[ext_resource type="Texture2D" uid="uid://d2uuvrgroqip5" path="res://assets/character/Astor/Astor.png" id="1_4ycnf"]
+[ext_resource type="Texture2D" uid="uid://c8cvw21xl5lep" path="res://assets/character/Astor/astor_new_sprite.png" id="1_mhwfn"]
 [ext_resource type="Texture2D" uid="uid://dae2ndr6yaktq" path="res://assets/light.png" id="2_6nmae"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qdhs8"]
 size = Vector2(65, 225)
 
+[sub_resource type="Animation" id="Animation_8wi0u"]
+resource_name = "astor_idle"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.566667, 0.833333, 1.06667, 1.36667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_550f3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_64pme"]
+_data = {
+"RESET": SubResource("Animation_550f3"),
+"astor_idle": SubResource("Animation_8wi0u")
+}
+
 [node name="Astor" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_4ycnf")
+scale = Vector2(8, 8)
+texture = ExtResource("1_mhwfn")
+offset = Vector2(0.2, 1)
+hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(6.5, 15.5)
@@ -17,3 +58,9 @@ shape = SubResource("RectangleShape2D_qdhs8")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 texture = ExtResource("2_6nmae")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_64pme")
+}
+autoplay = "astor_idle"

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://wyls5budn4jc"]
 
 [ext_resource type="Script" path="res://scenes/slasher/slasher.gd" id="1_65sln"]
-[ext_resource type="Texture2D" uid="uid://dmp2c2fe2c6o6" path="res://assets/lobizon.png" id="2_6pnuf"]
+[ext_resource type="Texture2D" uid="uid://co1q7pjkx3jhk" path="res://assets/character/Astor/lobizon_new.png" id="2_t38px"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="4_rgmfx"]
 [ext_resource type="Texture2D" uid="uid://dae2ndr6yaktq" path="res://assets/light.png" id="5_ij11k"]
 
@@ -19,8 +19,8 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_65sln")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("2_6pnuf")
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_t38px")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
