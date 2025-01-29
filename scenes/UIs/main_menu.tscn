@@ -150,8 +150,6 @@ theme_override_constants/separation = 10
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("5_5kcya")
-theme_override_colors/font_hover_color = Color(0, 0.509804, 0.898039, 1)
-theme_override_colors/font_pressed_color = Color(0.447059, 0.45098, 0.984314, 1)
 text = "Nueva Partida"
 script = ExtResource("5_riuqu")
 
@@ -488,7 +486,7 @@ size_flags_horizontal = 3
 theme = ExtResource("5_5kcya")
 bbcode_enabled = true
 text = "[ul bullet=•] Vanessa Carolina Paviolo [/ul]
-[ul bullet=•] Juan Colombier [/ul]"
+[ul bullet=•] Sabrina Boada [/ul]"
 fit_content = true
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="Credits/MarginContainer/VBoxContainer"]

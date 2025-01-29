@@ -29,6 +29,8 @@ modulate_color = Color(0.745098, 0.392157, 1, 1)
 [resource]
 default_font = ExtResource("2_agx6o")
 default_font_size = 16
+Button/colors/font_hover_color = Color(0, 0.509804, 0.898039, 1)
+Button/colors/font_hover_pressed_color = Color(0.447059, 0.45098, 0.984314, 1)
 Button/styles/hover = SubResource("StyleBoxTexture_wcqp6")
 Button/styles/normal = SubResource("StyleBoxTexture_5gr5v")
 Button/styles/pressed = SubResource("StyleBoxTexture_skb3h")
